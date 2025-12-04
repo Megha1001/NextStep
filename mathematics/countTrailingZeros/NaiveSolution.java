@@ -9,8 +9,20 @@ package mathematics.countTrailingZeros;
 public class NaiveSolution {
 
     public static void main(String args[]){
-        int n = 1002000;
-        System.out.println("Number of trailing zeros are : "+findNumOfTrailingZeros(n));
+        int n = 5;
+        // System.out.println(findFact(n));
+        System.out.println("Number of trailing zeros are : "+findNumOfTrailingZeros(findFact(n)));
+    }
+
+
+    public static int findFact(int n){
+        int res = 1;
+
+        for(int i = 2; i <= n; i++){
+            res = res * i;
+        }
+
+        return res;
     }
 
     public static int findNumOfTrailingZeros(int n){
