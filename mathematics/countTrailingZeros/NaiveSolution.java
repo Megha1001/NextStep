@@ -1,5 +1,11 @@
 package mathematics.countTrailingZeros;
 
+/*
+ * Find trailing zeros
+ * Time Complexity : Theta(Trailing Zeros)
+ * Auxiliary Space : Theat(1)
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
