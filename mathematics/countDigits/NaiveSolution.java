@@ -1,5 +1,7 @@
 package mathematics.countDigits;
 
+//Time Complexity : Theta(N), Auxiliary Space : Theta(1)
+
 public class NaiveSolution {
 
     public static void main(String args[]){
