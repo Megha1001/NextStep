@@ -2,7 +2,7 @@ package mathematics.gcdOrHcf;
 
 /*
  * Find GCD(Greatest Common Divisor) or HCF(Highest Common factor) of two given number
- * Time Complexity : Theta(Min(n1, n2))
+ * Time Complexity : O(Min(n1, n2))
  */
 
 public class NaiveSolution {
