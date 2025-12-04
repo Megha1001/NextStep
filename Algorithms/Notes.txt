@@ -1,0 +1,9 @@
+1. Euclidien algorithm -> To find GCD
+    Let 'b' be smaller than 'a'
+    gcd(a, b) = gcd(a-b, b)
+
+    why ?
+    Let 'g' be GCD of 'a' and 'b'
+    a = gx, b = gy and gcd(x, y) = 1
+
+    (a-b) = g(x-y)
