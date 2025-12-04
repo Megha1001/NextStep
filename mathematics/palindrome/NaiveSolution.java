@@ -1,5 +1,8 @@
 /*
  * Question : Find whether the number is palindrome or not ?
+ * 
+ * Time Complexity : Theta(d), where d is length of digit
+ * Auxiliary Space : Theta(1)
  */
 
 package mathematics.palindrome;
