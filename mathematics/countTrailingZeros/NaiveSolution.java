@@ -4,6 +4,7 @@ package mathematics.countTrailingZeros;
  * Find trailing zeros
  * Time Complexity : Theta(Trailing Zeros)
  * Auxiliary Space : Theat(1)
+ * Issue : Overflow issue
  */
 
 public class NaiveSolution {
@@ -39,7 +40,6 @@ public class NaiveSolution {
 
         while(n%10==0){
             res++;
-            n=n/10;
         }
 
         return res;
