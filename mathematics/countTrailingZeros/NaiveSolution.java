@@ -27,6 +27,7 @@ public class NaiveSolution {
 
     public static int findNumOfTrailingZeros(int n){
         int res = 0;
+        /*
         while(n > 0){
             if(n%10 == 0){
                 ++res;
@@ -34,6 +35,11 @@ public class NaiveSolution {
             }else{
                 break;
             }
+        }*/
+
+        while(n%10==0){
+            res++;
+            n=n/10;
         }
 
         return res;
