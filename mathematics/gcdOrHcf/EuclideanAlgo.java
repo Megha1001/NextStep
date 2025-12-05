@@ -1,5 +1,10 @@
 package mathematics.gcdOrHcf;
 
+/*
+ * Time Complexity : O(max(a,b))
+ * Auxiliary Space Complexity : Theta(1)
+ */
+
 public class EuclideanAlgo {
 
     public static void main(String args[]){
