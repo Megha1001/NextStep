@@ -1,6 +1,6 @@
 package mathematics.gcdOrHcf;
 
-public class EuclidienAlgo {
+public class EuclideanAlgo {
 
     public static void main(String args[]){
         int n1 = 4, n2 = 6;
