@@ -1,5 +1,10 @@
 package mathematics.lcm;
 
+/*
+ * Time complexity : O(a*b)
+ * Auxiliary Space : Theta(1)
+ */
+
 public class NaiveSolution2 {
 
     public static void main(String args[]){
