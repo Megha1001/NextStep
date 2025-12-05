@@ -1,7 +1,7 @@
 package mathematics.lcm;
 
 /*
- * Time complexity : O(a*b)
+ * Time complexity : O(a*b - max(a,b))
  * Auxiliary Space : Theta(1)
  */
 
@@ -25,7 +25,8 @@ public class NaiveSolution {
         }
 
 
-        for(int i = 2; i < a*b; i++){
+        int start = Math.max(a,b);
+        for(int i = start; i < a*b; i++){
             if(i%a == 0 && i%b == 0 ){
                 return i;
             }
