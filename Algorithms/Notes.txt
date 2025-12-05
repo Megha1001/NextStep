@@ -1,4 +1,4 @@
-1. Euclidien algorithm -> To find GCD
+1. Euclidean algorithm -> To find GCD
     Let 'b' be smaller than 'a'
     gcd(a, b) = gcd(a-b, b)
 
@@ -7,3 +7,11 @@
     a = gx, b = gy and gcd(x, y) = 1
 
     (a-b) = g(x-y)
+
+2. Optimized Version of Euclidean algorithm
+    gcd(int a, int b){
+        if(b==0){
+            return a;
+        }
+        return gcd(b, a%b)
+    }
