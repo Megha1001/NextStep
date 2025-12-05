@@ -1,5 +1,9 @@
 package mathematics.gcdOrHcf;
 
+/*
+ * Time Complexity : O(log(min(a,b)))
+ * Auxiliary Space : O(log(min(a,b)))
+ */
 public class OptimizedEuclideanAlgorithm {
 
     public static void main(String args[]){
