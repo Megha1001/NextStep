@@ -1,7 +1,7 @@
 package mathematics.lcm;
 
 /*
- * Time complexity : O(a*b)
+ * Time complexity : O(a*b - max(a,b))
  * Auxiliary Space : Theta(1)
  */
 
