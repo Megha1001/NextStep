@@ -15,3 +15,6 @@
         }
         return gcd(b, a%b)
     }
+
+3. LCM of two numbers
+    a*b = gcd(a,b) * lcm(a,b)
