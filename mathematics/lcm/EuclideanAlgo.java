@@ -1,7 +1,8 @@
 package mathematics.lcm;
 
 /*
- * 
+ * Time Complexity : Same as euclidean algo for gcd : O(log(min(a,b)))
+ * Auxilary Space : Same as euclidean algo for gcd : O(log(min(a,b)))
  */
 
 public class EuclideanAlgo {
