@@ -5,6 +5,9 @@ package bitsMagic.countSetBits;
  * 1. until n!=0
  * 2. if n >> 1 & 1 !=0 ++count
  * 3. Right shift n by 1 
+ * 
+ * Time Complexity : Theta(d), where d is length
+ * Auxiliary Space : Theta(1)
  */
 
 
