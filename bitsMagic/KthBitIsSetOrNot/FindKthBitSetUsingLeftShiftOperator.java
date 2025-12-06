@@ -1,0 +1,15 @@
+package bitsMagic.KthBitIsSetOrNot;
+
+public class FindKthBitSetUsingLeftShiftOperator {
+
+    public static void main(String args[]){
+        int n = 7, k =2;
+
+        System.out.println("is Kth bit set in given number n "+isKthBitSet(n, k));
+    }
+
+    public static boolean isKthBitSet(int n , int k){
+        return (n & (1<<(k-1))) != 0;
+    }
+    
+}
