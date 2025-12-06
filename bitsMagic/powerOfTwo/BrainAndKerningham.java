@@ -2,6 +2,9 @@ package bitsMagic.powerOfTwo;
 
 /*
  * Idea : One set bit should be there
+ *
+ * Time Complexity : Theta(1)
+ * Auxiliary Space : Theta(1)
  */
 
 public class BrainAndKerningham {
