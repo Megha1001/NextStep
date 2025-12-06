@@ -18,3 +18,8 @@
 
 3. LCM of two numbers
     a*b = gcd(a,b) * lcm(a,b)
+
+
+4. Pow(x,n)
+    if(n%2==0) => pow(x,n/2) * pow(x,n/2)
+    else => x * pow(x,n/2) * pow(x,n/2)
