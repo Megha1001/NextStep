@@ -1,5 +1,10 @@
 package bitsMagic.oneOddOccurrence;
 
+/*
+ * Time Complexity : Theta(N)
+ * Auxiliary Space : Theta(1)
+ */
+
 public class FindOneOddOccurrenceUsingXOR {
 
     public static void main(String args[]){
