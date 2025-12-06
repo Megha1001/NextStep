@@ -1,5 +1,10 @@
 package bitsMagic.oneOddOccurrence;
 
+/*
+ * Time complexity : O(n*n)
+ * Auxiliary space : Theta(1)
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
