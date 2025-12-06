@@ -13,7 +13,7 @@ public class FindKthBitSetUsingLeftShiftOperator {
     }
 
     public static boolean isKthBitSet(int n , int k){
-        return (n & (1<<(k-1))) != 0;
+        return (n & (1<<(k-1))) != 0;  // ((n>>(k-1)) & 1) !=0
     }
     
 }
