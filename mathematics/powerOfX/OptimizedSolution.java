@@ -1,5 +1,10 @@
 package mathematics.powerOfX;
 
+/*
+ * Time Complexity : Theta(log(N))
+ * Auxiliary Space : Theta(log(N))
+ */
+
 public class OptimizedSolution {
 
     public static void main(String args[]){
