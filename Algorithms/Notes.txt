@@ -74,7 +74,9 @@ public class LookupTableSolution {
         + tbl[(n>>8)&255]
         + tbl[(n>>16)&255]
         tbl[n>>24];
-    }
-
-    
+    } 
 }
+
+
+8. To find the number which has only 1 bit set and the set bit corresponds to last set bit of x
+    x & (~(x-1))
