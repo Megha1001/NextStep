@@ -1,5 +1,9 @@
 package bitsMagic.KthBitIsSetOrNot;
 
+/*
+ * Time Complexity : O(1)
+ * Auxiliary Space : O(1)
+ */
 public class FindKthBitSetUsingLeftShiftOperator {
 
     public static void main(String args[]){
