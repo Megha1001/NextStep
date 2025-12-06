@@ -1,5 +1,10 @@
 package bitsMagic.powerOfTwo;
 
+/*
+ * Time Complexity : Theta(1)
+ * Auxiliary Space : Theta(1)
+ */
+
 public class LookuptableSolution {
 
     private static int tbl[] = new int[256];
