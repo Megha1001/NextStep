@@ -18,7 +18,7 @@ public class NaiveSolution {
             return -1;
         }
 
-        int res =Math.max(
+        int res = Math.max(
             Math.max(
                 findMaxCut(n-a, a, b, c),
                 findMaxCut(n-b, a, b, c)
