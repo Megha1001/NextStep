@@ -3,7 +3,7 @@ package Recursion.ropeCuttingProblem;
 public class NaiveSolution {
 
     public static void main(String args[]){
-        int n = 5, a = 2, b = 5, c = 1;
+        int n = 9, a = 2, b = 2, c = 2;
         System.out.println("Max cuts that we can make is : "+findMaxCut(n, a, b, c, 0));
     }
 
