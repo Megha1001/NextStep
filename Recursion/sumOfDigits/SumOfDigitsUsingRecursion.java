@@ -3,7 +3,7 @@ package Recursion.sumOfDigits;
 public class SumOfDigitsUsingRecursion {
 
     public static void main(String arr[]){
-        int n = 253;
+        int n = 9987;
         System.out.println("SUm of digits in given number is : "+findSum(n));
     }
 
