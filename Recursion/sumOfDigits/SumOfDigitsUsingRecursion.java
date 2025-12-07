@@ -1,5 +1,9 @@
 package Recursion.sumOfDigits;
 
+/*
+ * Time complexity : Theta(d), where d is length of string
+ * Auxiliary space : Theta(d)
+ */
 public class SumOfDigitsUsingRecursion {
 
     public static void main(String arr[]){
