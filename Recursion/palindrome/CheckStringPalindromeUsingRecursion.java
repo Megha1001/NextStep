@@ -1,5 +1,11 @@
 package Recursion.palindrome;
 
+
+/*
+ * Time Complexity : Every character compared only once : O(N)
+ * Auxiliary : N/2 calls  O(N)
+ */
+
 public class CheckStringPalindromeUsingRecursion {
 
     public static void main(String args[]){
