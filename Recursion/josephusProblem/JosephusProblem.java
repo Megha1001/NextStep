@@ -2,6 +2,7 @@ package Recursion.josephusProblem;
 
 /*
  * Time Complexity : Theta(N)
+ * Auxiliary Space : Theta(N)
  */
 
 public class JosephusProblem {
