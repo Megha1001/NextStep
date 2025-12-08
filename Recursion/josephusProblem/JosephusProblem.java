@@ -1,5 +1,9 @@
 package Recursion.josephusProblem;
 
+/*
+ * Time Complexity : Theta(N)
+ */
+
 public class JosephusProblem {
 
     public static void main(String args[]){
