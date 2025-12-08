@@ -80,3 +80,10 @@ public class LookupTableSolution {
 
 8. To find the number which has only 1 bit set and the set bit corresponds to last set bit of x
     x & (~(x-1))
+
+
+9. Tower of Hanoi
+    TOH(n, A, B, C)
+        -> TOH(n-1, A, C, B)
+        -> Move n from A to C
+        -> TOH(n-1, B, A, C)
