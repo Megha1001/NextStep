@@ -1,5 +1,9 @@
 package Arrays.checkArrayIsSorted;
 
+/*
+ * Time Complexity : Theta(N)
+ */
+
 public class CheckIfArrayIsSorted {
 
 
