@@ -1,5 +1,10 @@
 package Arrays.secondLargestElement;
 
+/*
+ * Time Complexity : Theta(N) -> Two traversal
+ *  Auxiliary Space : Theta(N)
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
