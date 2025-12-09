@@ -6,7 +6,7 @@ public class OneTraversalSolution {
         int arr [] = {10,20,30};
         int n = arr.length;
         int newLength = findSizeOfArray(arr,n);
-        System.out.println("Size of array after removing duplicates is : "+findSizeOfArray(arr,n));
+        System.out.println("Size of array after removing duplicates is : "+newLength);
         printArray(arr, newLength);
     }
 
