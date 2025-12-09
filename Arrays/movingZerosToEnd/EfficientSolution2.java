@@ -1,5 +1,12 @@
 package Arrays.movingZerosToEnd;
 
+
+/*
+ * Time complexity : Theta(N)
+ * Auxiliary Space : Theta(1)
+ * 
+ * One traversal
+ */
 public class EfficientSolution2 {
 
 
