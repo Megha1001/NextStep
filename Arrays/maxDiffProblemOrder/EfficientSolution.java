@@ -1,5 +1,10 @@
 package Arrays.maxDiffProblemOrder;
 
+/*
+ * Time COmplexity : Theta(N)
+ * Auxiliary Space : Theta(1)
+ */
+
 public class EfficientSolution {
 
     public static void main(String args[]){
