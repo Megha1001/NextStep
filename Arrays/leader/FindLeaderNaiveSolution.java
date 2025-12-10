@@ -23,6 +23,7 @@ public class FindLeaderNaiveSolution {
             for(int j=i+1; j<n; j++){
                 if(arr[i] <= arr[j]){
                     isLeader = false;
+                    break;
                 }
             }
             if(isLeader){
