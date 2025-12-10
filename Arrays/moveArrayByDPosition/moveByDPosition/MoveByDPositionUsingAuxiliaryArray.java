@@ -1,5 +1,10 @@
 package Arrays.moveArrayByDPosition.moveByDPosition;
 
+/*
+ * Time Complexity : Theta(N)
+ * Auxiliary Space : Theta(d)
+ */
+
 public class MoveByDPositionUsingAuxiliaryArray {
 
 
