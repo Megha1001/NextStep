@@ -1,5 +1,10 @@
 package Arrays.leader;
 
+/*
+ * Time complexity : Theta(N)
+ * Auxiliary Space : Theta(1)
+ */
+
 public class FindLeaderEfficientSolution {
 
     public static void main(String args[]){
