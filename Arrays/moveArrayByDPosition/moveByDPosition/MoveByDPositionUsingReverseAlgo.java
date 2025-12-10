@@ -5,7 +5,13 @@ package Arrays.moveArrayByDPosition.moveByDPosition;
  * 1. Reverse elements from 0->d-1
  * 2. Reverse elements from d->n-1
  * 3. Reverse elements from 0->n-1
+ * 
+ * 
+ * Time Complexity : Theta(N)
+ * Auxiliary Space : Theta(1)
+ * 2 traversal
  */
+
 
 public class MoveByDPositionUsingReverseAlgo {
 
