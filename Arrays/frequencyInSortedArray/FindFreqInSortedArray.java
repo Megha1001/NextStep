@@ -13,6 +13,14 @@ public class FindFreqInSortedArray {
     public static void findFreq(int arr[], int n){
         int freq = 1;
 
+        if(n==0){
+            return;
+        }
+
+        if(n==1){
+            System.out.println(" "+arr[0]+" : "+freq);
+            return;
+        }
 
         //this wont print for last element - {10,10,10,25,30,30}
         /*
