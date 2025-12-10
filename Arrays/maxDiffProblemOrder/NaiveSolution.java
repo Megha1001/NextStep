@@ -2,6 +2,9 @@ package Arrays.maxDiffProblemOrder;
 
 /*
  * max value of arr[j] - arr[i] such that j>i
+ * 
+ * Time COmplexity : Theta(N*N)
+ * Auxiliary Space : Theta(1)
  */
 
 public class NaiveSolution {
