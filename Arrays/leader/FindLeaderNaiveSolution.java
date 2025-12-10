@@ -20,7 +20,7 @@ public class FindLeaderNaiveSolution {
         for(int i=0; i<n-1; i++){
             boolean isLeader = true;
             for(int j=i+1; j<n; j++){
-                if(arr[i] < arr[j]){
+                if(arr[i] <= arr[j]){
                     isLeader = false;
                 }
             }
