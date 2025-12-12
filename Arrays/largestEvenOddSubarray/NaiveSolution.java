@@ -10,7 +10,7 @@ public class NaiveSolution {
     public static void main(String args[]){
         // int arr[] = {10,12,14,7,8}; //3
         // int arr[] = {7,10,13,14}; //4
-        int arr[] = {10,12,8,4}; //4
+        int arr[] = {10,12,8,4}; //1
         System.out.println("Maximum even odd subarray length is : "+findMaxEvenOddSubArr(arr, arr.length));
     }
 
