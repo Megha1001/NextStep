@@ -112,3 +112,13 @@ public class LookupTableSolution {
        return profit;
     }
     
+
+12. Kadane’s Algorithm finds the maximum subarray sum in an array of integers.
+    At each number x, you decide:
+        Should I start a new subarray at x
+        or extend the current subarray?
+
+    for(int i=1; i<n; i++){
+        max_ending = Math.max(max_ending + arr[i-1], arr[i])
+        res = Math.max(res, max_ending);
+    }
