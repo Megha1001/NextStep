@@ -19,8 +19,8 @@ public class EfficientSolution {
 
     public static int findMaxSumSubArray(int arr[], int n){
 
-        int res = Integer.MIN_VALUE;
-        int max_ending = Integer.MIN_VALUE;
+        int res = arr[0];
+        int max_ending = arr[0];
 
         for(int i=0; i<n; i++){
             max_ending = Math.max(max_ending + arr[i], arr[i]);
