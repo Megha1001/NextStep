@@ -1,5 +1,9 @@
 package Arrays.maxConsecutiveOneInBinaryArray;
 
+/*
+ * Time complexity : O(N*N)
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
