@@ -122,3 +122,5 @@ public class LookupTableSolution {
         max_ending = Math.max(max_ending + arr[i-1], arr[i])
         res = Math.max(res, max_ending);
     }
+
+Note : Can also be used to find out max even odd subarray length
