@@ -1,5 +1,10 @@
 package Arrays.maxConsecutiveOneInBinaryArray;
 
+/*
+ * Time Complexity : Theta(N)
+ * Auxiliary Space : O(1)
+ */
+
 public class EfficientSolution {
 
     public static void main(String args[]){
