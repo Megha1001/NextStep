@@ -30,8 +30,7 @@ public class NaiveSolution {
                 if(arr[j]==1){
                     ++currMax;
                 }else { //should be zero
-                    max = Math.max(max, currMax);
-                    currMax=0;
+                  break;
                 }
             }
             max = Math.max(max, currMax);
