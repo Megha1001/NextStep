@@ -4,6 +4,9 @@ package Arrays.maxSumSubArray;
  * 
  * IDEA :  The idea is to maintain a variable max_ending that stores the maximum sum of contiguous subarray ending at current index and a variable res stores the
  * maximum sum of contigous subarray found so far. Everytime there is a positive sum value in max_ending compare it with res and update the res if its greater than res.
+ * 
+ * TIME COMPLEXITY : Theat(N)
+ * Auxiliary Space : Theta(1)
  */
 
 public class EfficientSolution {
