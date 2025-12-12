@@ -13,5 +13,20 @@ public class EfficientSolution {
 
         System.out.println("The maximum sum of subarray in given array is : "+findMaxSumSubArray(arr, arr.length));
     }
+
+    public static int findMaxSumSubArray(int arr[], int n){
+
+        int res = Integer.MIN_VALUE;
+        int max_ending = Integer.MIN_VALUE;
+
+        for(int i=0; i<n; i++){
+            max_ending = Math.max(max_ending + arr[i], arr[i]);
+            res = Math.max(res, max_ending);
+        }
+
+        return res;
+
+    }
+
     
 }
