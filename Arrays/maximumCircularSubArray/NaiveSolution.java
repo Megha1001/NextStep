@@ -3,6 +3,9 @@ package Arrays.maximumCircularSubArray;
 /*
  * Idea : Consider every element to be start of maximum circular subarray 
  * Starting with every element there can be N subarray 
+ * 
+ * TIME COMPLEXITY : Theta(N*N)
+ * Auxiliary Space : Theta(1)
  */
 
 public class NaiveSolution {
