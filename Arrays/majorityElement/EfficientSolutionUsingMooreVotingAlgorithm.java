@@ -5,6 +5,9 @@ package Arrays.majorityElement;
  *  Use Moore's voting algorithm
  * 1. Find candidate of majority element
  * 2. Validate Candidate of majority Element
+ * 
+ * Time Complexity : Theta(N)
+ * Auxiliary Space : Theta(1)
  */
 
 public class EfficientSolutionUsingMooreVotingAlgorithm {
