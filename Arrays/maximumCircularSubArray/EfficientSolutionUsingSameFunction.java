@@ -1,5 +1,10 @@
 package Arrays.maximumCircularSubArray;
 
+/*
+ * Time complexity : Theta(N)
+ * Auxiliary Space : Theta(1)
+ */
+
 public class EfficientSolutionUsingSameFunction {
 
     public static void main(String args[]){
