@@ -1,5 +1,9 @@
 package Arrays.subArrayWithGivenSum;
 
+/*
+ * TIME COMPLEXITY : O(N*N);
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
