@@ -1,5 +1,10 @@
 package Arrays.subArrayWithGivenSum;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY spACE : Theta(1)
+ */
+
 public class EfficientSolutionUsingSlidingWindow {
 
     public static void main(String args[]){
