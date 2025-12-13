@@ -22,7 +22,7 @@ public class EfficientSolutionUsingSameFunction {
 
         int minimumSumOfNormalSubArray = findMaxSubArraySum(arr, n); //Maximum sum in inverted array given min sum in original array
 
-        res = Math.max (maxSubarraySumOfNormalArray, sum + minimumSumOfNormalSubArray);
+        res = Math.max (maxSubarraySumOfNormalArray, sum + minimumSumOfNormalSubArray); // we have to + with sum as we have inverted array
 
 
         return res;
