@@ -11,6 +11,10 @@ package Arrays.minimumConsecutiveFlips;
  *      -> First and fast element is different
  * 
  *  ALWAYS PRINT THE SECOND GROUP
+ * 
+ * 
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPACE : Theta(1)
  */
 
 public class EfficientSolution {
