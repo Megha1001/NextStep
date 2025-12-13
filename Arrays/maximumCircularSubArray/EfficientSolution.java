@@ -10,7 +10,8 @@ package Arrays.maximumCircularSubArray;
 public class EfficientSolution {
 
     public static void main(String args[]){
-        int arr[] = {5, -2, 3, 4};
+        // int arr[] = {5, -2, 3, 4};
+        int arr[] = {-5,-2,-8}; //corner case
         System.out.println("Maximum circular subarray sum is : "+findMaxCircularSubArraySum(arr, arr.length));
     }
 
@@ -18,7 +19,13 @@ public class EfficientSolution {
         int res = 0;
         
         int maxSumOfNormalArray = findMaximumSum(arr,n);
-        int minSumOfNormalArray = findMinimumSum(arr,n);
+
+        //for corner case
+        if(maxSumOfNormalArray < 0){
+            return maxSumOfNormalArray;
+        }
+
+        int minSumOfNormalArray = findCircularSum(arr,n);
 
         res = Math.max(maxSumOfNormalArray,minSumOfNormalArray);
 
@@ -40,7 +47,7 @@ public class EfficientSolution {
 
     }
 
-    public static int findMinimumSum(int arr[], int n){
+    public static int findCircularSum(int arr[], int n){
         int res = arr[0];
         int min_ending = arr[0];
         int arraySum = arr[0];
