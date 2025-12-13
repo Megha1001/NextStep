@@ -124,3 +124,9 @@ public class LookupTableSolution {
     }
 
 Note : Can also be used to find out max even odd subarray length
+
+
+13. Kadane's Algo - To find maximum sum of subarray in circular array
+    -> find maximum sum of subarray in normal array
+    -> Total sum - find min sum of subarray in normal array
+    -> res = Math.max(step1, step 2)
