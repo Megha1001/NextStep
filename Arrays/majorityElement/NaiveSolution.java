@@ -2,6 +2,9 @@ package Arrays.majorityElement;
 
 /*
  * Majority Element : Its an element that appears more than n/2 times.
+ * 
+ * Time Complexity : O(N*N)
+ * Auxiliary Space : Theta(1)
  */
 
 public class NaiveSolution {
