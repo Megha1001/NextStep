@@ -148,3 +148,11 @@ Note : Can also be used to find out max even odd subarray length
         return (k+findSurvivedPersonIdx(n-1, k)) %n;
 
     }
+
+
+15. Moore's voting algorithm -> To find Majority Element
+    This is a two step process
+        - The first step gives the element that may bbe the mojority element in the array. If there is a majority element in an array,
+        then this step will definitely return majority element, otherwise it will return candidate for majority element
+        - Check if the element obtained from the above step is the majority element. This step is necessary as there might be no majority element.
+        
