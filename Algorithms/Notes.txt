@@ -135,3 +135,16 @@ Note : Can also be used to find out max even odd subarray length
        if(maxSumOfNormalArray < 0){
             return maxSumOfNormalArray;
         }
+
+
+14. Josephus Problem
+
+    public static int findSurvivedPersonIdx(int n, int k){
+
+        if(n==1){
+            return 0;
+        }
+
+        return (k+findSurvivedPersonIdx(n-1, k)) %n;
+
+    }
