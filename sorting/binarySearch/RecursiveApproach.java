@@ -1,4 +1,8 @@
 package sorting.binarySearch;
+/*
+ * TIME COMPLEXITY : O(logN)
+ * Auxiliary Space : O(logN)
+ */
 
 public class RecursiveApproach {
 
