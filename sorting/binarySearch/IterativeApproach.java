@@ -3,7 +3,8 @@ package sorting.binarySearch;
 public class IterativeApproach {
 
     public static void main(String args[]){
-        int arr[] = {10,20,30,40,50,60};
+        // int arr[] = {10,20,30,40,50,60};
+        int arr[] = {5,10,15,25,35};
         int k = 20;
 
         System.out.println("The index of element is : "+findElement(arr, 0, arr.length-1,k));
