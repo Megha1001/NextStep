@@ -1,6 +1,9 @@
 package sorting.countOnesInSortedBinaryArray;
 /*
- * IDEA : total length of array -  Get the first occurrence 
+ * IDEA : total length of array -  Get the first occurrence
+ * 
+ * TIME COMPLEXITY : O(logN)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class EfficientSolutionUsingTotalCountAndFirstOccurrence {
