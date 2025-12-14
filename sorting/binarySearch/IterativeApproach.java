@@ -1,5 +1,10 @@
 package sorting.binarySearch;
 
+/*
+ * TIME COMPLEXITY : O(logN)
+ * AUXILIARY SPACE : Theta(1)
+ */
+
 public class IterativeApproach {
 
     public static void main(String args[]){
@@ -12,7 +17,7 @@ public class IterativeApproach {
 
     public static int findElement(int arr[], int low, int high, int k){
 
-        while(low < high){
+        while(low <= high){
             int mid = low + (high-low)/2;
             
             if(arr[mid]==k){
@@ -20,9 +25,9 @@ public class IterativeApproach {
             }
 
             if(arr[mid] > k){
-                --high;
+                high = mid-1;
             }else{
-                ++low;
+                low = mid+1;
             }
         }
 
