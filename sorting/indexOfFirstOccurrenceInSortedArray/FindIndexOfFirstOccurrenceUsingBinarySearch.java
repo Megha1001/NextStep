@@ -1,7 +1,8 @@
 package sorting.indexOfFirstOccurrenceInSortedArray;
 
 /*
- * TIME COMPLEXITY : 
+ * TIME COMPLEXITY : O(logN)
+ * AUXILIARY SPACE : O(logN)
  */
 
 public class FindIndexOfFirstOccurrenceUsingBinarySearch {
