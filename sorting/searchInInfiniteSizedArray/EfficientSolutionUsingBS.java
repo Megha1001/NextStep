@@ -1,7 +1,10 @@
 package sorting.searchInInfiniteSizedArray;
 
 /*
- * TIME COMPLEXITY : O(logN)
+ * TIME COMPLEXITY : O(log(Pos))
+ * 5->8
+ * 9->16
+ * to reach 2*pos => log(Pos)
  * AUXILIARY SPACE : O(1)
  */
 
