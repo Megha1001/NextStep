@@ -2,7 +2,7 @@ package sorting.binarySearch;
 
 /*
  * TIME COMPLEXITY : O(logN)
- * AUXILIARY SPACE : Theta(1)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class IterativeApproach {

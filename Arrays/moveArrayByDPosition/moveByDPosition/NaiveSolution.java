@@ -3,7 +3,7 @@ package Arrays.moveArrayByDPosition.moveByDPosition;
 
 /*
  * Time COmplexity : Theta(N*D)
- * AUXILIARY Space : Theta(1)
+ * AUXILIARY Space : O(1)
  */
 
 public class NaiveSolution {

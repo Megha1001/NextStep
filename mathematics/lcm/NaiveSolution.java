@@ -2,7 +2,7 @@ package mathematics.lcm;
 
 /*
  * Time complexity : O(a*b - max(a,b))
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class NaiveSolution {

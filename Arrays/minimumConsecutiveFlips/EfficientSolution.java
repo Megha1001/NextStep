@@ -14,7 +14,7 @@ package Arrays.minimumConsecutiveFlips;
  * 
  * 
  * TIME COMPLEXITY : Theta(N)
- * AUXILIARY SPACE : Theta(1)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class EfficientSolution {

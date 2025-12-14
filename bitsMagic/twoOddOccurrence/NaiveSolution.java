@@ -2,7 +2,7 @@ package bitsMagic.twoOddOccurrence;
 
 /*
  * Time Complexity : O(N*N)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class NaiveSolution {

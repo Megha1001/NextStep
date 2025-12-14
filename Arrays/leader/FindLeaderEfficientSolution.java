@@ -2,7 +2,7 @@ package Arrays.leader;
 
 /*
  * Time complexity : Theta(N)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class FindLeaderEfficientSolution {

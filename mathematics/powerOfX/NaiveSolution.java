@@ -2,7 +2,7 @@ package mathematics.powerOfX;
 
 /*
  * Time Complexity : Theta(N)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class NaiveSolution {

@@ -8,7 +8,7 @@ package Arrays.moveArrayByDPosition.moveByDPosition;
  * 
  * 
  * Time Complexity : Theta(N)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  * 2 traversal
  */
 

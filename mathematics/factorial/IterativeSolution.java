@@ -3,7 +3,7 @@ package mathematics.factorial;
 /*
  * Find factorial of a number
  * Time Complexity : Theta(n)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class IterativeSolution {

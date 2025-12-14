@@ -6,7 +6,7 @@ package mathematics.countTrailingZeros;
  * => find number of 5
  * 
  * Time Complexity : Theta(logN)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class EfficientSolution {

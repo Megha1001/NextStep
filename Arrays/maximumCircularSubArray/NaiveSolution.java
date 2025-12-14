@@ -5,7 +5,7 @@ package Arrays.maximumCircularSubArray;
  * Starting with every element there can be N subarray 
  * 
  * TIME COMPLEXITY : Theta(N*N)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class NaiveSolution {

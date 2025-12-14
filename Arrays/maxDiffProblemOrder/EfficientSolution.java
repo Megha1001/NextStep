@@ -2,7 +2,7 @@ package Arrays.maxDiffProblemOrder;
 
 /*
  * Time COmplexity : Theta(N)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class EfficientSolution {

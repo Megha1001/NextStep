@@ -2,7 +2,7 @@ package bitsMagic.countSetBits;
 
 /*
  * Time Complexity : Theta(Set bits)
- * Auxiliary space : Theta(1)
+ * Auxiliary space : O(1)
  */
 
 public class BrainAndKerninghamAlgo {

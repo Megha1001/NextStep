@@ -5,7 +5,7 @@ package Recursion.naturalNumSum;
  * Idea : to use Tail recursion so compiler can do tail call elimination
  * 
  * Time Complexity : Theta(N)
- * Auxiliary Space : Theta(1) (Compiler use tail call elimination)
+ * Auxiliary Space : O(1) (Compiler use tail call elimination)
  */
 
 public class SumOfNaturalNumUsingRecursion {

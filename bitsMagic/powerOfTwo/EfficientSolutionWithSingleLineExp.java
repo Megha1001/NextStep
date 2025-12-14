@@ -1,8 +1,8 @@
 package bitsMagic.powerOfTwo;
 
 /*
- * Time Complexity : Theta(1)
- * Auxiliary Complexity : Theta(1)
+ * Time Complexity : O(1)
+ * Auxiliary Complexity : O(1)
  */
 public class EfficientSolutionWithSingleLineExp {
 

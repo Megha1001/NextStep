@@ -2,7 +2,7 @@ package Arrays.subArrayWithGivenSum;
 
 /*
  * TIME COMPLEXITY : O(N)
- * AUXILIARY spACE : Theta(1)
+ * AUXILIARY spACE : O(1)
  */
 
 public class EfficientSolutionUsingSlidingWindow {

@@ -3,8 +3,8 @@ package bitsMagic.powerOfTwo;
 /*
  * Idea : One set bit should be there
  *
- * Time Complexity : Theta(1) when power of 2 , but in case where number is not power of 2 it will be O(d), where d is number of set bits
- * Auxiliary Space : Theta(1)
+ * Time Complexity : O(1) when power of 2 , but in case where number is not power of 2 it will be O(d), where d is number of set bits
+ * Auxiliary Space : O(1)
  */
 
 public class BrainAndKerningham {

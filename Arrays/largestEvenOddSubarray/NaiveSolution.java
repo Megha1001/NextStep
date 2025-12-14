@@ -2,7 +2,7 @@ package Arrays.largestEvenOddSubarray;
 
 /*
  * TIME COMPLEXITY : Theta(N*N)
- * AUXILIARY SPACE : Theta(1)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class NaiveSolution {

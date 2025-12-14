@@ -7,7 +7,7 @@ package Arrays.majorityElement;
  * 2. Validate Candidate of majority Element
  * 
  * Time Complexity : Theta(N)
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 public class EfficientSolutionUsingMooreVotingAlgorithm {

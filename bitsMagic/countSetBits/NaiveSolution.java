@@ -7,7 +7,7 @@ package bitsMagic.countSetBits;
  * 3. Right shift n by 1 
  * 
  * Time Complexity : Theta(d), where d is length
- * Auxiliary Space : Theta(1)
+ * Auxiliary Space : O(1)
  */
 
 
