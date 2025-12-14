@@ -35,7 +35,7 @@ public class EfficientSolutionUsingBS {
             return i;
         }
 
-        return binarySearch(arr, (i/2)+1, i-1, x); //O(log(Pos))
+        return binarySearch(arr, (i/2)+1, i-1, x); //O(log(Pos)) // (i/2)+1, i-1 elements b/w them must be less than pos otherwise it would have come in i*2
     }
 
     public static int binarySearch(int arr[], int start, int end, int x){
