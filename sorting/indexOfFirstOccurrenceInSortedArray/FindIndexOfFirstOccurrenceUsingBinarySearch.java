@@ -1,5 +1,9 @@
 package sorting.indexOfFirstOccurrenceInSortedArray;
 
+/*
+ * TIME COMPLEXITY : 
+ */
+
 public class FindIndexOfFirstOccurrenceUsingBinarySearch {
 
     public static void main(String args[]){
