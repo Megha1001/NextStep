@@ -1,5 +1,10 @@
 package sorting.indexOfLastOccurrenceInSortedArray;
 
+/*
+ * TIME COMPLEXITY : O(logN)
+ * AUXLILARY SPACE : O(logN)
+ */
+
 public class FindIndexOfastOccurrenceUsingRecursiveBS {
 
     public static void main(String args[] ){
