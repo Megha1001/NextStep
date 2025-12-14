@@ -9,12 +9,15 @@ package sorting.countOnesInSortedBinaryArray;
 public class EfficientSolutionUsingTotalCountAndFirstOccurrence {
 
     public static void main(String args[]){
-        int arr[] = {0,0,0,1,1,1,1};
+        int arr[] = {0,0,0};
         System.out.println("The count of 1's in given binary arrays is : "+countOne(arr, 0, arr.length-1));
     }
 
     public static int countOne(int arr[], int l, int h){
         int firstOccurrence = findFirstOccurrence(arr, l, h);
+        if(firstOccurrence == -1){
+            return 0;
+        }
         return arr.length - firstOccurrence;
     }
 
@@ -29,10 +32,10 @@ public class EfficientSolutionUsingTotalCountAndFirstOccurrence {
                 h = m-1;
             }
 
-            else if (arr[m] > 1){
-                h = m-1;
-            }else {
+            else if (arr[m] == 0){
                 l = m+1;
+            }else {
+                h = m-1;
             }
         }
         return -1;
