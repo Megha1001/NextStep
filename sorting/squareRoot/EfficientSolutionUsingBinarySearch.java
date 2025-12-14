@@ -1,5 +1,10 @@
 package sorting.squareRoot;
 
+/*
+ * TIME COMPLEXITY : O(logN)
+ * Auxiliary Space : O(1)
+ */
+
 public class EfficientSolutionUsingBinarySearch {
 
     public static void main(String args[]){
