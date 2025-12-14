@@ -201,3 +201,62 @@ public class EfficientSolution {
     }
     
 }
+
+17. Search in infinite sorted array
+package sorting.searchInInfiniteSizedArray;
+
+/*
+ * TIME COMPLEXITY : O(logN)
+ * AUXILIARY SPACE : O(1)
+ */
+
+public class EfficientSolutionUsingBS {
+    
+    public static void main(String args[]){
+
+        int arr[] = {1, 2, 3, 40, 50}; // assume it to be infinite array
+        int x = 40;
+
+        System.out.println("The required element is present at idx : "+searchElement(arr, x));
+    }
+
+    public static int searchElement(int arr[], int x){
+       
+        //check for 0th index solely
+        if(arr[0] == x){
+            return 0;
+        }
+
+        int i=1;
+        while(arr[i] < x){ //find upper bound
+            i = i*2;
+        }
+
+        //either = or > x
+        if(arr[i] == x){
+            return i;
+        }
+
+        return binarySearch(arr, (i/2)+1, i, x);
+    }
+
+    public static int binarySearch(int arr[], int start, int end, int x){
+
+        while(start <= end){
+            int mid = start + (end-start)/2;
+
+            if(arr[mid]==x){
+                return mid;
+            }
+
+            else if (arr[mid] > x){
+                end = mid-1;
+            }else {
+                start = mid+1;
+            }
+        }
+
+        return -1;
+    }
+    
+}
