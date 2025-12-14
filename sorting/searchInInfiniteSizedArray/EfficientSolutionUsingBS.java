@@ -27,7 +27,7 @@ public class EfficientSolutionUsingBS {
 
         int i=1;
         while(arr[i] < x){ //find upper bound
-            i = i*2;
+            i = i*2; //O(log(Pos))
         }
 
         //either = or > x
@@ -35,7 +35,7 @@ public class EfficientSolutionUsingBS {
             return i;
         }
 
-        return binarySearch(arr, (i/2)+1, i-1, x);
+        return binarySearch(arr, (i/2)+1, i-1, x); //O(log(Pos))
     }
 
     public static int binarySearch(int arr[], int start, int end, int x){
