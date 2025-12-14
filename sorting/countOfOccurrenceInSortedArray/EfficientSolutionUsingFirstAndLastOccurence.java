@@ -1,5 +1,10 @@
 package sorting.countOfOccurrenceInSortedArray;
 
+/*
+ * TIME COMPLEXITY : O(logN)
+ * Auxiliary Space : O(1)
+ */
+
 public class EfficientSolutionUsingFirstAndLastOccurence{
 
     public static void main(String args[]){
@@ -11,6 +16,9 @@ public class EfficientSolutionUsingFirstAndLastOccurence{
 
     public static int findTotalOccurrence(int arr[], int l, int h, int k){
         int firstOccurrence = findFirstOccurrence(arr, l, h, k);
+        if(firstOccurrence==-1){
+            return -1;
+        }
         int lastOccurrence = findLastOccurrence(arr, l, h, k, arr.length);
 
         return lastOccurrence - firstOccurrence +1;
