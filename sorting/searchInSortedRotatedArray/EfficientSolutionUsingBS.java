@@ -1,5 +1,10 @@
 package sorting.searchInSortedRotatedArray;
 
+/*
+ * TIME COMPLEXITY : O(logN)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class EfficientSolutionUsingBS {
 
     public static void main(String args[]){
