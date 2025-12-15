@@ -1,0 +1,132 @@
+
+System Design
+
+HLD
+
+Step 1 : Fundametals
+    - serverless vs serverful
+    - Horizontal vs vertical scaling
+    - What are threads
+    - What are pages
+    - How does the internet work
+
+Step 2 : Databases
+    - SQL vs NoSQL Dbs
+    - In memory DBs
+    - Data replication & Migration
+    - Sharding
+
+Step 3 : Consistency vs Availability
+    - Data consistency & its level
+    - Isolation and its levels
+    - CAP theorem
+
+Step 4 : Cache
+    - What is cache ? (Redis , Memcached)
+    - Write Policies : write back , through & around
+    - Replacement Policies : LFU, LRU, Segmented LRU etc
+    - Content Delivery Networks(CDNs)
+
+Step 5 : Networking
+    - TCP vs UDP
+    - What is http(1, 2, 3) & https
+    - Web sockets
+    - WebRTC & video streaming
+
+Step 6 : Load Balancers
+    - Load balancing algorithms(stateless & stateful)
+    - Consistent Hashing
+    - Proxy & revese proxy
+    - Rate limiting
+
+Step 7 : Message Queues
+    - Asynchoronous processing(kafka, rabbitMQ)
+    - Publisher subscriber model
+
+Step 8 : Monoliths vs microservices
+    - Why microservices
+    - Concept of 'single point of failures'
+    - avoiding cascading failures
+    - containerization(Docker)
+    - Migrating to microservices
+
+Step 9 : Monitoring & logging
+    - logging events & monitoring metrics
+    - Anomaly detection
+
+Step 10 : Security 
+    - Tokens for auth
+    - SSO and OAuth
+    - Access Control lists & Rule engines
+    - Encryption
+
+Step 11 : System design tradeoffs
+    - Push vs pull architecture
+    - Consistency vs availablity
+    - SQL vs NoSQL dbs
+    - Memory vs latency
+    - Throughput vs latency
+    - accuracy vs lantency
+
+Step 12 : practice
+    - Youtube
+    - Twitter
+    - Whatsapp
+    - Uber
+    - Amazon
+    - Dropbox/Google drive
+    - Netflix
+    - Instagram
+    - Zoom
+    - booking.com/airbnb
+
+
+LLD
+
+Step 1 : OOP
+    - Encapsulation
+    - Abstraction
+    - Inheritance
+    - Polymorphism
+    - SOLID Principles
+
+Step 2 : Design Patterns
+    - Creational(singleton, factory etc)
+    - Structural (proxy, bridge etc)
+    - Behavioral(strategy , command, observer etc)
+
+Step 3 : Concurrency & Thread safety
+    - Thread safe injection
+    - Locking mechanism
+    - producer consume
+    - race conditions and synchronization
+
+Step 4 : UML Diagrams
+
+Step 5 : APIs
+    - API design
+    - req/res object modeling
+    - versioning and extensibility
+    - clean code principles : DRY, SRP etc
+    - Avoiding god classes
+
+Step 6 : command LLD Problems
+    - Design a tic-toc-toe or chess game
+    - design a splitwise app
+    - design a parking lot
+    - design an elevator system with multiple lifts
+    - design a notification system
+    - design a food delivery app
+    - design a movie ticket booking system
+    - design a URL shortener
+    - desing a logging framework
+    - design a rate limiter
+
+
+https://github.com/karanpratapsingh/system-design
+
+LLD
+https://github.com/ashishps1/awesome-low-level-design?tab=readme-ov-file
+
+
+https://github.com/SrivastavaArjit
