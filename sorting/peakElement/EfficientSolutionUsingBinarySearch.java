@@ -1,5 +1,15 @@
 package sorting.peakElement;
 
+/*
+ * TIME COMPLEXITY : O(logN)
+ * AUXILIARY SPACE : O(1)
+ * 
+ * IDEA : If arr[m] <= arr[m-1] --> there will always be a peak element at left side
+ *      or  
+ * arr[m] <=arr[m+1] -> there will always be a peak element on right side
+ */
+
+
 public class EfficientSolutionUsingBinarySearch {
 
     public static void main(String args[]){
