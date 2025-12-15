@@ -1,5 +1,10 @@
 package sorting.tripletInSortedArray;
 
+/*
+ * TIME COMPLEXITY : O(N^3)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class NaiveApproach {
 
     public static void main(String args[]){
