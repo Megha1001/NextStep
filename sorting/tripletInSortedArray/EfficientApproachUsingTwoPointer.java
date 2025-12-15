@@ -21,7 +21,7 @@ public class EfficientApproachUsingTwoPointer {
 
     public static boolean findTriplet(int arr[], int n , int k){
         for(int i=0; i<n-2; i++){
-            if(findPair(arr, k-arr[i])){
+            if(findPair(arr,i++, k-arr[i])){
                 return true;
             }
         }
@@ -29,9 +29,9 @@ public class EfficientApproachUsingTwoPointer {
         return false;
     }
 
-    public static boolean findPair(int arr[], int k){
+    public static boolean findPair(int arr[], int start, int k){
 
-        int i=0, j=arr.length-1;
+        int i=start, j=arr.length-1; // START IS IMP !! HERE as you can't repeat i for which this function is being called
 
         while(i < j){
             int sum = arr[i] + arr[j];
