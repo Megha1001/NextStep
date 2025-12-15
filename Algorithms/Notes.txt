@@ -260,3 +260,8 @@ public class EfficientSolutionUsingBS {
     }
     
 }
+
+18. Peak Element
+ * IDEA : If arr[m] <= arr[m-1] --> there will always be a peak element at left side
+ *      or  
+ * arr[m] <=arr[m+1] -> there will always be a peak element on right side
