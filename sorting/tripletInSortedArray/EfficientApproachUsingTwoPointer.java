@@ -5,7 +5,7 @@ package sorting.tripletInSortedArray;
  *  => X+Y = K-Z
  *  for every element call findPair(arr, K-Z)
  * 
- * TIME COMPLEXITY : O(N)
+ * TIME COMPLEXITY : O(N*N)
  * AUXILIARY SPACE : O(1)
  */
 
