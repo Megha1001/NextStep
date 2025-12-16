@@ -3,7 +3,8 @@ package sorting.repeatingElement;
 /*
  * We can't modify the array
  * 
- * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
  */
 
 public class EfficientSolution {
