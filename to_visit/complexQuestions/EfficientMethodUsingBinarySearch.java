@@ -1,4 +1,4 @@
-package sorting.medianofTwoSortedArrays;
+package to_visit.complexQuestions;
 
 public class EfficientMethodUsingBinarySearch {
 
