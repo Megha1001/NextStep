@@ -1,5 +1,9 @@
 package sorting.medianofTwoSortedArrays;
 
+/*
+ * TIME COMPLEXITY : O(logN1)
+ */
+
 public class EfficientMethodUsingBinarySearch {
 
     public static void main(String args[]){
