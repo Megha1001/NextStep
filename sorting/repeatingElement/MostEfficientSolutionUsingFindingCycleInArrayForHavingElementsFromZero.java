@@ -15,6 +15,7 @@ public class MostEfficientSolutionUsingFindingCycleInArrayForHavingElementsFromZ
     }
 
     public static int findRepeatingElement(int arr[]){
+        //to avoid self loop -> adding extra 1
         int slow = arr[0] + 1;
         int fast = arr[0] + 1;
 
