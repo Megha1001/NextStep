@@ -2,6 +2,10 @@ package sorting.medianofTwoSortedArrays;
 
 /*
  * TIME COMPLEXITY : O(logN1)
+ * 
+ * -> Binary search in smaller array(a1)
+ * -> For index i1 in a1, we can find corresponding index in a2
+ *  i2 = n1+n2+1/2 -i1
  */
 
 public class EfficientMethodUsingBinarySearch {
