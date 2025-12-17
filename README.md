@@ -11,52 +11,6 @@
 
 ---
 
-## 🧠 Topics Covered
-
-### 📌 Arrays
-- Sliding Window
-- Prefix Sum
-- Kadane’s Algorithm
-- Stock Buy & Sell
-- Trapping Rain Water
-- Array Rotation & Rearrangement
-
-### 📌 Searching
-- Binary Search & Variants
-- Infinite Array Search
-- Rotated Sorted Array
-- Median of Two Sorted Arrays
-
-### 📌 Sorting
-- Comparable vs Comparator
-- Custom Sorting Logic
-- Stability & In-place sorting
-
-### 📌 Bit Manipulation
-- XOR tricks
-- Power of Two
-- Odd Occurrence problems
-- Bit counting
-
-### 📌 Mathematics
-- GCD / LCM
-- Factorial
-- Trailing Zeros
-- Palindrome checks
-
-### 📌 Recursion
-- Subset Generation
-- Tower of Hanoi
-- Josephus Problem
-- Rope Cutting
-
-### 📌 System Design
-- High Level Design (HLD)
-- Low Level Design (LLD)
-- Design notes & concepts
-
----
-
 ## 📊 Sorting Algorithms Comparison Chart
 
 | Algorithm      | Best Time | Avg Time | Worst Time | Space | Stable | In-Place |
