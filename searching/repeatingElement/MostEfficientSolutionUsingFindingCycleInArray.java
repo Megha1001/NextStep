@@ -1,4 +1,4 @@
-package sorting.repeatingElement;
+package searching.repeatingElement;
 
 /*
  * Condition : Dont modify the array and dont use any extra space
