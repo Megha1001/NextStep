@@ -15,7 +15,7 @@ public class Example {
         }
 
         public int compareTo(Point p){
-            return this.y - p.y;
+            return this.x - p.x;
         }
 
     }
