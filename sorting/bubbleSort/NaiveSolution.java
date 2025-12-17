@@ -2,6 +2,10 @@ package sorting.bubbleSort;
 
 /*
  * After every pass the maximum element present in the array reaches to final position.
+ * 
+ * TOTAL PASS : N-1
+ * TIME COMPLEXITY : O(N*N)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class NaiveSolution {
