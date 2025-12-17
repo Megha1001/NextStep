@@ -1,5 +1,15 @@
 package sorting.selectionSort;
 
+/*
+ * IN PLACE
+ *  Does less memory write compares to quick sort, insertion sort , merge sort etc
+ * 
+ * BUT CYCLE sort performs better in terms of memory
+ * 
+ * TIME COMPLEXITY : Theta(N*2) --> ALWAYS
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class SelectionSortAlgorithm {
 
     public static void main(String args[]){
