@@ -1,4 +1,4 @@
-package sorting.repeatingElement;
+package searching.repeatingElement;
 
 /*
  * We can't modify the array
