@@ -11,7 +11,7 @@ package sorting.bubbleSort;
 public class NaiveSolution {
 
     public static void main(String args[]){
-        int arr[] = {2,10,8,7};
+        int arr[] = {2,3,4,5,1};
         System.out.println("Array after sorting using bubble sort is  : ");
         sortUsingBubbleSort(arr, arr.length);
     }
@@ -19,7 +19,7 @@ public class NaiveSolution {
 
     public static void sortUsingBubbleSort(int arr[], int n){
 
-        for(int i=0; i<n-i; i++){
+        for(int i=0; i<n-1; i++){
             for(int j=0; j<n-1-i; j++){
                 if(arr[j] > arr[j+1]){
                     //swap
