@@ -23,7 +23,7 @@ public class InsertionSortBookVersion {
                 continue;
             }
             
-            while(j>=0 && arr[j] > key){
+            while(j>=0 && arr[j] > key){ // > ensures stability
                 arr[j+1] = arr[j];
                 --j;
             }
