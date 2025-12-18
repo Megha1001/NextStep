@@ -11,6 +11,8 @@ public class IntersectionOfTwoSortedArray {
 
         System.out.println("Intersection of two sorted array is/are : ");
         printDistinctCommonElements(a1, a2, a1.length, a2.length);
+        System.out.println();
+        printDistinctCommonElementsMethod2(a1, a2, a1.length, a2.length);
     }
 
     public static void printDistinctCommonElements(int a1[], int a2[], int n1, int n2){
@@ -29,6 +31,35 @@ public class IntersectionOfTwoSortedArray {
                 ++j;
             }else {
                 ++i;
+            }
+
+        }
+
+    }
+
+    public static void printDistinctCommonElementsMethod2(int a1[], int a2[], int n1, int n2){
+
+        int i=0, j=0;
+
+        while(i<n1 && j<n2){
+
+            if(i>0 && a1[i] == a1[i-1]){
+                ++i;
+                continue;
+            }
+
+            else if (a1[i] > a2[j]){
+                ++j;
+            }
+
+            else if (a1[i] < a2[j]){
+                ++i;
+            }
+            
+            else {
+                System.out.print(a1[i] + " ");
+                ++i;
+                ++j;
             }
 
         }
