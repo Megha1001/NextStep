@@ -3,3 +3,6 @@ https://www.geeksforgeeks.org/batch/dsa-4/track/DSASP-Mathematics/video/MjEzNw%3
 
 Lookup Table solution
 https://www.geeksforgeeks.org/batch/dsa-4/track/DSASP-BitMagic/video/Nzc0NA%3D%3D
+
+- Block Merge sort
+    Time complexity : O(nLogN), Auxiliary space : O(1) ->  in place in comparision to normal merge sort
