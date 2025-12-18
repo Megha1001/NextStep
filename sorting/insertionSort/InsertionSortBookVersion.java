@@ -18,10 +18,6 @@ public class InsertionSortBookVersion {
         for(int i=1; i<n; i++){
             int key = arr[i];
             int j = i-1;
-
-            if(arr[j] < key){
-                continue;
-            }
             
             while(j>=0 && arr[j] > key){ // > ensures stability
                 arr[j+1] = arr[j];
