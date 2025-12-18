@@ -21,7 +21,7 @@ public class SelectionSortAlgorithm {
     public static void sortUsingSelectionSort(int arr[], int n){
 
         //find min elment in every traversal from remaining considerable array and swap with arr[i]
-        for(int i=0; i<n; i++){
+        for(int i=0; i<n-1; i++){
             int minIdx = i;
             for(int j=i+1; j<n; j++){
                 if(arr[j] < arr[minIdx]){
