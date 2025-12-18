@@ -14,7 +14,7 @@ public class MergeSortAlgorithm {
 
     public static void mergeSort(int arr[], int l, int r){
 
-        if (l < r){
+        if (l < r){ // atleast two element
 
             int m = l + (r-l)/2;
 
