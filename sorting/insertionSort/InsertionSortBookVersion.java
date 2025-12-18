@@ -1,5 +1,10 @@
 package sorting.insertionSort;
 
+/*
+ * TIME COMPLEXITY : O(N*N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class InsertionSortBookVersion {
 
     public static void main(String args[]){
