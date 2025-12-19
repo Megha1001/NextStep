@@ -304,12 +304,12 @@ public static void partition(int arr[], int l, int h, int p){
     }
 
 
-20 . Lomuto Partition
+20 . Lomuto Partition -> Pivot is always last
 
-public static int partition(int arr[], int l, int h, int p){
-
+public static int partition(int arr[], int l, int h){
+        int p = h
         int i = l-1;
-        int pivotValue = arr[p]; 
+        int pivotValue = arr[h]; 
 
         for(int j=l; j<=h; j++){
             if(arr[j] < pivotValue){
