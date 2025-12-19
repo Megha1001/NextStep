@@ -1,5 +1,10 @@
 package sorting.quickSort;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ * AuXILIARY SPACE : O(1sss)
+ */
+
 public class LomutoPartition {
 
     public static void main(String args[]){
