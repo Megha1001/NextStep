@@ -9,8 +9,7 @@ public class LomutoPartition {
 
     public static void main(String args[]){
         int arr[] = {10,80,30,90,40,50,70};
-        int pivot = 6;
-        System.out.println("Index of the pivot after paritioning using lomuto partition algorithm is : "+ partition(arr, 0, arr.length-1, pivot));
+        System.out.println("Index of the pivot after paritioning using lomuto partition algorithm is : "+ partition(arr, 0, arr.length-1));
 
         //print
         for(int i=0; i<arr.length; i++){
@@ -20,8 +19,9 @@ public class LomutoPartition {
     }
 
 
-    public static int partition(int arr[], int l, int h, int p){
+    public static int partition(int arr[], int l, int h){
 
+        int p = h;
         int i = l-1;
         int pivotValue = arr[p]; 
 
