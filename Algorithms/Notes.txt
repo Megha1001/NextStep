@@ -267,3 +267,64 @@ public class EfficientSolutionUsingBS {
  * arr[m] <=arr[m+1] -> there will always be a peak element on right side
 
 NOTE : The other half that we discard doesn't mean there would not be any peak . the half where we go that definately gurantee to contain a PEAK
+
+
+
+19. Naive partition
+public static void partition(int arr[], int l, int h, int p){
+
+        int temp [] = new int[h-l+1];
+        int idx = 0; //for temp array
+
+        //copy element <=arr[p]
+        for(int i=l; i<=h; i++){
+            if(arr[i] <= arr[p] && i!=p){
+                temp[idx++] = arr[i];
+            }
+        }
+
+        //copy partition element
+        temp[idx++] = arr[p];
+
+        //copy element > arr[p]
+        for(int i=l; i<=h; i++){
+            if(arr[i] > arr[p]){
+                temp[idx++] = arr[i];
+            }
+        }
+
+
+        //copy and print to original array
+        for(int i=l ;i<=h; i++){
+            arr[i] = temp[i-l];
+            System.out.print(arr[i]+" ");
+        }
+
+
+    }
+
+
+20 . Lomuto Partition
+
+public static int partition(int arr[], int l, int h, int p){
+
+        int i = l-1;
+        int pivotValue = arr[p]; 
+
+        for(int j=l; j<=h; j++){
+            if(arr[j] < pivotValue){
+                ++i;
+                //swap
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+
+        //swap arr[i+1] and arr[p]
+        int temp = arr[i+1];
+        arr[i+1] = arr[p];
+        arr[p] = temp;
+        return (i+1);
+
+    } 
