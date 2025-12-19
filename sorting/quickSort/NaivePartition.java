@@ -1,5 +1,10 @@
 package sorting.quickSort;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
+ */
+
 public class NaivePartition {
 
 
