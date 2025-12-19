@@ -2,6 +2,9 @@ package sorting.countInversion;
 
 /*
  * Inversion : a pair of (i,j) where arr[i] > arr[j] and i<j;
+ * 
+ * TIME COMPLEXITY : Theta(N*N)
+ * AUXILIARY SPACE : Theta(1)
  */
 
 public class NaiveSolution {
