@@ -1,0 +1,5 @@
+This problem can come in various variations
+
+- Segregate Positive and Negative
+- Segregate even and odd
+- Segregate binary array (0's & 1's)
