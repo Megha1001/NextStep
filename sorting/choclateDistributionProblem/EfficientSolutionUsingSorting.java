@@ -2,6 +2,11 @@ package sorting.choclateDistributionProblem;
 
 import java.util.Arrays;
 
+/*
+ * TIME COMPLEXITY : O(NlogN)
+ * AUXILIARY SPACE : O(logN)
+ */
+
 public class EfficientSolutionUsingSorting {
 
     public static void main(String args[]){
