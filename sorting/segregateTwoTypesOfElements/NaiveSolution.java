@@ -1,5 +1,10 @@
 package sorting.segregateTwoTypesOfElements;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
