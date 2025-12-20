@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * TIME COMPLEXITY : O(NlogN)
- * AUXILIARY SPACE : O(N)
+ * AUXILIARY SPACE : O(logN)
  */
 
 public class EfficientSolution {
