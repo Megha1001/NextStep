@@ -328,3 +328,56 @@ public static int partition(int arr[], int l, int h){
         return (i+1);
 
     } 
+
+21; Hoare's partition
+    public static int partition(int arr[], int l, int h){
+        int i= l-1;
+        int j= h+1;
+        int pivot = arr[l];
+
+        while(true){
+            do{
+                ++i;
+            }while(arr[i] < pivot);
+
+            do{
+                --j;
+            }while(arr[j] > pivot);
+
+            if(i>=j){
+                return j;//pivot index
+            }
+
+            //swap 
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+    }
+
+
+22. Quick Select algorithm - To find kth smallest / kth largest
+
+  public static int findKthSmallest(int arr[], int n, int k){
+        int l=0; 
+        int h= n-1;
+
+        while(l<=h){ //why = its not sorting its searching hence we need to check element at = position as well
+            int p = partition(arr, l, h); // LOMUTO PARTITION
+            
+            if(p==k-1){
+                return arr[p];
+            }
+
+            else if (p>k-1){
+                h = p-1;
+            }
+            else {
+                l = p+1;
+            }
+
+        }
+
+        return -1;
+    }
