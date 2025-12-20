@@ -1,5 +1,10 @@
 package sorting.sortAnArrayWithThreeKindOfElements;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class SortUsingDutchNationalFlagAlgo {
 
     public static void main(String args[]){
