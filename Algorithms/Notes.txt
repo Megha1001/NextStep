@@ -417,3 +417,5 @@ public static void sortUsingDutchNationalFlagAlgo(int arr[], int n){
         }
 
     }
+
+24 Jagged Array : A 2D array is called jagged array is all the rows are not of same size
