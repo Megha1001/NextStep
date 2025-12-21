@@ -1,6 +1,9 @@
 
 ---
 
+Change repo to public : https://github.com/Megha1001/NextStep/settings 
+go to danger zone -> change visibility
+
 ## 🎯 Goals of This Repository
 
 - Build **strong DSA fundamentals**
