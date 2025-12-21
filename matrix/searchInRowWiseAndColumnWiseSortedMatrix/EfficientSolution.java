@@ -4,6 +4,7 @@ package matrix.searchInRowWiseAndColumnWiseSortedMatrix;
  * IDEA : Either start with rightmost top element or with bottommost left element
  * 
  * TIME COMPLEXITY : O(N+M)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class EfficientSolution {
