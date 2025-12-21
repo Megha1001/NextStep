@@ -1,5 +1,52 @@
 package matrix.spiralTraversal;
 
+
+/*
+ * why we need to check if(top<=bottom){ and if(left<=right){
+ * Why if (top <= bottom) is needed
+
+This check is before printing the bottom row.
+
+Problem without the check
+Imagine a matrix with only one row left:
+
+1 2 3
+
+
+At this point:
+top == bottom
+You already printed this row when traversing the top row
+Then you do top++, so now top > bottom
+If you don’t check if (top <= bottom):
+You’ll try to print the same row again in reverse
+Or worse, access invalid indices
+
+------------------------------------
+Why if (left <= right) is needed
+
+This check is before printing the left column.
+
+Problem without the check
+Consider a single column matrix:
+
+1
+2
+3
+
+
+At some point:
+left == right
+The column was already printed when traversing the right column
+After right--, left > right
+Without the check:
+You’ll print the same column again
+Or access invalid indexes
+What the check ensures
+if (left <= right) {
+    // safe to print left column
+}
+ */
+
 public class PrintSpiralTraversal {
 
     public static void main(String args[]){
