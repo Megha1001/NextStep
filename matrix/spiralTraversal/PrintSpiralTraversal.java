@@ -84,14 +84,14 @@ public class PrintSpiralTraversal {
 
             --right;
 
-            if(top<=bottom){
+            if(top<=bottom){ // for single row
                 for(int i=right; i>=left; i--){
                     System.out.print(arr[bottom][i] + " ");
                 }
             }
             --bottom;
 
-            if(left<=right){
+            if(left<=right){ //for single column
                 for(int i=bottom; i>=top ; i--){
                     System.out.print(arr[i][left] + " ");
                 }
