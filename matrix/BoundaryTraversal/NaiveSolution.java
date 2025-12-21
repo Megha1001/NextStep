@@ -1,7 +1,8 @@
 package matrix.BoundaryTraversal;
 
 /*
- * 
+ * TIME COMPLEXITY : Theta(R+C)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class NaiveSolution {
