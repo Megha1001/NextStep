@@ -4,6 +4,8 @@ package matrix.rotateBy90;
  * IDEA : 
  * 1. Trasnpose
  * 2. reverse columns
+* TIME COMPLEXITY : Theta(N*N)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class OptimizedSolution {
