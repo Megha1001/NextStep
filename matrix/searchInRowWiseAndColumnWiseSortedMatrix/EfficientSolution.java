@@ -24,7 +24,6 @@ public class EfficientSolution {
 
     public static String findElement(int arr[][], int x){
         int r = arr.length;
-        int c = arr[0].length;
 
         int i=0;
         int j= arr[0].length-1;
