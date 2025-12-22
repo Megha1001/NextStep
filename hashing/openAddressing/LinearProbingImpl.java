@@ -52,7 +52,7 @@ public class LinearProbingImpl {
 
             int h = hash(key);
             int i=h;
-            while(arr[i] !=-1){
+            while(arr[i] !=-1){ // we wont stop at -2
                 if(arr[i] == key){
                     return true;
                 }
@@ -72,7 +72,7 @@ public class LinearProbingImpl {
             int h = hash(key);
             int i = h;
             
-            while(arr[i] !=-1){
+            while(arr[i] !=-1){ // we wont stop at -2
                 if(arr[i] == key){
                     arr[i] = -2;
                     --size;
