@@ -56,7 +56,7 @@ public class LinearProbingImpl {
                 if(arr[i] == key){
                     return true;
                 }
-                i = (i=1)%cap;
+                i = (i+1)%cap;
                 if(i==h){
                     return false;
                 }
