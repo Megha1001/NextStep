@@ -130,3 +130,10 @@ https://github.com/ashishps1/awesome-low-level-design?tab=readme-ov-file
 
 
 https://github.com/SrivastavaArjit
+
+https://www.systemdesignhandbook.com/system-design-interview-handbook/
+
+LLD
+https://www.youtube.com/watch?v=AK0hu0Zxua4&list=PLQEaRBV9gAFvzp6XhcNFpk1WdOcyVo9qT
+
+https://github.com/adityatandon15/LLD/blob/main/Lecture%2003/notes.pdf
