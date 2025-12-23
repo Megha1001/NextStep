@@ -3,6 +3,11 @@ package hashing.frequenciesOfElements;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ * AUXIliARY SPACE : O(1)
+ */
+
 public class FindFreqOfElements {
 
     public static void main(String args[]){
