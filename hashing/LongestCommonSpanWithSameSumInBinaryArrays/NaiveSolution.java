@@ -10,6 +10,10 @@ package hashing.LongestCommonSpanWithSameSumInBinaryArrays;
  * 
  * The underlined is common. Hence, ans = 4
  * 
+ * 
+ * TIME COMPLEXITY : Theta(N*N)
+ * AUXILIARY SPACE : O(1)
+ * 
  */
 
 public class NaiveSolution {
