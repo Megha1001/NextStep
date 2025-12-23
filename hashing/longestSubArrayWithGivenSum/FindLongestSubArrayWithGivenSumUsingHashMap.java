@@ -43,8 +43,6 @@ public class FindLongestSubArrayWithGivenSumUsingHashMap {
                 h.put(prefix_sum, ++idx);
             }
 
-
-            
         }
 
 
