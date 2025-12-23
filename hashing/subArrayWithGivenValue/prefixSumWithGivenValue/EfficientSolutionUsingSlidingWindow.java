@@ -1,5 +1,10 @@
 package hashing.subArrayWithGivenValue.prefixSumWithGivenValue;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class EfficientSolutionUsingSlidingWindow {
     
 
