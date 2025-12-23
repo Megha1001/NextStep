@@ -14,8 +14,8 @@ public class FindLongestSubArrayWithGivenSumUsingHashMap {
         // int sum = 0;
         // int arr[] = {3,1,0,1,8,2,3,6};
         // int sum = 5;
-        int arr[] = {8,3,7};
-        int sum = 15;
+        int arr[] = {-1,1,-1,0,0,-1};
+        int sum = 0;
 
         System.out.println("The longest subarray length with given sum is : "+findLongestSubArrayLengthWithGivenSum(arr, arr.length, sum));
     }
@@ -31,16 +31,20 @@ public class FindLongestSubArrayWithGivenSumUsingHashMap {
         for(int i=0; i<n; i++){
             prefix_sum += arr[i];
 
-            if(h.containsKey(prefix_sum - sum)){
-                ++idx;
-                res = Math.max(res, idx - h.get(prefix_sum - sum));
-            }
 
             if(prefix_sum == sum){
                 res = Math.max(res, i+1);
             }
 
-            h.put(prefix_sum, ++idx);
+            if(h.containsKey(prefix_sum - sum)){
+                ++idx;
+                res = Math.max(res, idx - h.get(prefix_sum - sum));
+            } else{
+                h.put(prefix_sum, ++idx);
+            }
+
+
+            
         }
 
 
