@@ -20,7 +20,7 @@ public class NaiveSolution {
         for(int i=0; i<n; i++){
             int currSum = 0;
             for(int j=i; j<n; j++){
-                currSum += arr[i];
+                currSum += arr[j];
                 if(currSum == sum){
                     res = Math.max(res, j-i+1);
                 }
