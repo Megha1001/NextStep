@@ -13,6 +13,10 @@ package hashing.LongestCommonSpanWithSameSumInBinaryArrays;
  *   - we get -1 when a2[i] = 0 and a2[i] = 1;
  * 
  * 2nd and third will balance each other in case of common subarray. Hence, we need to find subarray with sum = 0
+ * 
+ * 
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPACE : O(N)
  */
 
 import java.util.HashMap;
