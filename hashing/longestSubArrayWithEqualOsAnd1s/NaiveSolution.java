@@ -1,5 +1,10 @@
 package hashing.longestSubArrayWithEqualOsAnd1s;
 
+/*
+ * TIME COMPLEXITY : Theta(N*N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
