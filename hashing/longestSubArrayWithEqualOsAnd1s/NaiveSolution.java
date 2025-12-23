@@ -10,7 +10,8 @@ public class NaiveSolution {
     public static void main(String args[]){
         // int arr[] = {1,0,1,1,1,0,0};
         // int arr[] = {1,1,1,1};
-        int arr[] = {0,0,1,1,1,1,1,0};
+        // int arr[] = {0,0,1,1,1,1,1,0};
+        int arr[] = {0,0,1,0,1,1};
         System.out.println("Longest subarray with equals 0's and 1's is : "+findLongestSubArrayWith0sAnd1s(arr, arr.length));
     }
     
