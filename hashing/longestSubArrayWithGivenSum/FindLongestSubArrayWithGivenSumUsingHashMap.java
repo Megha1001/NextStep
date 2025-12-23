@@ -2,6 +2,11 @@ package hashing.longestSubArrayWithGivenSum;
 
 import java.util.HashMap;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY ARRAY : O(N)
+ */
+
 public class FindLongestSubArrayWithGivenSumUsingHashMap {
 
     public static void main(String args[]){
