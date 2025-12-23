@@ -60,8 +60,6 @@ public class EfficientSolutionUsingHashMap {
             }else {
                 h.put(prefix_sum, ++idx);
             }
-
-
            
         }
 
