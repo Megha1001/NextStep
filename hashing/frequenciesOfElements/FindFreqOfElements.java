@@ -14,7 +14,7 @@ public class FindFreqOfElements {
     public static void findFrequency(int arr[], int n){
         HashMap<Integer, Integer> hashmap = new HashMap<>();
         for(int i=0; i<n; i++){
-            hashmap.put(arr[i], hashmap.getOrDefault(arr[i], 1) +1);
+            hashmap.put(arr[i], hashmap.getOrDefault(arr[i], 0) +1);
         }
 
         //print
