@@ -4,6 +4,9 @@ import java.util.HashSet;
 
 /*
  * WE CAN'T INSERT ALL THEN TRAVERSE otherwise for this example     int arr[] = {8,3,2,5}; int sum = 6; it will give true
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
  */
 
 public class EfficientSolutionUsingHashSet {
