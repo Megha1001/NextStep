@@ -37,16 +37,16 @@ public class EfficientSolutionUsingHashMap {
         for(int i=0; i<n; i++){
             prefix_sum += arr[i];
 
-            if(h.containsKey(prefix_sum - sum)){
-                ++idx;
-                res = Math.max(res, h.get(prefix_sum - sum));
-            }
-
             if(prefix_sum == sum){
                 res = Math.max(res, i+1);
             }
 
-            h.put(prefix_sum, ++idx);
+            if(h.containsKey(prefix_sum - sum)){
+                ++idx;
+                res = Math.max(res, h.get(prefix_sum - sum));
+            }else{
+                h.put(prefix_sum, ++idx);
+            }
 
         }
 
