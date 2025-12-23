@@ -2,6 +2,11 @@ package hashing.subArrayWithGivenValue.prefixSumWithValueZero;
 
 import java.util.HashSet;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
+ */
+
 public class EfficientUsingHashSet {
 
     public static void main(String args[]){
