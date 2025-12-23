@@ -16,7 +16,7 @@ package hashing.subArrayWithGivenValue.prefixSumWithGivenValue;
 
 import java.util.HashSet;
 
-public class EfficientSolution {
+public class EfficientSolutionUsingHashing {
 
     public static void main(String args[]){
         int arr[] = {5,8,6,13,3,-1};
