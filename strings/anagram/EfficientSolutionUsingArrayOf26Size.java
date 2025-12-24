@@ -1,5 +1,10 @@
 package strings.anagram;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class EfficientSolutionUsingArrayOf26Size {
 
     public static void main(String args[]){
