@@ -8,9 +8,9 @@ package strings.palindromeCheck;
 public class EfficientSolution {
 
     public static void main(String args[]){
-        // String s = "ABCDCBA";
+        String s = "ABCDCBA";
         // String s = "ABCCBA";
-        String s = "ABCA";
+        // String s = "ABCA";
         System.out.print("Is the given string palindrome ? "+isPalindrome(s));
     }
 
@@ -19,7 +19,7 @@ public class EfficientSolution {
         int i=0;
         int j=s.length()-1;
 
-        while(i<=j){
+        while(i<j){
             if(s.charAt(i) != s.charAt(j)){
                 return false;
             }
