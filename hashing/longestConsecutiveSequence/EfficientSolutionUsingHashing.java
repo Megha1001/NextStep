@@ -7,6 +7,9 @@ package hashing.longestConsecutiveSequence;
  *  if (h.contains(x-1)) -> that x is not the start of subsequence
  *  if (!h.contains(x-1)) -> that x is start of subsequence
  *      then check for x+1, x+2 and so on
+ * 
+ * TIME COMPLEXITY : Theta(N) , 2n lookups always
+ * AUXILIARY SPACE : O(N)
  */
 
 import java.util.HashSet;
