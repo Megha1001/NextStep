@@ -5,7 +5,7 @@ package strings.anagram;
  * AUXILIARY SPACE : O(1)
  */
 
-public class EfficientSolutionUsingArrayOf26Size {
+public class EfficientSolutionUsingArrayOf256Size {
 
     public static void main(String args[]){
         String s1 = "listen";
