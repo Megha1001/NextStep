@@ -2,7 +2,7 @@ package strings.subSequence.checkIfStringIsSubSequenceOfOther;
 
 /*
  * TIME COMPLEXITY : O(N+M)
- * AUXILIARY SPACE : O(N+M)
+ * AUXILIARY SPACE : O(N)
  */
 
 public class EfficientRecursiveSolution {
