@@ -1,5 +1,9 @@
 package strings.leftmostNonRepeatingElement;
 
+/*
+ * TIME COMPLEXITY : O(N), where N is length of string
+ */
+
 public class EfficientSolutionUsingVisitedArray {
 
     public static int CHAR = 256;
