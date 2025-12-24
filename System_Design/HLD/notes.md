@@ -1,6 +1,3 @@
-Below is a **clean, interview-ready, human-written version** of your notes with **all emojis removed** and a **professional, man-made tone**.
-
----
 
 # Protocols for System Design — Short Notes
 
