@@ -1,3 +1,4 @@
+
 # 🌐 Protocols for System Design — Short Notes
 
 ## 1️⃣ TCP (Transmission Control Protocol)
@@ -204,4 +205,153 @@
 
 > **Protocol choice is a trade-off between reliability, latency, and complexity.**
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 🔁 Forward Proxy vs Reverse Proxy
+
+## 1️⃣ Forward Proxy
+
+### 🔹 What it is
+
+A **forward proxy** sits **between the client and the internet**.
+
+> It represents the **client**.
+
+```
+Client → Forward Proxy → Internet (Server)
+```
+
+The **server does NOT know** the original client.
+
+---
+
+### 🔹 Why it’s used
+
+* Hide client identity (anonymity)
+* Access control (block sites)
+* Caching
+* Bypass geo-restrictions
+* Corporate monitoring
+
+---
+
+### 🔹 Example
+
+* Company proxy for employee internet access
+* VPN
+* TOR (multi-hop proxies)
+
+---
+
+### 🔹 Key characteristics
+
+* Client **must know** about the proxy
+* Used mainly for **outbound traffic**
+* Common in **enterprise networks**
+
+---
+
+### 🔹 Interview one-liner
+
+> **A forward proxy acts on behalf of clients, forwarding their requests to external servers.**
+
+---
+
+## 2️⃣ Reverse Proxy
+
+### 🔹 What it is
+
+A **reverse proxy** sits **in front of servers**.
+
+> It represents the **server**.
+
+```
+Client → Reverse Proxy → Backend Servers
+```
+
+The **client does NOT know** which server handled the request.
+
+---
+
+### 🔹 Why it’s used
+
+* Load balancing
+* Security (hide backend servers)
+* TLS termination
+* Caching
+* Rate limiting
+* DDoS protection
+
+---
+
+### 🔹 Example
+
+* NGINX
+* HAProxy
+* Cloudflare
+* AWS ALB / ELB
+
+---
+
+### 🔹 Key characteristics
+
+* Client is **unaware** of backend servers
+* Used for **inbound traffic**
+* Core component in **system design**
+
+---
+
+### 🔹 Interview one-liner
+
+> **A reverse proxy acts on behalf of servers, receiving client requests and distributing them to backend services.**
+
+---
+
+## 🔁 Side-by-side comparison
+
+| Feature          | Forward Proxy              | Reverse Proxy               |
+| ---------------- | -------------------------- | --------------------------- |
+| Represents       | Client                     | Server                      |
+| Location         | Client-side                | Server-side                 |
+| Client awareness | Client knows               | Client doesn’t know         |
+| Server awareness | Server doesn’t know client | Server doesn’t know backend |
+| Main use         | Outbound control           | Inbound scaling & security  |
+
+---
+
+## 🧠 Real-world analogy
+
+* **Forward proxy** → Personal assistant sending emails *for you*
+* **Reverse proxy** → Receptionist routing visitors to staff
+
+---
+
+## 🎯 System Design usage
+
+When designing a system:
+
+* Use **forward proxy** for:
+
+  * Corporate internet access
+  * Privacy tools
+* Use **reverse proxy** for:
+
+  * Microservices
+  * Load balancing
+  * API gateways
+
+---
+
+## 🚀 Common confusion (important)
+
+> **API Gateway = Reverse Proxy**
+
+Yes — API gateways are specialized reverse proxies.
+
+---
+
+## ✅ Final takeaway
+
+* **Forward proxy hides the client**
+* **Reverse proxy hides the server**
 
