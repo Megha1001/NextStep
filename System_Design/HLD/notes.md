@@ -348,10 +348,250 @@ API Gateway is a specialized form of reverse proxy.
 * Forward proxy hides the client
 * Reverse proxy hides the server
 
+-----
+
+Below is a **clear, interview-ready explanation** of **GraphQL, REST, and Message Queues**, written as **man-made notes** with simple language, examples, and comparisons.
+
 ---
 
-If you want, I can also:
+# 1. REST (Representational State Transfer)
 
-* Convert this into **PDF / markdown notes**
-* Create **flash cards for interview revision**
-* Add **real system design examples (Netflix, WhatsApp, Uber)**
+## What it is
+
+REST is an **API design style** that uses **HTTP** to access and manipulate resources.
+
+Resources are identified by **URLs**, and operations are performed using **HTTP methods**.
+
+```
+GET    /users/123
+POST   /users
+PUT    /users/123
+DELETE /users/123
+```
+
+---
+
+## Key principles
+
+* Stateless (each request is independent)
+* Client–server separation
+* Uses standard HTTP methods
+* Uses HTTP status codes
+* Typically uses JSON over HTTP
+
+---
+
+## Advantages
+
+* Simple and widely understood
+* Easy to cache
+* Works well with HTTP infrastructure
+* Good tooling and ecosystem
+
+---
+
+## Limitations
+
+* Over-fetching or under-fetching data
+* Multiple requests needed for related data
+* Versioning complexity (v1, v2, etc.)
+
+---
+
+## Use cases
+
+* Public APIs
+* CRUD-based applications
+* Standard web and mobile backends
+
+---
+
+## Interview one-liner
+
+REST exposes resources via URLs and uses HTTP methods to perform operations on them.
+
+---
+
+# 2. GraphQL
+
+## What it is
+
+GraphQL is a **query language for APIs** where the **client specifies exactly what data it needs**.
+
+Instead of multiple endpoints, GraphQL usually has **a single endpoint**.
+
+```
+POST /graphql
+```
+
+Example query:
+
+```
+{
+  user(id: 123) {
+    name
+    email
+    posts {
+      title
+    }
+  }
+}
+```
+
+---
+
+## Key characteristics
+
+* Client controls the response shape
+* Single endpoint
+* Strongly typed schema
+* Supports nested queries
+* Real-time updates via subscriptions
+
+---
+
+## Advantages
+
+* No over-fetching or under-fetching
+* Fewer network requests
+* Ideal for frontend-driven development
+* Strong typing and self-documentation
+
+---
+
+## Limitations
+
+* More complex to implement
+* Harder to cache at HTTP level
+* Performance tuning can be tricky
+* Not ideal for simple CRUD APIs
+
+---
+
+## Use cases
+
+* Mobile apps (limited bandwidth)
+* Complex frontend requirements
+* Rapidly evolving UIs
+* Aggregating multiple backend services
+
+---
+
+## Interview one-liner
+
+GraphQL lets clients request exactly the data they need using a strongly typed query language.
+
+---
+
+# 3. Message Queue
+
+## What it is
+
+A Message Queue is an **asynchronous communication mechanism** where producers send messages and consumers process them later.
+
+```
+Producer → Queue → Consumer
+```
+
+The producer and consumer do **not need to be online at the same time**.
+
+---
+
+## Key characteristics
+
+* Asynchronous
+* Decouples services
+* Buffers traffic spikes
+* Supports retries and acknowledgments
+
+---
+
+## Common systems
+
+* RabbitMQ
+* Kafka
+* AWS SQS
+* Google Pub/Sub
+
+---
+
+## Queue vs Pub/Sub
+
+* Queue: One consumer processes each message
+* Pub/Sub: Multiple consumers receive the same message
+
+---
+
+## Advantages
+
+* Improves scalability
+* Increases system reliability
+* Enables event-driven architecture
+* Prevents cascading failures
+
+---
+
+## Limitations
+
+* Eventual consistency
+* Increased system complexity
+* Harder debugging
+* Message ordering challenges
+
+---
+
+## Use cases
+
+* Order processing
+* Payment workflows
+* Email and notification systems
+* Log and event pipelines
+* Background jobs
+
+---
+
+## Interview one-liner
+
+A message queue enables asynchronous, decoupled communication between services.
+
+---
+
+# REST vs GraphQL vs Message Queue (Comparison)
+
+| Aspect        | REST            | GraphQL         | Message Queue         |
+| ------------- | --------------- | --------------- | --------------------- |
+| Communication | Synchronous     | Synchronous     | Asynchronous          |
+| Data fetching | Fixed responses | Client-defined  | Event-based           |
+| Coupling      | Moderate        | Moderate        | Loose                 |
+| Real-time     | Polling         | Subscriptions   | Event-driven          |
+| Best for      | CRUD APIs       | Complex UI data | Background processing |
+| Example tools | HTTP APIs       | Apollo, Relay   | Kafka, RabbitMQ       |
+
+---
+
+# When to Use What (Interview Tip)
+
+* Use **REST** when:
+
+  * APIs are simple and stable
+  * You want easy caching and tooling
+
+* Use **GraphQL** when:
+
+  * Frontend needs flexibility
+  * You want fewer API calls
+
+* Use **Message Queues** when:
+
+  * Work can be processed asynchronously
+  * You need reliability and scalability
+
+---
+
+# One-line System Design Tip
+
+REST and GraphQL are for **request–response**, Message Queues are for **event-driven, asynchronous workflows**.
+
+---
+
+
