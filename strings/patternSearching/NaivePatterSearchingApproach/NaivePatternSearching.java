@@ -1,5 +1,9 @@
 package strings.patternSearching.NaivePatterSearchingApproach;
 
+/*
+ * TIME COMPLEXITY : O(m * (n-m+1))
+ */
+
 public class NaivePatternSearching {
     
     public static void main(String arg[]){
