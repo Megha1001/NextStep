@@ -1,5 +1,9 @@
 package strings.patternSearching.NaivePatterSearchingApproach;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ */
+
 public class NaivePatternSearchingOptimizedWhenPatternHasDistinctElements {
 
     public static void main(String arg[]){
