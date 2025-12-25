@@ -1306,4 +1306,299 @@ NoSQL databases are purpose-built systems optimized for scale, availability, and
 
 ---
 
+# Caching Strategies (System Design Notes)
 
+Caching strategies define **how data flows between Cache and Database** during read and write operations.
+
+---
+
+# READ CACHING STRATEGIES
+
+## 1. Cache-Aside (Lazy Loading)
+
+### How it works
+
+1. Application checks cache
+2. If cache hit → return data
+3. If cache miss → read from DB
+4. Store result in cache
+5. Return data to client
+
+```
+App → Cache?
+      ├─ HIT → Return data
+      └─ MISS → DB → Cache → Return
+```
+
+---
+
+### Key characteristics
+
+* Application manages cache
+* Cache is updated only on misses
+* Most widely used strategy
+
+---
+
+### Advantages
+
+* Simple to implement
+* Cache contains only hot data
+* DB is source of truth
+* Works with any cache system
+
+---
+
+### Disadvantages
+
+* First request is slow (cache miss)
+* Cache can become stale
+* Cache stampede risk
+
+---
+
+### Use cases
+
+* Read-heavy systems
+* Product catalogs
+* User profiles
+* API responses
+
+---
+
+### Interview one-liner
+
+Cache-aside loads data into cache only when requested, making the database the source of truth.
+
+---
+
+## 2. Read-Through Cache
+
+### How it works
+
+1. Application reads from cache
+2. Cache checks itself
+3. On miss, cache fetches data from DB
+4. Cache returns data to application
+
+```
+App → Cache → (miss) → DB → Cache → App
+```
+
+---
+
+### Key characteristics
+
+* Cache abstracts DB access
+* Application never directly calls DB
+* Requires cache to support read-through
+
+---
+
+### Advantages
+
+* Cleaner application code
+* Cache always consistent on reads
+* Reduces developer errors
+
+---
+
+### Disadvantages
+
+* Less control
+* Cache becomes a bottleneck
+* Harder to customize loading logic
+
+---
+
+### Use cases
+
+* Managed cache systems
+* Simple read-heavy services
+
+---
+
+### Interview one-liner
+
+In read-through caching, the cache automatically fetches data from the database on a miss.
+
+---
+
+# WRITE CACHING STRATEGIES
+
+## 1. Write-Aside (Write-Around)
+
+### How it works
+
+1. Application writes directly to DB
+2. Cache is skipped or invalidated
+3. Cache is updated only on next read
+
+```
+App → DB
+Cache (updated later on read)
+```
+
+---
+
+### Key characteristics
+
+* Cache not updated on write
+* Reduces cache pollution
+
+---
+
+### Advantages
+
+* Prevents caching unused data
+* Good for write-heavy systems
+* Simple invalidation logic
+
+---
+
+### Disadvantages
+
+* Read after write can be slow
+* Higher read latency immediately after write
+
+---
+
+### Use cases
+
+* Write-heavy workloads
+* Logs and analytics systems
+
+---
+
+### Interview one-liner
+
+Write-aside writes data directly to the database and updates cache only when needed.
+
+---
+
+## 2. Write-Through Cache
+
+### How it works
+
+1. Application writes to cache
+2. Cache synchronously writes to DB
+3. Write is complete only after DB success
+
+```
+App → Cache → DB
+```
+
+---
+
+### Key characteristics
+
+* Cache and DB always consistent
+* Cache handles write logic
+
+---
+
+### Advantages
+
+* Strong consistency
+* Simple read-after-write behavior
+* Cache always fresh
+
+---
+
+### Disadvantages
+
+* Higher write latency
+* Cache failure impacts writes
+* Increased write load on cache
+
+---
+
+### Use cases
+
+* User profiles
+* Financial or critical data
+
+---
+
+### Interview one-liner
+
+Write-through caching ensures data is written to both cache and database synchronously.
+
+---
+
+## 3. Write-Behind (Write-Back)
+
+### How it works
+
+1. Application writes to cache
+2. Cache acknowledges write
+3. Cache asynchronously writes to DB later
+
+```
+App → Cache → (async) → DB
+```
+
+---
+
+### Key characteristics
+
+* Asynchronous persistence
+* DB write delayed
+* Cache is source of truth temporarily
+
+---
+
+### Advantages
+
+* Very low write latency
+* High throughput
+* Good for burst writes
+
+---
+
+### Disadvantages
+
+* Risk of data loss
+* Eventual consistency
+* Complex failure handling
+
+---
+
+### Use cases
+
+* Metrics collection
+* Event logging
+* Analytics pipelines
+
+---
+
+### Interview one-liner
+
+Write-behind caching improves performance by deferring database writes asynchronously.
+
+---
+
+# Strategy Comparison (Interview Table)
+
+| Strategy      | Read/Write | DB Sync   | Latency    | Risk                  |
+| ------------- | ---------- | --------- | ---------- | --------------------- |
+| Cache-aside   | Read       | On miss   | Medium     | Stale data            |
+| Read-through  | Read       | On miss   | Medium     | Cache bottleneck      |
+| Write-aside   | Write      | Immediate | Low write  | Slow read-after-write |
+| Write-through | Write      | Immediate | High write | Cache dependency      |
+| Write-behind  | Write      | Async     | Very low   | Data loss             |
+
+---
+
+# Common Interview Question
+
+**Which caching strategy is most commonly used?**
+Answer: Cache-aside (read) + write-aside (write)
+
+---
+
+# Final System Design Tip
+
+Use **cache-aside** for reads in most systems, and choose **write-through** or **write-behind** only when you fully understand consistency and failure trade-offs.
+
+---
