@@ -593,5 +593,717 @@ A message queue enables asynchronous, decoupled communication between services.
 REST and GraphQL are for **request–response**, Message Queues are for **event-driven, asynchronous workflows**.
 
 ---
+Below are **clear, interview-ready explanations** of **SQL, NoSQL, Object Storage, Cache, and CDN**, written as **clean system-design notes**.
+
+---
+
+# 1. SQL Databases (Relational Databases)
+
+## What it is
+
+SQL databases store data in **tables with rows and columns** and use **structured schemas**.
+
+Examples:
+
+* MySQL
+* PostgreSQL
+* Oracle
+* SQL Server
+
+---
+
+## Key characteristics
+
+* Fixed schema
+* Tables with relationships (foreign keys)
+* ACID transactions
+* Strong consistency
+* Uses SQL query language
+
+---
+
+## Advantages
+
+* Strong data integrity
+* Supports complex queries and joins
+* Ideal for transactional workloads
+* Mature ecosystem
+
+---
+
+## Limitations
+
+* Harder to scale horizontally
+* Schema changes can be expensive
+* Less flexible for unstructured data
+
+---
+
+## Use cases
+
+* Banking and finance systems
+* E-commerce orders and payments
+* User accounts and authentication
+* Inventory management
+
+---
+
+## Interview one-liner
+
+SQL databases provide structured, strongly consistent data storage with ACID guarantees.
+
+---
+
+# 2. NoSQL Databases
+
+## What it is
+
+NoSQL databases store data in **non-relational formats** and are designed for **scalability and flexibility**.
+
+---
+
+## Types of NoSQL databases
+
+### Key-Value Stores
+
+* Redis
+* DynamoDB
+* Riak
+
+### Document Stores
+
+* MongoDB
+* CouchDB
+
+### Column-Family Stores
+
+* Cassandra
+* HBase
+
+### Graph Databases
+
+* Neo4j
+* Amazon Neptune
+
+---
+
+## Key characteristics
+
+* Schema-less or flexible schema
+* Horizontal scalability
+* Eventual consistency (often)
+* Optimized for specific access patterns
+
+---
+
+## Advantages
+
+* Handles massive scale
+* Flexible data models
+* High availability
+* Fast reads and writes
+
+---
+
+## Limitations
+
+* Weaker consistency guarantees
+* Limited joins and complex queries
+* Data duplication is common
+
+---
+
+## Use cases
+
+* User profiles
+* Session storage
+* Recommendation systems
+* IoT data
+* Social graphs
+
+---
+
+## Interview one-liner
+
+NoSQL databases trade strong consistency for scalability and flexibility.
+
+---
+
+# SQL vs NoSQL (Quick Comparison)
+
+| Aspect       | SQL          | NoSQL                       |
+| ------------ | ------------ | --------------------------- |
+| Schema       | Fixed        | Flexible                    |
+| Transactions | ACID         | BASE / eventual consistency |
+| Scaling      | Vertical     | Horizontal                  |
+| Joins        | Supported    | Limited                     |
+| Best for     | Transactions | Large-scale data            |
+
+---
+
+# 3. Object Storage
+
+## What it is
+
+Object storage stores data as **objects**, not files or blocks.
+
+Each object contains:
+
+* Data
+* Metadata
+* Unique ID
+
+Examples:
+
+* Amazon S3
+* Google Cloud Storage
+* Azure Blob Storage
+
+---
+
+## Key characteristics
+
+* Flat namespace
+* Massive scalability
+* High durability
+* Accessed via HTTP APIs
+
+---
+
+## Advantages
+
+* Cheap storage
+* Extremely durable
+* Easy to scale
+* Ideal for unstructured data
+
+---
+
+## Limitations
+
+* Higher latency than databases
+* No partial updates (replace whole object)
+* Limited querying capability
+
+---
+
+## Use cases
+
+* Images and videos
+* Backups and archives
+* Static website assets
+* Data lakes
+
+---
+
+## Interview one-liner
+
+Object storage is optimized for storing massive amounts of unstructured data with high durability.
+
+---
+
+# 4. Cache
+
+## What it is
+
+A cache is a **fast, in-memory data store** that stores **frequently accessed data** to reduce latency.
+
+Examples:
+
+* Redis
+* Memcached
+
+---
+
+## Key characteristics
+
+* In-memory
+* Very low latency
+* Temporary storage
+* Data can be evicted
+
+---
+
+## Cache strategies
+
+* Read-through
+* Write-through
+* Write-behind
+* Cache-aside (most common)
+
+---
+
+## Advantages
+
+* Dramatically improves performance
+* Reduces database load
+* Improves scalability
+
+---
+
+## Limitations
+
+* Data can become stale
+* Requires eviction strategies
+* Cache consistency challenges
+
+---
+
+## Use cases
+
+* User sessions
+* Frequently read objects
+* API responses
+* Leaderboards
+* Rate limiting
+
+---
+
+## Interview one-liner
+
+A cache improves performance by storing frequently accessed data in memory.
+
+---
+
+# 5. CDN (Content Delivery Network)
+
+## What it is
+
+A CDN is a **distributed network of servers** that deliver content from locations **closest to the user**.
+
+```
+User → Nearest CDN Edge → Origin Server
+```
+
+Examples:
+
+* Cloudflare
+* Akamai
+* AWS CloudFront
+
+---
+
+## Key characteristics
+
+* Globally distributed edge servers
+* Caches static content
+* Reduces latency
+* Absorbs traffic spikes
+
+---
+
+## Advantages
+
+* Faster content delivery
+* Reduces load on origin servers
+* Improves availability
+* Built-in DDoS protection
+
+---
+
+## Limitations
+
+* Cache invalidation complexity
+* Not ideal for highly dynamic content
+* Added cost
+
+---
+
+## Use cases
+
+* Images, videos, CSS, JS
+* Static websites
+* Streaming platforms
+* Software downloads
+
+---
+
+## Interview one-liner
+
+A CDN reduces latency by serving content from geographically closer servers.
+
+---
+
+# How These Fit Together (System Design View)
+
+Example: E-commerce platform
+
+* CDN → serves images and static assets
+* Cache → stores frequently accessed product data
+* SQL → stores orders and payments
+* NoSQL → stores user sessions and recommendations
+* Object Storage → stores product images and videos
+
+---
+
+# Final System Design Tip
+
+Use **SQL for correctness**, **NoSQL for scale**, **cache for speed**, **object storage for files**, and **CDN for global delivery**.
+
+---
+
+Below is a **detailed, interview-ready explanation of NoSQL databases**, broken down by **types**, with **real examples**, **data models**, **use cases**, and **when to choose each**.
+
+---
+
+# NoSQL Databases — Detailed Explanation with Types
+
+## What is NoSQL?
+
+NoSQL databases are **non-relational databases** designed to handle:
+
+* Massive scale
+* High availability
+* Flexible or evolving schemas
+* Distributed systems
+
+They typically **trade strong consistency and joins** for **performance, scalability, and availability**.
+
+---
+
+## Why NoSQL Exists (Problem SQL Struggles With)
+
+Traditional SQL databases:
+
+* Scale vertically (harder and expensive)
+* Require fixed schemas
+* Struggle with very large distributed workloads
+
+NoSQL databases:
+
+* Scale horizontally (add more machines)
+* Handle unstructured or semi-structured data
+* Are optimized for specific access patterns
+
+---
+
+# Types of NoSQL Databases
+
+## 1. Key-Value Stores
+
+### What it is
+
+The simplest NoSQL model.
+
+Data is stored as:
+
+```
+Key → Value
+```
+
+Example:
+
+```
+"user:123" → "{name: 'Alice', age: 25}"
+```
+
+---
+
+### Characteristics
+
+* Extremely fast
+* No schema
+* Value is treated as a blob
+* No querying inside the value
+
+---
+
+### Popular Examples
+
+* Redis
+* Amazon DynamoDB
+* Riak
+* Aerospike
+
+---
+
+### Use cases
+
+* Session storage
+* Caching
+* User preferences
+* Shopping carts
+* Rate limiting
+
+---
+
+### Pros
+
+* Very fast reads and writes
+* Highly scalable
+* Simple design
+
+---
+
+### Cons
+
+* Limited querying
+* No relationships
+* Application handles data structure
+
+---
+
+### Interview one-liner
+
+Key-value stores provide ultra-fast access by mapping unique keys to values.
+
+---
+
+## 2. Document Stores
+
+### What it is
+
+Stores data as **documents**, usually in **JSON or BSON** format.
+
+Example document:
+
+```json
+{
+  "id": 123,
+  "name": "Alice",
+  "email": "alice@gmail.com",
+  "orders": [
+    { "orderId": 1, "amount": 500 },
+    { "orderId": 2, "amount": 300 }
+  ]
+}
+```
+
+---
+
+### Characteristics
+
+* Flexible schema
+* Nested data supported
+* Queryable fields
+* Each document is self-contained
+
+---
+
+### Popular Examples
+
+* MongoDB
+* CouchDB
+* Firebase Firestore
+
+---
+
+### Use cases
+
+* User profiles
+* Content management systems
+* Product catalogs
+* Mobile applications
+
+---
+
+### Pros
+
+* Flexible schema
+* Easy to evolve data model
+* Natural JSON mapping
+
+---
+
+### Cons
+
+* Limited joins
+* Data duplication
+* Transactions are limited (though improving)
+
+---
+
+### Interview one-liner
+
+Document databases store semi-structured data as JSON-like documents with flexible schemas.
+
+---
+
+## 3. Column-Family Stores (Wide-Column Databases)
+
+### What it is
+
+Data is stored in **rows and columns**, but columns are grouped into **column families**.
+
+Unlike SQL:
+
+* Rows can have different columns
+* Schema is partially flexible
+
+---
+
+### Example
+
+```
+UserID | name | email | last_login | device
+-------------------------------------------
+123    | Alice| a@x.com| 2025-01-01 | mobile
+456    | Bob  |        | 2025-01-02 |
+```
+
+---
+
+### Characteristics
+
+* Optimized for large-scale writes
+* Designed for distributed storage
+* Query patterns must be known in advance
+
+---
+
+### Popular Examples
+
+* Apache Cassandra
+* Apache HBase
+* Google Bigtable
+
+---
+
+### Use cases
+
+* Time-series data
+* IoT data
+* Logs and metrics
+* Recommendation engines
+
+---
+
+### Pros
+
+* Massive scalability
+* High write throughput
+* Fault-tolerant
+
+---
+
+### Cons
+
+* Complex data modeling
+* Limited querying
+* No joins
+
+---
+
+### Interview one-liner
+
+Column-family stores are optimized for large-scale, distributed workloads with predictable query patterns.
+
+---
+
+## 4. Graph Databases
+
+### What it is
+
+Stores data as:
+
+* Nodes (entities)
+* Edges (relationships)
+* Properties (metadata)
+
+Example:
+
+```
+(Alice) —[FRIEND]→ (Bob)
+```
+
+---
+
+### Characteristics
+
+* Optimized for relationship traversal
+* Schema-flexible
+* Uses graph query languages
+
+---
+
+### Popular Examples
+
+* Neo4j
+* Amazon Neptune
+* JanusGraph
+
+---
+
+### Use cases
+
+* Social networks
+* Recommendation systems
+* Fraud detection
+* Knowledge graphs
+
+---
+
+### Pros
+
+* Excellent for connected data
+* Fast relationship queries
+* Intuitive data modeling
+
+---
+
+### Cons
+
+* Hard to scale horizontally
+* Not suitable for simple key-value access
+* Smaller ecosystem
+
+---
+
+### Interview one-liner
+
+Graph databases excel at storing and querying highly connected data.
+
+---
+
+## NoSQL Consistency Model (CAP Theorem)
+
+NoSQL systems often follow **BASE** instead of ACID:
+
+* Basically Available
+* Soft state
+* Eventual consistency
+
+Some NoSQL databases allow **tunable consistency**:
+
+* DynamoDB
+* Cassandra
+
+---
+
+## SQL vs NoSQL (Quick Recap)
+
+| Feature      | SQL          | NoSQL               |
+| ------------ | ------------ | ------------------- |
+| Schema       | Fixed        | Flexible            |
+| Scaling      | Vertical     | Horizontal          |
+| Transactions | Strong ACID  | Eventual (mostly)   |
+| Joins        | Yes          | Limited             |
+| Best for     | Transactions | Large-scale systems |
+
+---
+
+## Choosing the Right NoSQL Database (Interview Tip)
+
+* Need **speed and simplicity** → Key-Value
+* Need **flexible JSON data** → Document store
+* Need **massive writes and scale** → Column-family
+* Need **relationship-heavy queries** → Graph database
+
+---
+
+## Real-World Example (E-commerce)
+
+* Redis → user sessions and cart
+* MongoDB → product catalog
+* Cassandra → clickstream events
+* Neo4j → recommendations
+
+---
+
+## Final One-liner
+
+NoSQL databases are purpose-built systems optimized for scale, availability, and flexible data models rather than strict relational guarantees.
+
+---
 
 
