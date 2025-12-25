@@ -47,7 +47,7 @@ public class EfficientMethod {
 
     public static void reverse(char[] c, int low, int high){
 
-        while(low < high){
+        while(low <= high){
             char temp = c[low];
             c[low] = c[high];
             c[high] = temp;
