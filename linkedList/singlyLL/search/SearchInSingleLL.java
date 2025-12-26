@@ -1,9 +1,5 @@
 package linkedList.singlyLL.search;
 
-/*
- * TIME COMPLEXITY : O(N)
- * AUXILIARY SPACE : O(1)
- */
 
 class Node{
 
@@ -25,8 +21,14 @@ public class SearchInSingleLL {
         head.next.next = new Node(20);
         head.next.next.next = new Node(15);
 
-        System.out.println("Element is present at idx : "+ search(head, 20));
+        System.out.println("Iterative method : Element is present at idx : "+ search(head, 20));
+        System.out.println("Recursive method : Element is present at idx : "+ searchRecursively(head, 20, 1));
     }
+    
+    /*
+    * TIME COMPLEXITY : O(N)
+    * AUXILIARY SPACE : O(1)
+    */
 
     public static int search(Node head, int x){
         if(head == null){
@@ -45,6 +47,24 @@ public class SearchInSingleLL {
 
         return -1;
 
+    }
+    
+    /*
+    * TIME COMPLEXITY : O(N)
+    * AUXILIARY SPACE : O(N)
+    */
+
+
+    public static int searchRecursively(Node head, int x, int idx){
+        if(head==null){
+            return -1;
+        }
+
+        if(head.data == x){
+            return idx;
+        }
+
+        return searchRecursively(head.next, x, idx+1);
     }
     
 }
