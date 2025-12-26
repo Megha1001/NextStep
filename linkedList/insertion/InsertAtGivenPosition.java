@@ -45,6 +45,13 @@ public class InsertAtGivenPosition {
                 return;
             }
 
+            //insert at head
+            if(pos == 1){
+                newNode.next = head;
+                head = newNode;
+                return;
+            }
+
             //reference to pos-1
             int count = 1; // treating 1st node as 1st count
             Node curr = head;
@@ -80,7 +87,7 @@ public class InsertAtGivenPosition {
         System.out.println("Given linked list");
         LinkedList.traverse();
         
-        LinkedList.insertAtGivenPos(2, 20);
+        LinkedList.insertAtGivenPos(1, 20);
 
         System.out.println("Modified linked list");
         LinkedList.traverse();
