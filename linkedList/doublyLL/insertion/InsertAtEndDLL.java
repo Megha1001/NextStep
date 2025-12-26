@@ -19,14 +19,14 @@ public class InsertAtEndDLL {
         head.next.next = new Node(30);
         head.next.next.prev = head.next;
 
-        insertAtEnd(head, 40);
+        head = insertAtEnd(head, 40);
         traverse(head);
     }
     
-    public static void insertAtEnd(Node head, int x){
+    public static Node insertAtEnd(Node head, int x){
         Node newNode  = new Node(x);
         if(head==null){
-            return;
+            return newNode;
         }
 
         Node curr = head;
@@ -36,6 +36,7 @@ public class InsertAtEndDLL {
 
         curr.next = newNode;
         newNode.prev = curr;
+        return head;
     }
 
     public static void traverse(Node head){
