@@ -87,7 +87,7 @@ public class InsertAtGivenPosition {
         System.out.println("Given linked list");
         LinkedList.traverse();
         
-        LinkedList.insertAtGivenPos(1, 20);
+        LinkedList.insertAtGivenPos(3, 20);
 
         System.out.println("Modified linked list");
         LinkedList.traverse();
