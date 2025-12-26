@@ -1,4 +1,4 @@
-package linkedList.insertion;
+package linkedList.singlyLL.insertion;
 
 class NodeInsertAtEnd{
     int data;

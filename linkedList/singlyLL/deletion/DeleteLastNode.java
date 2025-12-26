@@ -1,4 +1,4 @@
-package linkedList.deletion;
+package linkedList.singlyLL.deletion;
 
 /*
  * TIME COMPLEXITY : O(N)

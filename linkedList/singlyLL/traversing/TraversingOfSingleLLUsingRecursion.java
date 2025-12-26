@@ -1,4 +1,4 @@
-package linkedList.traversing;
+package linkedList.singlyLL.traversing;
 
 /*
  * TIME COMPLEXITY : O(N)

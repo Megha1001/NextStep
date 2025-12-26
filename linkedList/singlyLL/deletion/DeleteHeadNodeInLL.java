@@ -1,4 +1,4 @@
-package linkedList.deletion;
+package linkedList.singlyLL.deletion;
 
 public class DeleteHeadNodeInLL {
 
