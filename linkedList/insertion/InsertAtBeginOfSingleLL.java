@@ -1,26 +1,26 @@
 package linkedList.insertion;
 
-class Node{
+class NodeInsertAtBegin{
     int data;
-    Node next;
+    NodeInsertAtBegin next;
 
-    Node(int data){
+    NodeInsertAtBegin(int data){
         this.data = data;
         this.next = null;
     }
 }
 
-class LinkedList{
-    Node head;
+class LinkedListInsertAtBegin{
+    NodeInsertAtBegin head;
     public void insertAtBegin(int data){
-        Node newNode = new Node(data);
+        NodeInsertAtBegin newNode = new NodeInsertAtBegin(data);
         newNode.next = head;
         head = newNode;
     }
 
 
     public void traverse(){
-        Node curr = head;
+        NodeInsertAtBegin curr = head;
         while(curr!=null){
             System.out.print(curr.data + " ");
             curr = curr.next;
@@ -32,7 +32,7 @@ public class InsertAtBeginOfSingleLL {
 
 
     public static void main(String args[]){
-        LinkedList list = new LinkedList();
+        LinkedListInsertAtBegin list = new LinkedListInsertAtBegin();
         list.insertAtBegin(1);
         list.insertAtBegin(2);
         list.insertAtBegin(3);

@@ -1,18 +1,28 @@
 package linkedList.insertion;
 
+class NodeInsertAtEnd{
+    int data;
+    NodeInsertAtEnd next;
+
+    NodeInsertAtEnd(int data){
+        this.data = data;
+        this.next = null;
+    }
+}
+
 class LinkedListInsertAtEnd{
-    Node head;
+    NodeInsertAtEnd head;
 
 
     public void insertAtEnd(int x){
-        Node newNode = new Node(x);
+        NodeInsertAtEnd newNode = new NodeInsertAtEnd(x);
 
         if(head == null){
             head = newNode;
             return;
         }
 
-        Node curr = head;
+        NodeInsertAtEnd curr = head;
         while(curr.next != null){
             curr = curr.next;
         }
@@ -22,7 +32,7 @@ class LinkedListInsertAtEnd{
     }
 
     public void traverse(){
-        Node curr = head;
+        NodeInsertAtEnd curr = head;
         while(curr != null){
             System.out.print(curr.data + " ");
             curr = curr.next;
