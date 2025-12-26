@@ -1,5 +1,10 @@
 package linkedList.singlyLL.search;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 class Node{
 
     int data;
