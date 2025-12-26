@@ -1,5 +1,10 @@
 package linkedList.doublyLL.insertion;
 
+/*
+ * TIME COMPLEXITY : O(1)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class InsertAtBeginDLL {
 
     static class Node {
