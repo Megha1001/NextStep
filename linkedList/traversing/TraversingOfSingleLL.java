@@ -1,5 +1,10 @@
 package linkedList.traversing;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class TraversingOfSingleLL {
 
     static class Node{
