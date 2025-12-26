@@ -1,5 +1,10 @@
 package linkedList.traversing;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N), for recursion call stack
+ */
+
 public class TraversingOfSingleLLUsingRecursion {
 
     static class Node{
