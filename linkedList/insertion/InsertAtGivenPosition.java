@@ -35,7 +35,7 @@ public class InsertAtGivenPosition {
         public static void insertAtGivenPos(int pos, int x){
             Node newNode = new Node(x);
 
-            if((head == null && pos > 1) || pos > (size+1)){
+            if(pos > (size+1)){
                 return ; //invalid
             }
 
