@@ -39,12 +39,6 @@ public class InsertAtGivenPosition {
                 return ; //invalid
             }
 
-            if(head == null && pos == 1){
-                //first and only node
-                head = newNode;
-                return;
-            }
-
             //insert at head
             if(pos == 1){
                 newNode.next = head;
