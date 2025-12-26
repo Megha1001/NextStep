@@ -13,3 +13,5 @@ https://www.geeksforgeeks.org/batch/dsa-4/track/DSASP-Matrix/video/MjI2Mw%3D%3D
 - Perfetch hashing - if data known to us then there is no collision
 
 - Suffix tree
+
+- Skip list (linked list for faster searching)
