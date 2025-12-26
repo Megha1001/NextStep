@@ -13,10 +13,11 @@ public class InsertAtGivenPosition {
 
     static class LinkedList{
         static Node head;
+        static int size;
 
         public static void insertAtEnd(int x){
             Node newNode = new Node(x);
-
+            ++size;
             if(head==null){
                 head = newNode;
                 return;
@@ -34,7 +35,7 @@ public class InsertAtGivenPosition {
         public static void insertAtGivenPos(int pos, int x){
             Node newNode = new Node(x);
 
-            if(head == null && pos > 1){
+            if((head == null && pos > 1) || pos > (size+1)){
                 return ; //invalid
             }
 
@@ -56,6 +57,7 @@ public class InsertAtGivenPosition {
             //order is imp!!
             newNode.next = curr.next;
             curr.next = newNode;
+            ++size;
         }
 
         public static void traverse(){
@@ -77,10 +79,13 @@ public class InsertAtGivenPosition {
         LinkedList.insertAtEnd(70);
         System.out.println("Given linked list");
         LinkedList.traverse();
+        
         LinkedList.insertAtGivenPos(2, 20);
 
         System.out.println("Modified linked list");
         LinkedList.traverse();
+
+        System.out.println("size of Linked list is : "+ LinkedList.size);
     }
     
     
