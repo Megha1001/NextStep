@@ -1,5 +1,10 @@
 package linkedList.doublyLL.deletion;
 
+/*
+ * TIME COMPLEXITY : O(1)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class DeleteHeadNodeDLL {
 
     static class Node{
