@@ -2,6 +2,9 @@ package linkedList.singlyLL.nthNode;
 
 /*
  * IDEA : Find length-N+1 from start
+ * 
+ * TIME COMPLEXITY : O(N + Pos) = O(N) , two traversal
+ * AUXILIARY SPACE : O(1)
  */
 
 public class FindNthNodeFromEndSLL {
