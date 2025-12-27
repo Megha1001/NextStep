@@ -465,9 +465,6 @@ You can change the object, but you cannot change what the caller’s reference p
             return null;
         }
 
-        if(head.next == null){
-            return head;
-        }
 
         Node slow = head;
         Node fast = head;
