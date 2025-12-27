@@ -1589,3 +1589,156 @@ Write-behind caching improves performance by deferring database writes asynchron
 | Write-behind  | Write      | Async     | Very low   | Data loss             |
 
 ---
+
+
+# CAP Theorem — One-Page Revision Notes
+
+## Definition
+
+The **CAP Theorem** states that a **distributed system** can guarantee **only two** of the following three properties **at the same time**, **during a network partition**:
+
+* **Consistency (C)**
+* **Availability (A)**
+* **Partition Tolerance (P)**
+
+---
+
+## Core Rule
+
+> **When a partition occurs, you must choose between Consistency and Availability.**
+
+Partition Tolerance is **mandatory** in distributed systems.
+
+---
+
+## CAP Properties (Quick)
+
+### Consistency (C)
+
+* All nodes return the **same, most recent data**
+* Strong correctness
+* Example: bank balance must be exact
+
+---
+
+### Availability (A)
+
+* Every request gets a **response**
+* Response may be stale
+* System never blocks users
+
+---
+
+### Partition Tolerance (P)
+
+* System continues to operate despite **network failures**
+* Nodes may not communicate with each other
+
+---
+
+## CAP Triangle
+
+```
+        Consistency (C)
+             ▲
+             │
+             │
+ Availability ─────── Partition Tolerance
+       (A)              (P)
+```
+
+Only **two** can be guaranteed at once.
+
+---
+
+## CAP Combinations
+
+### CP — Consistency + Partition Tolerance
+
+* Correct data
+* Requests may fail during partition
+* Lower availability
+
+**Examples**
+
+* HBase
+* MongoDB (default)
+* ZooKeeper
+
+**Use when**
+
+* Financial systems
+* Critical correctness required
+
+---
+
+### AP — Availability + Partition Tolerance
+
+* Always responds
+* Data may be stale
+* Eventual consistency
+
+**Examples**
+
+* Cassandra
+* DynamoDB
+* CouchDB
+
+**Use when**
+
+* Social media
+* Metrics, logs
+* User content
+
+---
+
+### CA — Consistency + Availability
+
+* Works only without partitions
+* Not realistic for distributed systems
+
+**Examples**
+
+* Single-node SQL database
+
+---
+
+## Summary Table
+
+| Type | Guarantees                 | Sacrifices          |
+| ---- | -------------------------- | ------------------- |
+| CP   | Consistency + Partition    | Availability        |
+| AP   | Availability + Partition   | Consistency         |
+| CA   | Consistency + Availability | Partition tolerance |
+
+---
+
+## Important Interview Clarifications
+
+* CAP applies **only during network partitions**
+* Systems are **not permanently CP or AP**
+* Many databases support **tunable consistency**
+* CAP is about **distributed systems**, not single servers
+
+---
+
+## CAP vs ACID vs BASE
+
+* **ACID** → Transaction guarantees (SQL)
+* **CAP** → Distributed system trade-offs
+* **BASE** → Availability-first design (NoSQL)
+
+---
+
+## One-Line Interview Answer
+
+CAP Theorem states that during a network partition, a distributed system must choose between consistency and availability.
+
+---
+
+## Memory Trick
+
+* **CP** → Correctness over uptime
+* **AP** → Uptime over correctness
+
+---
