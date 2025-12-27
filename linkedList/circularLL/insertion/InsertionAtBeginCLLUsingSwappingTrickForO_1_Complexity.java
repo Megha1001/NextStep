@@ -1,7 +1,7 @@
 package linkedList.circularLL.insertion;
 
 /*
- * TIME COMPLEXITY : O(N)
+ * TIME COMPLEXITY : O(1) --> BY Inserting after head and swap later with head
  * AUXILIARY SPACE : O(1)
  */
 
