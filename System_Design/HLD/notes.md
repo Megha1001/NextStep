@@ -1740,5 +1740,86 @@ CAP Theorem states that during a network partition, a distributed system must ch
 
 * **CP** → Correctness over uptime
 * **AP** → Uptime over correctness
+---
+
+# Consistent Hashing — Short Notes
+
+## What it is
+
+A hashing technique used in **distributed systems** to **reduce data movement** when nodes are **added or removed**.
 
 ---
+
+## Problem it Solves
+
+Traditional hashing (`hash(key) % N`) causes **massive remapping** when `N` (number of servers) changes.
+
+---
+
+## Core Idea
+
+* Hash **servers and keys**
+* Place them on a **logical ring**
+* Each key is assigned to the **next server clockwise**
+
+---
+
+## Simple Diagram
+
+```
+0 ---- A ---- B ---- C ---- 360
+       ↑     ↑
+      K1    K2
+```
+
+Keys map to the nearest server clockwise.
+
+---
+
+## Key Benefits
+
+* Minimal data redistribution
+* High cache hit rate
+* Supports dynamic scaling
+
+---
+
+## Node Changes
+
+### Server Removed
+
+* Only keys of that server move
+* Others remain unchanged
+
+### Server Added
+
+* Only nearby keys move to new server
+
+---
+
+## Virtual Nodes (Important)
+
+* Each physical server has **multiple virtual positions**
+* Improves load balancing
+* Prevents hot spots
+
+---
+
+## Where It’s Used
+
+* Distributed caches (Redis)
+* Databases (Cassandra, DynamoDB)
+* Load balancers
+* CDNs
+
+---
+
+## Interview One-Liner
+
+Consistent hashing distributes keys across nodes such that only a small fraction of data moves when nodes change.
+
+---
+
+## Memory Trick
+
+> **Only neighbors are affected, not the entire system**
