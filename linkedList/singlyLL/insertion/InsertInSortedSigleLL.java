@@ -1,5 +1,11 @@
 package linkedList.singlyLL.insertion;
 
+/*
+ * TIME COMPLEXITY : O(P), where P is position of element in final LL
+ * AUXILIARY SPACE : O(1)
+ * 
+ */
+
 public class InsertInSortedSigleLL {
 
     static class Node{
