@@ -6,7 +6,7 @@ package linkedList.circularLL.traversal;
  * AUXILIARY SPACE : O(1)
  */
 
-public class TraverseCLL {
+public class TraverseCLLUsingDoWhileLoop {
 
     static class Node{
         int data;
