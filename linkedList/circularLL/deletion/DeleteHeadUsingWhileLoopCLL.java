@@ -1,5 +1,10 @@
 package linkedList.circularLL.deletion;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class DeleteHeadUsingWhileLoopCLL {
 
     static class Node{
