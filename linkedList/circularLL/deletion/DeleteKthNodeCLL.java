@@ -22,6 +22,7 @@ public class DeleteKthNodeCLL {
         int k = 2;
         // head = deleteNodeAtKthPosition(head, 1);
         // head = deleteNodeAtKthPosition(head, 3);
+        head = deleteNodeAtKthPosition(head, k);
         System.out.println();
         traverse(head);
 
