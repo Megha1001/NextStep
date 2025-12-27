@@ -1589,16 +1589,3 @@ Write-behind caching improves performance by deferring database writes asynchron
 | Write-behind  | Write      | Async     | Very low   | Data loss             |
 
 ---
-
-# Common Interview Question
-
-**Which caching strategy is most commonly used?**
-Answer: Cache-aside (read) + write-aside (write)
-
----
-
-# Final System Design Tip
-
-Use **cache-aside** for reads in most systems, and choose **write-through** or **write-behind** only when you fully understand consistency and failure trade-offs.
-
----
