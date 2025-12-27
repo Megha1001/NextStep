@@ -5,7 +5,7 @@ package linkedList.circularLL.creation;
  * AUXILIARY SPACE : O(1)
  */
 
-public class CreateDLL {
+public class CreateCLL {
 
     static class Node{
         int data;
