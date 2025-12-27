@@ -445,3 +445,39 @@ You can change the object, but you cannot change what the caller’s reference p
 
 
     }
+
+27. Find Middle in SLL
+/*
+ * IDEA : Use slow and fast references
+ * 1. Move slow by 1 and fast by two reference until fast reaches end
+ *  Odd : fast != null
+ *  Even : fast.next != null
+ * 
+ * When fast reached end, slow will be in middle
+ * 
+ * TIME COMPLEXITY : O(N) --> But one traversal
+ * AUXILIARY SPACE : O(1);
+ */
+
+    public static Node findMiddleElement(Node head){
+
+        if(head == null){
+            return null;
+        }
+
+        if(head.next == null){
+            return head;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+        
+
+    }
