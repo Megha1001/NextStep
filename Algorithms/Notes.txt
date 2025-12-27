@@ -422,3 +422,26 @@ public static void sortUsingDutchNationalFlagAlgo(int arr[], int n){
 
 25. Java passes object references by value.
 You can change the object, but you cannot change what the caller’s reference points to.
+
+26. Reverse DLL
+    public static Node reverseDLL(Node head){
+        if(head == null || head.next==null){
+            return head;
+        }
+
+        Node curr = head;
+        Node prev = null;
+
+        while(curr != null){
+            prev = curr.prev;
+            curr.prev = curr.next;
+            curr.next = prev;
+
+            //curr.next now becomes curr.prev
+            curr = curr.prev;
+        }
+
+        return prev.prev;
+
+
+    }
