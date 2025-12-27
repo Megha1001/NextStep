@@ -7,6 +7,9 @@ package linkedList.singlyLL.middle;
  *  Even : fast.next != null
  * 
  * When fast reached end, slow will be in middle
+ * 
+ * TIME COMPLEXITY : O(N) --> But one traversal
+ * AUXILIARY SPACE : O(1);
  */
 
 public class EfficientSolutionUsingFastAndSlowReference {
