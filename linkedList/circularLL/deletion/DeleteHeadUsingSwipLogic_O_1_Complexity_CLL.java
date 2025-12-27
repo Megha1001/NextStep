@@ -30,6 +30,9 @@ public class DeleteHeadUsingSwipLogic_O_1_Complexity_CLL {
         head = deleteHead(head);
         System.out.println();
         traverse(head);
+        head = deleteHeadOptimized(head);
+        System.out.println();
+        traverse(head);
     }
 
 
@@ -43,6 +46,21 @@ public class DeleteHeadUsingSwipLogic_O_1_Complexity_CLL {
         int temp = head.data;
         head.data = head.next.data;
         head.next.data = temp;
+
+        //delete temp
+        head.next = head.next.next;
+
+        return head;
+
+    }
+
+    public static Node deleteHeadOptimized(Node head){
+        //no node or single node
+        if(head == null || head.next == head){
+            return null;
+        }
+
+        head.data = head.next.data;
 
         //delete temp
         head.next = head.next.next;
