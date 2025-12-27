@@ -2,6 +2,9 @@ package linkedList.singlyLL.reverse;
 
 /*
  * IDEA : Traverse the linked list and insert at begin
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N), for reversed LL
  */
 
 public class NaiveApproachUsingInsertAtHead {
