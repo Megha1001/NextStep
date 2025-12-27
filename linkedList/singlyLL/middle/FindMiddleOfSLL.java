@@ -1,5 +1,10 @@
 package linkedList.singlyLL.middle;
 
+/*
+ * TIME COMPLEXITY : O(pos), where pos is middle position
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class FindMiddleOfSLL {
 
     static class Node {
