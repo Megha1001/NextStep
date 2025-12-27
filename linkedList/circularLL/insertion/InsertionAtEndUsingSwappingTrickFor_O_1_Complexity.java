@@ -41,7 +41,7 @@ public class InsertionAtEndUsingSwappingTrickFor_O_1_Complexity {
         newNode.data = head.data;
         head.data = temp;
 
-        return head.next;
+        return newNode;
     }
 
     public static void traverse(Node head){
