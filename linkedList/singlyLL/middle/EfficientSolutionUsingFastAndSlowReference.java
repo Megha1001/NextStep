@@ -56,10 +56,6 @@ public class EfficientSolutionUsingFastAndSlowReference {
             return null;
         }
 
-        if(head.next == null){
-            return head;
-        }
-
         Node slow = head;
         Node fast = head;
 
