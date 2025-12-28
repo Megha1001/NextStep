@@ -1,7 +1,7 @@
 package linkedList.singlyLL.reverse;
 
 /*
- * TIME COMPLEXITY : Theta(N)
+ * TIME COMPLEXITY : Theta(N), one traversal
  * AUXILIARY SPACE : O(1)
  */
 
