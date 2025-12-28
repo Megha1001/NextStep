@@ -24,13 +24,13 @@ public class EfficientSolution {
         head.next = new Node(15);
         head.next.next = new Node(20);
         head.next.next.next = new Node(30);
-        head = removeDuplicates(head);
+        removeDuplicates(head);
         traverse(head);
     }
 
-    public static Node removeDuplicates(Node head){
+    public static void removeDuplicates(Node head){
         if(head==null || head.next == null){
-            return head;
+            return ;
         }
 
         Node curr = head;
@@ -42,8 +42,6 @@ public class EfficientSolution {
                 curr = curr.next;
             }
         }
-
-        return head;
        
     }
 
