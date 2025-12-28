@@ -47,21 +47,24 @@ public class EfficientMethodUsingFLoydAlgo {
             return;
         }
 
-        //loop removal
+        // after Floyd detection
         slow = head;
 
-        //finding meeting point --> when not meet at head
-        while(slow.next != fast.next){
-            slow = slow.next;
-            fast = fast.next;
+        // Case 1: loop starts at head
+        if (slow == fast) {
+            while (fast.next != slow) {
+                fast = fast.next;
+            }
+        }
+        // Case 2: loop starts elsewhere
+        else {
+            while (slow.next != fast.next) {
+                slow = slow.next;
+                fast = fast.next;
+            }
         }
 
-        // Step 3: Find last node of loop --> when meet at head
-        while(fast.next != slow){
-            fast = fast.next;
-        }
-
-        // Step 4: Remove loop
+        // remove loop
         fast.next = null;
 
     }
