@@ -1,5 +1,9 @@
 package linkedList.singlyLL.loopDetection;
 
+/*
+ * IDEA : Floyd's detection algo
+ */
+
 public class FloydLoopDetectionMethod {
     
     static class Node{
