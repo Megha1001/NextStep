@@ -478,3 +478,23 @@ You can change the object, but you cannot change what the caller’s reference p
         
 
     }
+
+
+28.  Floyd's detection algo
+    public static boolean isLoopFound(Node head){
+
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow==fast){
+                return true;
+            }
+        }
+
+        return false;
+
+    }
