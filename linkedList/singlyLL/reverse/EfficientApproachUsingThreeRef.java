@@ -1,5 +1,10 @@
 package linkedList.singlyLL.reverse;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class EfficientApproachUsingThreeRef {
     static class Node{
         int data;
