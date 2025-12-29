@@ -1,4 +1,4 @@
-package linkedList.segregateEvenAndOdd;
+package linkedList.singlyLL.segregateEvenAndOdd;
 
 public class EfficientSolution {
 
