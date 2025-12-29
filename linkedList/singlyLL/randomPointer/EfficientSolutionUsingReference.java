@@ -4,6 +4,9 @@ package linkedList.singlyLL.randomPointer;
  * IDEA : 1. Create Cloned nodes and insert it at alternate position (for next pointer)
  * 2. Traverse the list again and cloned nodes for random references
  * 3. Seperate the linked lists
+ * 
+ * TIME COMPLEXITY : Theata(N)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class EfficientSolutionUsingReference {
