@@ -57,6 +57,35 @@ public class FindIntersectionBWTwoLLUsingDifference {
             return null;
         }
 
+        int c1 = 0, c2 = 0;
+
+        for(Node curr = head1; curr!=null; curr = curr.next){
+            ++c1;
+        }
+
+        for(Node curr = head2; curr!=null ; curr = curr.next){
+            ++c2;
+        }
+
+        int d = Math.abs(c1-c2);
+
+        Node longNode = c1>c2 ? head1 : head2;
+        Node shortNode = c1>c2 ? head2 : head1;
+
+        int count=0;
+        while(count != d){
+            longNode = longNode.next;
+            ++count;
+        }
+
+        while(longNode != null && shortNode != null){
+            if(shortNode == longNode){
+                return shortNode;
+            }
+
+            shortNode = shortNode.next;
+            longNode = longNode.next;
+        }
     
         
         return null;
