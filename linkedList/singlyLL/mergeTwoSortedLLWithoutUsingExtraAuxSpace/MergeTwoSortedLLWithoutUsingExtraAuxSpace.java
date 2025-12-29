@@ -1,5 +1,10 @@
 package linkedList.singlyLL.mergeTwoSortedLLWithoutUsingExtraAuxSpace;
 
+/*
+ * TIME COMPLEXITY : O(M+N)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class MergeTwoSortedLLWithoutUsingExtraAuxSpace {
 
     static class Node{
