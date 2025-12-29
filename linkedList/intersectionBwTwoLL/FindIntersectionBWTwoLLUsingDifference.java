@@ -12,7 +12,6 @@ package linkedList.intersectionBwTwoLL;
  */
 
 
-import java.util.HashSet;
 
 public class FindIntersectionBWTwoLLUsingDifference {
 
@@ -58,17 +57,7 @@ public class FindIntersectionBWTwoLLUsingDifference {
             return null;
         }
 
-        HashSet<Node> h = new HashSet<>();
-
-        for(Node curr = head1; curr!=null; curr= curr.next){
-            h.add(curr);
-        }
-
-        for(Node curr = head2; curr!=null; curr = curr.next){
-            if(h.contains(curr)){
-                return curr;
-            }
-        }
+    
         
         return null;
 
