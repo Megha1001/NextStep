@@ -1,4 +1,4 @@
-package linkedList.intersectionBwTwoLL;
+package linkedList.singlyLL.intersectionBwTwoLL;
 
 /*
  * IDEA : Traverse one of the LL and then put it into HashSet

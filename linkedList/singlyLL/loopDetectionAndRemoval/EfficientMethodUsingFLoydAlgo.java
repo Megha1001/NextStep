@@ -1,4 +1,4 @@
-package linkedList.loopDetectionAndRemoval;
+package linkedList.singlyLL.loopDetectionAndRemoval;
 
 public class EfficientMethodUsingFLoydAlgo {
     

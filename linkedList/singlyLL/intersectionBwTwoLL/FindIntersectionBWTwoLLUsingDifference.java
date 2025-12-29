@@ -1,4 +1,4 @@
-package linkedList.intersectionBwTwoLL;
+package linkedList.singlyLL.intersectionBwTwoLL;
 
 /*
  * IDEA : 
