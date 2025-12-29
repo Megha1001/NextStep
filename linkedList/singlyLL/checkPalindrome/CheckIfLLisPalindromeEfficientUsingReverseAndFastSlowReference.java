@@ -5,6 +5,9 @@ package linkedList.singlyLL.checkPalindrome;
  * 1. Find middle of LL using slow and fast reference
  * 2. Reverse other half of LL (head = slow.next)
  * 3. Compare first half elements with second half
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class CheckIfLLisPalindromeEfficientUsingReverseAndFastSlowReference {
