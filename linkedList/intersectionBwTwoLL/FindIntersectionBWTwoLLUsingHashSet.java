@@ -3,6 +3,9 @@ package linkedList.intersectionBwTwoLL;
 /*
  * IDEA : Traverse one of the LL and then put it into HashSet
  * Traverse another linkedList to see which is the intersection node
+ * 
+ * TIME COMPLEXITY : O(M+N)
+ * AUXILIARY SPACE : O(M)
  */
 
 
