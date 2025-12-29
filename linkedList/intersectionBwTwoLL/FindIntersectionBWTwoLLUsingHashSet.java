@@ -5,6 +5,9 @@ package linkedList.intersectionBwTwoLL;
  * Traverse another linkedList to see which is the intersection node
  */
 
+
+import java.util.HashSet;
+
 public class FindIntersectionBWTwoLLUsingHashSet {
 
     static class Node{
@@ -49,6 +52,19 @@ public class FindIntersectionBWTwoLLUsingHashSet {
             return null;
         }
 
+        HashSet<Node> h = new HashSet<>();
+
+        for(Node curr = head1; curr!=null; curr= curr.next){
+            h.add(curr);
+        }
+
+        for(Node curr = head2; curr!=null; curr = curr.next){
+            if(h.contains(curr)){
+                return curr;
+            }
+        }
+        
+        return null;
 
 
     }
