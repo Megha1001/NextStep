@@ -10,6 +10,9 @@ package linkedList.singlyLL.randomPointer;
  *  clone.random = m.get(curr.random);
  * 
  * 4. Return m.get(head);
+ * 
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPACE : Theta(N)
  */
 
 import java.util.HashMap;
