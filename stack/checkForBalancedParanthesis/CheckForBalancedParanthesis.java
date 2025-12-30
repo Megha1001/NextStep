@@ -5,7 +5,8 @@ import java.util.ArrayDeque;
 public class CheckForBalancedParanthesis {
 
     public static void main(String args[]){
-        String input = "{[({})]}";
+        // String input = "{[({})]}";
+        String input = "((())";
         System.out.println("are the parenthesis balanced ? "+isBalanced(input));
     }
 
@@ -42,7 +43,7 @@ public class CheckForBalancedParanthesis {
 
         }
 
-        return true;
+        return s.isEmpty() ?  true : false; // stack should be empty at end
 
     }
     
