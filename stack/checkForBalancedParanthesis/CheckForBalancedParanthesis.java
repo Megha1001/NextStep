@@ -6,7 +6,8 @@ public class CheckForBalancedParanthesis {
 
     public static void main(String args[]){
         // String input = "{[({})]}";
-        String input = "((())";
+        // String input = "((())";
+        String input = "([)]";
         System.out.println("are the parenthesis balanced ? "+isBalanced(input));
     }
 
