@@ -15,7 +15,9 @@ import java.util.ArrayDeque;
 public class EfficientSolutionUsingStack {
     
     public static void main(String args[]){
-        int arr[] = {5,15,10,8,6,12,9,18};
+        // int arr[] = {5,15,10,8,6,12,9,18};
+        // int arr[] = {10,15,20,25};
+        int arr[] = {25,20,15,10};
         System.out.println("Next greater element in given arrays are :-");
         nextGreatestElement(arr, arr.length);
     }
