@@ -18,6 +18,7 @@ class MyStackClass{
     public void push(int x){
         if(top == cap-1){
             System.out.println("Overflow");
+            return;
         }
 
         ++top;
@@ -27,6 +28,7 @@ class MyStackClass{
     public int pop(){
         if(top == -1){
             System.out.println("Underflow");
+            return Integer.MAX_VALUE;
         }
 
         int element = arr[top];
@@ -37,6 +39,7 @@ class MyStackClass{
     public int peek(){
         if(top == -1){
             System.out.println("Underflow");
+            return Integer.MAX_VALUE;
         }
 
         return arr[top];
