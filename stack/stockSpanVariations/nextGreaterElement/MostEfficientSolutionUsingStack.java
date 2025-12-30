@@ -2,6 +2,9 @@ package stack.stockSpanVariations.nextGreaterElement;
 
 /*
  * IDEA : Traverse from end and do findNextPreviousElement -> it would end up find next Greatest element
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
  */
 
 import java.util.ArrayList;
