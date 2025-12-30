@@ -1,4 +1,4 @@
-package stack.stockSpanVariations;
+package stack.stockSpanVariations.previousGreaterElementInDistinctArray;
 
 /*
  * IDEA : Use Stock span logic and find the previousHigh if stack is empty then consider -1 value for current value
