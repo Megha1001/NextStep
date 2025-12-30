@@ -8,6 +8,9 @@ package stack.stockSpanProblem;
  * if stack is empty then span = i+1;
  * 
  * 2. Use Stack = to store the previousHigh
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
  */
 
 import java.util.ArrayDeque;
