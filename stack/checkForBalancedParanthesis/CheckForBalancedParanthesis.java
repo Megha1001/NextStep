@@ -2,6 +2,11 @@ package stack.checkForBalancedParanthesis;
 
 import java.util.ArrayDeque;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
+ */
+
 public class CheckForBalancedParanthesis {
 
     public static void main(String args[]){
