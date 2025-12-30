@@ -9,13 +9,13 @@ package stack.stockSpanProblem;
  * 
  * 2. Use Stack = to store the previousHigh
  * 
- * TIME COMPLEXITY : O(N)
+ * TIME COMPLEXITY : O(N) -> inner while loop
  * AUXILIARY SPACE : O(N)
  */
 
 import java.util.ArrayDeque;
 
-public class FindSpanOfStock {
+public class EfficientSolutionUsingStack {
 
     public static void main(String args[]){
         int price[] = {100,80,60,70,60,75,85};
