@@ -1,5 +1,9 @@
 package stack.design;
 
+/*
+ * THIS IS NOT CORRECT - WHy because we are inserting at start of array that makes push and pop operation O(N) so insert at end and maintain top reference as done in DesignStackUsingArrayEfficient.java
+ */
+
 
 class MyStack{
 
