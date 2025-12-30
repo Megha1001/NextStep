@@ -514,3 +514,5 @@ You can change the object, but you cannot change what the caller’s reference p
           Stack                            |
                                       ArrayDeque
 Stack implements Vector (that is legacy class and is thread safe. Since, its thread safe it comes with cost of performance)
+
+Both - Stack and ArrayDeque are array implementation
