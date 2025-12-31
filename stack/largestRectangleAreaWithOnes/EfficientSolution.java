@@ -99,7 +99,7 @@ public class EfficientSolution {
 }
 
 /*
- * LEETCODE
+ * LEETCODE -> Original matrix will not be modify
  * class Solution {
     public int maximalRectangle(char[][] matrix) {
 
