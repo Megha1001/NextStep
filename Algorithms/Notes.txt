@@ -516,3 +516,12 @@ You can change the object, but you cannot change what the caller’s reference p
 Stack implements Vector (that is legacy class and is thread safe. Since, its thread safe it comes with cost of performance)
 
 Both - Stack and ArrayDeque are dynamic array implementation(Amotized O(1))
+
+
+Operator Precedence & Associativity
+
+| Operator(s) | Operation                | Associativity | Precedence |
+| ----------- | ------------------------ | ------------- | ---------- |
+| `^`         | Exponentiation           | Right → Left  | Highest    |
+| `* , /`     | Multiplication, Division | Left → Right  | Medium     |
+| `+ , -`     | Addition, Subtraction    | Left → Right  | Lowest     |
