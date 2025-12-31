@@ -3,6 +3,11 @@ package stack.largestRectangleInHistogram;
 
 import java.util.ArrayDeque;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
+ */
+
 public class EfficientSolution {
 
     public static void main(String args[]){
