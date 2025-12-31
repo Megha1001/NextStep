@@ -4,6 +4,9 @@ package stack.stackWithGetMin;
  * IDEA : Maintain two stack , 
  *  - one for storing values
  *  - other for storing min values
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
  */
 
 import java.util.ArrayDeque;
