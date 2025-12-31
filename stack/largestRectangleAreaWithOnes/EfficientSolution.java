@@ -19,6 +19,11 @@ package stack.largestRectangleAreaWithOnes;
  *  {1,1,1,1}, -> [2,3,3,2]
  *  {1,1,0,0}  -> [3,4,0,0]
  * }
+ * 
+ * 
+ * TIME COMPLEXITY : O(R*C)
+ * AUXILIARY SPACE : O(C)
+ * 
  */
 
 import java.util.ArrayDeque;
