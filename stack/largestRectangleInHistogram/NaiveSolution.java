@@ -10,7 +10,8 @@ package stack.largestRectangleInHistogram;
 public class NaiveSolution {
 
     public static void main(String args[]){
-        int arr[]= {2,1,5,6,2,3};
+        // int arr[]= {2,1,5,6,2,3};
+        int arr[] = {2,5,1};
         System.out.print("The largest area of rectangle in histogram is : "+findLargestArea(arr, arr.length));
     }
 
