@@ -56,7 +56,6 @@ public class EfficientQueueUsingArray {
                 return Integer.MAX_VALUE;
             }
 
-            int front = getFront();
             int e = arr[front];
             front = (front+1)%cap;
             --size;
@@ -76,7 +75,7 @@ public class EfficientQueueUsingArray {
                 return -1;
             }
 
-            return arr[front+size-1];
+            return arr[(front+size-1)%cap];
         }
 
     }
