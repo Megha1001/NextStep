@@ -1,5 +1,7 @@
 
 ---
+![Alt text](Road-Map-DSA.jpg)
+
 
 Change repo to public : https://github.com/Megha1001/NextStep/settings 
 go to danger zone -> change visibility
