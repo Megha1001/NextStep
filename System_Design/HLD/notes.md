@@ -1823,3 +1823,24 @@ Consistent hashing distributes keys across nodes such that only a small fraction
 ## Memory Trick
 
 > **Only neighbors are affected, not the entire system**
+
+
+
+## Number Units (Decimal – used in system design)
+
+| Unit           | Value                    |
+| -------------- | ------------------------ |
+| 1 K (Thousand) | 10³ = 1,000              |
+| 1 M (Million)  | 10⁶ = 1,000,000          |
+| 1 B (Billion)  | 10⁹ = 1,000,000,000      |
+| 1 T (Trillion) | 10¹² = 1,000,000,000,000 |
+
+## Storage Units (Binary – commonly used)
+
+| Unit | Value                         |
+| ---- | ----------------------------- |
+| 1 KB | 2¹⁰ = 1,024 bytes             |
+| 1 MB | 2²⁰ ≈ 1,000,000 bytes         |
+| 1 GB | 2³⁰ ≈ 1,000,000,000 bytes     |
+| 1 TB | 2⁴⁰ ≈ 1,000,000,000,000 bytes |
+
