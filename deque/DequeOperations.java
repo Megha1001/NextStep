@@ -19,6 +19,12 @@ public class DequeOperations {
         + " | size : "+deque.size() 
         + " | isEmpty ? : "+deque.isEmpty());
 
+        //using peek -> use peek and it returns null when deque is empty while getFirst , getLast returns NoSuchElementFoundException
+        System.out.println("last element : "+deque.peekLast() 
+        + " | first element : "+ deque.peekFirst()
+        + " | size : "+deque.size() 
+        + " | isEmpty ? : "+deque.isEmpty());
+
     }
     
 }
