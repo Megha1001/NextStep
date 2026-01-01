@@ -97,3 +97,7 @@
                 Storage = 0.2 * 100KB * 500M = 20KB * 500M = 1TB/day
 
         Total : 216TB/day
+
+### Memory
+- Cache Memory : Amount of cache memory required every day ?
+    Assumption : 1% of storage = 0.01 * 216TB/day = 2.16TB/day
