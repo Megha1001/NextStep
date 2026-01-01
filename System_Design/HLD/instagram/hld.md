@@ -61,3 +61,39 @@
 #### Write Throughput
 
 - Writing data to the system
+    - Creating a post
+    - Following
+    - Like/comment
+
+    Estimate on heaviest one -> creating a post
+    - 10% of DAU post/day = 50M Users => 50M create post request in a day
+
+- Read Throughput
+    - News Feed
+        Suppose Users Open news feed 10times a day and each time they see 10 post = 10*10 = 100post/day
+    Estimation
+        500M/day * 100 post = 50BPost/day
+
+
+### Storage
+- What are we trying to store ?
+    -> Post 
+        Total Storage = size * number of posts in day
+
+        -> Video Post 
+            -> Assumption
+                - Average size of post - 20MB
+                -  % of each post - 20%
+                Storage =  0.2 * 50M *20MB = 200TB/day
+        -> Image Post 
+            -> Assumption 
+                - Average size of post - 0.5MB
+                -  % of each post - 60%
+                Storage = 0.6 * 0.5MB * 50M = 15TB/day
+        -> Text Post 
+            -> Assumption
+                - Average size of post - 100KB
+                -  % of each post - 20%
+                Storage = 0.2 * 100KB * 500M = 20KB * 500M = 1TB/day
+
+        Total : 216TB/day
