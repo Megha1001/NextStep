@@ -17,16 +17,24 @@ import java.util.ArrayDeque;
 public class EfficientSolutionUsingQueue {
 
     public static void main(String args[]){
-        // int n = 10;
-        int n = 4;
+        int n = 10;
+        // int n = 4;
         System.out.println("The numbers are  ");
         printNumbers(n);
     }
 
     public static void printNumbers(int n){
         Queue<String> q = new ArrayDeque<>(); //string is intentional
-        for(int i=0; i<n; i++){
 
+        q.offer("5");
+        q.offer("6");
+
+        for(int i=0; i<n; i++){
+            String curr = q.poll();
+
+            System.out.print(curr +" ");
+            q.offer(curr + "5");
+            q.offer(curr + "6");
         }
 
     }
