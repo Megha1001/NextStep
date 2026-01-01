@@ -8,6 +8,9 @@ package queue.GenerateNumbersWithGivenDigits;
  * IDEA : Use Queue and store numbers in form of string
  *  1. store 5, 6 
  *  2. then poll 5 and print and appent 5,6 to it then again push to queue
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
  *
  */
 
