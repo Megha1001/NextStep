@@ -518,10 +518,19 @@ Stack implements Vector (that is legacy class and is thread safe. Since, its thr
 Both - Stack and ArrayDeque are dynamic array implementation(Amotized O(1))
 
 
-Operator Precedence & Associativity
+30. Operator Precedence & Associativity
 
 | Operator(s) | Operation                | Associativity | Precedence |
 | ----------- | ------------------------ | ------------- | ---------- |
 | `^`         | Exponentiation           | Right → Left  | Highest    |
 | `* , /`     | Multiplication, Division | Left → Right  | Medium     |
 | `+ , -`     | Addition, Subtraction    | Left → Right  | Lowest     |
+
+
+
+31.Queue / Deque Method Comparison
+| **Operation Type** | **Throws Exception** | **Returns Special Value** | **Behavior on Failure**                                                       |
+| ------------------ | -------------------- | ------------------------- | ----------------------------------------------------------------------------- |
+| **Insert**         | `add(e)`             | `offer(e)`                | `add()` throws `IllegalStateException` if full; `offer()` returns `false`     |
+| **Remove**         | `remove()`           | `poll()`                  | `remove()` throws `NoSuchElementException` if empty; `poll()` returns `null`  |
+| **Examine**        | `element()`          | `peek()`                  | `element()` throws `NoSuchElementException` if empty; `peek()` returns `null` |
