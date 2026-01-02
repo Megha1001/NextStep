@@ -173,13 +173,15 @@
 
 ### Database Selection
 
-Factor                          SQL         NoSQL
-Fast Data Access                No          Yes
-Scale is too large              No          Yes
-Data is in fixed structure      Yes         No
-Complex Queries                 Yes         No
-Data change frequently          No          Yes
+| Factor                    | SQL (RDBMS) | NoSQL |
+| ------------------------- | ----------- | ----- |
+| Fast Data Access          | ❌           | ✅     |
+| Handles Very Large Scale  | ❌           | ✅     |
+| Fixed / Structured Schema | ✅           | ❌     |
+| Complex Queries & Joins   | ✅           | ❌     |
+| Frequent Schema Changes   | ❌           | ✅     |
 
+Use SQL when data is structured and consistency matters; use NoSQL when scale, speed, and flexibility matter.
 
 Here
     - Posts DB
