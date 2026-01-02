@@ -266,6 +266,7 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
     Common Query : get all the likes by postId , so we can create index on postId
 
 - Follow DB
+    ```
     {
         "user_id" : "unique_user_id",
         "followers" : [
@@ -283,3 +284,4 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
             //More followees
         ]
     }
+    ```
