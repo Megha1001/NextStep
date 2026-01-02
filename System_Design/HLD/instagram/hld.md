@@ -147,9 +147,9 @@
 
 - Text Post
     ![alt text](high-level-design/Text-Post.png)
+    
+    Optimization - Prepare News Feed in advance as in option 1 we are doing a lot of work in one call(calling follow up, then post db then sorting in order)
+    ![alt text](high-level-design/High-Level-design-for-text-post-optimized.png)
 
 - News Feed
     ![alt text](high-level-design/NewsFeed.png)
-
-    Optimization - Prepare News Feed in advance as in option 1 we are doing a lot of work in one call(calling follow up, then post db then sorting in order)
-    ![alt text](high-level-design/High-Level-design-for-text-post-optimized.png)
