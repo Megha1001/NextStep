@@ -171,7 +171,7 @@
     ![alt text](high-level-design/HLD-NewFeed_improved_like_post.png)
 
 
-### Database Selection
+### DEEP DIVE - Database Selection
 
 | Factor                    | SQL (RDBMS) | NoSQL |
 | ------------------------- | ----------- | ----- |
@@ -213,7 +213,7 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
     - We are storing user connections and relationship
 
 
-### Data Modelling
+### DEEP DIVE - Data Modelling
 - Posts DB
     ```
     {
