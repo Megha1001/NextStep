@@ -1,2 +1,3 @@
 - Indexes in SQL, Range Queries
 - Databases - Read heavy/write heavy
+    -> Graph DB
