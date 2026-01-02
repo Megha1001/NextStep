@@ -153,6 +153,7 @@
 
 - News Feed
     ![alt text](high-level-design/NewsFeed.png)
+    ![alt text](high-level-design/HLD-NewFeed.png)
 
 - Video/Image Post
     ![alt text](high-level-design/High-Level-Design-for-image-video-post.png)
