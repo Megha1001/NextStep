@@ -138,3 +138,9 @@
 
 - NewFeed(aka timeline)
     ![alt text](API-Design/API-Design-NewsFeed.png)
+
+
+### High level Design
+
+- FOllow/ Unfollow
+    ![alt text](high-level-design/Follow-Unfollow.png)
