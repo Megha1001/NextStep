@@ -132,3 +132,6 @@
 
 - Like Post
     ![alt text](API-Design-Image/API-Design-Like_Post.png)
+
+- Follow/Unfollow User
+    ![alt text](API-Design-Image/API-Design-Follow-Unfollow_user.png)
