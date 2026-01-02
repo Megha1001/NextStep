@@ -215,6 +215,7 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
 
 ### Data Modelling
 - Posts DB
+    ```
     {
         "postId" : "unique_post_id",
         "userId" : "user_id",
@@ -222,10 +223,11 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
         "mediaURLs" : ["url1", "url2"],
         "timeStamp" : "1720748150"
     }
-
+    ```
     Common Query : GEt post by postId . So we can create index on that
 
 - Feeds DB
+    ```
     {
         "userId" : "unique_user_id",
         "feedItems" : [
@@ -239,11 +241,12 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
             //More posts
         ]
     }
-
+    ```
     Common Query : Get feeds by userId. So we can create index on user ID
 
 
 - Comments DB
+    ```
     {
         "comment_id" : "Unique_comment_id",
         "postId": "324234",
@@ -251,10 +254,11 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
         "comment" : "comment text",
         "timeStamp" : "1720748150"
     }
-
+    ```
     Common Query : get all the comments by postId , so we can create index on postId
 
 - Likes DB
+    ```
     {
         "like_id" : "Unique_like_id",
         "postId": "324234",
@@ -262,7 +266,7 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
         "comment" : "comment text",
         "timeStamp" : "1720748150"
     }
-
+    ```
     Common Query : get all the likes by postId , so we can create index on postId
 
 - Follow DB
