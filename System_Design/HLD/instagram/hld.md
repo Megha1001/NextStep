@@ -169,3 +169,35 @@
 
 - News Feed - Improved
     ![alt text](high-level-design/HLD-NewFeed_improved_like_post.png)
+
+
+### Database Selection
+
+Factor                          SQL         NoSQL
+Fast Data Access                No          Yes
+Scale is too large              No          Yes
+Data is in fixed structure      Yes         No
+Complex Queries                 Yes         No
+Data change frequently          No          Yes
+
+
+Here
+    - Posts DB
+    - Follow DB
+    - Feeds DB
+    - Comments DB
+    - Likes DB
+
+- Posts DB -> No SQL
+    - Image, Video, text -> No fixed structure and scale is high
+    - Simple query pattern -> request post by postId
+
+- Feeds DB  -> No SQL
+    - Store mapping bw userId and NewsFeed. Since Post Data didnt have fixed structure . This would naturally dont have fixed structure
+    - Huge Scale
+    - Simple Query
+
+- Comments DB -> No SQL
+    - Huge Scale
+    - May be unstrucutured in future. Comment under comment , nested comment (May evolve in future)
+    - Simple query pattern
