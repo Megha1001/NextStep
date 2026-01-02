@@ -291,3 +291,12 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
     ```
     Common Query : Retrieve users followers / Retrieving users followees
     Index : user_id
+
+
+## DEEP DIVE - PreSigned URLs
+Pre-signed URLs are special URLs that allow users to upload directly at object storage. These are temporary permissions
+WHy are they called pre-signed -> because it contains a signature that authorize client to upload for a limited amount of time
+
+Why do we need them ? 
+    -> faster data upload
+    -> Secure and temporary access
