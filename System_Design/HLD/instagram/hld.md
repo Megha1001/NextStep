@@ -300,3 +300,8 @@ WHy are they called pre-signed -> because it contains a signature that authorize
 Why do we need them ? 
     -> faster data upload
     -> Secure and temporary access
+
+
+## DEEP DIVE - Media Processing
+- Media Processing service takes that file and converts it into various formats and resolutions then stores it back to the object to storage
+    ![alt text](deep-dive/MediaProcessing.png)
