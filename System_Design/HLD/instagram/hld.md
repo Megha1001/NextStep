@@ -183,7 +183,7 @@
 
 Use SQL when data is structured and consistency matters; use NoSQL when scale, speed, and flexibility matter.
 
-Here
+- Here
     - Posts DB
     - Follow DB
     - Feeds DB
@@ -204,7 +204,7 @@ Here
     - May be unstrucutured in future. Comment under comment , nested comment (May evolve in future)
     - Simple query pattern
 
-- Comments DB -> No SQL
+- Likes DB -> No SQL
     - Huge Scale
     - May be unstrucutured in future. We may have different reactions in the future(funny, wow etc)
     - Simple query
