@@ -157,3 +157,6 @@
 
 - Video/Image Post
     ![alt text](high-level-design/High-Level-Design-for-image-video-post.png)
+
+- Comment on post
+    ![alt text](high-level-design/HLD-Comment-In_Post.png)
