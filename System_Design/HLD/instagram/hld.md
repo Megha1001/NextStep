@@ -267,7 +267,7 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
         "timeStamp" : "1720748150"
     }
     ```
-    Common Query : get all the likes by postId , so we can create index on postId
+    DEEP DIVE - 
 
 - Follow DB
     ```
@@ -289,3 +289,5 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
         ]
     }
     ```
+    Common Query : Retrieve users followers / Retrieving users followees
+    Index : user_id
