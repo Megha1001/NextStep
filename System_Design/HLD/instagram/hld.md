@@ -118,3 +118,8 @@
 
         Amount of data going out of our system = 50B read request * 4.32MB = 216PB/day
         In sec 216PB/(24 * 60 * 60)  = 2.5TB/sec
+
+### API Design
+
+- Text Post
+    ![alt text](API-Design-Text_Post.png)
