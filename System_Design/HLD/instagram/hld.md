@@ -211,3 +211,33 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
 
 - Follow DB - Graph DB
     - We are storing user connections and relationship
+
+
+### Data Modelling
+- Posts DB
+    {
+        "postId" : "unique_post_id",
+        "userId" : "user_id",
+        "text" : "post text",
+        "mediaURLs" : ["url1", "url2"],
+        "timeStamp" : "1720748150"
+    }
+
+    Common Query : GEt post by postId . So we can create index on that
+
+- Feeds DB
+    {
+        "userId" : "unique_user_id",
+        "feedItems" : [
+            {
+                "postId" : "unique_post_id",
+                "userId" : "user_id",
+                "text" : "post text",
+                "mediaURLs" : ["url1", "url2"],
+                "timeStamp" : "1720748150"
+            },
+            //More posts
+        ]
+    }
+
+    Common Query : Get feeds by userId. So we can create index on user ID
