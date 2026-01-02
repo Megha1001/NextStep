@@ -160,3 +160,12 @@
 
 - Comment on post [3P stands for 3rd Party]
     ![alt text](high-level-design/HLD-Comment-In_Post.png)
+
+- Like on Post
+    - Likes Cache contains the mapping of postId and like count (Post A -> 1000 Likes)
+    ![alt text](high-level-design/HLD-Like_post.png)
+
+    THis will be used to improve our read from newsFeed diagram as well
+
+- News Feed - Improved
+    ![alt text](high-level-design/HLD-NewFeed_improved_like_post.png)
