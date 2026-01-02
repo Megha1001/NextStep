@@ -251,3 +251,5 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
         "comment" : "comment text",
         "timeStamp" : "1720748150"
     }
+
+    Common Query : get all the comments by postId , so we can create index on postId
