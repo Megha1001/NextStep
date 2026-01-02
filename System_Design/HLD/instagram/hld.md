@@ -122,16 +122,19 @@
 ### API Design
 
 - Text Post
-    ![alt text](API-Design-Image/API-Design-Text_Post.png)
+    ![alt text](API-Design/API-Design-Text_Post.png)
 
 - Image/Video Post
-    ![alt text](API-Design-Image/API-Design-Image-Video_post.png)
+    ![alt text](API-Design/API-Design-Video_post.png)
 
 - Comment Post
-    ![alt text](API-Design-Image/API-Design-Comment_Post.png)
+    ![alt text](API-Design/API-Design-Comment_Post.png)
 
 - Like Post
-    ![alt text](API-Design-Image/API-Design-Like_Post.png)
+    ![alt text](API-Design/API-Design-Like_Post.png)
 
 - Follow/Unfollow User
-    ![alt text](API-Design-Image/API-Design-Follow-Unfollow_user.png)
+    ![alt text](API-Design/API-Design-Follow-Unfollow_user.png)
+
+- NewFeed(aka timeline)
+    ![alt text](API-Design/API-Design-NewsFeed.png)
