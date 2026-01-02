@@ -158,5 +158,5 @@
 - Video/Image Post
     ![alt text](high-level-design/High-Level-Design-for-image-video-post.png)
 
-- Comment on post
+- Comment on post [3P stands for 3rd Party]
     ![alt text](high-level-design/HLD-Comment-In_Post.png)
