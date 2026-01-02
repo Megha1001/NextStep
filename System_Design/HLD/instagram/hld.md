@@ -125,7 +125,7 @@
     ![alt text](API-Design/API-Design-Text_Post.png)
 
 - Image/Video Post
-    ![alt text](API-Design/API-Design-Video_post.png)
+    ![alt text](API-Design/API-Design-Image-Video_post.png)
 
 - Comment Post
     ![alt text](API-Design/API-Design-Comment_Post.png)
