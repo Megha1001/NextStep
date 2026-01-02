@@ -144,3 +144,9 @@
 
 - FOllow/ Unfollow
     ![alt text](high-level-design/Follow-Unfollow.png)
+
+- Text Post
+    ![alt text](high-level-design/Text-Post.png)
+
+- News Feed
+    ![alt text](high-level-design/NewsFeed.png)
