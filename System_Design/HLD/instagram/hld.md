@@ -201,3 +201,11 @@ Here
     - Huge Scale
     - May be unstrucutured in future. Comment under comment , nested comment (May evolve in future)
     - Simple query pattern
+
+- Comments DB -> No SQL
+    - Huge Scale
+    - May be unstrucutured in future. We may have different reactions in the future(funny, wow etc)
+    - Simple query
+
+- Follow DB - Graph DB
+    - We are storing user connections and relationship
