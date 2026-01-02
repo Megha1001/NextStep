@@ -122,4 +122,7 @@
 ### API Design
 
 - Text Post
-    ![alt text](API-Design-Text_Post.png)
+    ![System_Design/HLD/instagram/API-Design-Image/API-Design-Text_Post.png
+
+- Image/Video Post
+    ![alt text](API-Design-Image/API-Design-Image-Video_post.png)
