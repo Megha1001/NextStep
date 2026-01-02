@@ -104,11 +104,11 @@
 
 ### Network Or Bandwidth Estimation
 - How much data flows into and out of our system per second
-    Data flowing into our system per second also known as - Ingress
-    Data flowing out of our system per second also known as egress
+    - Data flowing into our system per second also known as - Ingress
+    - Data flowing out of our system per second also known as egress
 
 - Ingress calculation
-    - It should be store someone in our system -> Storage = 216TB/day
+    - It should be store somewhere in our system -> Storage = 216TB/day
         In sec = 216TB / (24* 60 *60) = 2.5GB
 
 - Egress calculation
@@ -117,4 +117,4 @@
         Average size of post = (0.2*100KB)[text post] + (0.6 * 0.5MB)[Image post] + (0.2 * 20MB)[Video post] = 4.32MB
 
         Amount of data going out of our system = 50B read request * 4.32MB = 216PB/day
-        In sec 216PB/(24*60*60)  = 2.5TB/sec
+        In sec 216PB/(24 * 60 * 60)  = 2.5TB/sec
