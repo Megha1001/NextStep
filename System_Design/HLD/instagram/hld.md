@@ -241,3 +241,13 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
     }
 
     Common Query : Get feeds by userId. So we can create index on user ID
+
+
+- Comments DB
+    {
+        "comment_id" : "Unique_comment_id",
+        "postId": "324234",
+        "userId" : "2234",
+        "comment" : "comment text",
+        "timeStamp" : "1720748150"
+    }
