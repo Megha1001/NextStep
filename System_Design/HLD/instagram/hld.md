@@ -305,3 +305,6 @@ Why do we need them ?
 ## DEEP DIVE - Media Processing
 - Media Processing service takes that file and converts it into various formats and resolutions then stores it back to the object to storage
     ![alt text](deep-dive/MediaProcessing.png)
+
+So when the user has poor connection lower resolution image or video is returned to him
+- For different devices they get different formats and resolutions based on their device and internet connectivity
