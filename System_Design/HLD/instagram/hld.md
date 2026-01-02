@@ -253,3 +253,33 @@ Use SQL when data is structured and consistency matters; use NoSQL when scale, s
     }
 
     Common Query : get all the comments by postId , so we can create index on postId
+
+- Likes DB
+    {
+        "like_id" : "Unique_like_id",
+        "postId": "324234",
+        "userId" : "2234",
+        "comment" : "comment text",
+        "timeStamp" : "1720748150"
+    }
+
+    Common Query : get all the likes by postId , so we can create index on postId
+
+- Follow DB
+    {
+        "user_id" : "unique_user_id",
+        "followers" : [
+            {
+                "followerId" : "<userId_2>",
+                "timeStamp" : "178023434"
+            },
+            //More followers
+        ],
+        "followee" :[
+            {
+                "followeesId" : "<userId_2>",
+                "timeStamp" : "178023434"
+            },
+            //More followees
+        ]
+    }
