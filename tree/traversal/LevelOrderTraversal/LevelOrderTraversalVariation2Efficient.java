@@ -54,7 +54,7 @@ public class LevelOrderTraversalVariation2Efficient {
         q.offer(root);
 
         while(!q.isEmpty()){
-            int levelSize = q.size(); //nodes in current level. DONT PUT in for loop keep it seperate
+            int levelSize = q.size(); //nodes in current level. DONT PUT in for loop keep it seperate. As queue size change
 
             for(int i=0; i<levelSize; i++){
                 Node temp = q.poll();
