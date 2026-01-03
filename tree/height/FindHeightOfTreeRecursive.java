@@ -2,6 +2,9 @@ package tree.height;
 
 /*
  * Height : Longest path from root to leaf
+ * 
+ * TIME COMPLEXITY :O(N)
+ * AUXILIARY SPACE : O(H), where H is height
  */
 
 public class FindHeightOfTreeRecursive {
