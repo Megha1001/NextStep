@@ -8,6 +8,9 @@ package queue.firstCircularTour;
  * 
  * Pi indicates amount of petrol need to reach Pi+1 from p0.
  * Pn-1 indicates amount of petrol need to reach p0
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class EfficientSolutionWithoutAuxiliarySpace {
