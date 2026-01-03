@@ -2,7 +2,7 @@ package tree.traversal;
 
 /*
  * TIME COMPLEXITY : O(N)
- * AUXILIARY SPACE : O(N)
+ * AUXILIARY SPACE : O(H), where H is height
  */
 
 public class InOrderTraversal {
