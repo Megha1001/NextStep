@@ -534,3 +534,6 @@ Both - Stack and ArrayDeque are dynamic array implementation(Amotized O(1))
 | **Insert**         | `add(e)`             | `offer(e)`                | `add()` throws `IllegalStateException` if full; `offer()` returns `false`     |
 | **Remove**         | `remove()`           | `poll()`                  | `remove()` throws `NoSuchElementException` if empty; `poll()` returns `null`  |
 | **Examine**        | `element()`          | `peek()`                  | `element()` throws `NoSuchElementException` if empty; `peek()` returns `null` |
+
+31. Can we build a binary tree from INORDER alone?
+NO — it is NOT possible (in general).
