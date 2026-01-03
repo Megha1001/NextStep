@@ -1,7 +1,8 @@
 package tree.traversal.LevelOrderTraversal;
 
-
-import java.util.ArrayDeque;
+/*
+ * POINT : We cant use ArrayDeque with null markers Hence using Queue and LinkedList
+ */
 import java.util.Queue;
 import java.util.LinkedList;
 
