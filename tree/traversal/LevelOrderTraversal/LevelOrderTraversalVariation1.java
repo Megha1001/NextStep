@@ -12,7 +12,7 @@ package tree.traversal.LevelOrderTraversal;
  O/p : 10,20,30,8,7,6,9,15
 
  TIME COMPLEXITY : Theta(N)
- AUXILIARY SPACE : O(N)
+ AUXILIARY SPACE : O(N) or Theta(W), where W is width of binary tree
  */
 
 import java.util.ArrayDeque;
