@@ -46,7 +46,7 @@ public class EfficientSolution {
         }
 
         //for last window
-        res.offer(arr[d.peekFirst()]);
+        res.offer(arr[d.pollFirst()]);
 
         for(int e : res){
             System.out.print(e + " ");
