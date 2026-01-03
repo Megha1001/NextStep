@@ -2,6 +2,10 @@ package queue.slidingWindowMaxOrMaxOfAllSubArraysOfSizek;
 
 import java.util.ArrayDeque;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ */
+
 public class EfficientSolution {
 
     public static void main(String args[]){
