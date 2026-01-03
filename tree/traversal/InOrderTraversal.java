@@ -1,5 +1,10 @@
 package tree.traversal;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
+ */
+
 public class InOrderTraversal {
 
     static class Node{
