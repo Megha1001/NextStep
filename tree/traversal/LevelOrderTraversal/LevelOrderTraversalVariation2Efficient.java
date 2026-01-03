@@ -3,6 +3,11 @@ package tree.traversal.LevelOrderTraversal;
 
 import java.util.ArrayDeque;
 
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(W) , where w is width of binary tree
+ */
+
 public class LevelOrderTraversalVariation2Efficient {
     
     static class Node{
