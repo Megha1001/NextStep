@@ -1,5 +1,11 @@
 package tree.traversal;
 
+
+/*
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(H), where H is height
+ */
+
 public class PreOrderTraversal {
 
     public static int idx = -1;
