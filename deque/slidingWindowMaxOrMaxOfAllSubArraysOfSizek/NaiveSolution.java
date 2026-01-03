@@ -1,4 +1,4 @@
-package queue.slidingWindowMaxOrMaxOfAllSubArraysOfSizek;
+package deque.slidingWindowMaxOrMaxOfAllSubArraysOfSizek;
 
 /*
  * TIME COMPLEXITY : O(n*K)

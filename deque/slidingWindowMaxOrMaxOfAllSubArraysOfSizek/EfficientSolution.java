@@ -1,4 +1,4 @@
-package queue.slidingWindowMaxOrMaxOfAllSubArraysOfSizek;
+package deque.slidingWindowMaxOrMaxOfAllSubArraysOfSizek;
 
 import java.util.ArrayDeque;
 

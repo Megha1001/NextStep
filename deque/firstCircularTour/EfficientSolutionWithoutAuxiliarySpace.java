@@ -1,4 +1,4 @@
-package queue.firstCircularTour;
+package deque.firstCircularTour;
 
 
 /*
