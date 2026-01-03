@@ -2,6 +2,8 @@ package queue.firstCircularTour;
 
 /*
  * Consider every start point as viable answer
+ * 
+ * TIME COMPLEXITY : O(N*N)
  */
 
 public class NaiveSolution {
