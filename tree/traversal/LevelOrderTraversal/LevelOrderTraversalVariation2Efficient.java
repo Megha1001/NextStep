@@ -49,11 +49,13 @@ public class LevelOrderTraversalVariation2Efficient {
         q.offer(root);
 
         while(!q.isEmpty()){
-            int levelSize = q.size();
+            int levelSize = q.size(); //nodes in current level
 
             for(int i=0; i<levelSize; i++){
                 Node temp = q.poll();
                 System.out.print(temp.data + " ");
+
+                //adding nodes for next level
 
                 if(temp.left != null){
                     q.offer(temp.left);
