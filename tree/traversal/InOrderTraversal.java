@@ -29,9 +29,7 @@ public class InOrderTraversal {
             inOrderTraversal(root.left);
             System.out.print(root.data + " "); 
             inOrderTraversal(root.right);
-        }
-
-        
+        } 
 
     }
     
