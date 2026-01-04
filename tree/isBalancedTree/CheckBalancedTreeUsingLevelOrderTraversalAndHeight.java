@@ -20,11 +20,15 @@ public class CheckBalancedTreeUsingLevelOrderTraversalAndHeight {
     }
 
     public static void main(String args[]){
+        // Node root = new Node(18);
+        // root.left = new Node(4);
+        // root.right = new Node(20);
+        // root.right.left = new Node(13);
+        // root.right.right = new Node(70);
+
         Node root = new Node(18);
         root.left = new Node(4);
-        root.right = new Node(20);
-        root.right.left = new Node(13);
-        root.right.right = new Node(70);
+        root.left.left = new Node(20);
 
         System.out.println("is the given tree is balanced : "+isBalanced(root));
     }
