@@ -1,5 +1,10 @@
 package tree.maximumInTree;
 
+/*
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPCE  : O(H), where H is height
+ */
+
 public class FindMaxUsingRecursion {
 
     static class Node{
