@@ -3,7 +3,7 @@ package tree.isBalancedTree;
 /*
  * IDEA : For each node check the difference between height of lst - rst <=1
  * 
- * TIME COMPLEXITY : O(N)
+ * TIME COMPLEXITY : O(N*N). For every node we are calling height function
  * AUXILIARY SPACE : O(H), where H is height of tree
  */
 
