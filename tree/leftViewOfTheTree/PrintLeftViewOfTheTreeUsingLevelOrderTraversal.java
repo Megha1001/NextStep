@@ -2,6 +2,9 @@ package tree.leftViewOfTheTree;
 
 /*
  * IDEA : Use LevelOrder traversal to print left view
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(W), where W is width
  */
 
 import java.util.ArrayDeque;
