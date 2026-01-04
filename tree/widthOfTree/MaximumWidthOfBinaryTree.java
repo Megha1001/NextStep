@@ -3,6 +3,9 @@ package tree.widthOfTree;
 
 /*
  * IDEA : Use Level order traversal and keep track of maximum levelsize
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(W), where w is width
  */
 
 import java.util.ArrayDeque;
