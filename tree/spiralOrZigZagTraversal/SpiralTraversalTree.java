@@ -2,6 +2,10 @@ package tree.spiralOrZigZagTraversal;
 
 import java.util.ArrayDeque;
 
+/*
+ * TIME COMPLEXITY : O(N), 4N
+ */
+
 public class SpiralTraversalTree {
 
     static class Node{
