@@ -561,3 +561,29 @@ public static int isBalanced(Node root){
             return Math.max(lh,rh) + 1;
         }
     }
+
+33. Binary Tree to Double LL
+public static Node BTToDLL(Node root){
+        if(root == null){
+            return root;
+        }
+
+        //left
+        Node head = BTToDLL(root.left);
+
+        //node
+        if(prev == null){
+            head = root;
+        }
+        else{
+            root.left = prev;
+            prev.right = root;
+        }
+        prev = root;
+
+        //right
+        BTToDLL(root.right);
+
+        return head;
+
+    }
