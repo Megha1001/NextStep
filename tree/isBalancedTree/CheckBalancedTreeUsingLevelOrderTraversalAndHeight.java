@@ -4,7 +4,7 @@ package tree.isBalancedTree;
  * IDEA : For each node find height of level subtree and right subtree. If Math.abs(heigh of LST - height of RST) >0 return false;
  * For tree traversal use Level order traversal
  * 
- * TIME COMPLEXITY : O(N*N)
+ * TIME COMPLEXITY : O(N*N). For every node we are calling height function
  * AUXILIARY SPACE : O(W) where w is width of tree
  */
 
