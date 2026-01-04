@@ -6,6 +6,10 @@ package tree.contructTreeFromTraversal;
  *  -> left side of inIndex will be left subtree
  *  -> right side of inIndex will be right subtree
  * 
+ * TIME COMPLEXITY : O(N*N)
+ * For reducing time complexity to O(N)
+ *  -> Make A HashMap<val, index> for inorder and pass to function and do lookup
+ * 
  */
 public class ContructBTFromInorderPreOrderTraversal {
 
