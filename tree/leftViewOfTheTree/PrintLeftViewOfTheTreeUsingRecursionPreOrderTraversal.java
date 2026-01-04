@@ -49,7 +49,7 @@ public class PrintLeftViewOfTheTreeUsingRecursionPreOrderTraversal {
         //to print only left most element on every level
         if(level > maxLevel){
             System.out.print(root.data + " ");
-            maxLevel = level;
+            maxLevel = level; //so it wont print other elements on same level
         }
 
         printLeftView(root.left, level+1);
