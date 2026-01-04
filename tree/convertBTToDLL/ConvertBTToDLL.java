@@ -6,6 +6,9 @@ package tree.convertBTToDLL;
  *  -> prev.right = curr
  *  -> curr.left = prev
  *  -> prev = curr
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(H), where H is height of binary 
  */
 
 public class ConvertBTToDLL {
