@@ -537,3 +537,27 @@ Both - Stack and ArrayDeque are dynamic array implementation(Amotized O(1))
 
 31. Can we build a binary tree from INORDER alone?
 NO — it is NOT possible (in general).
+
+
+32. isBalanced
+public static int isBalanced(Node root){
+        if(root == null){
+            return 0; //height
+        }
+
+        int lh = isBalanced(root.left);
+        if(lh==-1){
+            return -1;
+        }
+
+        int rh = isBalanced(root.right);
+        if(rh==-1){
+            return -1;
+        }
+
+        if(Math.abs(lh-rh)>1){
+            return -1;
+        }else{
+            return Math.max(lh,rh) + 1;
+        }
+    }
