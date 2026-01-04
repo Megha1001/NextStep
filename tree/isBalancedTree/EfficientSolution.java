@@ -3,6 +3,9 @@ package tree.isBalancedTree;
 /*
  * IDEA : Our function will return 1 thing
  *  -1 is tree is not balanced otherwise return height
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(H) where H is height
  */
 
 public class EfficientSolution {
