@@ -5,7 +5,7 @@ package tree.diameter;
  * The function will return height but set the diameter
  * 
  * TIME COMPLEXITY : O(N)
- * AUXILIARY SPACE : O(N)
+ * AUXILIARY SPACE : O(H), where H is height 
  */
 
 public class EfficientSolutionByModifyingHeightFunction {
