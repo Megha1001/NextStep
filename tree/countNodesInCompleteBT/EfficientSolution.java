@@ -1,5 +1,13 @@
 package tree.countNodesInCompleteBT;
 
+/*
+ * TIME COMPLEXITY : 
+ * T(N) = T(2N/3) + O(H), where H is heigh
+ *      = T(2N/2) + O(logN)
+ * 
+ *      logN * logN
+ */
+
 public class EfficientSolution {
     static class Node{
         int data;
