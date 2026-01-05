@@ -2,6 +2,10 @@ package tree.leastCommonAncestor;
 
 import java.util.ArrayList;
 
+/*
+ * IDEA : Find the path array for both the elements then traverse both the arrays
+ */
+
 public class FindLeastCommonAncestorUsingPath {
     
 
@@ -51,6 +55,7 @@ public class FindLeastCommonAncestorUsingPath {
 
     }
 
+    //O(N)
     public static boolean findPath(Node root, ArrayList<Integer> path, int n){
 
         if(root == null){
