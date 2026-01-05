@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 /*
  * IDEA : Find the path array for both the elements then traverse both the arrays
+ * 
+ * TIME COMPLEXITY : O(N) but three traversal
+ * AUXILIARY SPACE : O(N)
  */
 
 public class FindLeastCommonAncestorUsingPath {
