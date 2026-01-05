@@ -2,6 +2,10 @@ package tree.diameter;
 
 /*
  * IDEA : Since While computing height we find height of LST and height of RST so keep track of maximum
+ * The function will return height but set the diameter
+ * 
+ * TIME COMPLEXITY : O(N)
+ * AUXILIARY SPACE : O(N)
  */
 
 public class EfficientSolutionByModifyingHeightFunction {
