@@ -2,6 +2,8 @@ package tree.diameter;
 
 /*
  * Diameter : Node + height of LST + height of RST
+ * TIME COMPLEXITY : O(N*N)
+ * AUXILIARY SPACE : O(H), where H is height
  */
 
 public class FindDiameterUsingRecursion {
