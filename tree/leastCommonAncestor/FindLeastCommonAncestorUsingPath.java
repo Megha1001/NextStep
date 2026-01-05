@@ -42,7 +42,7 @@ public class FindLeastCommonAncestorUsingPath {
 
         for(int i=0; i<path1.size()-1 && i<path2.size()-1; i++){
             if(path1.get(i+1)!=path2.get(i+1)){
-                return path1[i];
+                return path1.get(i);
             }
         }
 
@@ -66,7 +66,8 @@ public class FindLeastCommonAncestorUsingPath {
             return true;
         }
 
-        path.remove((Integer)(root.data)); //need to parse in Integer otherwise it will return NPE since it will try to remove that index
+        // path.remove((Integer)(root.data)); //need to parse in Integer otherwise it will return NPE since it will try to remove that index
+        path.remove(path.size()-1);//remove last element
 
         return false;
     }
