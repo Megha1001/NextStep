@@ -10,6 +10,8 @@ package tree.spiralOrZigZagTraversal;
  *          -> pop top and print then push the child RIGHT THEN LEFT ---> ORDER IS REVERSED
  */
 
+import java.util.ArrayDeque;
+
 public class SpiralWithTwoStack {
 
     static class Node{
@@ -41,7 +43,42 @@ public class SpiralWithTwoStack {
 
     public static void spiralTraversal(Node root){
         if(root == null){
-            return null;
+            return;
+        }
+
+        ArrayDeque<Node> s1 = new ArrayDeque<>();
+        ArrayDeque<Node> s2 = new ArrayDeque<>();
+
+        s1.push(root);
+
+        while(!s1.isEmpty() || !s2.isEmpty()){
+            while(!s1.isEmpty()){
+                Node s1Top = s1.pop();
+                System.out.print(s1Top.data + " ");
+
+                if(s1Top.left!=null){
+                    s2.push(s1Top.left);
+                }
+               
+                if(s1Top.right != null){
+                    s2.push(s1Top.right);
+                }
+                
+            }
+
+            while(!s2.isEmpty()){
+                Node s2Top = s2.pop();
+                System.out.print(s2Top.data+ " ");
+                if(s2Top.right != null){
+                    s1.push(s2Top.right);
+                }
+
+                if(s2Top.left != null){
+                    s1.push(s2Top.left);
+                }
+                
+            }
+
         }
 
     }
