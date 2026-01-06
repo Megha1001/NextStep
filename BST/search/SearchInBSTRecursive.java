@@ -1,6 +1,6 @@
 package BST.search;
 
-public class SearchInBST {
+public class SearchInBSTRecursive {
 
     static class TreeNode{
         int key;
