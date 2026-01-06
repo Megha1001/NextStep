@@ -5,6 +5,8 @@ package BST.insertion;
  * IDEA : Search the position until gets null and store the curr in stack.
  * If we found the element return root. If not if we get the null find the peek from stack and insert in its left or right by comparing value
  * 
+ * TIME COMPLEXITY : O(H)
+ * AUXILIARY SPACE : O(H)
  * */
 
 import java.util.ArrayDeque;
