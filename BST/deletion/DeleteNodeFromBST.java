@@ -5,7 +5,11 @@ package BST.deletion;
  *  -> Its leaf node -> delete it;
  *  -> It has one children -> make children as root of that subtree
  *  -> It has both the children -> make either predecessor or successor as root of that subtree
+ * 
+ * TIME COMPLEXITY : O(H)
+ * AUXILIARY SPACE : O(H)
  */
+
 
 public class DeleteNodeFromBST {
 
