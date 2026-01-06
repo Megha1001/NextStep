@@ -29,7 +29,37 @@ public class InsertInBSTUsingStack {
         root.right.right = new Node(18);
 
         int x = 19;
-        System.out.println("Root of BST after inserting given value is : "+insert(root, x));
+        System.out.println("Root of BST after inserting given value is : "+insert(root, x).data);
+    }
+
+    public static Node insert(Node root, int x){
+
+        Node newNode = new Node(x);
+
+        if(root == null){
+            return newNode;
+        }
+
+        ArrayDeque<Node> stack = new ArrayDeque<>();
+        Node curr = root;
+        
+        while(curr!=null){
+            stack.push(curr);
+            if(curr.data > x){
+                curr = curr.left;
+            }else{
+                curr = curr.right;
+            }
+        }
+
+        curr = stack.peek();
+        if(curr.data > x){
+            curr.left = newNode;
+        }else {
+            curr.right = newNode;
+        }
+
+        return root;
     }
     
 }
