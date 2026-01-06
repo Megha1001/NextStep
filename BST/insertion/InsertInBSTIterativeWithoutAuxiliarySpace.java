@@ -1,5 +1,10 @@
 package BST.insertion;
 
+/*
+ * TIME COMPLEXITY : O(H)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class InsertInBSTIterativeWithoutAuxiliarySpace {
 
     static class Node{
