@@ -1,5 +1,10 @@
 package BST.search;
 
+/*
+ * TIME COMPLEXITY : O(H)
+ * AUXILIARY SPACE : O(1)
+ */
+
 public class SearchInBSTIterative {
 
     static class TreeNode{
