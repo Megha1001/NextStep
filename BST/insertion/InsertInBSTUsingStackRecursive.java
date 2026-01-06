@@ -1,5 +1,11 @@
 package BST.insertion;
 
+/*
+ * TIME COMPLEXITY : O(H)
+ * AUXILIARY SPACE : O(H)
+ * 
+ */
+
 
 public class InsertInBSTUsingStackRecursive {
 
