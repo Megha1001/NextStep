@@ -7,7 +7,7 @@ package BST.insertion;
  */
 
 
-public class InsertInBSTUsingStackRecursive {
+public class InsertInBSTRecursive {
 
     static class Node{
         int data;
