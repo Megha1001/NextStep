@@ -4,8 +4,8 @@ import java.util.TreeSet;
 
 /*
  * IDEA : Use TreeSet that uses Red black tree(self balancing)
- * TIME COMPLEXITY : O(log N)
- * AUXILIARY SPACE : O(logN)
+ * TIME COMPLEXITY : O(Nlog N)
+ * AUXILIARY SPACE : O(N)
  */
 
 public class CelingOnLeftUsingTreeSet {
