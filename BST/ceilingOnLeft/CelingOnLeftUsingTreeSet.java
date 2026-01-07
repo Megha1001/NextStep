@@ -2,6 +2,12 @@ package BST.ceilingOnLeft;
 
 import java.util.TreeSet;
 
+/*
+ * IDEA : Use TreeSet that uses Red black tree(self balancing)
+ * TIME COMPLEXITY : O(log N)
+ * AUXILIARY SPACE : O(logN)
+ */
+
 public class CelingOnLeftUsingTreeSet {
 
     public static void main(String args[]){
