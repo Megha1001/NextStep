@@ -593,6 +593,7 @@ balance factor = |lh - rh| <=1
 i.e. Mode of left_height - right_height <=1
 
 -> search fast and strict
+-> Insertion : we need to rotate/correct only unbalanced node not all the ancestor but in deletion we need to check all ancestors
 
 35. Red black tree 
 Every node is either Red or black
