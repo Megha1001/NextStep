@@ -2,7 +2,7 @@ package BST.ceil;
 
 /*
  * TIME COMPLEXITY : O(H)
- * AUXILIARY SPACE : O(H)
+ * AUXILIARY SPACE : O(1)
  */
 
 public class FindCeilIterativeSolution {
