@@ -587,3 +587,15 @@ public static Node BTToDLL(Node root){
         return head;
 
     }
+
+34. AVL Tree - Every node should have balance factor <=1 
+balance factor = |lh - rh| <=1 
+i.e. Mode of left_height - right_height <=1
+
+-> search fast and strict
+
+35. Red black tree 
+Every node is either Red or black
+Root is always black
+No two consecutive reds
+Number of black nodes from every node to all of its descandant leaf should be same
