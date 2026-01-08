@@ -2,6 +2,9 @@ package BST.isGivenPairExists;
 
 /*
  * DO inorder traversal and use two pointer approach to find sum
+ * 
+ * TIME COMPLEXITY : Theta(N)
+ * AUXILIARY SPACE : Theta(N)
  */
 
 import java.util.ArrayList;
