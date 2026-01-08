@@ -51,12 +51,14 @@ public class EfficientSolutionUsingInOrderTraversal {
 
         fixBST(root);
 
-        //swap first and second
-        int temp = first.data;
-        first.data=second.data;
-        second.data = temp;
-        check = Integer.MIN_VALUE;
-
+        //swap first and second only when BST is invalid
+        if(first!=null && second!=null){
+            int temp = first.data;
+            first.data=second.data;
+            second.data = temp;
+            check = Integer.MIN_VALUE;
+        }
+    
         System.out.println("is fixed tree is BST ? : "+isBST(root));
 
     }
