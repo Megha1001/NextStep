@@ -1,6 +1,9 @@
 package BST.isGivenPairExists;
 
 /* Use HashSet to store the keys and search for sum-present
+
+TIME COMPLEXITY : Theat(N)
+AUXILIARY SPACE : O(H), where H is height
  */
 
 import java.util.HashSet;
