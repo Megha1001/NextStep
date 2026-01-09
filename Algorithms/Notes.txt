@@ -609,3 +609,6 @@ Does the result of the recursive call matter to the current function?
 If YES → you MUST return it
 If NO → you just call it (no return)
 That’s it. Everything else comes from this.
+
+
+Vertical order traversal must use BFS, not DFS
