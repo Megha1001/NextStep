@@ -3,21 +3,26 @@ package BST.verticalSum;
 /*
  * TREEMAP stores the values in sorted order. its self balancing BST
  * 
- * map(vale, sum of nodes)
- * val : val of node. For ex : root : 0, then left child is root-1 =-1 , right child is root+1 : 0+1 = 1
+ * Input
+    root =
+    [1,2,3,4,6,5,7]
+
+    Expected
+    [[4],[2],[1,5,6],[3],[7]]
+    
+    Note order of 1,5,6 
  * 
- * 1. Do in Order traversal/any traversal to populate the map
+ * 1. DO LEVEL ORDER TRAVERSAL
  * 2. Print the map
  */
 
 import java.util.TreeMap;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayDeque;
 
-public class EfficientSolutionUsingTreeMap1 {
+public class EfficientSolutionUsingTreeMapLeetCodeVersion {
 
     
     static class TreeNode{
@@ -27,6 +32,16 @@ public class EfficientSolutionUsingTreeMap1 {
 
         TreeNode(int data){
             this.val = data;
+        }
+    }
+
+    static class Pair{
+        TreeNode node;
+        int hd;
+
+        Pair(TreeNode node, int hd){
+            this.node = node;
+            this.hd = hd;
         }
     }
 
@@ -40,30 +55,45 @@ public class EfficientSolutionUsingTreeMap1 {
         root.left.right.right = new TreeNode(75);
         root.left.right.right.right = new TreeNode(80);
 
-        List<List<Integer>> result = new ArrayList<>();
-        TreeMap<Integer, List<Integer>> map = new TreeMap<>();
-        verticalHeight(root, map, 0);
-
-        for(Map.Entry<Integer, List<Integer>> entry: map.entrySet()){
-            result.add(entry.getValue());
-        }
-
-        for(List<Integer> i : result){
-            System.out.print(i+" ");
-        }
+         List<List<Integer>> result = verticalHeight(root);
+       
+         for(List<Integer> list : result){
+            System.out.print(list + " ");
+         }
     }
 
-   public static void verticalHeight(TreeNode root, TreeMap<Integer, List<Integer>>map, int hd){
-        if(root == null){
-            return;
+    public static List<List<Integer>> verticalHeight(TreeNode root){
+
+        List<List<Integer>> result =  new ArrayList<>();
+    
+        TreeMap<Integer, List<Integer>> map = new TreeMap<>();
+    
+        ArrayDeque<Pair> q = new ArrayDeque<>();
+        q.offer(new Pair(root, 0));
+
+        while(!q.isEmpty()){
+            Pair curr = q.poll();
+
+            map.putIfAbsent(curr.hd, new ArrayList<>());
+            map.get(curr.hd).add(curr.node.val);
+
+            if(curr.node.left != null){
+                q.offer(new Pair(curr.node.left, curr.hd-1));
+            }
+
+            if(curr.node.right != null){
+                q.offer(new Pair(curr.node.right, curr.hd+1));
+            }
+
         }
 
-        verticalHeight(root.left, map, hd-1);
-        List<Integer> previous = map.get(hd)== null ? new ArrayList<>() : map.get(hd);
-        previous.add(root.val);
-        map.put(hd,previous);
-        verticalHeight(root.right, map, hd+1);
 
+
+        for(List<Integer> val : map.values()){
+            result.add(val);
+        }
+
+        return result;
     }
     
 }
