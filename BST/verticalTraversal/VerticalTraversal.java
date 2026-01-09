@@ -3,7 +3,6 @@ package BST.verticalTraversal;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.TreeMap;
-import java.util.Map;
 import java.util.List;
 
 public class VerticalTraversal {
