@@ -1,7 +1,5 @@
 package BST.topViewOfBinaryTree;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.util.ArrayDeque;
 import java.util.TreeMap;
 
