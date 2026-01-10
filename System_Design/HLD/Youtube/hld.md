@@ -24,4 +24,23 @@ Two types of users
     - Storage reliability : For example, it should not happen if creator upload something and it disappears
 
 
+## Capacity Estimation
 
+### DAU/MAU
+- DAU : 100Million Users
+- MAU : 2.5Billion Users
+
+### Throughput
+- Read Throughput
+    - User watch video
+        - Assumption : 1 User watch 10 Videos
+        - 100M * 10 : 1B read request/day
+- Write Throughput
+    - Uploading video : 
+        - Assumption : 1/250 upload a video
+        - 100M/250 = 0.4Million write request/day
+
+### Storage
+- Mainly store the video data -> Metadata, video Content
+- Assumption : Avg size of video upload : 600MB
+    - 600MB * 0.4Millioin = 240TB/day
