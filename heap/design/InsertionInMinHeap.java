@@ -1,5 +1,9 @@
 package heap.design;
 
+/*
+ * TIME COMPLEXITY : O(Height) = O(logN) 
+ */
+
 public class InsertionInMinHeap {
 
     static class Heap{
