@@ -1,4 +1,4 @@
-# Instagram High-Level Design (HLD)
+# Youtube High-Level Design (HLD)
 
 ## Requirements
 
