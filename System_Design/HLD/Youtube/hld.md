@@ -75,4 +75,5 @@ Two types of users
             ![alt text](API-Design/Content_Creators/Upload-part1.png)
             - Use session URI to upload the video
             ![alt text](API-Design/Content_Creators/Upload-part-2.png)
+            Note : PUT is used to update an existing resource, POST is used to create new resource
 - Streaming/Watching content
