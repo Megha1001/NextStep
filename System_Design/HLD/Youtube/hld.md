@@ -44,3 +44,11 @@ Two types of users
 - Mainly store the video data -> Metadata, video Content
 - Assumption : Avg size of video upload : 600MB
     - 600MB * 0.4Millioin = 240TB/day
+    - Since video stores for longer period of time we cant delete them immedietly
+        - How much storage we need to 10 years
+            - 240TB * 365 * 10 = 876PB
+
+### Memory
+- When we talk about memory what we mean is we are estimating cache memory
+- For this, we need to make assumption of some % out of total storage
+    - Assumption : 1% of storage : 2.4TB/day (Since the cost to store data in cache is pretty expensive. Hence, we took percentage like 1%, 3% or 5%)
