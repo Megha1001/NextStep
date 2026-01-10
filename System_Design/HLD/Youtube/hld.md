@@ -76,4 +76,5 @@ Two types of users
             - Use session URI to upload the video
             ![alt text](API-Design/Content_Creators/Upload-part-2.png)
             Note : PUT is used to update an existing resource, POST is used to create new resource
+            PATCH is use for updating part of existing resource, PUT is used to updata the entire resource
 - Streaming/Watching content
