@@ -67,4 +67,12 @@ Two types of users
 
 ## API Design
 - Upload Content
+    - the video that the client is trying to upload can be very very big (can be 10 mins or 2 hours). Not feasible to upload a view in single request
+    - Multiple request are used to send video data in small chunks + video metadata
+    - Two parts
+        - When user clicks upload button 
+            - A request send to youtube server asking to upload the metadata
+            ![alt text](API-Design/Content_Creators/Upload-part1.png)
+            - Use session URI to upload the video
+            ![alt text](API-Design/Content_Creators/Upload-part-2.png)
 - Streaming/Watching content
