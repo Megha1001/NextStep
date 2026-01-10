@@ -1844,3 +1844,7 @@ Consistent hashing distributes keys across nodes such that only a small fraction
 | 1 GB | 2³⁰ ≈ 1,000,000,000 bytes     |
 | 1 TB | 2⁴⁰ ≈ 1,000,000,000,000 bytes |
 
+
+## HTTP Methods
+PUT is used to update an existing resource, POST is used to create new resource
+PATCH is use for updating part of existing resource, PUT is used to updata the entire resource
