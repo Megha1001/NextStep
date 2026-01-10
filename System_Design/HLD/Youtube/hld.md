@@ -52,3 +52,13 @@ Two types of users
 - When we talk about memory what we mean is we are estimating cache memory
 - For this, we need to make assumption of some % out of total storage
     - Assumption : 1% of storage : 2.4TB/day (Since the cost to store data in cache is pretty expensive. Hence, we took percentage like 1%, 3% or 5%)
+
+### Network and Bandwidth estimation
+- How much data flows in and out of our system per second
+- Its different from throughput
+    - In throughput we check how many request flowed in and out of our system. Here we are talking about data
+- Ingress : How much data flows into our system
+    - All the data that comes to our system will eventually stores somewhere (uploading req)
+        - How much data stores in a day == how much data stores in our system = 240TB/day
+            - 240TB/(24*60*60) = 
+- Egress : How much data flows out of our system
