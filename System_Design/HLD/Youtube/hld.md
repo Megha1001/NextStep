@@ -60,10 +60,10 @@ Two types of users
 - Ingress : How much data flows into our system
     - All the data that comes to our system will eventually stores somewhere (uploading req)
         - How much data stores in a day == how much data stores in our system = 240TB/day
-            - 240TB/(24*60*60) = 2.7GB/sec
+            - 240TB/(24 * 60 * 60) = 2.7GB/sec
 - Egress : How much data flows out of our system
     - How much data read from our system - Someone need to read that data -> Viewers
-        - 1B read request/day * 600MB(1 video avg size) = 600PB/day = 600PB/(24*60*60) = 6.9TB/sec
+        - 1B read request/day * 600MB(1 video avg size) = 600PB/day = 600PB/(24 * 60 * 60) = 6.9TB/sec
 
 ## API Design
 - Upload Content
