@@ -18,11 +18,11 @@ public class InsertionInMinHeap {
         }
 
         int left(int i){
-            return 2*i-1;
+            return 2*i+1;
         }
 
         int right(int i){
-            return 2*i+1;
+            return 2*i+2;
         }
 
         int parent(int i){
