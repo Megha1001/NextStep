@@ -83,3 +83,9 @@ Two types of users
     - So what youtube does it send the manifest first on client request
     - Manifest files is the files which has all the locations of these chunks
     ![alt text](API-Design/Viewers/streaming.png)
+
+## High Level Design
+- Upload a content
+    - Step1 : Video metadata reques and server respond with sessionURI
+    ![alt text](HLD/Content_creators/Generat_sessionURI.png)
+- Streaming a content
