@@ -78,3 +78,8 @@ Two types of users
             Note : PUT is used to update an existing resource, POST is used to create new resource
             PATCH is use for updating part of existing resource, PUT is used to updata the entire resource
 - Streaming/Watching content
+    - Multiple request are send to get the each chunk of video and all these chunks are stored at different location
+    - So to stream the entire video client needs to know the location
+    - So what youtube does it send the manifest first on client request
+    - Manifest files is the files which has all the locations of these chunks
+    ![alt text](API-Design/Viewers/streaming.png)
