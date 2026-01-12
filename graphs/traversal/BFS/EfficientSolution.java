@@ -3,6 +3,11 @@ package graphs.traversal.BFS;
 import java.util.ArrayList;
 import java.util.ArrayDeque;
 
+/*
+ * IDEA : Level order traversal but by maintaining a boolean visited array . Since in tree we dont have cycle but in graph its connected and there can be cycle
+ * we dont want to visit same element twice
+ */
+
 public class EfficientSolution {
     
      public static void main(String args[]){
