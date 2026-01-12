@@ -30,7 +30,7 @@ public class EfficientSolution {
 
     public static void bfsTraversal(ArrayList<ArrayList<Integer>> adj, int v, int s){
         //visited signifies that element is entered in the queue
-        boolean [] visited = new boolean[v+1];
+        boolean [] visited = new boolean[v];
 
         ArrayDeque<Integer> q = new ArrayDeque<>();
         q.offer(s);
