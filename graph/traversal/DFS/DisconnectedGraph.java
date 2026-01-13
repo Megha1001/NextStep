@@ -2,6 +2,14 @@ package graph.traversal.DFS;
 
 import java.util.ArrayList;
 
+/*
+ * TIME COMPLEXITY : O(V+E)
+ * 
+ * E : We are traversing all the adjacency list which is 2E
+ * V : when all the nodes are disconnected - corner case
+ */
+
+
 public class DisconnectedGraph {
 
     public static void main(String args[]){
