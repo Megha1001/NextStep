@@ -1,4 +1,4 @@
-package graphs.traversal.BFS;
+package graph.traversal.BFS;
 
 import java.util.ArrayList;
 import java.util.HashSet;

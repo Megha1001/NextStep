@@ -1,4 +1,4 @@
-package graphs.traversal.BFSOfDisconnectedGraph;
+package graph.traversal.BFSOfDisconnectedGraph;
 
 import java.util.ArrayList;
 import java.util.ArrayDeque;
