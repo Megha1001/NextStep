@@ -2,6 +2,10 @@ package graph.traversal.DFS;
 
 import java.util.ArrayList;
 
+/*
+ * IDEA : Traverse source first , then one of its adjacent, then take that adjecent and traverse it first then its adjecent - RECURSIVE
+ */
+
 public class NaiveSolution {
 
     public static void main(String args[]){
