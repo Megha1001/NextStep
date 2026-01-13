@@ -3,6 +3,13 @@ package graphs.traversal.BFSOfDisconnectedGraph;
 import java.util.ArrayList;
 import java.util.ArrayDeque;
 
+/*
+ * TIME COMPLEXITY : O(V+E)
+ * 
+ * E : We are traversing all the adjacency list which is 2E
+ * V : when all the nodes are disconnected - corner case
+ */
+
 public class BFSOfDisconnectedGrapha {
     
     public static void main(String args[]){
