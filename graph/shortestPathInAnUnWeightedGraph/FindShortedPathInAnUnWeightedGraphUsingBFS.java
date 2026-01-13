@@ -2,6 +2,7 @@ package graph.shortestPathInAnUnWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.ArrayDeque;
+import java.util.Arrays;
 
 public class FindShortedPathInAnUnWeightedGraphUsingBFS {
 
@@ -26,6 +27,7 @@ public class FindShortedPathInAnUnWeightedGraphUsingBFS {
     public static void shortestPath(ArrayList<ArrayList<Integer>>adj, int v, int s){
         //intialize dist array
         int [] dist = new int[v];
+        Arrays.fill(dist, Integer.MAX_VALUE);
         boolean [] visited = new boolean[v];
         ArrayDeque<Integer> q = new ArrayDeque<>();
 
