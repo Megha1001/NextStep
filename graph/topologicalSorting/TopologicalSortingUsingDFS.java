@@ -5,7 +5,8 @@ package graph.topologicalSorting;
  * IDEA : Do DFS Traversal and after every vertex get visility push that in stack
  * if u-> v then u should come before v
  * 
- * Idea is to push all the adjacent first then push the curr node. so curr node will pop first
+ * Idea is to push all the adjacent first then push the curr node. so curr node will pop first. A vertex will go into the stack once all 
+ * of its dependent are pushed
  */
 
 import java.util.ArrayList;
