@@ -1,4 +1,4 @@
-package graph.detectCycle;
+package graph.detectCycle.undirectedGraph;
 
 /*
  * IDEA : Maintain a parent and check if already visited vertex is parent or not
