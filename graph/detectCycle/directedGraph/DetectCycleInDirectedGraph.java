@@ -1,4 +1,4 @@
-package graph.detectCycle;
+package graph.detectCycle.directedGraph;
 
 
 import java.util.ArrayList;
