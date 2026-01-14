@@ -11,6 +11,8 @@ package graph.topologicalSorting;
  *      -> for every adjacent v of u
  *          -> --inDegree[v];
  *          -> if indegree becomes 0 add into q
+ * 
+ * TIME COMPLEXITY : O(V+E)
  */
 
 import java.util.ArrayList;
