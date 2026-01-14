@@ -22,7 +22,7 @@ public class EfficientSolution {
         int res = arr[0];
         int max_ending = arr[0];
 
-        for(int i=0; i<n; i++){
+        for(int i=1; i<n; i++){
             max_ending = Math.max(max_ending + arr[i], arr[i]);
             res = Math.max(res, max_ending);
         }
