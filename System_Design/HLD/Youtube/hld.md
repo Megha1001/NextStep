@@ -87,7 +87,13 @@ Two types of users
 ## High Level Design
 - Upload a content
     - Step1 : Video metadata reques and server respond with sessionURI
-    ![alt text](HLD/Content_creators/Generat_sessionURI.png)
-    ![alt text](HLD/Content_creators/upload.png)
+        ![alt text](HLD/Content_creators/Generat_sessionURI.png)
+        ![alt text](HLD/Content_creators/upload.png)
+        - In step 4, we are storing videoId in message queue.
+        - In step 5, Content Processor (workflow engine) is doing many steps like breaking video in chunks, generating in different resolution
+        - In step 7, content processor is sending those variation that it has created in above step to CDN.
+        - IN step 8, We are storing location of CDN to DB
+    
+        
 
 - Streaming a content
