@@ -74,7 +74,7 @@ public class DetectCycleInDirectedGraphUsingBFS {
     public static void calculateIndegree(ArrayList<ArrayList<Integer>>adj, int [] indegree){
         for(int i=0; i<adj.size(); i++){
             for(int j=0; j<adj.get(i).size(); j++){
-                ++indegree[j];
+                ++indegree[adj.get(i).get(j)];
             }
         }
     }
