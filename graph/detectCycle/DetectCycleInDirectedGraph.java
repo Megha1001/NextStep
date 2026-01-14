@@ -13,12 +13,19 @@ public class DetectCycleInDirectedGraph {
             adj.add(new ArrayList<>());
         }
 
+        // addAnEdge(adj, 0,1);
+        // addAnEdge(adj, 2,1);
+        // addAnEdge(adj, 2,3);
+        // addAnEdge(adj, 3,4);
+        // addAnEdge(adj, 4,5);
+        // addAnEdge(adj, 5,3);
+
         addAnEdge(adj, 0,1);
         addAnEdge(adj, 2,1);
         addAnEdge(adj, 2,3);
         addAnEdge(adj, 3,4);
         addAnEdge(adj, 4,5);
-        addAnEdge(adj, 5,3);
+        // addAnEdge(adj, 5,3);
 
         System.out.println("is Cycle exists in the given directed graph ? : "+detectCycle(adj, V));
     }
