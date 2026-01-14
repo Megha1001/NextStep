@@ -50,7 +50,7 @@ public class DetectCycleInDirectedGraph {
                 return true;
             }
         }
-
+        recCallStack[s]=false; //IMP!!!
         return false;
     }
 
