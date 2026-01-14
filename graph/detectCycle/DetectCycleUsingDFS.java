@@ -25,8 +25,34 @@ public class DetectCycleUsingDFS {
     }
 
     public static boolean isCyclePresent(ArrayList<ArrayList<Integer>>adj, int v){
-
+        boolean [] visited = new boolean[v];
+        for(int i=0; i<v; i++){
+            if(!visited[i]){
+                if(isCycle(adj,i,-1,visited)){
+                    return true;
+                }
+            }
+        }
+        return false;
     
+    }
+
+    public static boolean isCycle(ArrayList<ArrayList<Integer>>adj, int curr, int parent, boolean[]visited){
+
+        visited[curr] = true;
+
+        for(int neighbour : adj.get(curr)){
+            if(!visited[neighbour]){
+                if(isCycle(adj, neighbour, curr, visited)){
+                    return true;
+                }
+            }else if (neighbour!= parent){
+                return true;
+            }
+        }
+
+        return false;
+
     }
 
 
