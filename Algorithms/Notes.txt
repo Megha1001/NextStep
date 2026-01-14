@@ -677,3 +677,12 @@ public static void topologicalSorting(ArrayList<ArrayList<Integer>>adj, int v){
         //     System.out.print(i + " ");
         // }
     }
+
+38. Shortest Path in DAG : O(V+E)
+-> Intitialize dist[V] = {INF, INF, INF,.....}
+-> dist[s] = 0;
+-> Find a topological sort of the graph with s=0
+-> for every vertex u in the topological sort
+    -> for every adjacent v of u
+        if dist[v] > dist[u] + weight(u, v)
+        dist[v] = dist[u] + weight(u,v)
