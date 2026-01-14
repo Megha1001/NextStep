@@ -624,6 +624,8 @@ Vertical order traversal must use BFS, not DFS
 
 37. Kahn's Algorithm -> Topological sorting
 
+Topological sorting is only for acyclic graphs
+
 STEPS
 ------
 1. Find indegree of all the vertices
