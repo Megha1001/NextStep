@@ -3,7 +3,7 @@ package graph.detectCycle.directedGraph;
 
 import java.util.ArrayList;
 
-public class DetectCycleInDirectedGraph {
+public class DetectCycleInDirectedGraphUsingDFS {
 
     public static void main(String args[]){
         int V = 6;
