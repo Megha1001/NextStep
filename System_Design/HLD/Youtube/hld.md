@@ -88,5 +88,6 @@ Two types of users
 - Upload a content
     - Step1 : Video metadata reques and server respond with sessionURI
     ![alt text](HLD/Content_creators/Generat_sessionURI.png)
+    ![alt text](HLD/Content_creators/upload.png)
+
 - Streaming a content
-    ![alt text](HLD/upload/upload.png)
