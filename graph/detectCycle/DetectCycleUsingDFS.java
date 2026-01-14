@@ -1,7 +1,9 @@
 package graph.detectCycle;
 
 /*
- * IDEA : DO DFS for every node as source, and if we found the source again while traversing will say it has cycle
+ * IDEA : Maintain a parent and check if already visited vertex is parent or not
+ * 
+ * TIME COMPLEXITY : O(V+E)
  */
 
 import java.util.ArrayList;
