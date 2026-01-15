@@ -78,3 +78,32 @@ class Solution {
     }
 }
 ```
+
+3. Merge Two Sorted Linked Lists
+Use Merge sort but maintain two pointer -> head and tail.
+Note : Update the tail reference as well
+But there is one improved approach to use dummy node
+
+```
+public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        //optimized one
+        ListNode dummy = new ListNode(-1);
+        ListNode tail = dummy;
+
+        while(list1!=null && list2!=null){
+            if(list1.val <= list2.val){
+                tail.next = list1;
+                list1 = list1.next;
+            }else{
+                tail.next = list2;
+                list2 = list2.next;
+            }
+            tail = tail.next;
+        }
+
+        tail.next = list1!=null ? list1 : list2;
+
+        return dummy.next;
+        
+    }
+```
