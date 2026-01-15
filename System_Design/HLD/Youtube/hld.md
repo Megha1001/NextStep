@@ -93,6 +93,23 @@ Two types of users
         - In step 5, Content Processor (workflow engine) is doing many steps like breaking video in chunks, generating in different resolution
         - In step 7, content processor is sending those variation that it has created in above step to CDN.
         - IN step 8, We are storing location of CDN to DB
+    - Content Processor Workflow Engine
+        - Divide in chunks - Content Chunker Service
+            - Get the videoId from message queue and get the video from object storage and then divide that video in chunks and 
+            store back to object store and put the chunkId in message queue
+            ![alt text](HLD/Content_creators/Content_chunker_service.png)
+        - Convert to different format .mov and .mp4 - Format Convertor service
+            - After chunking format convertor service takes those chunks with chunkId and  convert it into different format and store on object storage
+            - Why different formats -> as with different devices different formats are supported
+            - Steps :
+                - Retrieve the event from event queue that content chunker service uploaded
+                - Uses the chunkId from the event and get the object from object storage
+                - Convert into different formats
+                - Upload the converted chunks to the object
+                - For each uploaded object creates a chunkId and upload in message queue
+                ![alt text](HLD/Content_creators/format_converter_service.png)
+        - Convert to different resolution - Quality converter service
+    
     
         
 
