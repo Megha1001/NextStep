@@ -5,6 +5,7 @@
             - Compute Max
 
 - Two Pointer Approach
+```
 public int maxProfit(int[] prices) {
 
         //Brute force
@@ -38,3 +39,42 @@ public int maxProfit(int[] prices) {
         return maxProfit;
         
 }
+```
+
+2. Valid Parentheses
+
+Use stack
+
+```
+class Solution {
+    public boolean isValid(String s) {
+        ArrayDeque<Character> stack = new ArrayDeque<>();
+
+        for(char c : s.toCharArray()){
+            switch(c){
+                case '{':
+                case '(':
+                case '[':
+                    stack.push(c);
+                    break;
+                case '}':
+                case ')':
+                case ']':
+                    if(!stack.isEmpty() && (((c=='}') && (stack.peek()=='{')) || ((c==')') && (stack.peek()=='(')) || ((c==']') && (stack.peek()=='[')))){
+                        stack.pop();
+                        break;
+                    }else{
+                        return false;
+                    }
+            }
+        }
+
+        if(stack.isEmpty()){
+            return true;
+        }
+
+        return false;
+        
+    }
+}
+```
