@@ -109,6 +109,23 @@ Two types of users
                 - For each uploaded object creates a chunkId and upload in message queue
                 ![alt text](HLD/Content_creators/format_converter_service.png)
         - Convert to different resolution - Quality converter service
+            - After converting to different format the quality convertor service converts it to different resolution
+                - Needed so user should have the good experience - ABR
+            - Steps :
+                - Retrieves the event from messasge queue - chunkId
+                - get the chunk from object storage
+                - convert it into different quality
+                - stores them to object storage
+                - upload the chunkId to message queue
+                ![alt text](HLD/Content_creators/Quality_convertor_service.png)
+        - CDN Uploader service
+            - Get the chunks of different format and resolution and upload it to CDN
+            - Along with uploading - CDN saves this location in VideoDB (help to create manifest file)
+            - Steps
+                - Retrives all the video chunks in different format and resolution from object storage
+                - Now each chunk have different location it also saves them to videoDB
+                - since video processing is complete the CDN uploader service add a message to message queue that processing is completed
+                ![alt text](HLD/Content_creators/CDN_uploader_service.png)
     
     
         
