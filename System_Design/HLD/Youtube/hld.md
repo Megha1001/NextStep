@@ -148,3 +148,7 @@ We have one DB that we need to decide - Videos DB(Metadata)
 - Fast Access - Low latency - NoSQL
 - Simple query pattern - NoSQL
     - We are interacting through videoId to get the video - NoSQL can handle that.
+
+## Database Modeling
+- VideosDB - VideoId will be index
+![alt text](deep-dive/Database-Modeling.png)
