@@ -144,3 +144,7 @@ Two types of users
 | Frequent Schema Changes   | ❌           | ✅     |
 
 We have one DB that we need to decide - Videos DB(Metadata)
+- High Scale - Million of videos are uploading and streaming so corresponding metadata will be store - NoSQL
+- Fast Access - Low latency - NoSQL
+- Simple query pattern - NoSQL
+    - We are interacting through videoId to get the video - NoSQL can handle that.
