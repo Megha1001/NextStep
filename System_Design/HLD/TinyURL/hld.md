@@ -56,3 +56,12 @@ Advantages
 - Egress : Data flowing out of our system
     - When user ask for the long URL
         - 6B/day * 200Bytes = 1200GB/day = 1200GB/(24 * 60 * 60) = 12000MB/(24 * 6 * 6) = 13.8MB/sec
+
+
+## API DESIGN
+- Generating a short URL
+![alt text](API_Design/Generating_short_url.png)
+
+- Getting back long URL with short URL
+    - EndPoint : /{shortURL} : because this is the endpoint we are typing in the browser
+    ![alt text](API_Design/Get_long_Url_back.png)
