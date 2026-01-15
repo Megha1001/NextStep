@@ -248,3 +248,42 @@ class Solution {
 }
 
 ```
+
+7. Single Number
+
+```
+class Solution {
+    public int singleNumber(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i : nums){
+            map.put(i, map.getOrDefault(i, 0)+1); //nums[i], frequency
+        }
+        
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(entry.getValue() == 1){
+                return entry.getKey();
+            }
+        }
+
+        return -1;
+    }
+}
+```
+
+8. Number of One Bits
+
+```
+class Solution {
+    public int hammingWeight(int n) {
+        //Brain & Kerningham algorithm
+        int res = 0;
+
+        while(n!=0){
+            ++res;
+            n = n&(n-1);
+        }
+
+        return res;
+    }
+}
+```
