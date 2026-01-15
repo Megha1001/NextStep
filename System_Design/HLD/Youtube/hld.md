@@ -152,3 +152,10 @@ We have one DB that we need to decide - Videos DB(Metadata)
 ## Database Modeling
 - VideosDB - VideoId will be index
 ![alt text](deep-dive/Database-Modeling.png)
+
+
+## HLS Encoding
+- When we stream chunks those chunks needs to be encoded in certain way
+    - Encoding simply means turning the video into streams of 0's and 1's. Different kind of encoding can convert the same chunk in different sequence of 0's and 1's
+    - HLS has specific standards like H.265, H.264
+    ![alt text](deep-dive/HLS-Encoding.png)
