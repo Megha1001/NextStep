@@ -2,4 +2,36 @@
 
 ## Requirements
 
+URL Shortner : Its a service that takes a long URL and convert it into short, compact URL that redirects to the original long URL.
+
+Advantages
+- Easy to share
+- Characters limits
+- Clean and professional
+
 ### Functional Requirements
+- To generate a short URL
+- To get the long URL back
+
+
+### Non-Functional Requirements
+- Availability
+- low latency
+- Scalability
+
+
+## Capacity Estimations
+
+### DAU & MAU
+    DAU : 300M
+    MAU : 1B
+
+### Throughput
+- Read Throughput
+
+
+- Write Throughput
+    - Creating a short URL
+    - 10% of daily active users will create a shortURL
+        - 300M * 0.10 = 30M/day
+        - Assume every user create 5 short URL = 5 * 30M/day = 150M/day = 150M url creation in one day
