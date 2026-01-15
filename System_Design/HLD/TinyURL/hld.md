@@ -68,5 +68,7 @@ Advantages
 
 
 ## HLD
-- Generating a short URL
-![alt text](HLD/Generate_short_URL.png)
+- Generating a short URL 
+    ![alt text](HLD/Generate_short_URL.png)
+    - Problem Collision
+        ![alt text](image.png)
