@@ -127,7 +127,7 @@ Two types of users
                 - since video processing is complete the CDN uploader service add a message to message queue that processing is completed
                 ![alt text](HLD/Content_creators/CDN_uploader_service.png)
     
-    
+![alt text](HLD/Content_creators/Combined.png)
         
 
 - Streaming a content
