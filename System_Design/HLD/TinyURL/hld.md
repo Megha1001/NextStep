@@ -28,6 +28,8 @@ Advantages
 
 ### Throughput
 - Read Throughput
+    - Client reads the original long URL back
+        - 300M * 20 (assumption each user requesting 20 long url) = 6B/day get URL request par day
 
 
 - Write Throughput
