@@ -65,3 +65,8 @@ Advantages
 - Getting back long URL with short URL
     - EndPoint : /{shortURL} : because this is the endpoint we are typing in the browser
     ![alt text](API_Design/Get_long_Url_back.png)
+
+
+## HLD
+- Generating a short URL
+![alt text](HLD/Generate_short_URL.png)
