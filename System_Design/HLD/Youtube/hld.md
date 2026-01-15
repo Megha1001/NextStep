@@ -132,3 +132,15 @@ Two types of users
 
 - Streaming a content
     ![alt text](HLD/streaming/ABR.png)
+
+
+## Database Selection
+| Factor                    | SQL (RDBMS) | NoSQL |
+| ------------------------- | ----------- | ----- |
+| Fast Data Access          | ❌           | ✅     |
+| Handles Very Large Scale  | ❌           | ✅     |
+| Fixed / Structured Schema | ✅           | ❌     |
+| Complex Queries & Joins   | ✅           | ❌     |
+| Frequent Schema Changes   | ❌           | ✅     |
+
+We have one DB that we need to decide - Videos DB(Metadata)
