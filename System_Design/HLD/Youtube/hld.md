@@ -131,3 +131,4 @@ Two types of users
         
 
 - Streaming a content
+    ![alt text](HLD/streaming/ABR.png)
