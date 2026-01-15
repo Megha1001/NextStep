@@ -335,3 +335,15 @@ Given an array nums containing n integers in the range [0, n] without any duplic
         
     }
 ```
+
+//without extraspace using xor
+```
+    public int missingNumber(int[] nums) {
+        int xor = nums.length;
+        for(int i=0; i<nums.length; i++){
+            xor ^= i^ nums[i];
+        }
+
+        return xor;
+    }
+```
