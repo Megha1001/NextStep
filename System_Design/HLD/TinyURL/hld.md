@@ -43,3 +43,16 @@ Advantages
 - When the user send the request to convert short URL to long URL the mapping of short to long is saved in the backend
 - Size of Mapping(Short URL to long URL mapping ) = 100Bytes(long URL) + 30 bytes(short URL) + 70Bytes(for metadata - timestamp, userInfo) = 200Bytes
     - 150M * 200Bytes = 30GB/day
+
+
+### Memory
+- Referring to cache memory
+    - We store = 30GB/day 
+    - 5% of total storage = 1.5GB/day
+
+### Network and bandwidth
+- Ingress : Data flowing into our system
+    - 30GB/day = 30GB/(24 * 60 * 60) = 30*1000MB/(24 * 60 * 60) = 300MB/(24 * 6 * 6) = 0.35MB/sec
+- Egress : Data flowing out of our system
+    - When user ask for the long URL
+        - 6B/day * 200Bytes = 1200GB/day = 1200GB/(24 * 60 * 60) = 12000MB/(24 * 6 * 6) = 13.8MB/sec
