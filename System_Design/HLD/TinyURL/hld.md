@@ -37,3 +37,9 @@ Advantages
     - 10% of daily active users will create a shortURL
         - 300M * 0.10 = 30M/day
         - Assume every user create 5 short URL = 5 * 30M/day = 150M/day = 150M url creation in one day
+
+
+### Storage
+- When the user send the request to convert short URL to long URL the mapping of short to long is saved in the backend
+- Size of Mapping(Short URL to long URL mapping ) = 100Bytes(long URL) + 30 bytes(short URL) + 70Bytes(for metadata - timestamp, userInfo) = 200Bytes
+    - 150M * 200Bytes = 30GB/day
