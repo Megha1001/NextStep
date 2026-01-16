@@ -390,3 +390,45 @@ Collections.sort(intervals, Comparator.comparingInt(i->i.start)); // Collections
 
         return true;
 ```
+
+12. Insert Intervals
+```
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+
+        int res[][] = new int[intervals.length+1][];
+        
+        //Find the position where we should insert newInterval
+        int idx = intervals.length;
+        for(int i=0; i<intervals.length; i++){
+            if(intervals[i][0] >= newInterval[0]){
+                idx = i;
+                break;
+            } 
+            res[i] = intervals[i];
+        }
+
+        res[idx] = newInterval;
+
+        for(int i= idx; i<intervals.length; i++){
+            res[i+1] = intervals[i];
+        }
+
+
+        //merged overlapping intervals
+        int temp = 0;
+        for(int i=1; i<res.length; i++){
+            if(res[temp][1] >= res[i][0]){
+                res[temp][0] = Math.min(res[temp][0], res[i][0]);
+                res[temp][1] = Math.max(res[temp][1], res[i][1]);
+            }else {
+                ++temp;
+                res[temp] = res[i];
+            }
+        }
+
+        return Arrays.copyOf(res, temp+1);
+
+    }
+}
+```
