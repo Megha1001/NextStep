@@ -377,7 +377,7 @@ class Solution {
 
 Optimized
 ```
-Collections.sort(intervals, Comparator.comparingInt(i->i.start));
+Collections.sort(intervals, Comparator.comparingInt(i->i.start)); // Collections.sort(intervals, (a,b)-> Integer.compare(a.start, b.start));
 
         for(int i=1; i<intervals.size(); i++){
             Interval I1 = intervals.get(i-1);
