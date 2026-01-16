@@ -374,3 +374,19 @@ class Solution {
     }
 }
 ```
+
+Optimized
+```
+Collections.sort(intervals, Comparator.comparingInt(i->i.start));
+
+        for(int i=1; i<intervals.size(); i++){
+            Interval I1 = intervals.get(i-1);
+            Interval I2 = intervals.get(i);
+
+            if(I1.end > I2.start){
+                return false;
+            }
+        }
+
+        return true;
+```
