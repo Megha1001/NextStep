@@ -347,3 +347,30 @@ Given an array nums containing n integers in the range [0, n] without any duplic
         return xor;
     }
 ```
+
+11. Meeting Rooms
+```
+class Solution {
+    public boolean canAttendMeetings(List<Interval> intervals) {
+        //Idea = there should not be any overlapping intervals
+        Comparator<Interval> sortByStart = new Comparator<Interval>(){
+            public int compare(Interval a, Interval b){
+                return a.start - b.start;
+            }
+        };
+
+        Collections.sort(intervals, sortByStart);
+
+        int res = 0;
+        int originalLength = intervals.size();
+        for(int i=1; i<originalLength; i++){
+            if(intervals.get(res).end > intervals.get(i).start){
+                return false;
+            }else {
+                ++res;
+            }
+        }
+        return true;
+    }
+}
+```
