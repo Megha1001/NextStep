@@ -1848,3 +1848,8 @@ Consistent hashing distributes keys across nodes such that only a small fraction
 ## HTTP Methods
 PUT is used to update an existing resource, POST is used to create new resource
 PATCH is use for updating part of existing resource, PUT is used to updata the entire resource
+
+
+## Zookeeper
+
+## Indexing
