@@ -103,3 +103,4 @@ Advantages
                         - LowerCase letters(a-z)
                         Total = 10 + 26 + 26 = 62
                         BASE 62 : Giving our number system a major upgrade
+                        - By this we can create much shorter URLs that represent the same number
