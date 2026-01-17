@@ -593,3 +593,51 @@ class Solution {
     }
 }
 ```
+
+17. Remove Node From End of Linked List
+Approach-1 : 
+1. Find the length of linked list
+2. calculate target position , target = len - N; // target's - 1 next node needs to be deleted
+    -> If target = 0 -> head needs to be deleted -> corner case
+    -> traverse till target-1 and delete the node
+
+```
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        //no need to check null as we have atleast one node
+        int len = calLength(head);
+        int target = len-n;
+
+        //Case-1 Head will change
+        if(target==0){
+            return head.next;
+        }
+
+        //Case-2 Head wont change
+        ListNode curr = head;
+        int count = 1;
+
+        while(count != target){
+            ++count;
+            curr = curr.next;
+        }
+
+        curr.next = curr.next.next;
+
+        return head;
+
+    }
+
+    public int calLength(ListNode head){
+        //no need to check null as we have atleast one node
+        ListNode curr = head;
+        int count = 0;
+        while(curr!=null){
+            ++count;
+            curr= curr.next;
+        }
+
+        return count;
+    }
+}
+```
