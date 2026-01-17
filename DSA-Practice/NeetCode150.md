@@ -641,3 +641,14 @@ class Solution {
     }
 }
 ```
+
+Approach-2 : Two pointer
+IDEA : Maintain N distance b/w left and right reference. So when right reaches the end we need to delete left.next
+1. Create a dummy node pointing to the head (helps in deletion of head node)
+2. Set two pointers
+    -> left = dummy;
+    -> right = head;
+3. Move right reference by n
+4. Now move both are one position until right reaches the end;
+5. Now left.next is the node to delete -> skip it by doing left.next = left.next.next
+6. return dummy.next;
