@@ -124,3 +124,16 @@ Advantages
 - Structure flexibility
 
 Will Use key-value store
+
+## Deep dive insights
+- Data modeling
+    - key-value NoSQL database
+        - key : shortURL
+        - value : longURL
+    - To speed up index the shortURL
+
+- Redirection from Short URL
+    - Returning the longURL is not sufficient
+        - When the API Gateway returns the response(i.e. long URL) to client it reutn the HTTP Status code 301
+            - 301 code tells the browser to redirect to the longURL. So browser take the long URL along with the status code and it understand the status code 
+            Therefore it would actually open the long URL web page completing the whole process
