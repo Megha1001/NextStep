@@ -569,3 +569,27 @@ public int goodNodes(TreeNode root) {
         return count;
     }
 ```
+
+16. Valid Binary Search Tree
+```
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        //Every Node is valid for BST when its exists in valid range
+        // root -> -INF, +INF, root.left = -INF, root.val, root.right = root.val, INF
+
+        return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    public boolean isBST(TreeNode root, int min, int max){
+        if(root != null){
+            if(root.val <= min || root.val >= max){
+                return false;
+            }
+
+            return isBST(root.left, min, root.val) && isBST(root.right, root.val, max);
+        }
+
+        return true;
+    }
+}
+```
