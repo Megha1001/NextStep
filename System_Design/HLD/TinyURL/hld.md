@@ -87,3 +87,5 @@ Advantages
             - It does solve our problem but every time collision happens we need to check DB
             - As our system scales the chances of collision will increate and we spend more time in checking and regenerating this would make our system slow in context of high scale
             - Also it goes against our requirement of low latency
+        - Approach 4 : Lets keep counters
+        ![alt text](HLD/keep_counters.png)
