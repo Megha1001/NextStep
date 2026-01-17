@@ -72,3 +72,6 @@ Advantages
     ![alt text](HLD/Generate_short_URL.png)
     - Problem Collision
         ![alt text](image.png)
+        - Approach 1 : Generate random string with help of algorithm
+            - But in this two server can generate same url
+            ![alt text](HLD/Random_string_generation.png)
