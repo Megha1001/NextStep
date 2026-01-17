@@ -536,3 +536,36 @@ class Solution {
     }
 }
 ```
+Using DFS
+
+```
+public int goodNodes(TreeNode root) {
+        int count=0;
+        //root can never be null; 1 <= number of nodes in the tree <= 100
+
+        ArrayDeque<Pair<TreeNode, Integer>> q = new ArrayDeque<>(); //Node, maxSeenSoFar
+        q.offer(new Pair<>(root, Integer.MIN_VALUE));
+
+
+        while(!q.isEmpty()){
+            Pair<TreeNode, Integer> p = q.poll();
+            int maxValue = p.getValue();
+            TreeNode node = p.getKey();
+            if(node.val >= maxValue){
+                ++count;
+                maxValue = node.val;
+            }
+
+            if(node.left != null){
+                q.offer(new Pair<>(node.left, maxValue));
+            }
+
+            if(node.right != null){
+                q.offer(new Pair<>(node.right, maxValue));
+            }
+        }
+
+
+        return count;
+    }
+```
