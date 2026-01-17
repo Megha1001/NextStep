@@ -92,3 +92,14 @@ Advantages
                 - Zookeeper solves the problem of coordination b/w servers
             ![alt text](HLD/keep_counters.png)
             ![alt text](HLD/keep_counters_with_zookeeper.png)
+        - Approach 5 : Base 62 encoding
+            - If we keep counter approach with zookeeper the length of our url grows as scale grows
+                - tiny.url/1, tiny.url/100, tiny.url/83434, .....,tiny.url/122423423434
+                - So what can we do to keep the URL short - Base 62 Encoding
+                    - Right now, each digit is in (0-9) = Base 10 
+                    - Expand the number of characters
+                        - Numbers(0-9)
+                        - UpperCase letters(A-Z)
+                        - LowerCase letters(a-z)
+                        Total = 10 + 26 + 26 = 62
+                        BASE 62 : Giving our number system a major upgrade
