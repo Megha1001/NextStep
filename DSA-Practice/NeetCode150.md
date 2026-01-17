@@ -580,13 +580,13 @@ class Solution {
         return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    public boolean isBST(TreeNode root, int min, int max){
+    public boolean isBST(TreeNode root, int left, int right){
         if(root != null){
-            if(root.val <= min || root.val >= max){
+            if(root.val <= left || root.val >= right){
                 return false;
             }
 
-            return isBST(root.left, min, root.val) && isBST(root.right, root.val, max);
+            return isBST(root.left, left, root.val) && isBST(root.right, root.val, right);
         }
 
         return true;
