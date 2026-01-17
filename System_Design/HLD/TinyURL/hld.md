@@ -88,4 +88,7 @@ Advantages
             - As our system scales the chances of collision will increate and we spend more time in checking and regenerating this would make our system slow in context of high scale
             - Also it goes against our requirement of low latency
         - Approach 4 : Lets keep counters
-        ![alt text](HLD/keep_counters.png)
+            - On different server it wont work for this server should communication - that's where zookeeper comes in
+                - Zookeeper solves the problem of coordination b/w servers
+            ![alt text](HLD/keep_counters.png)
+            ![alt text](HLD/keep_counters_with_zookeeper.png)
