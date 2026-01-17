@@ -652,3 +652,33 @@ IDEA : Maintain N distance b/w left and right reference. So when right reaches t
 4. Now move both are one position until right reaches the end;
 5. Now left.next is the node to delete -> skip it by doing left.next = left.next.next
 6. return dummy.next;
+
+```
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+
+        //Two Pointer approach
+        ListNode dummy = new ListNode(0, head); // pointing to head, will help in delete head node if require
+        ListNode left = dummy;
+        ListNode right = head;
+
+        //move right by n position to create difference of position of n b/w left and right
+        while(n>0){
+            right = right.next;
+            --n;
+        }
+
+
+        //when right reaches null left.next needs to be deleted
+        while(right!=null){
+            left = left.next;
+            right = right.next;
+        }
+
+        left.next = left.next.next;
+
+        return dummy.next;
+        
+    }
+}
+```
