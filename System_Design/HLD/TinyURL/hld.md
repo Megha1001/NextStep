@@ -107,3 +107,11 @@ Advantages
                 - We get way more possibilites and combinations with single character
                 - 7 characters = 62^7
                     - Every character will have 62 possibility instead of 10 possibility
+    
+    - Zookeeper Service
+        - Generate SHortURL service calls zookeeper to provide the range and it will give different range to different server to avoid collision
+        - Generate URL service then use a counter it got from Zookeeper to generate the URL.
+
+- Get Long URL
+    - Read Through strategy
+    ![alt text](HLD/get_long_url.png)
