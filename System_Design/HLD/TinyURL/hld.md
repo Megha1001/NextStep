@@ -75,3 +75,12 @@ Advantages
         - Approach 1 : Generate random string with help of algorithm
             - But in this two server can generate same url
             ![alt text](HLD/Random_string_generation.png)
+        - Approach 2 : Generate random string using LongURL
+            - Use MD5(base on input create unique outputs)
+            - Doesn't rely on the server but on input
+            - So, if we input two long URL MD5 will gurantee to generate unique output
+            ![alt text](HLD/random_string_generation_using_MD5.png)
+            - MD5 generates a unique string but it outputs a long String
+        - Approach 3 : Check DB for collision
+            - For the generated URL go and check in DB. If present, generate another URL
+            ![alt text](HLD/check_db_for_collision.png)
