@@ -115,3 +115,12 @@ Advantages
 - Get Long URL
     - Read Through strategy
     ![alt text](HLD/get_long_url.png)
+
+
+## Database selection
+- Speed -> Low latency -> NoSQL
+- Scale -> Need to handle large scale -> NoSQL
+- Query Pattern -> Simple query pattern -> NoSQL
+- Structure flexibility
+
+Will Use key-value store
