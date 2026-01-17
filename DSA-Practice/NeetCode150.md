@@ -477,3 +477,34 @@ class Solution {
     }
 }
 ```
+
+15. Count Good Nodes in Binary Tree
+//Idea : Maintain a global count and increment whenever we get value > root.val and follow preOrder traversal as we have to consider the present node first.
+
+```
+class Solution {
+    public static int count = 0;
+    public int goodNodes(TreeNode root) {
+        //Maintain the max seen so far and do preorder traversal
+        count = 0;
+        int max = Integer.MIN_VALUE;
+        countGoodNodes(root, max);
+        return count;
+    }
+
+    public void countGoodNodes(TreeNode root, int max){
+        if(root == null){
+            return;
+        }
+        
+        if(max <= root.val){
+            max = root.val;
+            ++count;
+        }
+
+        countGoodNodes(root.left, max);
+        countGoodNodes(root.right, max);
+        
+    }
+}
+```
