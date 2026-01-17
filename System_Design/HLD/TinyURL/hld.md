@@ -84,3 +84,5 @@ Advantages
         - Approach 3 : Check DB for collision
             - For the generated URL go and check in DB. If present, generate another URL
             ![alt text](HLD/check_db_for_collision.png)
+            - It does solve our problem but every time collision happens we need to check DB
+            - As our system scales the chances of collision will increate and we spend more time in checking and regenerating this would make our system slow in context of high scale
