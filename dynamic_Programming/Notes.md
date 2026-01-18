@@ -18,7 +18,13 @@
         - Determined by min and max value in the parameter
             - in Fibonacci : memo[n+1]
 
-- Tabulation
+- Tabulation -> Leave recursion, have an array or table and build your solution bottom up manner
     - Dimension are decided based on input/parameter
     - Size 
         - Determined by min and max value in the parameter
+
+- Substring
+A substring is a contiguous (continuous) part of a string.
+
+- Subsequence
+A subsequence keeps order but does NOT need to be contiguous.
