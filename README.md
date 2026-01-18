@@ -7,9 +7,10 @@
 
 [System Design](System_Design)
 
-HLD :
-1. Instagram -> [text](System_Design/HLD/instagram)
-2. Youtube/Netflix -> [text](System_Design/HLD/Youtube)
-3. URL shortnetr -> [text](System_Design/HLD/TinyURL)
+HLD : ![alt text](HLD.png)
+1. Instagram -> [Link](System_Design/HLD/instagram)
+2. Youtube/Netflix -> [Link](System_Design/HLD/Youtube)
+3. URL shortnetr -> [Link](System_Design/HLD/TinyURL)
 
-![alt text](SD.png)
+LLD
+![alt text](LLD.png)
