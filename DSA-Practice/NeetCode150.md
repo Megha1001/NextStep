@@ -762,7 +762,7 @@ class Solution {
 ```
 
 20. 3Sum
-
+Fix one element and for other apply two sum - Two Pointer approach
 ```
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
