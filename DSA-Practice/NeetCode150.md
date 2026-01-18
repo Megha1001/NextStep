@@ -783,16 +783,14 @@ class Solution {
                 continue;
             }
 
-            if(twoSum(i+1, n-1, nums[i], res, nums)){
-                continue;
-            }
+            twoSum(i+1, n-1, nums[i], res, nums)
         }
 
         return res;
         
     }
 
-    public boolean twoSum(int l, int h, int target, List<List<Integer>> list, int [] nums){
+    public void twoSum(int l, int h, int target, List<List<Integer>> list, int [] nums){
         while(l<h){
             int sumThree = nums[l] + nums[h] + target;
 
@@ -816,8 +814,6 @@ class Solution {
                 ++l;
             }
         }
-
-        return false;
     }
 }
 
