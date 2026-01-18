@@ -9,3 +9,8 @@
     - Diff Utility(LCS (Longest common subsequence))
     - Search closed words(Edit distance)
     - Resource Allocation(0-1 knapsnack)
+
+- Memoization
+    - Dimension are decided based on input
+        - if one input then 1-D array (Fibonacci)
+        - If two dimensions then 2-D array (Longest common subsequence)
