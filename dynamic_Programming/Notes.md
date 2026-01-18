@@ -11,6 +11,9 @@
     - Resource Allocation(0-1 knapsnack)
 
 - Memoization
-    - Dimension are decided based on input
+    - Dimension are decided based on input/parameter
         - if one input then 1-D array (Fibonacci)
         - If two dimensions then 2-D array (Longest common subsequence)
+    - Size 
+        - Determined by min and max value in the parameter
+            - in Fibonacci : memo[n+1]
