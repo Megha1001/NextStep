@@ -17,3 +17,8 @@
     - Size 
         - Determined by min and max value in the parameter
             - in Fibonacci : memo[n+1]
+
+- Tabulation
+    - Dimension are decided based on input/parameter
+    - Size 
+        - Determined by min and max value in the parameter
