@@ -1,0 +1,11 @@
+- Its an optimization over plain recursion
+- Idea is to reuse the solution of subproblems when there are overlapping subproblems
+- Types
+    - Memoization(top down)
+    - Tabulation(bottom up)
+- Applications of DP
+    - Bellman Ford Algorithm
+    - Floyd Warshall algorithm
+    - Diff Utility(LCS (Longest common subsequence))
+    - Search closed words(Edit distance)
+    - Resource Allocation(0-1 knapsnack)
