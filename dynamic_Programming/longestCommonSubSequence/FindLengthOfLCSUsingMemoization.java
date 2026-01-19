@@ -10,9 +10,9 @@ public class FindLengthOfLCSUsingMemoization {
         String s1 = "ABX";
         String s2 = "ABC";
 
-        memo = new int[s1.length()][s2.length()];
+        memo = new int[s1.length()+1][s2.length()+1];
 
-        for(int i=0; i<s1.length(); i++){
+        for(int i=0; i<s1.length()+1; i++){
             Arrays.fill(memo[i], -1);
         }
 
