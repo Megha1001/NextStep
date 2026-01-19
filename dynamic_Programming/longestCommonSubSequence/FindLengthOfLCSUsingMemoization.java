@@ -1,6 +1,13 @@
 package dynamic_Programming.longestCommonSubSequence;
 
 import java.util.Arrays;
+/*
+ * TIME COMPLEXITY : Theta(M*N)
+ * Every element of memo array is compute once -> Number of elements : Theta(M*N)
+ *  and we are doing constant work for each call
+ * 
+ * For Naive solution : without memoization : TC : O(2^N)
+ */
 
 public class FindLengthOfLCSUsingMemoization {
 
