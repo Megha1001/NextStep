@@ -24,7 +24,7 @@ public class FindLengthOfLCSUsingMemoization {
             Arrays.fill(memo[i], -1);
         }
 
-        System.out.println("The length of LCS is : "+findLengthOfLCS(s1, s2, s1.length()-1, s2.length()-1));
+        System.out.println("The length of LCS is : "+findLengthOfLCS(s1, s2, s1.length(), s2.length()));
     }
 
     public static int findLengthOfLCS(String s1, String s2, int m, int n){
