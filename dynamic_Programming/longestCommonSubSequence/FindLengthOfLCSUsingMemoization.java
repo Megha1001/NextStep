@@ -10,11 +10,13 @@ public class FindLengthOfLCSUsingMemoization {
         String s1 = "ABX";
         String s2 = "ABC";
 
-        memo = new int[s1.length()][s1.length()];
+        memo = new int[s1.length()][s2.length()];
 
-        Arrays.fill(memo, -1);
+        for(int i=0; i<s1.length(); i++){
+            Arrays.fill(memo[i], -1);
+        }
 
-        System.out.println("The length of LCS is : "+findLengthOfLCS(s1, s2, s1.length(), s2.length()));
+        System.out.println("The length of LCS is : "+findLengthOfLCS(s1, s2, s1.length()-1, s2.length()-1));
     }
 
     public static int findLengthOfLCS(String s1, String s2, int m, int n){
@@ -31,9 +33,11 @@ public class FindLengthOfLCSUsingMemoization {
                 memo[m][n] = 1 + findLengthOfLCS(s1, s2, m-1, n-1);
             }
             else {
-                memo[m][n] = Math.max()
+                memo[m][n] = Math.max(findLengthOfLCS(s1, s2, m-1, n), findLengthOfLCS(s1, s2, m, n-1));
             }
         }
+
+        return memo[m][n];
 
 
     }
