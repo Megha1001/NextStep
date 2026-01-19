@@ -10,6 +10,7 @@ public class FindLengthOfLCSUsingMemoization {
         String s1 = "ABX";
         String s2 = "ABC";
 
+        //The memo array is of size (m + 1) × (n + 1) so that we can represent empty prefixes of the strings and safely handle the base cases.
         memo = new int[s1.length()+1][s2.length()+1];
 
         for(int i=0; i<s1.length()+1; i++){
