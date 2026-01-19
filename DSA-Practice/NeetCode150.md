@@ -882,3 +882,82 @@ class Solution {
 }
 
 ```
+
+23. Longest Common Subsequence
+
+1. Memoization
+
+```
+class Solution {
+    //Using memoization
+
+    public static int[][]memo;
+    public int longestCommonSubsequence(String text1, String text2) {
+        int m = text1.length();
+        int n = text2.length();
+        memo = new int[m+1][n+1]; //need to consider for "" empty strings we well in length
+
+        for(int i=0; i<m+1; i++){
+            Arrays.fill(memo[i], -1);
+        }
+
+        return lcs(text1, text2, m, n);
+    }
+    
+    public int lcs(String s1, String s2, int m, int n){
+        if(memo[m][n]!=-1){
+            return memo[m][n];
+        }
+
+        if(m==0 || n==0){
+            memo[m][n] = 0;
+        }
+
+        else{
+            if(s1.charAt(m-1)==s2.charAt(n-1)){
+                memo[m][n] = 1 + lcs(s1, s2, m-1, n-1);
+            }else{
+                memo[m][n] = Math.max(lcs(s1, s2, m-1, n), lcs(s1, s2, m, n-1));
+            }
+        }
+        
+
+        return memo[m][n];
+    }
+}
+```
+
+2. Tabulation
+```
+class Solution {
+
+    //Method-2 Tabulation
+    public int longestCommonSubsequence(String text1, String text2) {
+        int m = text1.length();
+        int n = text2.length();
+        int dp[][] = new int[m+1][n+1]; //+1 to consider 00, 10, 01
+
+        for(int i=0; i<=m; i++){
+            //row change
+            dp[i][0] = 0;
+        }
+
+        for(int i=0; i<=n; i++){
+            //column change
+            dp[0][i] = 0;
+        }
+
+        for(int i=1; i<=m ; i++){
+            for(int j=1; j<=n; j++){
+                if(text1.charAt(i-1) == text2.charAt(j-1)){
+                    dp[i][j] = 1 + dp[i-1][j-1];
+                }else {
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+                }
+            }
+        }
+
+        return dp[m][n];
+    }
+}
+```
