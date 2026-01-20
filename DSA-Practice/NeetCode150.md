@@ -1087,3 +1087,42 @@ class Solution {
     }
 }
 ```
+
+Better approach
+```
+//Consider  curr element as centre and expand left and right to check
+    public String longestPalindrome(String s) {
+        int resLength = 0;
+        String res = "";
+        int n = s.length();
+
+        for(int i=0; i<n; i++){
+
+            //For odd length
+            int l = i, r = i;
+            while(l>=0 && r < n && s.charAt(l)==s.charAt(r)){
+                if(r-l+1 > resLength){
+                    res = s.substring(l, r+1);
+                    resLength = r-l+1;
+                }
+                --l;
+                ++r;
+            }
+
+
+            //For event length
+            l=i; r = i+1;
+            while(l>=0 && r<n  && s.charAt(l) == s.charAt(r)){
+                if(r-l+1 > resLength){
+                    res = s.substring(l, r+1);
+                    resLength = r-l+1;
+                }
+                --l;
+                ++r;
+            }
+
+        }
+
+        return res;
+    }
+```
