@@ -1265,3 +1265,30 @@ class Solution {
 }
 
 ```
+
+29. Kth Smallest
+
+Recursive
+```
+class Solution {
+    public int kthSmallest(TreeNode root, int k) {
+        //IDEA : InOrder traversal of binary search tree is sorted
+        return inOrderTraversal(root, new int[]{k});
+    }
+
+    public int inOrderTraversal(TreeNode root, int [] k){
+        if(root == null){
+            return -1;
+        }
+        
+        int left = inOrderTraversal(root.left, k);
+        if(left != -1){
+            return left;
+        }
+        if(--k[0] == 0){ // 1 indexed
+            return root.val;
+        }
+        return inOrderTraversal(root.right, k);
+    }
+}
+```
