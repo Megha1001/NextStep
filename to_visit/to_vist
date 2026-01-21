@@ -24,3 +24,5 @@ Infix to Postfix Using Stack
 - Trie, Suffix tree, Binary Index tree, segment tree
 
 - Burn a binary tree from a leaf : https://www.geeksforgeeks.org/batch/dsa-4/track/DSASP-Tree/video/MTQ2MA%3D%3D
+
+- Morris Traversal for https://neetcode.io/problems/kth-smallest-integer-in-bst/solution
