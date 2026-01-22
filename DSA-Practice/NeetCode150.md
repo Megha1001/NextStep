@@ -1364,3 +1364,34 @@ class Solution {
 }
 ```
 Another technique without space : Morris Traversal 
+
+30. Daily Temperatures
+
+Brute force
+
+```
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+
+        //Brute force : calculate for each element
+        int days = temperatures.length;
+        int [] res = new int[days];
+        
+        for(int i=0; i<days; i++){
+            int count = 0;
+            for(int j=i+1; j<days; j++){
+                ++count;
+                if(temperatures[j] > temperatures[i]){
+                    break;
+                }
+                
+            }
+            res[i] = count;
+        }
+
+        return res;
+        
+    }
+}
+
+```
