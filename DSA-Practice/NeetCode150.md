@@ -1158,6 +1158,30 @@ if(s.length()==0){
         return len;
 ```
 
+Efficient approach
+```
+/Efficient -> Two Pointer approach
+
+        if(s.length()==0){
+            return 0;
+        }
+        
+        HashSet<Character> set = new HashSet<>();
+        int res = 0;
+        int l = 0;
+
+        for(int r = 0; r < s.length(); r++){
+            while(set.contains(s.charAt(r))){
+                set.remove(s.charAt(l));
+                ++l;
+            }
+            set.add(s.charAt(r));
+            res = Math.max(res, r-l+1);
+        }
+
+        return res;
+```
+
 27. Binary Tree Order Traversal
 ```
 /**
