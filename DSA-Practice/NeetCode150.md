@@ -1410,7 +1410,7 @@ public int[] dailyTemperatures(int[] temperatures) {
             int t = temperatures[i];
             while(!stack.isEmpty() && t > stack.peek()[0]){
                 int [] pair = stack.pop();
-                res[pair[1]] = i - pair[1];
+                res[pair[i]] = i - pair[i];
             }
             stack.push(new int[]{t, i}); //push equal too
         }
