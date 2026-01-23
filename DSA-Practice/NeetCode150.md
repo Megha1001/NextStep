@@ -1456,3 +1456,37 @@ class Solution {
 
 
 ```
+
+
+Approach -2 
+```
+public int carFleet(int target, int[] position, int[] speed) {
+        //Iterative solution
+        int n = position.length;
+        int [][]pair = new int[n][2]; // <position, speed>
+
+        for(int i=0; i<n; i++){
+            pair[i][0] = position[i];
+            pair[i][1] = speed[i];
+        }
+
+        //sort in decending order of position
+        Arrays.sort(pair, (a, b)-> Integer.compare(b[0], a[0]));
+
+        int fleet = 1;
+        double prevTime = (double)(target - pair[0][0])/pair[0][1];
+
+        for(int i=1; i<n; i++){
+            double currTime = (double)(target - pair[i][0])/pair[i][1];
+
+            //it will create a new fleet and becomes the front of the new fleet
+            if(currTime > prevTime){
+                ++fleet;
+                prevTime = currTime;
+            }
+        }
+
+        return fleet;
+
+    }
+```
