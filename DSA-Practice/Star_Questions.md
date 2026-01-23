@@ -122,7 +122,7 @@ public int carFleet(int target, int[] position, int[] speed) {
         Arrays.sort(pair, (a, b)-> Integer.compare(b[0], a[0]));
 
         int fleet = 1;
-        double prevTime = (double)(target - pair[0][0])/pair[0][1];
+        double prevTime = (double)(target - pair[0][0])/pair[0][1]; //note the brackets otherwise it will do int division first then truncate the decimal
 
         for(int i=1; i<n; i++){
             double currTime = (double)(target - pair[i][0])/pair[i][1];
