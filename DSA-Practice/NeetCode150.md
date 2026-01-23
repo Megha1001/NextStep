@@ -1458,7 +1458,7 @@ class Solution {
 ```
 
 
-Approach -2 
+Approach -2  -> Note that we have double
 ```
 public int carFleet(int target, int[] position, int[] speed) {
         //Iterative solution
