@@ -139,5 +139,56 @@ public int carFleet(int target, int[] position, int[] speed) {
     }
 ```
 
+Method 2 : BFS
 
+```
+class Solution {
+
+    public static int directions[][] = {{-1,0},{1,0},{0,1},{0,-1}};
+    //Method - BFS
+    public int maxAreaOfIsland(int[][] grid) {
+        int maxArea = 0;
+        int ROWS = grid.length;
+        int COLS = grid[0].length;
+
+        for(int r=0; r<ROWS; r++){
+            for(int c=0; c<COLS; c++){
+                if(grid[r][c] == 1){
+                    maxArea = Math.max(maxArea, bfs(grid, r, c));
+                }
+            }
+        }
+        return maxArea;
+    }
+
+    public int bfs(int[][]grid, int r, int c){
+        Queue<int[]> q = new ArrayDeque<>(); // queue contains cell with value 1 even though we are setting it as 0 
+        //once that is visited but it was originally 1 and we are enqueue the index so value doesn't matter
+        q.offer(new int[]{r,c});
+        grid[r][c] = 0;
+        int area = 0;
+
+        while(!q.isEmpty()){
+            int [] p = q.poll();
+            ++area;
+            int row = p[0];
+            int col = p[1];
+            
+            for(int [] dir : directions){
+                int nr = row + dir[0];
+                int nc = col + dir[1];
+
+                if(nr >= 0 && nr < grid.length
+                && nc >= 0 && nc < grid[0].length
+                && grid[nr][nc] == 1){
+                    grid[nr][nc] = 0;
+                    q.offer(new int[]{nr, nc});
+                }
+            }
+        }
+
+        return area;
+    }
+}
+```
 A node should be marked visited at the moment it is discovered, not when it is processed.
