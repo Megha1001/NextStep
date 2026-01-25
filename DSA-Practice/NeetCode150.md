@@ -1623,25 +1623,44 @@ class Solution {
  */
 
 public class Solution {
-    int preIdx = 0;
-    int inIdx = 0;
-
+    public static int preIndex=0;
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return dfs(preorder, inorder, Integer.MAX_VALUE);
+
+        if(preorder.length != inorder.length){
+            return null;
+        }
+        preIndex = 0;
+        /*
+        IDEA : For every preorder element, 
+        search in indorder array and buildTree
+        */
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int n = preorder.length;
+        for(int i=0; i<n ; i++){
+            map.put(inorder[i], i);
+        }
+
+        return buildTree(map, preorder, 0, n-1);
     }
 
-    private TreeNode dfs(int[] preorder, int[] inorder, int limit) {
-        if (preIdx >= preorder.length) return null;
-        if (inorder[inIdx] == limit) {
-            inIdx++;
+    public TreeNode buildTree(HashMap<Integer, Integer>map, int []pre, int is, int ie){
+        //NLR
+        if(is > ie){
             return null;
         }
 
-        TreeNode root = new TreeNode(preorder[preIdx++]);
-        root.left = dfs(preorder, inorder, root.val);
-        root.right = dfs(preorder, inorder, limit);
+        TreeNode root = new TreeNode(pre[preIndex++]);
+
+        if(root == null){
+            return null;
+        }
+        int inIndex = map.get(root.val);
+        root.left = buildTree(map, pre, is, inIndex-1);
+        root.right = buildTree(map, pre, inIndex+1, ie);
+
         return root;
     }
+
 }
 ```
 
