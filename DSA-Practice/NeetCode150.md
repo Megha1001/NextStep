@@ -1984,3 +1984,40 @@ class Solution {
 }
 
 ```
+Method -2 cloned nodes in b/w and add random reference then seperate
+
+```
+public Node copyRandomList(Node head) {
+        if(head==null){
+            return null;
+        }
+
+        Node curr = head;
+        while(curr != null){
+            Node next = curr.next;
+            Node random = new Node(curr.val);
+            curr.next = random;
+            random.next = next;
+            curr = next;
+        }
+
+        //copy random reference
+        for(Node oldHead = head; oldHead != null ; oldHead = oldHead.next.next){
+            oldHead.next.random = oldHead.random == null ? null : oldHead.random.next;
+        }
+
+        //seperate
+        Node randomHead = head.next;
+        Node clonedHead = head.next;
+
+        for(Node oldHead = head; oldHead != null ; oldHead = oldHead.next){
+            oldHead.next = oldHead.next.next;
+            clonedHead.next = clonedHead.next == null ? null : clonedHead.next.next;
+            clonedHead = clonedHead.next;
+        }
+
+        return randomHead;
+
+
+    }
+```
