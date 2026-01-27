@@ -2235,7 +2235,7 @@ class Solution {
         }
 
         for(int i = 0 ; i < prerequisites.length; i++){
-            adj.get(prerequisites[i][0]).add(prerequisites[i][1]); // 0 -> 1
+            adj.get(prerequisites[i][1]).add(prerequisites[i][0]); // 1 -> 0
         }
 
         //Kahn's algorithm
