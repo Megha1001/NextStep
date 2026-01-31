@@ -2705,3 +2705,45 @@ class TimeMap {
 }
 
 ```
+
+58. Container with most water
+
+```
+class Solution {
+    public int maxArea(int[] height) {
+
+        //Brute force -> get all possible area and maintain max one -> TLE
+        // int res = 0;
+        // int n = height.length;
+        // for(int i = 0; i < n; i++){
+        //     int currMax = 0;
+        //     for(int j = i+1; j < n; j++){
+        //         currMax = Math.max(currMax, (j-i) * Math.min(height[i], height[j]));
+        //     }
+        //     res = Math.max(res, currMax);
+        // }
+
+        // return res;
+
+        //Two Pointer approach
+        int l = 0;
+        int r = height.length-1;
+
+        int res = 0;
+
+        while(l < r){
+            int area = (r-l) * Math.min(height[l], height[r]);
+            res = Math.max(res, area);
+
+            if(height[l] <= height[r]){
+                ++l;
+            }else{
+                --r;
+            }
+        }
+
+        return res;
+        
+    }
+}
+```
