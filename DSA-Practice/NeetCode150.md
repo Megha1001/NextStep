@@ -2834,3 +2834,71 @@ class Solution {
     }
 }
 ```
+
+61.
+
+```
+class Solution {
+
+    private int ROWS;
+    private int COLS;
+    public void setZeroes(int[][] matrix) {
+
+        /*
+        IDEA
+        1. Maintain two boolean 1D array
+            -> row 
+            -> col
+        2. Traverse the original matrix and populate row and col matrix if we encounter zero
+        3. Traverse row matrix and make corresponding row as 0 when row[i] = true;
+        4. Traverse col matrix and make corresponding column as 0 when col[i] = true;
+        */
+
+        ROWS = matrix.length;
+        COLS = matrix[0].length;
+
+        boolean row [] = new boolean[ROWS];
+        boolean col [] = new boolean[COLS];
+
+        populateRowAndColMatrix(matrix, row, col);
+
+        traverseRowAndUpdateMatrix(matrix, row);
+
+        traverseColAndUpdateMatrix(matrix, col);
+        
+    }
+
+    public void populateRowAndColMatrix(int [][]matrix, boolean []row, boolean []col){
+        for(int i = 0; i < ROWS; i++){
+            for(int j = 0; j < COLS; j++){
+                if(matrix[i][j] == 0){
+                    row[i] = true;
+                    col[j] = true;
+                }
+            }
+        }
+    }
+
+    public void traverseRowAndUpdateMatrix(int [][]matrix , boolean [] row){
+        for(int i = 0; i < ROWS; i++){
+            if(row[i] == true){
+                //make entire ROW as true
+                for(int j = 0; j < COLS; j++){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    public void traverseColAndUpdateMatrix(int [][]matrix , boolean [] col){
+        for(int i = 0; i < COLS; i++){
+            if(col[i] == true){
+                //make entire COL as true
+                for(int j = 0; j < ROWS; j++){
+                    matrix[j][i] = 0;
+                }
+            }
+        }
+    }
+}
+```
