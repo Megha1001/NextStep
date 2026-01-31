@@ -2625,3 +2625,55 @@ class Solution {
     }
 }
 ```
+
+56. Search in Rotated Sorted Array
+```
+class Solution {
+    public int search(int[] nums, int target) {
+
+        /*
+        Use Binary Search
+        -> find the middle , if nums[middle]==target -> return
+        -> find the sorted part
+            -> check is target lies in range of sorted part
+                -> if yes change reference and discard the other part
+                -> if no change the reference and choose other part
+        */
+        int low = 0;
+        int high = nums.length - 1;
+
+        while(low <= high){
+            int mid = low + (high - low)/2;
+
+            if(nums[mid] == target){
+                return mid;
+            }
+
+            //if left half is sorted
+            else if(nums[mid] >= nums[low]){
+                //check if target lies in the sorted range
+                if(target < nums[mid] && target >= nums[low]){
+                    high = mid - 1;
+                }else{
+                    //target not lies in sorted part go right
+                    low = mid + 1;
+                }
+            }
+
+            //if right part is sorted
+            else if(nums[mid] <= nums[high]){
+                //check if target lies in sorted range
+                if(target <= nums[high] && target > nums[mid]){
+                    low = mid + 1;
+                }else{
+                    //target not lies in sorted part go left
+                    high = mid - 1;
+                }
+            }
+        }
+
+        return -1;
+
+    }
+}
+```
