@@ -3045,6 +3045,7 @@ class Solution {
 
 66. PowerOf2
 ```
+Brute force : -> TLE
 class Solution {
     public double myPow(double x, int n) {
 
@@ -3075,7 +3076,7 @@ class Solution {
 
 ```
 
-Brute force -> simplified
+Brute force -> simplified -> TLE
 
 ```
 class Solution {
