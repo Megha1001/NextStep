@@ -2930,3 +2930,38 @@ class Solution {
 }
 
 ```
+
+Use Slow and Fast pointers
+
+```
+class Solution {
+    public boolean isHappy(int n) {
+        //Use fast and slow pointer -> Cycle detection
+        int slow = n;
+        int fast = n;
+
+        do{
+            slow = sumOfSquareOfDigits(slow);
+            fast = sumOfSquareOfDigits(sumOfSquareOfDigits(fast));
+        }while(slow != fast);
+
+        slow = n;
+
+        while(slow != fast){
+            slow = sumOfSquareOfDigits(slow);
+            fast = sumOfSquareOfDigits(fast);
+        }
+
+        return fast == 1;
+    }
+
+    public int sumOfSquareOfDigits(int n){
+        int res = 0;
+        while(n != 0){
+            res += (n%10) * (n%10);
+            n /= 10;
+        }
+        return res;
+    }
+}
+```
