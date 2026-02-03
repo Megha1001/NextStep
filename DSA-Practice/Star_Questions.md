@@ -287,3 +287,5 @@ class Solution {
     }
 }
 ```
+
+7. https://neetcode.io/problems/permutation-string/solution -> Not Understood
