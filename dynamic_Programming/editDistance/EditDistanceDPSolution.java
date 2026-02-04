@@ -13,12 +13,12 @@ public class EditDistanceDPSolution {
 
         //for first row
         for(int i = 0; i <= m; i++){
-            dp[0][i] = i+1;
+            dp[0][i] = i;
         }
 
         //for first column
         for(int i = 0; i <= n; i++){
-            dp[i][0] = i+1;
+            dp[i][0] = i;
         }
 
 
@@ -28,7 +28,7 @@ public class EditDistanceDPSolution {
                 if(s1.charAt(i-1) == s2.charAt(j-1)){
                     dp[i][j] = dp[i-1][j-1];
                 }else {
-                    dp[i][j] = Math.min(Math.min(dp[i][j-1], dp[i-1][j]), dp[i-1][j-1]);
+                    dp[i][j] = 1 +  Math.min(Math.min(dp[i][j-1], dp[i-1][j]), dp[i-1][j-1]);
                 }
             }
         }
