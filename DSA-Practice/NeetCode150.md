@@ -3430,3 +3430,43 @@ Binary Search
         return r;
     }
 ```
+
+Using binary search with ArrayList
+
+```
+//using binary search
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        if(n == 1){
+            return 1;
+        }
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        list.add(nums[0]);
+
+        for(int i = 1; i < n ;i++){
+            if(nums[i] > list.get(list.size()-1)){
+                list.add(nums[i]);
+            }else{
+                int ceilIdx = findCeil(list, 0, list.size()-1, nums[i]);
+                list.set(ceilIdx, nums[i]);
+            }
+        }
+
+        return list.size();
+    }
+
+    public int findCeil(ArrayList<Integer> list, int l, int r, int x){
+        while(r > l){
+            int m = l + (r-l)/2;
+            if(list.get(m) >= x){
+                r = m;
+            }else{
+                l = m+1;
+            }
+        }
+
+        return r;
+    }
+```
