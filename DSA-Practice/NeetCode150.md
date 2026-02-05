@@ -3394,7 +3394,7 @@ class Solution {
 ```
 
 Binary Search
-
+```
 //Using binarySearch
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
@@ -3429,3 +3429,4 @@ Binary Search
 
         return r;
     }
+```
