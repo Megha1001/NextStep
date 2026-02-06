@@ -32,23 +32,33 @@ public class MaximumLengthBitonicSubsequence {
         //for lds
         for(int i = n-1; i >=0; i--){
             lds[i] = 1;
-            for(int j = n-1; j>i ; j--){
+            for(int j = i ; j <n ; j++){
 
                 if(arr[j] < arr[i]){
-                    lds[i] = Math.max(lis[i], 1 + lis[j]);
+                    lds[i] = Math.max(lds[i], 1 + lds[j]);
                 }
 
             }
         }
 
-        for(int i = 0; i<n; i++){
-            System.out.print(lis[i] + ", ");
-            System.out.println();
-            System.out.print(lds[i] + ", ");
+        // for(int i = 0; i<n; i++){
+        //     System.out.print(lis[i] + ", ");
+        // }
+
+        // System.out.println();
+        // for(int i = 0; i<n; i++){
+        //     System.out.print(lds[i] + ", ");
+        // }
+
+
+        int res = lis[0] + lds[0] - 1; // -1 since same number is included in LIS and LDS
+
+        for(int i = 1; i < n; i++){
+            res = Math.max(res, lis[i]+lds[i]-1);
         }
 
 
-        return -1;
+        return res;
 
     }
     
