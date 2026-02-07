@@ -3507,3 +3507,28 @@ class Solution {
 }
 
 ```
+
+72. Jump Game
+```
+You are given an integer array nums where each element nums[i] indicates your maximum jump length at that position.
+
+Return true if you can reach the last index starting from index 0, or false otherwise.
+```
+
+Using Greedy
+```
+class Solution {
+    public boolean canJump(int[] nums) {
+        int goal = nums.length - 1;
+
+        for(int i = nums.length - 2; i >= 0; i--){
+            if(i + nums[i] >= goal){
+                goal = i;
+            }
+        }
+
+        return goal == 0;
+        
+    }
+}
+```
