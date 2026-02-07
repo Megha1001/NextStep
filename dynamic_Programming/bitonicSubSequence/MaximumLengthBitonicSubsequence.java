@@ -9,7 +9,7 @@ public class MaximumLengthBitonicSubsequence {
     */
 
     public static void main(String args[]){
-        int arr[] = {1,11,2,10,4,5,2,1};
+        int arr[] = {9,8,1,7,6,5,4,3,2,1};
         System.out.println("The maximum length bitonic subsequence is : "+findMaxLenBitonicSubSeq(arr, arr.length));
     }
 
