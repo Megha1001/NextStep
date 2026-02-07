@@ -39,7 +39,6 @@ public class FindLongestChainOfPairs {
      consider meeting that ends early so there will be more room for meetings
     */
     public int findLongestChain(int[][] pairs) {
-        int n = pairs.length;
 
         Arrays.sort(pairs, (a, b)-> a[1] - b[1]); //sort on second element of each pair
 
