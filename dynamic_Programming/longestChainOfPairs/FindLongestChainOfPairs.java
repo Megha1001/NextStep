@@ -33,4 +33,31 @@ public class FindLongestChainOfPairs {
         return Arrays.stream(lis).max().getAsInt();
     }
 
+
+    //GREEDY APPROACH
+    /*
+     consider meeting that ends early so there will be more room for meetings
+    */
+    public int findLongestChain(int[][] pairs) {
+        int n = pairs.length;
+
+        Arrays.sort(pairs, (a, b)-> a[1] - b[1]); //sort on second element of each pair
+
+        int count = 0;
+        int currEnd = Integer.MIN_VALUE; ; //end value of last considered pair
+
+        for(int []p : pairs){
+            int start = p[0];
+            int end = p[1];
+
+            if(start > currEnd){
+                // we can add this pair
+                ++count;
+                currEnd = end;
+            }
+        }
+
+        return count;
+
+    }
 }
