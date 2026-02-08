@@ -3532,3 +3532,39 @@ class Solution {
     }
 }
 ```
+
+72. Jumps II
+
+```
+You are given an array of integers nums, where nums[i] represents the maximum length of a jump towards the right from index i. For example, if you are at nums[i], you can jump to any index i + j where:
+
+j <= nums[i]
+i + j < nums.length
+You are initially positioned at nums[0].
+
+Return the minimum number of jumps to reach the last position in the array (index nums.length - 1). You may assume there is always a valid answer.
+```
+
+```
+class Solution {
+    public int jump(int[] nums) {
+        int res = 0;
+        int l = 0;
+        int r = 0;
+
+        while(r < nums.length - 1){
+            int farthest = 0;
+            for(int i = l; i <= r; i++){
+                farthest = Math.max(farthest, i + nums[i]); //where until we can go have to include i
+            }
+
+            l = r+1;
+            r = farthest;
+            ++res;
+        }
+
+        return res;
+    }
+}
+
+```
