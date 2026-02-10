@@ -3674,3 +3674,24 @@ class Solution {
 ```
 
 Memory optimized
+```
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        //space optimized
+        int prev2 = 0; //i-2
+        int prev1 = 0; //i-1
+
+        for(int i = 2; i <= n; i++){
+            int curr = Math.min(prev2 + cost[i-2],
+                                prev1 + cost[i-1]);
+
+            prev2 = prev1; //i-2+1 = i-1 = prev1
+            prev1 = curr; //i-1+1 = i = curr
+        }
+
+        return prev1;
+
+    }
+}
+```
