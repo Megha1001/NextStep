@@ -686,3 +686,21 @@ public static void topologicalSorting(ArrayList<ArrayList<Integer>>adj, int v){
     -> for every adjacent v of u
         if dist[v] > dist[u] + weight(u, v)
         dist[v] = dist[u] + weight(u,v)
+
+39. Generate all substrings
+```
+ public static void main(String[] args) {
+       String s = "ABC";
+       int count = 0;
+       
+       
+       for(int i = 0; i < 3; i++){
+           for(int j = i; j < 3; j++){
+               ++count;
+               System.out.println(s.substring(i, j+1));
+           }
+       }
+       
+       System.out.println("count  "+count);
+    }
+```
