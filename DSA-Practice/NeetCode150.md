@@ -3872,7 +3872,7 @@ class Solution {
 ```
 
 80. Maximum product subarray
-Brute force
+Brute force -> TLE
 ```
 class Solution {
     public int maxProduct(int[] nums) {
