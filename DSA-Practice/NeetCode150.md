@@ -3835,36 +3835,38 @@ class Solution {
 Better solution
 ```
 class Solution {
+
     public int numDecodings(String s) {
+        //Dynamic Programming
         int memo[] = new int[s.length()];
-        Arrays.fill(memo, 1);
-        return dfs(s, 0, memo);
+        Arrays.fill(memo, -1);
+        return dfs(s, 0, memo);  
     }
 
     private int dfs(String s, int i, int [] memo){
-        if(i == s.length()){
+        if(s.length() == i){
             return 1;
         }
+
         if(s.charAt(i) == '0'){
             return 0;
         }
 
-        <!-- if(memo[i] != 1){
+        if(memo[i] != -1){
             return memo[i];
-        } -->
+        }
 
-        memo[i] = dfs(s, i+1, memo); //no validation needed as already checked from line number 9 to line number 14
-        //need validation for i+2
-        if(i < s.length() - 1){
-            if(s.charAt(i) == '1' ||
-                (s.charAt(i) == '2' && s.charAt(i+1) < '7')){
-                    memo[i] += dfs(s, i+2, memo);
+        memo[i] = dfs(s, i+1, memo);
+        if((i+1) < s.length()){
+            if(s.charAt(i) == '1'
+            || (s.charAt(i)=='2' && s.charAt(i+1) < '7')){
+                memo[i] += dfs(s, i+2, memo);
             }
         }
 
         return memo[i];
-
     }
 
 }
+
 ```
