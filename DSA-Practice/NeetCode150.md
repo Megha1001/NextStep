@@ -3919,7 +3919,7 @@ public int maxProduct(int[] nums) {
 81. Partition Equal Subset Sum
 
 
-Brute force
+Brute force -> TLE
 ```
 class Solution {
     public boolean canPartition(int[] nums) {
