@@ -325,3 +325,37 @@ class Solution {
     }
 }
 ```
+
+Optimized
+```
+public int[] sortByBits(int[] arr) {
+        int n = arr.length;
+        Integer temp[] = new Integer[n];
+
+        //convert int[] -> Integer[]
+        for(int i = 0; i < n; i++){
+            temp[i] = arr[i];
+        }
+
+        //custom sort
+        Arrays.sort(temp, (a,b)-> {
+            int bitsA = Integer.bitCount(a);
+            int bitsB = Integer.bitCount(b);
+
+            if(bitsA == bitsB){
+                return a - b; //same then return natural
+            }
+
+            return bitsA - bitsB;
+        });
+
+
+        //copy temp to arr
+        for(int i = 0; i < n; i++){
+            arr[i] = temp[i];
+        }
+
+
+        return arr;
+}
+```
