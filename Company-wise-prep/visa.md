@@ -50,3 +50,74 @@ The bird alternates between right and left directions, continuing this process u
 You need to determine how many trips it takes for the bird to reach this target.
 
 This problem tested array traversal, directional iteration, and simulation logic.
+
+
+```
+
+import java.util.*;
+
+class Main {
+    
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        int [] trees = new int[n];
+        
+        for(int i = 0; i < n; i++){
+            trees[i] = sc.nextInt();
+        }
+        
+        int startIdx = sc.nextInt();
+        
+        sc.close();
+        
+        int trips = countTrips(trees, startIdx);
+       
+        System.out.println("Trips : "+trips);
+    }
+    
+    public static int countTrips(int [] trees, int startIdx){
+        int totalBranches = 0;
+        int trips = 0;
+        boolean moveRight = true;
+        int n = trees.length;
+        
+        while(totalBranches < 100){
+            boolean collected = false;
+            if(moveRight){
+                for(int i = startIdx + 1; i < n; i++){
+                    if(trees[i] > 0){
+                        totalBranches += trees[i];
+                        trees[i] = 0;
+                        ++trips;
+                        collected = true;
+                        break;
+                    }
+                }
+            }
+            else{
+                for(int i = startIdx - 1; i >= 0 ; i--){
+                    if(trees[i] > 0){
+                        totalBranches += trees[i];
+                        trees[i] = 0;
+                        collected = true;
+                        ++trips;
+                        break;
+                    }
+                }
+            }
+            
+            if(!collected){
+                return -1; // no branch with value > 0;
+            }
+            
+            moveRight = !moveRight;
+        }
+        
+        
+        return trips;
+    }
+
+}
+```
