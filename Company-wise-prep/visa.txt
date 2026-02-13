@@ -27,3 +27,5 @@ Suggested solution: Use external sorting to process large-scale data
 
 https://leetcode.ca/tags/#visa̱ - 23
 https://www.geeksforgeeks.org/explore?page=2&company=Visa&sortBy=submissions - 31
+
+Binary insertion sort
