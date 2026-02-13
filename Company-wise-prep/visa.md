@@ -414,3 +414,5 @@ class Solution {
     }
 }
 ```
+
+8. Minimum Falling Path Sum  : https://leetcode.com/problems/minimum-falling-path-sum/description/
