@@ -416,3 +416,53 @@ class Solution {
 ```
 
 8. Minimum Falling Path Sum  : https://leetcode.com/problems/minimum-falling-path-sum/description/
+```
+class Solution {
+    public int minFallingPathSum(int[][] matrix) {
+        /*
+        dp[r][c] = matrix[r][c] +
+                min(
+                    dp[r-1][c],
+                    dp[r-1][c-1],
+                    dp[r-1][c+1]
+                )
+        */
+
+        int n = matrix.length;
+        int prev[] = new int[n];
+
+        //first row
+        for(int c = 0; c < n; c++){
+            prev[c] = matrix[0][c];
+        }
+
+
+        for(int r = 1; r < n; r++){
+            int curr[] = new int[n];
+            for(int c = 0; c < n; c++){
+                int minAbove = prev[c];
+
+                if(c > 0){
+                    minAbove = Math.min(minAbove, prev[c - 1]);
+                }
+
+                if(c < n - 1){
+                    minAbove = Math.min(minAbove, prev[c + 1]);
+                }
+
+                curr[c] = matrix[r][c] + minAbove;
+            }
+            prev = curr;
+        }
+
+        int res = Integer.MAX_VALUE;
+        for(int val : prev){
+            res = Math.min(res, val);
+        }
+
+        return res;
+
+        
+    }
+}
+```
