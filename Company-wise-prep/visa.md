@@ -122,7 +122,7 @@ class Main {
 }
 ```
 
-3.Path Sum III (3 times):
+3.Path Sum III: https://leetcode.com/problems/path-sum-iii/
 
 ```
 /**
@@ -169,8 +169,7 @@ class Solution {
 }
 ```
 
-4. Climbing Stairs
-
+4. Climbing Stairs: https://leetcode.com/problems/climbing-stairs/
 ```
 class Solution {
     public int climbStairs(int n) {
