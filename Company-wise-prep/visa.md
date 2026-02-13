@@ -282,3 +282,46 @@ class Solution {
     }
 }
 ```
+
+6. Sort Integers by The Number of 1 Bits: https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/
+```
+class Solution {
+    public int[] sortByBits(int[] arr) {
+        Arrays.sort(arr);
+
+        List<List<Integer>> list = new ArrayList<>();
+
+        for(int i = 0; i <= 500; i++){
+            list.add(new ArrayList<>());
+        }
+
+        int n = arr.length;
+
+        for(int i = 0; i < n; i++){
+            int idx = countBits(arr[i]);
+            list.get(idx).add(arr[i]);
+        }
+
+        int res [] = new int[n];
+        int idx = 0;
+        for(List<Integer> l1 : list){
+            for(int element : l1){
+                res[idx ++] = element;
+            }
+        }
+
+        return res;
+        
+    }
+    
+    //Brain kernghans's algo
+    private int countBits(int input){
+        int count = 0;
+        while(input != 0){
+            count++;
+            input = input &(input-1);
+        }
+        return count;
+    }
+}
+```
