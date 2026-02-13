@@ -196,3 +196,89 @@ class Solution {
     }
 }
 ```
+
+5. Validate IP Address : https://leetcode.com/problems/validate-ip-address/description/
+
+```
+class Solution {
+    public String validIPAddress(String queryIP) {
+        if(queryIP == null || queryIP.length() == 0){
+            return "Neither";
+        }
+        
+        if(queryIP.contains(".")){
+            return isValidIPV4(queryIP) ? "IPv4" : "Neither";
+        }else if(queryIP.contains(":")){
+            return isValidIPV6(queryIP) ? "IPv6" : "Neither";
+        }
+
+        return "Neither";
+
+    }
+
+    private boolean isValidIPV4(String input){
+        String [] parts = input.split("\\.", -1); //-1 to keep trailing space and \\. to split on . as bydefault . means anything
+        if(parts.length != 4){
+            return false;
+        }
+
+        for(String part : parts){
+            if(part.length() == 0 || part.length() > 3){
+                return false;
+            }
+
+            if(part.length() > 1 && part.charAt(0) == '0'){
+                return false;
+            }
+
+            for(char ch : part.toCharArray()){
+                if(!Character.isDigit(ch)){
+                    return false;
+                }
+            }
+
+            int val;
+            try{
+                val = Integer.parseInt(part);
+            }catch(NumberFormatException nfe){
+                return false;
+            }
+
+            if(val < 0 || val > 255){
+                return false;
+            }
+
+        }
+
+        return true;
+
+    }
+
+    private boolean isValidIPV6(String input){
+        String parts[] = input.split(":", -1);
+
+        if(parts.length != 8){
+            return false;
+        }
+
+        for(String part : parts){
+            if(part.length() == 0 || part.length() > 4){
+                return false;
+            }
+
+            for(char ch : part.toCharArray()){
+                boolean isDigit = Character.isDigit(ch);
+                boolean isLowerHex = ch >= 'a' && ch <= 'f';
+                boolean isUpperHex = ch >= 'A' && ch <= 'F';
+
+                if(!(isDigit || isLowerHex || isUpperHex)){
+                    return false;
+                }
+            }
+
+        }
+
+        return true;
+    }
+}
+```
