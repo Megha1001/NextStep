@@ -364,6 +364,10 @@ public int[] sortByBits(int[] arr) {
 ```
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
+        if(ransomNote.length() > magazine.length()){
+            return false;
+        }
+
         int [] list = new int[26];
 
         for(char ch : magazine.toCharArray()){
