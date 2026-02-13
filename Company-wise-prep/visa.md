@@ -359,3 +359,26 @@ public int[] sortByBits(int[] arr) {
         return arr;
 }
 ```
+
+7. Ransom Note : https://leetcode.com/problems/ransom-note/description/
+```
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int [] list = new int[26];
+
+        for(char ch : magazine.toCharArray()){
+            ++list[ch - 'a'];
+        }
+
+        for(char ch : ransomNote.toCharArray()){
+            if(list[ch - 'a'] > 0){
+                --list[ch - 'a'];
+            }else {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+```
