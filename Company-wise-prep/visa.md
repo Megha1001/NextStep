@@ -695,7 +695,7 @@ class Solution {
     }
 }
 ```
-17. Meeting room : https://leetcode.com/problems/meeting-rooms-ii/
+17. Meeting room : https://neetcode.io/problems/meeting-schedule-ii/question
 
 ```
 /**
