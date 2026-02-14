@@ -16,7 +16,7 @@ Longest Substring Without Repeating Characters (2 times): https://leetcode.com/p
 Two Sum (2 times): https://leetcode.com/problems/two-sum/
 
 LRU Cache. 
-Minimum Number of Days to Make m Bouquets, 
+Minimum Number of Days to Make m Bouquets, : https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/description/
 
 1 DSA Question:
 Problem: Given a log file with timestamps and IPs, rate-limit IPs making more than x requests in a 10-minute window.
