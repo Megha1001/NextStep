@@ -549,3 +549,43 @@ class Solution {
 ```
 
 12. Longest Palindromic Substring : https://leetcode.com/problems/longest-palindromic-substring/
+
+```
+class Solution {
+    public String longestPalindrome(String s) {
+        String res = "";
+        int resLength = 0;
+        int n = s.length();
+
+        for(int i = 0; i < n; i++){
+            int l = i;
+            int r = i;
+
+            //for odd length
+            while(l >= 0 && r < n && s.charAt(l) == s.charAt(r)){
+                if(r - l + 1 > resLength){
+                    res = s.substring(l, r + 1);
+                    resLength = r - l + 1;
+                }
+                --l;
+                ++r;
+            }
+
+            //for even length
+            l = i;
+            r = i+1;
+            while(l >= 0 && r < n && s.charAt(l) == s.charAt(r)){
+                if(r - l + 1 > resLength){
+                    res = s.substring(l, r + 1);
+                    resLength = r - l + 1;
+                }
+                --l;
+                ++r;
+            }
+        }
+
+
+        return res;       
+    }
+}
+```
