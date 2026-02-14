@@ -646,3 +646,29 @@ class Solution {
     } 
 }
 ```
+
+15. Hit Counter
+https://www.naukri.com/code360/problems/hit-counter_1230785?leftPanelTabValue=PROBLEM
+
+```
+import java.util.* ;
+import java.io.*; 
+public class hitCounter {
+    private Queue<Integer> queue;
+
+    public hitCounter(){
+        queue = new ArrayDeque<>();
+    }
+
+    void hit(int timestamp) {
+        queue.offer(timestamp);
+    }
+
+    int getHits(int timestamp) {
+        while(!queue.isEmpty() && timestamp - queue.peek() > 300){
+            queue.poll();
+        }
+        return queue.size();
+    }
+}
+```
