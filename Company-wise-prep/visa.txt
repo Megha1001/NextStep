@@ -29,3 +29,167 @@ https://leetcode.ca/tags/#visa̱ - 23
 https://www.geeksforgeeks.org/explore?page=2&company=Visa&sortBy=submissions - 31
 
 Binary insertion sort
+---------------
+interview questions
+So, there are n particles arranged along the x-axis from left to right, indexes from 0 to n-1. All particles start moving at the same time and travel infinitely in the positive x direction at the constant speed given by the speed array. A collision occurs when a particle starting behind another particle catches up to it. During the collision, the faster particle passes through the slower one and both particles continue moving without changing the speed or direction. Your task is to determine how many collisions involved the particle at index pos. Note all collisions between the particle at pos and other particles should be counted. Okay.
+
+```
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] speed = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            speed[i] = sc.nextInt();
+        }
+
+        int pos = sc.nextInt();
+
+        System.out.println(countCollisions(speed, pos));
+        sc.close();
+    }
+
+    public static int countCollisions(int[] speed, int pos) {
+
+        int collisions = 0;
+        int currentSpeed = speed[pos];
+
+        // Check particles behind pos
+        for (int i = 0; i < pos; i++) {
+            if (speed[i] > currentSpeed) {
+                collisions++;
+            }
+        }
+
+        // Check particles ahead of pos
+        for (int i = pos + 1; i < speed.length; i++) {
+            if (currentSpeed > speed[i]) {
+                collisions++;
+            }
+        }
+
+        return collisions;
+    }
+}
+
+```
+
+2. Okay, eBook provider offers a variety of programming articles, each with a distinct intellectual value. Readers earn points equal to an article's intellectual value for each article read twice. Given a list of articles with their page length, intellectual value coefficient, and a daily page limit, find the maximum achievable intellectual value in one day. There are N particles with length 2, 3, 4, 4, and intellectual value 2, 4, 4, 5. The maximum pages that they can read per day is 15. Two optimal approaches are reading the first and second and third articles, or reading the third and fourth articles. The maximum total intellectual value is 2 plus 4 plus 4, that is 10. Functional description is, complete the functional maximum learning in an editor with the following parameter. If 4N each article intellectual value articles and each article page length, and P the number of pages that can be read in one day, we have to return an integer value representing the maximum achievable value in one day of reading. Okay.
+So an e-book provider offers a variety of programming articles and a distinct intellectual value, readers earn points equal to an article's intellectual value for each article read twice. Given a list of articles with their pages, length, intellectual value coefficient, and a daily page limit, find the achievable intellectual value in one day. IV stands for intellectual array, okay, and there is an article array which is given and there is a limit, page limit which is given as P. Return an integer representing the maximum achievable value in one day of reading.
+
+```
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        // Step 1: Read intellectual values
+        int[] iv = new int[n];
+        for (int i = 0; i < n; i++) {
+            iv[i] = sc.nextInt();
+        }
+
+        // Step 2: Read article pages
+        int[] articleArray = new int[n];
+        for (int i = 0; i < n; i++) {
+            articleArray[i] = sc.nextInt();
+        }
+
+        // Step 3: Read page limit
+        int P = sc.nextInt();
+
+        System.out.println(maximumLearning(iv, articleArray, P));
+
+        sc.close();
+    }
+
+    public static int maximumLearning(int[] iv, int[] articleArray, int P) {
+
+        int n = iv.length;
+
+        // Step 0: Each article is read twice
+        int[] value = new int[n];
+        for (int i = 0; i < n; i++) {
+            value[i] = iv[i] * 2;  // Each article counts twice
+        }
+
+        int[] dp = new int[P + 1];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = P; j >= articleArray[i]; j--) {
+                dp[j] = Math.max(dp[j], value[i] + dp[j - articleArray[i]]);
+            }
+        }
+
+        return dp[P];
+    }
+}
+
+```
+
+3. A network of flights contains flight nodes, number of flights denoted by 1, 2, and so on until flight nodes. There is a list of dependencies among flights denoted by the array flightFrom and flightTo, flights leaving a city and flightTo, flights arriving in the city. Each pair flightFrom to flightTo denotes that a flight from i depends on the flight to i and must depart only after the flight to i has landed. If the flight is delayed, all the flight dependent on the flight and the corresponding dependencies are also delayed. Given a list of K initial delayed flights, the network as described, find the list of all delayed flights, retun the list sorted in increasing order of flight numbers. Consider flight nodes equals to 4 and the number of dependencies m equals to 2, flightFrom as 4 and 3, and flightTo as 1 and 2. The number of delayed flights K equals to 2, delayed 1 comma 3, flight 1 is delayed, flight 4 depends on flight 1, so flight 4 is delayed. Flight 3 is delayed, there is no flight depend on flight 3, retun the sorted array of delayed flights 1, 3, 4. So in function, we are given flight nodes as an integer, then flightFrom as a list of integer and flightTo as a list of integer and delayed also as a list of integer and we need to return the delayed flight arrays or as a list of integer sorted. Okay.
+Brute force
+```
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int flightNodes = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[] flightFrom = new int[m];
+        int[] flightTo = new int[m];
+
+        for (int i = 0; i < m; i++) flightFrom[i] = sc.nextInt();
+        for (int i = 0; i < m; i++) flightTo[i] = sc.nextInt();
+
+        int k = sc.nextInt();
+        int[] delayed = new int[k];
+        for (int i = 0; i < k; i++) delayed[i] = sc.nextInt();
+
+        List<Integer> result = getAllDelayedFlightsBruteForce(flightNodes, flightFrom, flightTo, delayed);
+        for (int f : result) System.out.print(f + " ");
+        sc.close();
+    }
+
+    public static List<Integer> getAllDelayedFlightsBruteForce(int flightNodes, int[] flightFrom, int[] flightTo, int[] delayed) {
+
+        Set<Integer> delayedFlights = new HashSet<>();
+        for (int f : delayed) delayedFlights.add(f);
+
+        boolean changed = true;
+
+        // Keep looping until no new flights are delayed
+        while (changed) {
+            changed = false;
+
+            for (int i = 0; i < flightFrom.length; i++) {
+                int from = flightFrom[i];
+                int to = flightTo[i];
+
+                // If flight it depends on is delayed, mark this one delayed
+                if (delayedFlights.contains(to) && !delayedFlights.contains(from)) {
+                    delayedFlights.add(from);
+                    changed = true;
+                }
+            }
+        }
+
+        List<Integer> result = new ArrayList<>(delayedFlights);
+        Collections.sort(result);
+        return result;
+    }
+}
+```
