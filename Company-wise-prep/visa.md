@@ -920,7 +920,7 @@ class Solution {
 }
 ```
 
-22. LRU Cache
+22. LRU Cache : https://leetcode.com/problems/lru-cache/
 
 ```
 class Node {
