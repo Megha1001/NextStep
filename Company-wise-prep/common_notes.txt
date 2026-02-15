@@ -1,0 +1,3 @@
+n ≤ 10³ → O(n²) is fine
+n ≤ 10⁵ → need O(n log n) or O(n)
+n ≤ 10⁶ → almost always linear
