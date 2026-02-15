@@ -1002,3 +1002,34 @@ class LRUCache {
     }
 }
 ```
+
+23. Remove Trailing Zeros From a String : https://leetcode.com/problems/remove-trailing-zeros-from-a-string/description/
+
+```
+class Solution {
+    public String removeTrailingZeros(String num) {
+        int n = num.length();
+        if(num == null && n == 0){
+            return "0";
+        }
+
+        int left = 0;
+        int right = n-1;
+
+        while(left <= right && num.charAt(left) == '0'){
+            ++left;
+        }
+
+        while(right >= left && num.charAt(right) == '0'){
+            --right;
+        }
+
+        if(left > right){
+            return "0";
+        }
+
+        return num.substring(left, right + 1);
+        
+    }
+}
+```
