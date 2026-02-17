@@ -4056,3 +4056,33 @@ class Solution {
     }
 }
 ```
+
+
+84. Permutations
+Method - 1 Recursive
+```
+class Solution {
+    //Recursive
+    public List<List<Integer>> permute(int[] nums) {
+        if(nums.length == 0){
+            return Arrays.asList(new ArrayList<>());
+        }
+
+        List<List<Integer>> perms = permute(Arrays.copyOfRange(nums, 1, nums.length));
+        List<List<Integer>> res = new ArrayList<>();
+
+        for(List<Integer> p : perms){
+            //insert nums[0] at every position in p
+            for(int i = 0; i<= p.size(); i++){ // why <= since we can insert at the end too
+                List<Integer> p_copy = new ArrayList<>(p);
+                p_copy.add(i, nums[0]);
+                res.add(p_copy);
+            }
+        }
+
+        return res;
+
+        
+    }
+}
+```
