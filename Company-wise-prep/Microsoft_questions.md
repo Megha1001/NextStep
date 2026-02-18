@@ -1,7 +1,3 @@
-Here's the complete Microsoft question bank reorganized **by algorithmic pattern** — so you can study pattern-by-pattern and recognize them instantly in interviews.
-
----
-
 ## MICROSOFT — ALL QUESTIONS ORGANIZED BY PATTERN
 
 ---
