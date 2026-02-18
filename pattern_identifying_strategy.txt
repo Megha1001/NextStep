@@ -1,0 +1,7 @@
+1. BackTracking
+If your first thought is:
+“Let me try all possibilities…”
+And then you think:
+“But that’s too many…”
+That’s backtracking + pruning.
+Backtracking = DFS over a decision tree.
