@@ -4333,6 +4333,7 @@ class Solution {
 
 89. N Queens
 ```
+//Problem -> revised : Place n queen in n rows
 class Solution {
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> res = new ArrayList<>();
