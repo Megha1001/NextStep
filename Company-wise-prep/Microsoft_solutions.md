@@ -21,10 +21,33 @@ class Solution {
         // return useTopDownApproach(n, memo);
 
         //use Bottom Up approach - Tabulation - Iterative
-        return useBottomUpApproach(n);
+        // return useBottomUpApproach(n);
+
+        //bottom up optimized
+        return bottomUpOptimized(n);
+    }
+
+    private int bottomUpOptimized(int n){
+        if(n <= 1){
+            return 1;
+        }
+
+        int prev2 = 1; //dp[0]
+        int prev1 = 1; //dp[1]
+
+        for(int i = 2; i <= n; i++){
+            int curr = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = curr;
+        }
+
+        return prev1;
     }
 
     private int useBottomUpApproach(int n){
+        if(n<=1){
+            return 1;
+        }
         int dp[] = new int[n+1];
         dp[0] = dp[1] = 1; //dp[i] represent how many distinct way to climb to ith stair
         for(int i = 2; i <= n; i++){
