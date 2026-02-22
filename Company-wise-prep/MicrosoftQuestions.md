@@ -609,7 +609,7 @@ void insert(String word) {
         if (node.children[c - 'a'] == null)
             node.children[c - 'a'] = new TrieNode();
         node = node.children[c - 'a'];
-    }
+    }dynami
     node.isEnd = true;
 }
 ```
