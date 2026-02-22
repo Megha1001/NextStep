@@ -259,3 +259,45 @@ class Solution {
     }
 }
 ```
+
+7. Decode Ways
+
+```
+class Solution {
+    public int numDecodings(String s) {
+        /*
+        for i+1 means first digit and rest 
+        i+2 means first two digit and rest
+        */
+        int n = s.length();
+        int memo[] = new int[n];
+        Arrays.fill(memo, -1);
+
+        return dfs(s, 0, memo); //dp[i] = indicates the number of decoding ways from i
+        
+    }
+
+    private int dfs(String s, int i, int []memo){
+        if(i == s.length()){
+            return 1;
+        }
+
+        if(s.charAt(i) == '0'){ // from i;[dp[i] = indicates the number of decoding ways from i]
+            return 0;
+        }
+
+        if(memo[i] != -1){
+            return memo[i];
+        }
+
+        memo[i] = dfs(s, i+1, memo); //first and rest
+        if(i+1 < s.length()){
+            if(s.charAt(i)=='1' || (s.charAt(i)=='2' && s.charAt(i+1) < '7')){
+                memo[i] += dfs(s, i+2, memo);//first two characters and rest;
+            }
+        }
+
+        return memo[i];
+    }
+}
+```
