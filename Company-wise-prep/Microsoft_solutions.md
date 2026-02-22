@@ -89,7 +89,7 @@ class Solution {
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
         /*
-        IDEA : To find the minimum cost at i = cost[i] + Math.min(cost[i+1], cost[i+2])
+        IDEA : To find the minimum cost at i = cost[i] + Math.min(min cost to reach at end from [i+1], min cost to reach at end from [i+2])
         */
         int n = cost.length;
         int dp[] = new int[n+1];
