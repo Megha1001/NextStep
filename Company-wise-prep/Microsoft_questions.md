@@ -501,9 +501,9 @@ void addNum(int num) {
 
 **When to use:** "Count ways", "min/max cost", linear sequence with choices
 
-| # | LC# | Problem | Diff | Freq | Sub-pattern |
+| # | LC# | Problem | Diff | Freq | Sub-pattern | Logic
 |---|---|---|---|---|---|
-| 1 | 70 | Climbing Stairs | Easy | Very High | Fibonacci |
+| 1 | 70 | Climbing Stairs | Easy | Very High | Fibonacci | ways(n) = ways(n-1) + ways(n-2); To reach to n we can come from n-1 or n-2
 | 2 | 198 | House Robber | Medium | High | Linear choice |
 | 3 | 213 | House Robber II | Medium | Medium | Circular |
 | 4 | 322 | Coin Change | Medium | Very High | Unbounded knapsack |
