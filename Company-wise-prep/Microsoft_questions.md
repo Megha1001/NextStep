@@ -504,7 +504,7 @@ void addNum(int num) {
 | # | LC# | Problem | Diff | Freq | Sub-pattern | Logic
 |---|---|---|---|---|---|
 | 1 | 70 | Climbing Stairs | Easy | Very High | Fibonacci | ways(n) = ways(n-1) + ways(n-2); To reach to n we can come from n-1 or n-2
-| 2 | 198 | House Robber | Medium | High | Linear choice |
+| 2 | 198 | House Robber | Medium | High | Linear choice | max_rob[i] = Math.max(max_rob(i-1), cost[i] + max(i-2))
 | 3 | 213 | House Robber II | Medium | Medium | Circular |
 | 4 | 322 | Coin Change | Medium | Very High | Unbounded knapsack |
 | 5 | 518 | Coin Change 2 | Medium | Medium | Unbounded knapsack |
