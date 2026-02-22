@@ -128,3 +128,28 @@ public int minCostClimbingStairs(int[] cost) {
         
     }
 ```
+
+
+3. House Robber
+
+```
+class Solution {
+    public int rob(int[] nums) {
+        /*
+        At every house at index i we can have two choices
+            -> rob that house + best up to i-2
+            -> not robbing it -> best upto i-1
+        */
+
+        int rob1 = 0;
+        int rob2 = 0;
+
+        for(int n : nums){
+            int temp = Math.max(rob1 + n, rob2);
+            rob1 = rob2;
+            rob2 = temp;
+        }
+        return rob2;
+    }
+}
+```
