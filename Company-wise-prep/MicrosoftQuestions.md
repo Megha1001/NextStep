@@ -505,11 +505,11 @@ void addNum(int num) {
 |----|------|--------------------------------|--------|-----------|---------------------|----------------|
 | 1  | 70   | Climbing Stairs                | Easy   | Very High | 1D DP / Fibonacci    |  ways(n) = ways(n-1) + ways(n-2); To reach to n we can come from n-1 or n-2              |
 | 2  | 198  | House Robber                   | Medium | High      | Linear choice        |  max_rob[i] = Math.max(max_rob(i-1), cost[i] + max(i-2))              |
-| 3  | 213  | House Robber II                | Medium | Medium    | Circular             |                |
+| 3  | 213  | House Robber II                | Medium | Medium    | Circular             |  Math.max(houseRobber1(0, n-2), houseRobber1(1, n-1))              |
 | 4  | 322  | Coin Change                    | Medium | Very High | Unbounded Knapsack   |                |
 | 5  | 518  | Coin Change 2                  | Medium | Medium    | Unbounded Knapsack   |                |
 | 6  | 139  | Word Break                     | Medium | Very High | String DP            |                |
-| 7  | 91   | Decode Ways                    | Medium | Very High | String DP            |                |
+| 7  | 91   | Decode Ways                    | Medium | Very High | String DP            | Ways = (ways if I take 1 digit)+ (ways if I take 2 digits, if valid)               |
 | 8  | 300  | Longest Increasing Subsequence | Medium | High      | LIS                  |                |
 | 9  | 152  | Maximum Product Subarray       | Medium | High      | Kadane variant       |                |
 | 10 | 53   | Maximum Subarray               | Medium | Very High | Kadane's             |                |
