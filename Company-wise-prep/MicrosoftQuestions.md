@@ -508,7 +508,7 @@ void addNum(int num) {
 | 3  | 213  | House Robber II                | Medium | Medium    | Circular             |  Math.max(houseRobber1(0, n-2), houseRobber1(1, n-1))              |
 | 4  | 322  | Coin Change                    | Medium | Very High | Unbounded Knapsack   |  dp[i] = Math.max(dp[i]  , 1 + dp[i - coin])    for 1 to amount and for every coin        |
 | 5  | 518  | Coin Change 2                  | Medium | Medium    | Unbounded Knapsack   |                |
-| 6  | 139  | Word Break                     | Medium | Very High | String DP            |                |
+| 6  | 139  | Word Break                     | Medium | Very High | String DP            |  dp[i] = dp[i + w.length()]              |
 | 7  | 91   | Decode Ways                    | Medium | Very High | String DP            | Ways = (ways if I take 1 digit)+ (ways if I take 2 digits, if valid)               |
 | 8  | 300  | Longest Increasing Subsequence | Medium | High      | LIS                  |                |
 | 9  | 152  | Maximum Product Subarray       | Medium | High      | Kadane variant       | Maintain two variable curr_max, and curr_min               |
