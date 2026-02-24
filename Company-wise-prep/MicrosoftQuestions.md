@@ -510,7 +510,7 @@ void addNum(int num) {
 | 5  | 518  | Coin Change 2                  | Medium | Medium    | Unbounded Knapsack   |                |
 | 6  | 139  | Word Break                     | Medium | Very High | String DP            |  dp[i] = dp[i + w.length()]              |
 | 7  | 91   | Decode Ways                    | Medium | Very High | String DP            | Ways = (ways if I take 1 digit)+ (ways if I take 2 digits, if valid)               |
-| 8  | 300  | Longest Increasing Subsequence | Medium | High      | LIS                  |                |
+| 8  | 300  | Longest Increasing Subsequence | Medium | High      | LIS                  |   LIS[i] = Math.max(LIS[i], 1 + LIS[j]) where i = n-1 to 0 and j=i to < n return Max(LIS)             |
 | 9  | 152  | Maximum Product Subarray       | Medium | High      | Kadane variant       | Maintain two variable curr_max, and curr_min               |
 | 10 | 53   | Maximum Subarray               | Medium | Very High | Kadane's             |                |
 | 11 | 55   | Jump Game                      | Medium | Medium    | Greedy/DP            |                |
