@@ -345,6 +345,7 @@ class Solution {
         int res = nums[0];
         for(int n : nums){
             int temp = n * curr_max;
+            //for handling zero we are considering n to reset
             curr_max = Math.max(Math.max(temp, curr_min * n), n);
             curr_min = Math.min(Math.min(temp, curr_min * n), n);
             res = Math.max(res, curr_max);
