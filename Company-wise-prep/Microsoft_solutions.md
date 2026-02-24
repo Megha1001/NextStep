@@ -384,7 +384,7 @@ class Solution {
 
         for(int i = n - 1; i >= 0; i--){
             for(String w : wordDict){
-                if((i + w.length() <= n) && (s.substring(i, i+w.length()).equals(w))){ // this is making sure that i+w.length has matching string in wordDict
+                if((i + w.length() <= n) && (s.substring(i, i+w.length()).equals(w))){ // this is making sure that from i to i+w.length has matching string in wordDict
                     dp[i] = dp[i + w.length()]; //for rest after i+w.length
                 } //dp[i]  = s.substring(i, i+w.length()).equals(w) && dp[i+w.length()];
                 if(dp[i] == true){
