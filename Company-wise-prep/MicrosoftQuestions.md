@@ -517,7 +517,7 @@ void addNum(int num) {
 | 12 | 45   | Jump Game II                   | Medium | Medium    | Greedy/DP            |                |
 | 13 | 279  | Perfect Squares                | Medium | Medium    | BFS/DP               |                |
 | 14 | 377  | Combination Sum IV             | Medium | Medium    | Unbounded Knapsack   |                |
-| 15 | 416  | Partition Equal Subset Sum     | Medium | Medium    | 0/1 Knapsack         |                |
+| 15 | 416  | Partition Equal Subset Sum     | Medium | Medium    | 0/1 Knapsack         |   dfs(nums, sum/2 - nums[i]) || dfs(nums, sum/2)             |
 | 16 | 494  | Target Sum                     | Medium | Medium    | 0/1 Knapsack         |                |
 
 **Key template (bottom-up):**
