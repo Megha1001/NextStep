@@ -466,26 +466,26 @@ class Solution {
 
 DP(top down)
 ```
-private Boolean [][]memo;
-
+class Solution {
+    private Boolean memo[][];
     public boolean canPartition(int[] nums) {
         int n = nums.length;
+
         int sum = 0;
         for(int num : nums){
             sum += num;
         }
 
-        if(sum %2 != 0){
+        if(sum % 2 != 0){
             return false;
         }
-
         memo = new Boolean[n][sum/2 + 1];
 
         return dfs(nums, 0, sum/2);
-
+        
     }
 
-    private boolean dfs(int []nums, int i, int target){
+    private boolean dfs(int []nums, int i , int target){
         if(i == nums.length){
             return target == 0;
         }
@@ -494,9 +494,13 @@ private Boolean [][]memo;
             return false;
         }
 
-        memo[i][target] = dfs(nums, i+1, target - nums[i]) || dfs(nums, i+1, target);
+        if(memo[i][target]!= null){ // to compare this we have declared Boolean not boolean
+            return memo[i][target];
+        }
+
+        memo[i][target] = dfs(nums, i+1, target-nums[i]) || dfs(nums, i+1, target);
 
         return memo[i][target];
     }
-
+}
 ```
