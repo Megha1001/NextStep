@@ -479,6 +479,9 @@ class Solution {
         if(sum % 2 != 0){
             return false;
         }
+        /*
+        i can vary from 0 to n and target can vary from 0 to sum/2
+        */
         memo = new Boolean[n][sum/2 + 1];
 
         return dfs(nums, 0, sum/2);
