@@ -542,7 +542,7 @@ return dp[n];
 | 1 | 62 | Unique Paths | Medium | High | Grid DP | dp[i][j] = dp[i+1][j] + dp[i][j+1]|
 | 2 | 64 | Minimum Path Sum | Medium | High | Grid DP |
 | 3 | 72 | Edit Distance | Medium | High | LCS variant |
-| 4 | 1143 | Longest Common Subsequence | Medium | High | LCS |
+| 4 | 1143 | Longest Common Subsequence | Medium | High | LCS | if(text1.charAt(m-1) == text2.charAt(n-1)){ memo[m][n] = 1 + dfs(text1, text2, m - 1, n - 1); }else{memo[m][n] = Math.max(dfs(text1, text2, m, n - 1), dfs(text1, text2, m - 1, n));}|
 | 5 | 5 | Longest Palindromic Substring | Medium | High | Expand / DP |
 | 6 | 10 | Regular Expression Matching | Hard | High | String matching DP |
 | 7 | 97 | Interleaving String | Medium | Medium | String DP |
