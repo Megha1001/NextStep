@@ -537,9 +537,9 @@ return dp[n];
 
 **When to use:** Grid paths, two-string comparison, matrix optimization
 
-| # | LC# | Problem | Diff | Freq | Sub-pattern |
-|---|---|---|---|---|---|
-| 1 | 62 | Unique Paths | Medium | High | Grid DP |
+| #  | LC#  | Problem                        | Diff   | Freq      | Sub-pattern           | Logic          |
+|----|------|--------------------------------|--------|-----------|---------------------|----------------|
+| 1 | 62 | Unique Paths | Medium | High | Grid DP | dp[i][j] = dp[i+1][j] + dp[i][j+1]|
 | 2 | 64 | Minimum Path Sum | Medium | High | Grid DP |
 | 3 | 72 | Edit Distance | Medium | High | LCS variant |
 | 4 | 1143 | Longest Common Subsequence | Medium | High | LCS |
