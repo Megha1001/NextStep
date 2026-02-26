@@ -2,7 +2,7 @@
 
 ---
 
-### PATTERN 1: Dynamic Programming
+### PATTERN 1: Dynamic Programming - 1D
 
 1. Climbing Stairs
 
@@ -507,3 +507,4 @@ class Solution {
     }
 }
 ```
+
