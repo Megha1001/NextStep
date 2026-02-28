@@ -518,7 +518,7 @@ void addNum(int num) {
 | 13 | 279  | Perfect Squares                | Medium | Medium    | BFS/DP               |                |
 | 14 | 377  | Combination Sum IV             | Medium | Medium    | Unbounded Knapsack   |                |
 | 15 | 416  | Partition Equal Subset Sum     | Medium | Medium    | 0/1 Knapsack         |   dfs(nums, sum/2 - nums[i]) || dfs(nums, sum/2)             |
-| 16 | 494  | Target Sum                     | Medium | Medium    | 0/1 Knapsack         |                |
+| 16 | 494  | Target Sum                     | Medium | Medium    | 0/1 Knapsack         |   dp[0-num][0-2*totalSum+1] = backtrack(i+1, currSum + nums[i], nums, target) + backtrack(i+1, currSum - nums[i], nums, target)             |
 
 **Key template (bottom-up):**
 
