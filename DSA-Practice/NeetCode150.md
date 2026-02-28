@@ -4612,3 +4612,92 @@ public int changeTopDown(int amount, int[] coins) {
         return res;
     }
 ```
+
+94. Target Sum
+
+```
+class Solution {
+    private int dp[][];
+    private int totalSum;
+    public int findTargetSumWays(int[] nums, int target) {
+        int n = nums.length;
+        for(int num : nums){
+            totalSum += num;
+        }
+
+        dp = new int[n][2*totalSum+1]; //possible value of n : 0 to n, sum -totalSum to +totalSum
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < 2*totalSum+1; j++){
+                dp[i][j] = Integer.MIN_VALUE;
+            }
+        }
+
+        return backTrack(0, 0, nums, target);
+    }
+
+    private int backTrack(int i, int currSum, int[] nums, int target){
+        if(i==nums.length){
+            return currSum == target ? 1 :0;
+        }
+
+        if(dp[i][currSum + totalSum] != Integer.MIN_VALUE){ // -totalSum to +totalSum --> offesting from zero : 0 to 2*totalSum
+            return dp[i][currSum + totalSum];
+        }
+
+        dp[i][currSum + totalSum] = backTrack(i+1, currSum + nums[i], nums, target) +
+                                    backTrack(i+1, currSum - nums[i], nums, target);
+
+        return dp[i][currSum + totalSum];
+    }
+}   
+```
+
+95. Interleaving strings
+
+```
+class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+        /*
+        Merge thorem solution wont as when we are consider s1 even when the character matches in both s1 and s2
+        => greedy wont work
+
+        DP Problem
+        dp[i][j] = (dp[i-1][j] && s1.charAt(i-1) == s3.charAt(i+j-1)) || (dp[i][j-1] && s2.charAt(j-1) == s3.charAt(i+j-1))
+        */
+        int m = s1.length();
+        int n = s2.length();
+
+        if(m+n != s3.length()){
+            return false;
+        }
+
+        boolean dp [][] = new boolean[m+1][n+1]; //dp[i][j] tell us wheather first i characters of s1 and first j characters of s2 can form first i+j characters of s3
+        dp[0][0] = true;
+        
+        //for first row
+        for(int i = 1; i <= m; i++){
+            dp[i][0] = dp[i-1][0] && s1.charAt(i-1)== s3.charAt(i-1);
+        }
+
+        //for first column
+        for(int j = 1; j <= n; j++){
+            dp[0][j] = dp[0][j-1] && s2.charAt(j-1) == s3.charAt(j-1);
+        }
+
+        //for rest
+        for(int i = 1; i <= m; i++){
+            for(int j = 1; j <= n; j++){
+                char c = s3.charAt(i+j-1);
+
+                dp[i][j] = (dp[i-1][j] && s1.charAt(i-1) == c)
+                            ||
+                           (dp[i][j-1] && s2.charAt(j-1) == c);
+            }
+        }
+
+        return dp[m][n];
+
+    }
+}
+```
