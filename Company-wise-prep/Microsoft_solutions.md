@@ -676,3 +676,43 @@ public int changeTopDown(int amount, int[] coins) {
         return res;
     }
 ```
+
+4. Target Sum
+
+```
+class Solution {
+    private int dp[][];
+    private int totalSum;
+    public int findTargetSumWays(int[] nums, int target) {
+        int n = nums.length;
+        for(int num : nums){
+            totalSum += num;
+        }
+
+        dp = new int[n][2*totalSum+1]; //possible value of n : 0 to n, sum -totalSum to +totalSum
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < 2*totalSum+1; j++){
+                dp[i][j] = Integer.MIN_VALUE;
+            }
+        }
+
+        return backTrack(0, 0, nums, target);
+    }
+
+    private int backTrack(int i, int currSum, int[] nums, int target){
+        if(i==nums.length){
+            return currSum == target ? 1 :0;
+        }
+
+        if(dp[i][currSum + totalSum] != Integer.MIN_VALUE){ // -totalSum to +totalSum --> offesting from zero : 0 to 2*totalSum
+            return dp[i][currSum + totalSum];
+        }
+
+        dp[i][currSum + totalSum] = backTrack(i+1, currSum + nums[i], nums, target) +
+                                    backTrack(i+1, currSum - nums[i], nums, target);
+
+        return dp[i][currSum + totalSum];
+    }
+}   
+```
