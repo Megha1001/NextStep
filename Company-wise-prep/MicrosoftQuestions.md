@@ -545,7 +545,7 @@ return dp[n];
 | 4 | 1143 | Longest Common Subsequence | Medium | High | LCS | if(text1.charAt(m-1) == text2.charAt(n-1)){ memo[m][n] = 1 + dfs(text1, text2, m - 1, n - 1); }else{memo[m][n] = Math.max(dfs(text1, text2, m, n - 1), dfs(text1, text2, m - 1, n));}|
 | 5 | 5 | Longest Palindromic Substring | Medium | High | Expand / DP |
 | 6 | 10 | Regular Expression Matching | Hard | High | String matching DP |
-| 7 | 97 | Interleaving String | Medium | Medium | String DP |
+| 7 | 97 | Interleaving String | Medium | Medium | String DP | dp[i][j] = (dp[i-1][j] && s1.charAt(i-1)==s3.charAt(i+j-1)) || (dp[i][j-1] && s2.charAt(j-1)==s3.charAt(i+j-1))
 | 8 | 120 | Triangle | Medium | Medium | Grid DP |
 | 9 | 312 | Burst Balloons | Hard | Low | Interval DP |
 | 10 | 647 | Palindromic Substrings | Medium | Medium | Expand / DP |
