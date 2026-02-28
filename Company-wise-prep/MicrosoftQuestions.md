@@ -507,7 +507,7 @@ void addNum(int num) {
 | 2  | 198  | House Robber                   | Medium | High      | Linear choice        |  max_rob[i] = Math.max(max_rob(i-1), cost[i] + max(i-2))              |
 | 3  | 213  | House Robber II                | Medium | Medium    | Circular             |  Math.max(houseRobber1(0, n-2), houseRobber1(1, n-1))              |
 | 4  | 322  | Coin Change                    | Medium | Very High | Unbounded Knapsack   |  dp[i] = Math.max(dp[i]  , 1 + dp[i - coin])    for 1 to amount and for every coin        |
-| 5  | 518  | Coin Change 2                  | Medium | Medium    | Unbounded Knapsack   |                |
+| 5  | 518  | Coin Change 2                  | Medium | Medium    | Unbounded Knapsack   |   dp[i][a] = dp[i+1][a] + dp[i][a-coin[i]]             |
 | 6  | 139  | Word Break                     | Medium | Very High | String DP            |  dp[i] = dp[i + w.length()]              |
 | 7  | 91   | Decode Ways                    | Medium | Very High | String DP            | Ways = (ways if I take 1 digit)+ (ways if I take 2 digits, if valid)               |
 | 8  | 300  | Longest Increasing Subsequence | Medium | High      | LIS                  |   LIS[i] = Math.max(LIS[i], 1 + LIS[j]) where i = n-1 to 0 and j=i to < n return Max(LIS)             |
