@@ -4816,3 +4816,5 @@ class Solution {
     }
 }
 ```
+
+This can also be solved using topological sorting(Kahn's algorithm)
