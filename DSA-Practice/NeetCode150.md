@@ -4818,3 +4818,97 @@ class Solution {
 ```
 
 This can also be solved using topological sorting(Kahn's algorithm)
+
+3. Distinct subsequence
+
+Method : 1 Recursion  : TLE
+
+```
+public int numDistinct(String s, String t) {
+
+        /*
+        if s[i] == t[i]
+            => i+1, j+1
+            => i+1, j --> this is IMP
+        else 
+            => i+1, j
+        */
+
+        int m = s.length();
+        int n = t.length();
+
+        if(n > m){
+            return 0;
+        }
+
+        return dfs(0, 0, s, t);
+        
+    }
+
+    private int dfs(int i, int j, String s, String t){
+        if(j == t.length()){
+            return 1; // reached till end of t
+        }
+
+        if(i == s.length()){
+            return 0; //reached till end of s without reaching end of t
+        }
+
+        int res = dfs(i+1, j, s, t);
+        if(s.charAt(i) == t.charAt(j)){
+            res += dfs(i+1, j+1, s, t);
+        }
+
+        return res;
+    }
+```
+
+Method : 2 Top down approach
+```
+public int numDistinct(String s, String t) {
+
+        /*
+        if s[i] == t[i]
+            => i+1, j+1
+            => i+1, j --> this is IMP
+        else 
+            => i+1, j
+        */
+
+        int m = s.length();
+        int n = t.length();
+
+        int dp [][] = new int[m+1][n+1];
+        for(int i = 0; i <= m; i++){
+            Arrays.fill(dp[i], -1);
+        }
+
+        if(n > m){
+            return 0;
+        }
+
+        return dfs(0, 0, s, t, dp);
+        
+    }
+
+    private int dfs(int i, int j, String s, String t, int[][]dp){
+        if(j == t.length()){
+            return 1; // reached till end of t
+        }
+
+        if(i == s.length()){
+            return 0; //reached till end of s without reaching end of t
+        }
+
+        if(dp[i][j] != -1){
+            return dp[i][j];
+        }
+
+        int res = dfs(i+1, j, s, t, dp);
+        if(s.charAt(i) == t.charAt(j)){
+            res += dfs(i+1, j+1, s, t, dp);
+        }
+        dp[i][j] = res;
+        return res;
+    }
+```
