@@ -6,9 +6,9 @@
 
 **When to use:** Sorted arrays, pair/triplet problems, in-place operations, palindromes
 
-| # | LC# | Problem | Diff | Freq |
-|---|---|---|---|---|
-| 1 | 1 | Two Sum | Easy | Very High |
+| # | LC# | Problem | Diff | Freq | Logic |
+|---|---|---|---|---|---|
+| 1 | 1 | Two Sum | Easy | Very High | Use HashMap and compliment approach
 | 2 | 167 | Two Sum II (Sorted Input) | Medium | Medium |
 | 3 | 15 | 3Sum | Medium | High |
 | 4 | 16 | 3Sum Closest | Medium | Medium |
