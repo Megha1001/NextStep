@@ -744,3 +744,16 @@ Here's the order you should study patterns in, ranked by Microsoft frequency:
 | 22 | Bit Manipulation | Low-Medium |
 
 ---
+
+
+First 
+Two Pointers
+Sliding Window
+Stack
+Linked List Reversal
+DFS/BFS Trees
+Binary Search
+Heap
+DP 1D
+Backtracking
+DP 2D
