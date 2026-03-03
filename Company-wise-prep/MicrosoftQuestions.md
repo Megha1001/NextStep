@@ -11,7 +11,7 @@
 | 1 | 1 | Two Sum | Easy | Very High | Use HashMap and compliment approach
 | 2 | 167 | Two Sum II (Sorted Input) | Medium | Medium | Maintain two pointer -> i and j [if nums[i]+nums[j]= target return , if nums[i][j] > target then --j else ++i;]
 | 3 | 15 | 3Sum | Medium | High | Sort + Fix i + Two-pointer 2Sum
-| 4 | 16 | 3Sum Closest | Medium | Medium |
+| 4 | 16 | 3Sum Closest | Medium | Medium | Sort + Fix i + Two pointers + Track minimum [target - sum]
 | 5 | 11 | Container With Most Water | Medium | High |
 | 6 | 42 | Trapping Rain Water | Hard | High |
 | 7 | 283 | Move Zeroes | Easy | Very High |
