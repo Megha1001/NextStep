@@ -1012,7 +1012,7 @@ class Solution {
 class Solution {
     public void moveZeroes(int[] nums) {
 
-        //Two Pointer
+        //Two Pointer - SLow and fast pointer variation
         int left = -1;
         int right = 0; //find non zero
 
