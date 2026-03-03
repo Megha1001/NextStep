@@ -12,7 +12,7 @@
 | 2 | 167 | Two Sum II (Sorted Input) | Medium | Medium | Maintain two pointer -> i and j [if nums[i]+nums[j]= target return , if nums[i][j] > target then --j else ++i;]
 | 3 | 15 | 3Sum | Medium | High | Sort + Fix i + Two-pointer 2Sum
 | 4 | 16 | 3Sum Closest | Medium | Medium | Sort + Fix i + Two pointers + Track minimum [target - sum]
-| 5 | 11 | Container With Most Water | Medium | High |
+| 5 | 11 | Container With Most Water | Medium | High | Two pointers from both ends + Compute area using min height × width + Move the smaller height pointer inward.
 | 6 | 42 | Trapping Rain Water | Hard | High |
 | 7 | 283 | Move Zeroes | Easy | Very High |
 | 8 | 26 | Remove Duplicates from Sorted Array | Easy | Medium |
