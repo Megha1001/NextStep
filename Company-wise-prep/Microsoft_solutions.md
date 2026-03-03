@@ -938,3 +938,42 @@ class Solution {
     }
 }
 ```
+
+5. Container With Most Water
+
+```
+class Solution {
+    public int maxArea(int[] height) {
+        //Brute force - TLE
+        // int area = 0;
+        // int n = height.length;
+        // for(int i = 0; i < n; i++){
+        //     int currMax = 0;
+        //     for(int j = i+1; j < n; j++){
+        //         currMax = Math.max(currMax, Math.min(height[j], height[i]) * (j-i));
+        //     }
+        //     area = Math.max(area, currMax);
+        // }
+
+        // return area;
+
+        //Two Pointer approach
+        int l = 0;
+        int r = height.length - 1;
+        int res = 0;
+        while(l < r){
+          int area = (r - l) * Math.min(height[l], height[r]);
+          res = Math.max(area, res);
+
+          if(height[l] <= height[r]){
+            ++l;
+          }else{
+            --r;
+          }
+        }
+
+        return res;
+        
+    }
+}
+```
