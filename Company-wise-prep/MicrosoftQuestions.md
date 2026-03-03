@@ -13,7 +13,7 @@
 | 3 | 15 | 3Sum | Medium | High | Sort + Fix i + Two-pointer 2Sum
 | 4 | 16 | 3Sum Closest | Medium | Medium | Sort + Fix i + Two pointers + Track minimum [target - sum]
 | 5 | 11 | Container With Most Water | Medium | High | Two pointers from both ends + Compute area using min height × width + Move the smaller height pointer inward.
-| 6 | 42 | Trapping Rain Water | Hard | High | 
+| 6 | 42 | Trapping Rain Water | Hard | High | Precompute leftMax & rightMax. Water at i = min(leftMax[i], rightMax[i]) - height[i]. Sum for all i
 | 7 | 283 | Move Zeroes | Easy | Very High | Maintain slow pointer at next non-zero position. Fast pointer scans array. If nums[fast] != 0 → swap(nums[slow], nums[fast]) and slow++
 | 8 | 26 | Remove Duplicates from Sorted Array | Easy | Medium |
 | 9 | 75 | Sort Colors (Dutch National Flag) | Medium | High |
