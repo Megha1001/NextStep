@@ -1086,26 +1086,28 @@ More Optimized
 ```
 class Solution {
     public void sortColors(int[] nums) {
+        
+        //Three Pointer - Dutch national Flag algo
+        int low = -1;
+        int mid = 0;
+        int high = nums.length - 1;
 
-        //Dutch National Flag Algo
-        int i = -1;
-        int m = 0;
-        int j = nums.length - 1;
-        while(m <= j){
-            if(nums[m] == 0){
-                int temp = nums[i+1];
-                nums[i+1] = nums[m];
-                nums[m] = temp;
-                ++i;
-                ++m;
-            }else if(nums[m] == 1){
-                ++m;
+        while(mid <= high){
+            if(nums[mid] == 0){
+                ++low; //always 1
+                int temp = nums[low];
+                nums[low] = nums[mid];
+                nums[mid] = temp;
+                ++mid;
             }
-            else{
-                int temp = nums[j];
-                nums[j] = nums[m];
-                nums[m] = temp;
-                --j;
+            else if (nums[mid] == 1){
+                ++mid;
+            }else {
+                int temp = nums[high];
+                nums[high] = nums[mid];
+                nums[mid] = temp;
+                --high;
+                //++mid // no as we dont know what is there in nums[mid] now
             }
         }
         
