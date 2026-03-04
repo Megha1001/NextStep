@@ -1079,3 +1079,36 @@ More Optimized
         return l;
     }
 ```
+
+
+9. Sort Colors
+
+```
+class Solution {
+    public void sortColors(int[] nums) {
+
+        //Dutch National Flag Algo
+        int i = -1;
+        int m = 0;
+        int j = nums.length - 1;
+        while(m <= j){
+            if(nums[m] == 0){
+                int temp = nums[i+1];
+                nums[i+1] = nums[m];
+                nums[m] = temp;
+                ++i;
+                ++m;
+            }else if(nums[m] == 1){
+                ++m;
+            }
+            else{
+                int temp = nums[j];
+                nums[j] = nums[m];
+                nums[m] = temp;
+                --j;
+            }
+        }
+        
+    }
+}
+```
