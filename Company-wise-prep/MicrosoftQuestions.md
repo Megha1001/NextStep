@@ -16,7 +16,7 @@
 | 6 | 42 | Trapping Rain Water | Hard | High | Precompute leftMax & rightMax. Water at i = min(leftMax[i], rightMax[i]) - height[i]. Sum for all i
 | 7 | 283 | Move Zeroes | Easy | Very High | Maintain slow pointer at next non-zero position. Fast pointer scans array. If nums[fast] != 0 → swap(nums[slow], nums[fast]) and slow++
 | 8 | 26 | Remove Duplicates from Sorted Array | Easy | Medium | Slow pointer marks next unique position. Fast pointer scans. If nums[fast] != previous unique → nums[slow++] = nums[fast]
-| 9 | 75 | Sort Colors (Dutch National Flag) | Medium | High |
+| 9 | 75 | Sort Colors (Dutch National Flag) | Medium | High | Maintain 3 regions using low, mid, high. If 0 → swap(low++, mid++). If 1 → mid++. If 2 → swap(mid, high--)
 | 10 | 88 | Merge Sorted Array | Easy | Very High |
 | 11 | 125 | Valid Palindrome | Easy | Medium |
 | 12 | 680 | Valid Palindrome II | Easy | Medium |
