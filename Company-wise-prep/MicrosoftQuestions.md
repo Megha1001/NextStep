@@ -22,7 +22,7 @@
 | 12 | 680 | Valid Palindrome II | Easy | Medium | Two pointers from ends. On first mismatch → try skipping left OR right once and check palindrome.
 | 13 | 977 | Squares of a Sorted Array | Easy | Medium | Two pointers at both ends. Compare absolute values of nums[l] and nums[r]. Place larger square at end of result array. Move that pointer and decrement result index.
 | 14 | 986 | Interval List Intersections | Medium | Medium |
-| 15 | 344 | Reverse String | Easy | Medium |
+| 15 | 344 | Reverse String | Easy | Medium | Two pointers from both ends. Swap characters at l and r, then move l++ and r-- until they meet.
 
 
 **Key template:**
