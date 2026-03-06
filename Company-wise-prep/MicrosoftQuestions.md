@@ -18,7 +18,7 @@
 | 8 | 26 | Remove Duplicates from Sorted Array | Easy | Medium | Slow pointer marks next unique position. Fast pointer scans. If nums[fast] != previous unique → nums[slow++] = nums[fast]
 | 9 | 75 | Sort Colors (Dutch National Flag) | Medium | High | Maintain 3 regions using low, mid, high. If 0 → swap(low++, mid++). If 1 → mid++. If 2 → swap(mid, high--)
 | 10 | 88 | Merge Sorted Array | Easy | Very High | If array1 has buffer at end → Use 3 pointers from back. Compare nums1[m-1] & nums2[n-1]. Place larger at nums1[last]. Decrement pointer of chosen element + last--. Continue until one exhausts. Copy remaining nums2 if any.
-| 11 | 125 | Valid Palindrome | Easy | Medium |
+| 11 | 125 | Valid Palindrome | Easy | Medium | Two pointers from both ends. Skip non-alphanumeric characters. Compare lowercase characters. If mismatch → false. Move l++ and r-- until pointers meet.
 | 12 | 680 | Valid Palindrome II | Easy | Medium | Two pointers from ends. On first mismatch → try skipping left OR right once and check palindrome.
 | 13 | 977 | Squares of a Sorted Array | Easy | Medium |
 | 14 | 986 | Interval List Intersections | Medium | Medium |
