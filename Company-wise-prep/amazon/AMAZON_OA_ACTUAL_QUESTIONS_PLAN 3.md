@@ -488,7 +488,7 @@ Output: 10 (maximum twin sum)
 
 #### **Brute Force Approach:**
 ```java
-// Time: O(n²), Space: O(1)
+// Time: O(n), Space: O(n)
 public int pairSum(ListNode head) {
     List<Integer> list = new ArrayList<>();
     ListNode curr = head;
