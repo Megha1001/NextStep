@@ -585,27 +585,39 @@ Output: 5
 **Optimal Approach (Greedy):**
 ```java
 // Time: O(n log n), Space: O(n)
-public int minOperations(int[] weight, int[] dist) {
-    int n = weight.length;
-    Integer[] indices = new Integer[n];
-    for (int i = 0; i < n; i++) indices[i] = i;
-    
-    // Sort indices by weight
-    Arrays.sort(indices, (a, b) -> Integer.compare(weight[a], weight[b]));
-    
-    int operations = 0;
-    for (int i = 0; i < n; i++) {
-        int targetPos = i;
-        int currentPos = indices[i];
-        
-        if (currentPos < targetPos) {
-            // Need to move right
-            int moves = (targetPos - currentPos + dist[currentPos] - 1) / dist[currentPos];
-            operations += moves;
+public class Solution {
+
+    public int minOperations(int[]weight, int []dist){
+        int n = weight.length;
+        Integer [] idx = new Integer[n];
+
+        for(int i = 0; i < n; i++){
+            idx[i] = i;
         }
+
+        Arrays.sort(idx, (a, b) -> weight[a] - weight[b]);
+
+        int []pos = new int[n];
+        for(int i = 0; i < n; i++){
+            pos[i] = i;
+        }
+
+        int operations = 0;
+        for(int i = 1; i < n; i++){
+            int curr = idx[i];
+            int prev = idx[i-1];
+
+            while(pos[curr] <= pos[prev]){
+                pos[curr] += dist[curr];
+                ++operations;
+            }
+        }
+
+        return operations;
     }
-    return operations;
+    
 }
+
 ```
 
 ---
