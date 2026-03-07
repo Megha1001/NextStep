@@ -84,3 +84,41 @@ class Solution {
 
 }
 ```
+
+2. Sorting Points by Weight with Minimum Operations
+
+```
+public class Solution {
+
+    public int minOperations(int[]weight, int []dist){
+        int n = weight.length;
+        Integer [] idx = new Integer[n];
+
+        for(int i = 0; i < n; i++){
+            idx[i] = i;
+        }
+
+        Arrays.sort(idx, (a, b) -> weight[a] - weight[b]);
+
+        int []pos = new int[n];
+        for(int i = 0; i < n; i++){
+            pos[i] = i;
+        }
+
+        int operations = 0;
+        for(int i = 1; i < n; i++){
+            int curr = idx[i];
+            int prev = idx[i-1];
+
+            while(pos[curr] <= pos[prev]){
+                pos[curr] += dist[curr];
+                ++operations;
+            }
+        }
+
+        return operations;
+    }
+    
+}
+
+```
