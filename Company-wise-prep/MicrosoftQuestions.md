@@ -47,7 +47,7 @@ while (left < right) {
 | 2 | 76 | Minimum Window Substring | Hard | High | Check Question | Sliding window + HashMap frequency. Expand r to include characters, track have/need. When window satisfies all chars of t, shrink l to minimize window while updating smallest substring.
 | 3 | 438 | Find All Anagrams in a String | Medium | High | Fixed-size sliding window + frequency array (size 26). Count characters of p. Maintain window of length p.length() in s. Add right char, remove left char, compare frequency arrays (Arrays.equals). If equal, record start index.
 | 4 | 567 | Permutation in String | Medium | Medium |Fixed-size sliding window + frequency array (size 26). Count characters of s1. Maintain window of size s1.length() in s2. Add right char and remove left char while sliding. Compare frequency arrays; if equal, return true immediately since a permutation exists.
-| 5 | 209 | Minimum Size Subarray Sum | Medium | Medium |
+| 5 | 209 | Minimum Size Subarray Sum | Medium | Medium | Variable-size sliding window. Expand r while adding elements to sum. When sum >= target, update minimum length r - l + 1 and shrink window by subtracting nums[l] and moving l to minimize the window.
 | 6 | 239 | Sliding Window Maximum | Hard | High |
 | 7 | 424 | Longest Repeating Character Replacement | Medium | Medium |
 | 8 | 560 | Subarray Sum Equals K | Medium | Very High |
