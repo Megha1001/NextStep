@@ -41,10 +41,10 @@ while (left < right) {
 
 **When to use:** Subarray/substring with constraint, max/min of window, fixed/variable size window
 
-| # | LC# | Problem | Diff | Freq |
-|---|---|---|---|---|
-| 1 | 3 | Longest Substring Without Repeating Characters | Medium | Very High |
-| 2 | 76 | Minimum Window Substring | Hard | High |
+| # | LC# | Problem | Diff | Freq | Logic |
+|---|---|---|---|---|---|
+| 1 | 3 | Longest Substring Without Repeating Characters | Medium | Very High | Sliding window with HashSet. Expand r; if duplicate appears shrink with l until unique; update max length using r - l + 1.
+| 2 | 76 | Minimum Window Substring | Hard | High | Check Question | Sliding window + HashMap frequency. Expand r to include characters, track have/need. When window satisfies all chars of t, shrink l to minimize window while updating smallest substring.
 | 3 | 438 | Find All Anagrams in a String | Medium | High |
 | 4 | 567 | Permutation in String | Medium | Medium |
 | 5 | 209 | Minimum Size Subarray Sum | Medium | Medium |
