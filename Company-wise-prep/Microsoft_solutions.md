@@ -1477,3 +1477,25 @@ class Solution {
     }
 }
 ```
+
+5. Minimum Size Subarray Sum
+
+```
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int l = 0;
+        int total = 0;
+        int res = Integer.MAX_VALUE;
+
+        for(int r = 0; r < nums.length; r++){
+            total += nums[r];
+            while(total >= target){
+                res = Math.min(r-l+1, res);
+                total -= nums[l];
+                l++;
+            }
+        }
+        return res == Integer.MAX_VALUE ? 0 :res;
+    }
+}
+```
