@@ -1392,3 +1392,46 @@ class Solution {
     }
 }
 ```
+
+3. Find All Anagrams in a String
+```
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+
+        //Sliding window
+        if(p.length() > s.length()){
+            return new ArrayList<>();
+        }
+
+        int pCount[] = new int[26];
+        int sCount[] = new int[26];
+
+        for(char c : p.toCharArray()){
+            pCount[c - 'a']++;
+        }
+
+        List<Integer> res = new ArrayList<>();
+        for(int i = 0; i < p.length(); i++){
+            sCount[s.charAt(i) - 'a']++;
+        }
+
+        if(Arrays.equals(pCount, sCount)){
+            res.add(0);
+        }
+        int l = 0;
+        //shift r by 1 and hence start with p.length() not p.length() - 1 since that has been considered above;
+        for(int r = p.length(); r < s.length(); r++){
+            //add r and remove l
+            sCount[s.charAt(r) - 'a']++;
+            sCount[s.charAt(l) - 'a']--;
+            ++l; //important as the start of substring is l that moved by removing in line number 29;
+            if(Arrays.equals(sCount, pCount)){
+                res.add(l);
+            }
+        }
+
+        return res;
+        
+    }
+}
+```
