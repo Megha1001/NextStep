@@ -1504,35 +1504,38 @@ class Solution {
 ```
 class Solution {
 
+   class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
-        int output[] =  new int[n-k+1];
-        Deque<Integer> q = new ArrayDeque<>();
-
+        int output [] = new int[n-k+1];
         int l = 0;
         int r = 0;
 
+        Deque<Integer> q = new ArrayDeque<>();
+
         while(r < n){
-            while(!q.isEmpty() && nums[q.getLast()] < nums[r]){
-                q.removeLast();
+            while(!q.isEmpty() && nums[q.peekLast()] < nums[r]){
+                q.pollLast();
             }
 
-            q.addLast(r);
+            q.offerLast(r); //index
 
-            if(l > q.getFirst()){
-                q.removeFirst();
+            if(l > q.peekFirst()){
+                q.pollFirst();
             }
 
-            if((r+1) >= k){
-                output[l] = nums[q.getFirst()];
-                ++l;
+            if(r+1 >= k){
+                output[l] = nums[q.peekFirst()];
+                l++;
             }
-            
-            ++r;
+
+            r++;
         }
+
 
         return output;
     }
+}
 
     //TLE
     public int[] maxSlidingWindowBruteForce(int[] nums, int k) {
