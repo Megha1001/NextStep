@@ -49,7 +49,8 @@ while (left < right) {
 | 4 | 567 | Permutation in String | Medium | Medium |Fixed-size sliding window + frequency array (size 26). Count characters of s1. Maintain window of size s1.length() in s2. Add right char and remove left char while sliding. Compare frequency arrays; if equal, return true immediately since a permutation exists.
 | 5 | 209 | Minimum Size Subarray Sum | Medium | Medium | Variable-size sliding window. Expand r while adding elements to sum. When sum >= target, update minimum length r - l + 1 and shrink window by subtracting nums[l] and moving l to minimize the window.
 | 6 | 239 | Sliding Window Maximum | Hard | High | [Deque and monotonically decreasing queue]Maintain a deque of indices in decreasing order of their values. Remove smaller elements from the back, remove indices from the front that fall out of the window, and the front of the deque always gives the maximum of the current window.
-| 7 | 424 | Longest Repeating Character Replacement | Medium | Medium |
+| 7 | 424 | Longest Repeating Character Replacement | Medium | Medium | maxf is allowed to be stale because it only makes the window shrink later,
+never earlier, and therefore does not affect the maximum result.
 | 8 | 560 | Subarray Sum Equals K | Medium | Very High |
 
 **Key template:**
