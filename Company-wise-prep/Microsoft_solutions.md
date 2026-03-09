@@ -1558,6 +1558,8 @@ class Solution {
 
 7. Longest Repeating Character Replacement
 ```
+maxf is allowed to be stale because it only makes the window shrink later,
+never earlier, and therefore does not affect the maximum result.
 class Solution {
     public int characterReplacement(String s, int k) {
         HashMap<Character, Integer> count = new HashMap<>();
