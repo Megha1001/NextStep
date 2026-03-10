@@ -51,7 +51,7 @@ while (left < right) {
 | 6 | 239 | Sliding Window Maximum | Hard | High | [Deque and monotonically decreasing queue]Maintain a deque of indices in decreasing order of their values. Remove smaller elements from the back, remove indices from the front that fall out of the window, and the front of the deque always gives the maximum of the current window.
 | 7 | 424 | Longest Repeating Character Replacement | Medium | Medium | maxf is allowed to be stale because it only makes the window shrink later,
 never earlier, and therefore does not affect the maximum result.
-| 8 | 560 | Subarray Sum Equals K | Medium | Very High |
+| 8 | 560 | Subarray Sum Equals K | Medium | Very High | Two prefix sums that differ by k indicate a subarray with sum k, so we store prefix sum frequencies and count how many previous sums equal currentSum - k. 1. subArrSum[i,j] = ps[j] - ps[i] 2.  k = prefixSum[j] - prefixSum[i-1][i]
 
 **Key template:**
 
