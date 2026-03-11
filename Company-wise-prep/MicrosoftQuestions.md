@@ -74,10 +74,10 @@ for (int right = 0; right < s.length(); right++) {
 
 **When to use:** Cycle detection, finding middle, linked list cycle problems
 
-| # | LC# | Problem | Diff | Freq |
-|---|---|---|---|---|
-| 1 | 141 | Linked List Cycle | Easy | Very High |
-| 2 | 142 | Linked List Cycle II | Medium | High |
+| # | LC# | Problem | Diff | Freq | Logic |
+|---|---|---|---|---|---|
+| 1 | 141 | Linked List Cycle | Easy | Very High | Use Floyd's Tortoise and Hare algorithm: move slow pointer by 1 step and fast pointer by 2 steps. If a cycle exists, the fast pointer will eventually meet the slow pointer inside the loop; if fast reaches null, no cycle exists.
+| 2 | 142 | Linked List Cycle II | Medium | High | First detect cycle using fast & slow pointers. If they meet, reset slow to head and move both pointers one step at a time. The node where they meet again is the start of the cycle because distance(head → cycleStart) = distance(meetingPoint → cycleStart).
 | 3 | 876 | Middle of the Linked List | Easy | Medium |
 | 4 | 234 | Palindrome Linked List | Easy | Medium |
 | 5 | 287 | Find the Duplicate Number | Medium | Medium |
