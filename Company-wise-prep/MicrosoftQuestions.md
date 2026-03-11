@@ -80,7 +80,7 @@ for (int right = 0; right < s.length(); right++) {
 | 2 | 142 | Linked List Cycle II | Medium | High | First detect cycle using fast & slow pointers. If they meet, reset slow to head and move both pointers one step at a time. The node where they meet again is the start of the cycle because distance(head → cycleStart) = distance(meetingPoint → cycleStart).
 | 3 | 876 | Middle of the Linked List | Easy | Medium | Use slow and fast pointers. slow moves 1 step, fast moves 2 steps. When fast reaches the end, slow is at the middle.
 | 4 | 234 | Palindrome Linked List | Easy | Medium | Use fast & slow pointers to find the middle of the list. Reverse the second half of the linked list and compare it with the first half node by node. If all values match, the list is a palindrome.
-| 5 | 287 | Find the Duplicate Number | Medium | Medium |
+| 5 | 287 | Find the Duplicate Number | Medium | Medium | Treat the array as a linked list where index → next pointer (nums[i]). Because one number repeats, two indices point to the same node, creating a cycle. Use Floyd’s cycle detection: move slow by 1 step and fast by 2 steps to find the meeting point, then reset another pointer to start and move both one step to find the duplicate (cycle start).
 | 6 | 202 | Happy Number | Easy | Medium |
 | 7 | 143 | Reorder List | Medium | High |
 
