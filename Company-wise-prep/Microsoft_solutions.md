@@ -1609,6 +1609,7 @@ class Solution {
 
 ### PATTERN 3: FAST & SLOW POINTERS
 
+1. Linked List Cycle
 ```
 /**
  * Definition for singly-linked list.
@@ -1640,4 +1641,52 @@ class Solution {
     }
 }
 
+```
+
+2.  Linked List Cycle II
+
+```
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+
+        //detect cycle
+        ListNode slow = head;
+        ListNode fast = head;
+        boolean isCycleExist = false;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                isCycleExist = true;
+                break;
+            }
+        }
+
+        if(!isCycleExist){
+            return null;
+        }
+
+        slow = head;
+
+        while(slow != fast){
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow;
+        
+    }
+}
 ```
