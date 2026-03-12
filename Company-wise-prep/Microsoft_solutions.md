@@ -1824,14 +1824,13 @@ class Solution {
     //using slow and fast pointers
     public boolean isHappy(int n) {
         int slow = n;
-        int fast = sumOfSquares(n);
-        while(slow != fast){
-            fast =  sumOfSquares(fast);
-            fast =  sumOfSquares(fast);
-            slow =  sumOfSquares(slow);
-        }
+        int fast = n;
+        do{
+            slow = sumOfSquares(slow);
+            fast = sumOfSquares(sumOfSquares(fast));
+        }while(slow != fast);
 
-        return fast == 1;
+        return fast == 1; //or slow == 1
     }
 
     private int  sumOfSquares(int n){
