@@ -100,10 +100,10 @@ while (fast != null && fast.next != null) {
 
 **When to use:** Reverse full/partial list, k-group reversal, reorder
 
-| # | LC# | Problem | Diff | Freq |
-|---|---|---|---|---|
+| # | LC# | Problem | Diff | Freq | Logic |
+|---|---|---|---|---|---|
 | 1 | 206 | Reverse Linked List | Easy | Very High |
-| 2 | 92 | Reverse Linked List II | Medium | Medium |
+| 2 | 92 | Reverse Linked List II | Medium | Medium | Use a dummy node to simplify edge cases. Move a pointer to the node before position left. Reverse the sublist from left to right using standard linked list reversal. Reconnect the reversed sublist by linking (left-1) to the new head and the original left node to (right+1).
 | 3 | 25 | Reverse Nodes in K-Group | Hard | High |
 | 4 | 143 | Reorder List | Medium | High |
 | 5 | 24 | Swap Nodes in Pairs | Medium | Medium |
