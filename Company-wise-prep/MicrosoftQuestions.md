@@ -105,7 +105,7 @@ while (fast != null && fast.next != null) {
 | 1 | 206 | Reverse Linked List | Easy | Very High |
 | 2 | 92 | Reverse Linked List II | Medium | Medium | Use a dummy node to simplify edge cases. Move a pointer to the node before position left. Reverse the sublist from left to right using standard linked list reversal. Reconnect the reversed sublist by linking (left-1) to the new head and the original left node to (right+1).
 | 3 | 25 | Reverse Nodes in K-Group | Hard | High | Check if at least k nodes exist. Recursively process the remaining list starting from the (k+1)th node. Then reverse the current k nodes and attach them to the head returned by the recursive call.  OR. check if K nodes exists -> recursively rest of LL -> reverse the current group
-| 4 | 143 | Reorder List | Medium | High |
+| 4 | 143 | Reorder List | Medium | High | Split the list into two halves using slow/fast pointers. Reverse the second half, then merge nodes alternately from the first and reversed second half.
 | 5 | 24 | Swap Nodes in Pairs | Medium | Medium |
 | 6 | 61 | Rotate List | Medium | Low |
 | 7 | 328 | Odd Even Linked List | Medium | Medium |
