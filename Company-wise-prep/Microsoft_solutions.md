@@ -2070,3 +2070,50 @@ class Solution {
     }
 }
 ```
+
+4. Swap nodes in Pair
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        return reverseKGroups(head, 2);
+    }
+
+    private ListNode reverseKGroups(ListNode head, int k){
+        //Swap nodes in K groups with k=2
+        int count = 0;
+        ListNode temp = head;
+        while(count < k){
+            if(temp == null){
+                return head;
+            }
+            temp = temp.next;
+            ++count;
+        }
+
+        ListNode prevNode = reverseKGroups(temp, 2);
+
+        count = 0;
+        temp = head;
+        while(count < k){
+            ListNode next = temp.next;
+            temp.next = prevNode;
+            prevNode = temp;
+            temp = next;
+            ++count;
+        }
+
+        return prevNode;
+        
+    }
+}
+```
