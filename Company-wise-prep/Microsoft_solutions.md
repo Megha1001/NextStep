@@ -2120,6 +2120,7 @@ class Solution {
 
 5.  Rotate List
 
+```
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -2150,6 +2151,7 @@ class Solution {
             ++length;
         }
 
+        //when we rotate by length or multiple of length it will give same result
         k = k % length;
         if(k == 0){
             return head;
@@ -2173,3 +2175,4 @@ class Solution {
         
     }
 }
+```
