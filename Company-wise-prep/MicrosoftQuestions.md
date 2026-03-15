@@ -109,7 +109,7 @@ while (fast != null && fast.next != null) {
 | 5 | 24 | Swap Nodes in Pairs | Medium | Medium | Same question of reverse K groups with K = 2;
 | 6 | 61 | Rotate List | Medium | Low | Connect tail to head to form a circular list. The new head is (length − k % length) steps from the start. Break the circle before the new head.
 | 7 | 328 | Odd Even Linked List | Medium | Medium | Maintain two pointers for odd and even positions. Link odd nodes together and even nodes together while traversing once. Finally attach the even list after the odd list. -> NOT REVERSED LINKED LIST QUESTION
-| 8 | 86 | Partition List | Medium | Medium |
+| 8 | 86 | Partition List | Medium | Medium | Use two dummy nodes to build < x and ≥ x lists while traversing once. Connect the two lists at the end.
 | 9 | 148 | Sort List | Medium | Medium |
 
 **Key template:**
