@@ -108,7 +108,7 @@ while (fast != null && fast.next != null) {
 | 4 | 143 | Reorder List | Medium | High | Split the list into two halves using slow/fast pointers. Reverse the second half, then merge nodes alternately from the first and reversed second half.
 | 5 | 24 | Swap Nodes in Pairs | Medium | Medium | Same question of reverse K groups with K = 2;
 | 6 | 61 | Rotate List | Medium | Low | Connect tail to head to form a circular list. The new head is (length − k % length) steps from the start. Break the circle before the new head.
-| 7 | 328 | Odd Even Linked List | Medium | Medium |
+| 7 | 328 | Odd Even Linked List | Medium | Medium | Maintain two pointers for odd and even positions. Link odd nodes together and even nodes together while traversing once. Finally attach the even list after the odd list.
 | 8 | 86 | Partition List | Medium | Medium |
 | 9 | 148 | Sort List | Medium | Medium |
 
