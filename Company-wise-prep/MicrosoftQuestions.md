@@ -110,7 +110,7 @@ while (fast != null && fast.next != null) {
 | 6 | 61 | Rotate List | Medium | Low | Connect tail to head to form a circular list. The new head is (length − k % length) steps from the start. Break the circle before the new head.
 | 7 | 328 | Odd Even Linked List | Medium | Medium | Maintain two pointers for odd and even positions. Link odd nodes together and even nodes together while traversing once. Finally attach the even list after the odd list. -> NOT REVERSED LINKED LIST QUESTION
 | 8 | 86 | Partition List | Medium | Medium | Use two dummy nodes to build < x and ≥ x lists while traversing once. Connect the two lists at the end.
-| 9 | 148 | Sort List | Medium | Medium |
+| 9 | 148 | Sort List | Medium | Medium | Use merge sort. Find middle using slow/fast pointers, split the list into two halves, recursively sort them, and merge the sorted lists.
 
 **Key template:**
 
