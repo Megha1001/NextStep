@@ -134,7 +134,7 @@ while (curr != null) {
 |---|---|---|---|---|
 | 1 | 56 | Merge Intervals | Medium | Very High |
 | 2 | 57 | Insert Interval | Medium | High |
-| 3 | 252 | Meeting Rooms | Easy | High |
+| 3 | 252 | Meeting Rooms | Easy | High | Sort by start → if next.start < prev.end → overlap → return false
 | 4 | 253 | Meeting Rooms II | Medium | High |
 | 5 | 435 | Non-overlapping Intervals | Medium | Medium |
 | 6 | 452 | Minimum Number of Arrows to Burst Balloons | Medium | Medium |
