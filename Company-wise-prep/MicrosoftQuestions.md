@@ -153,6 +153,91 @@ for (int[] interval : intervals) {
 }
 ```
 
+Here are the **3 core interval templates** in the **same minimal style** you used.
+
+---
+
+# 1️⃣ Sort + Merge (Merge Intervals)
+
+```java
+Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+
+List<int[]> res = new ArrayList<>();
+
+for (int[] interval : intervals) {
+    if (res.isEmpty() || res.get(res.size() - 1)[1] < interval[0])
+        res.add(interval);
+    else
+        res.get(res.size() - 1)[1] =
+            Math.max(res.get(res.size() - 1)[1], interval[1]);
+}
+```
+
+**Use for**
+
+* Merge Intervals
+* Insert Interval
+* Combine overlapping ranges
+
+---
+
+# 2️⃣ Sort + MinHeap (Meeting Rooms II)
+
+```java
+Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+for (int[] interval : intervals) {
+    if (!pq.isEmpty() && pq.peek() <= interval[0])
+        pq.poll();
+
+    pq.offer(interval[1]);
+}
+
+return pq.size();
+```
+
+**Use for**
+
+* Minimum meeting rooms
+* Minimum number of resources
+* Concurrent intervals
+
+---
+
+# 3️⃣ Sort by End (Greedy)
+
+```java
+Arrays.sort(intervals, (a, b) -> a[1] - b[1]);
+
+int count = 1;
+int end = intervals[0][1];
+
+for (int i = 1; i < intervals.length; i++) {
+    if (intervals[i][0] >= end) {
+        count++;
+        end = intervals[i][1];
+    }
+}
+```
+
+**Use for**
+
+* Non-overlapping intervals
+* Burst balloons
+* Maximum number of non-overlapping intervals
+
+---
+
+✅ **Quick recognition rule**
+
+| Pattern         | Sort by | Data structure |
+| --------------- | ------- | -------------- |
+| Merge           | start   | list           |
+| Min rooms       | start   | min heap       |
+| Max non-overlap | end     | greedy         |
+
 ---
 
 ### PATTERN 6: BINARY SEARCH
