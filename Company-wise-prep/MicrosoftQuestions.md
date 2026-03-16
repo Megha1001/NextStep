@@ -132,7 +132,7 @@ while (curr != null) {
 
 | # | LC# | Problem | Diff | Freq |
 |---|---|---|---|---|
-| 1 | 56 | Merge Intervals | Medium | Very High |
+| 1 | 56 | Merge Intervals | Medium | Very High | Sort by start. If prev.end >= curr.start merge by updating prev.end = max(prev.end, curr.end).
 | 2 | 57 | Insert Interval | Medium | High |
 | 3 | 252 | Meeting Rooms | Easy | High | Sort by start → if next.start < prev.end → overlap → return false
 | 4 | 253 | Meeting Rooms II | Medium | High |
