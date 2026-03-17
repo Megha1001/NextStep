@@ -2381,3 +2381,39 @@ class Solution {
 }
 
 ```
+
+3. insert interval
+```
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        /*
+        There are mainly two categories
+        1. Non Overlapping
+            -> newInterval is completly before -> add newInterval to res and update newInterval = currentInterval
+            -> newInterval is completely after -> add curr interval to res;
+        2 Overlapping -> merge
+        */
+
+        List<int[]> res = new ArrayList<>();
+
+        for(int[] interval : intervals){
+            //completly before
+            if(newInterval[1] < interval[0]){
+                res.add(newInterval);
+                newInterval = interval;
+            }
+            //2. completly after
+            else if(newInterval[0] > interval[1]){
+                res.add(interval);
+            }
+            // 3. overlap
+            else{
+                newInterval[0] = Math.min(newInterval[0], interval[0]);
+                newInterval[1] = Math.max(newInterval[1], interval[1]);
+            }
+        }
+        res.add(newInterval);
+        return res.toArray(new int[res.size()][]);
+    }
+}
+```
