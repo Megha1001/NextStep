@@ -137,7 +137,7 @@ while (curr != null) {
 | 2 | 57 | Insert Interval | Medium | High | new.end < curr.start   → insert new, shift pointer  | new.start > curr.end   → add curr   |else → merge
 | 3 | 252 | Meeting Rooms | Easy | High | Sort by start → if next.start < prev.end → overlap → return false
 | 4 | 253 | Meeting Rooms II | Medium | High | App1 : TreeMap : Mark +1 at start, -1 at end → running sum → max overlap App2 : Two Pointer : Sort starts & ends → if start < end → need room else free room App3 :  Min Heap (PQ) : Sort by start → remove all ended (earliest end) → add current → heap size = active rooms
-| 5 | 435 | Non-overlapping Intervals | Medium | Medium |
+| 5 | 435 | Non-overlapping Intervals | Medium | Medium | Sort by end → if overlap skip current → else update end → count removals
 | 6 | 452 | Minimum Number of Arrows to Burst Balloons | Medium | Medium |
 | 7 | 986 | Interval List Intersections | Medium | Medium |
 
