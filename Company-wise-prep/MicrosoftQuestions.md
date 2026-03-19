@@ -154,6 +154,7 @@ for (int[] interval : intervals) {
 }
 ```
 
+
 Here are the **3 core interval templates** in the **same minimal style** you used.
 
 ---
