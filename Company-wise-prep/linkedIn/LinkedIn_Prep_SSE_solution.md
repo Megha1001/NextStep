@@ -61,3 +61,31 @@ public class Solution {
     }
 }
 ```
+
+Approach - 2: Single Pass
+```
+public int weightedDepthSum(List<NestedInteger> nestedList) {
+        int levelSum = 0;
+        int weightedSum = 0;
+
+        Queue<NestedInteger> q = new LinkedList<>(nestedList);
+
+        while(!q.isEmpty()){
+            int size = q.size();
+
+            for(int i = 0; i < size; i++){
+                NestedInteger ni = q.poll();
+                if(ni.isInteger()){
+                    levelSum += ni.getInteger();
+                }else{
+                    for(NestedInteger child : ni.getList()){
+                        q.offer(child);
+                    }
+                }
+            }
+            weightedSum +=levelSum;
+        }
+
+        return weightedSum;
+    }
+```
