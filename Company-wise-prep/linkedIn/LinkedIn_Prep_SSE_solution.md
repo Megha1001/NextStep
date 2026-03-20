@@ -143,3 +143,40 @@ public class MainTest {
 
 }
 ```
+
+2. Nested List Weight Sum II
+```
+public class Solution {
+    public int weightedDepthSum(List<NestedInteger> nestedList) {
+        // find the height and use nested list weight sum i
+        int height = findHeight(nestedList);
+        return findDepth(nestedList, height);
+    }
+    
+    private int findHeight(List<NestedInteger> nestedList){
+        int height = 1;
+        for(NestedInteger ni : nestedList){
+            if(!ni.isInteger()){
+                int tmp = findHeight(ni.getList());
+                height = Math.max(tmp+1, height);
+            }
+        }
+        
+        return height;
+    }
+    
+    private int findDepth(List<NestedInteger> nestedList, int currentDepth){
+        int sum = 0;
+        
+        for(NestedInteger ni : nestedList){
+            if(ni.isInteger()){
+                sum += ni.getInteger() * currentDepth;
+            }else{
+                sum += findDepth(ni.getList(), currentDepth - 1);
+            }
+        }
+        
+        return sum;
+    }
+}
+```
