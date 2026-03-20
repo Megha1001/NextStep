@@ -89,3 +89,38 @@ public int weightedDepthSum(List<NestedInteger> nestedList) {
         return weightedSum;
     }
 ```
+
+
+3. Find the Celebrity
+
+```
+public class Solution {
+	public static int findCelebrity(int n) {
+        //Analyze in Pair and use stack
+		Stack<Integer> s = new Stack<>();
+		for(int i = 0; i < n; i++){
+			s.push(i);
+		}
+
+		while(s.size() > 1){
+			int i = s.pop();
+			int j = s.pop();
+
+			if(Runner.knows(i, j)){
+				s.push(j);
+			}else{
+				s.push(i);
+			}
+		}
+
+		int celeb = s.pop();
+		for(int i = 0; i < n; i++){
+			if(i!=celeb && (!Runner.knows(i, celeb) || Runner.knows(celeb, i))){
+				return -1;
+			}
+		}
+
+		return celeb;
+    }
+}
+```
