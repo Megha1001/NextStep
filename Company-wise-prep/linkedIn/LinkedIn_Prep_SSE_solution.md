@@ -368,3 +368,50 @@ class Solution {
     }
 }
 ```
+
+8. Find Leaves of Binary Tree 
+```
+/**
+ * Definition of TreeNode:
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left, right;
+ *     public TreeNode(int val) {
+ *         this.val = val;
+ *         this.left = this.right = null;
+ *     }
+ * }
+ */
+
+
+public class Solution {
+    /*
+     * @param root: the root of binary tree
+     * @return: collect and remove all leaves
+     */
+    private Map<Integer, List<Integer>> map = new HashMap<>();
+    public List<List<Integer>> findLeaves(TreeNode root) {
+        mp.clear();
+        collectNodeHeight(root);
+        List<List<Integer>> result = new ArrayList<>();
+        for(List<Integer> nodes : map.values()){
+            result.add(nodes);
+        }
+
+        return result;
+    }
+
+    private int collectNodeHeight(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+
+        int height = 1 + Math.max(collectNodeHeight(root.left)
+        , collectNodeHeight(root.right))l
+        map.computeIfAbsent(height, k -> new ArrayList<>()).add(root.val);
+
+        return height;
+    } 
+}
+
+```
