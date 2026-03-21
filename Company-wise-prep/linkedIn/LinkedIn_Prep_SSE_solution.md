@@ -241,3 +241,63 @@ class AllOne {
  * String param_4 = obj.getMinKey();
  */
  ```
+
+ 5. MaxStack
+ ```
+ class MaxStack {
+    Stack<Integer> stack;
+    Stack<Integer> maxStack;
+    public MaxStack() {
+        stack = new Stack<>();
+        maxStack = new Stack<>();
+    }
+
+    /*
+     * @param number: An integer
+     * @return: nothing
+     */    
+    public void push(int x) {
+        int max = maxStack.isEmpty() ? x : Math.max(x, maxStack.peek());
+        stack.push(x);
+        maxStack.push(max);
+    }
+
+    public int pop() {
+        maxStack.pop();
+        return stack.pop();
+    }
+
+    /*
+     * @return: An integer
+     */    
+    public int top() {
+        return stack.peek();
+    }
+
+    /*
+     * @return: An integer
+     */    
+    public int peekMax() {
+        return maxStack.peek();
+    }
+
+    /*
+     * @return: An integer
+     */    
+    public int popMax() {
+        int max = maxStack.peek();
+        Stack<Integer> buffer = new Stack<>();
+        while(top() != max){
+            buffer.push(pop());
+        }
+
+        pop();
+        while(buffer.isEmpty()){
+            push(buffer.pop());
+        }
+
+
+        return;
+    }
+}
+```
