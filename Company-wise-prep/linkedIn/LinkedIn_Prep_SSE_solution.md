@@ -415,3 +415,34 @@ public class Solution {
 }
 
 ```
+
+9. Shortest Word Distance
+```
+public class Solution {
+    /**
+     * @param words: a list of words
+     * @param word1: a string
+     * @param word2: a string
+     * @return: the shortest distance between word1 and word2 in the list
+     */
+    public int shortestDistance(String[] words, String word1, String word2) {
+        int index1 = -1, index2 = -1;
+        int minDist = Integer.MAX_VALUE;
+
+        for(int i = 0; i < words.length; i++){
+            if(word[i].equals(word1)){
+                index1 = i;
+            }
+            else if(word[i].equals(word2)){
+                index2 = i;
+            }
+            
+            if(index1 != -1 && index2 != -1){
+                minDist = Math.min(minDist, Math.abs(index1- index2));
+            }
+        }
+
+        return minDist;
+    }
+}
+```
