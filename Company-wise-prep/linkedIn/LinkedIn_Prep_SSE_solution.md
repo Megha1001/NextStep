@@ -430,10 +430,10 @@ public class Solution {
         int minDist = Integer.MAX_VALUE;
 
         for(int i = 0; i < words.length; i++){
-            if(word[i].equals(word1)){
+            if(words[i].equals(word1)){
                 index1 = i;
             }
-            else if(word[i].equals(word2)){
+            else if(words[i].equals(word2)){
                 index2 = i;
             }
             
