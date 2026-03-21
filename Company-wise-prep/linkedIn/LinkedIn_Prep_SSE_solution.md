@@ -391,7 +391,7 @@ public class Solution {
      */
     private Map<Integer, List<Integer>> map = new HashMap<>();
     public List<List<Integer>> findLeaves(TreeNode root) {
-        mp.clear();
+        map.clear();
         collectNodeHeight(root);
         List<List<Integer>> result = new ArrayList<>();
         for(List<Integer> nodes : map.values()){
@@ -407,7 +407,7 @@ public class Solution {
         }
 
         int height = 1 + Math.max(collectNodeHeight(root.left)
-        , collectNodeHeight(root.right))l
+        , collectNodeHeight(root.right));
         map.computeIfAbsent(height, k -> new ArrayList<>()).add(root.val);
 
         return height;
