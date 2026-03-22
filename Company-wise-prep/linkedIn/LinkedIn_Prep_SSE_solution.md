@@ -635,3 +635,59 @@ class Solution {
     }
 }
 ```
+
+15. Shortest Word Distance II
+
+```
+import java.util.*;
+
+class WordDistance {
+	private Map<String, List<Integer>> map;
+
+    // Constructor to initialize the data structure with the given word array.
+    public WordDistance(List<String> wordsDict) {
+       map = new HashMap<>();
+       for(int i = 0; i < wordsDict.size(); i++){
+       		map.computeIfAbsent(wordsDict.get(i), k-> new ArrayList<>()).add(i);
+       }
+      
+    }
+
+    // Calculates the shortest distance between two given words in the dictionary.
+    public int shortest(String word1, String word2) {
+        List<Integer> list1 = map.get(word1);
+        List<Integer> list2 = map.get(word2);
+        //two pointer
+        int i = 0, j = 0;
+        int minDist = Integer.MAX_VALUE;
+      	
+      	while(i < list1.size() && j < list2.size()){
+        	int idx1 = list1.get(i);
+            int idx2 = list2.get(j);
+          	
+          	minDist = Math.min(minDist, Math.abs(idx1 - idx2));
+          
+            if(idx1 < idx2){
+            	++i;
+            }else{
+            	++j;
+            }
+        }
+      
+        return minDist;
+    }
+}
+
+// Driver code to test the WordDistance class
+public class Main {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("hello", "geek", "gfg", "coding", "geek");
+        WordDistance wordDistance = new WordDistance(words);
+
+        System.out.println("Shortest distance between 'coding' and 'hello': "
+                + wordDistance.shortest("coding", "hello"));
+        System.out.println("Shortest distance between 'geek' and 'coding': "
+                + wordDistance.shortest("geek", "coding"));
+    }
+}
+```
