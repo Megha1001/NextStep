@@ -1131,3 +1131,79 @@ class LRUCache {
  * int param_3 = obj.getRandom();
  */
  ```
+
+ 24. Insert Delete GetRandom O(1) — Duplicates
+
+ ```
+ class RandomizedCollection {
+    /*
+    Idea : In no duplicates
+        val -> index 
+        here
+        val -> Set of indices
+    */
+
+    private List<Integer> list;
+    private Map<Integer, Set<Integer>> map;
+    private Random random;
+
+    public RandomizedCollection() {
+        list = new ArrayList<>();
+        map = new HashMap<>();
+        random = new Random();
+    }
+    
+    public boolean insert(int val) {
+       boolean notPresent = !map.containsKey(val);
+       //duplicates are allowed hence can't return directly
+        //add in list and map both
+        map.putIfAbsent(val, new HashSet<>());
+        map.get(val).add(list.size());
+        list.add(val);
+
+        return notPresent;
+    }
+    
+    //Tricky
+    public boolean remove(int val) {
+        if(!map.containsKey(val)){
+            return false;
+        }
+
+        //any index
+        int index = map.get(val).iterator().next();
+        int lastIndex = list.size() - 1;
+        int lastElement = list.get(lastIndex);
+        
+        //Remove index from val first
+        map.get(val).remove(index);
+        if(index != lastIndex){
+            //update lastElement -> list and map
+            list.set(index, lastElement);
+            //orider matter
+            map.get(lastElement).remove(lastIndex);
+            map.get(lastElement).add(index);
+        }
+
+        if(map.get(val).isEmpty()){
+            map.remove(val);
+        }
+
+        list.remove(lastIndex);
+
+        return true;
+    }
+    
+    public int getRandom() {
+        return list.get(random.nextInt(list.size()));
+    }
+}
+
+/**
+ * Your RandomizedCollection object will be instantiated and called as such:
+ * RandomizedCollection obj = new RandomizedCollection();
+ * boolean param_1 = obj.insert(val);
+ * boolean param_2 = obj.remove(val);
+ * int param_3 = obj.getRandom();
+ */
+ ```
