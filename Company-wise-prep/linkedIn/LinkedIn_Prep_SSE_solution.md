@@ -292,7 +292,7 @@ class AllOne {
         }
 
         pop();
-        while(buffer.isEmpty()){
+        while(!buffer.isEmpty()){
             push(buffer.pop());
         }
 
