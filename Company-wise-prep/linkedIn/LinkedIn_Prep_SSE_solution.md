@@ -297,7 +297,7 @@ class AllOne {
         }
 
 
-        return;
+        return max;
     }
 }
 ```
