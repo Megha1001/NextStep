@@ -647,7 +647,7 @@ class WordDistance {
     // Constructor to initialize the data structure with the given word array.
     public WordDistance(List<String> wordsDict) {
        map = new HashMap<>();
-       for(int i = 0; i < wordsDict.size(); i++){
+        for(int i = 0; i < wordsDict.size(); i++){
        		map.computeIfAbsent(wordsDict.get(i), k-> new ArrayList<>()).add(i);
        }
       
