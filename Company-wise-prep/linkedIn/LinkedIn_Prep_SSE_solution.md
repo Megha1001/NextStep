@@ -1502,4 +1502,25 @@ class Solution {
 }
 ```
 
-31. Merge k Sorted Lists
+31. Subarray Sum Equals K
+
+```
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        //prefix sum + hashMap
+        Map<Integer, Integer> prefixSum = new HashMap<>();
+        prefixSum.put(0, 1); //for sum 0 we have one subarray -> not select anything
+        int res = 0;
+        int currSum = 0;
+        for(int i = 0; i < nums.length; i++){
+            currSum += nums[i];
+            int diff = currSum - k;
+            res += prefixSum.getOrDefault(diff, 0);
+            prefixSum.put(currSum, prefixSum.getOrDefault(currSum, 0) + 1);
+        }
+
+        return res;
+        
+    }
+}
+```
