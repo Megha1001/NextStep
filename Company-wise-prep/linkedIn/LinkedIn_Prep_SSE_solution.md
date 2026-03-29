@@ -1336,3 +1336,71 @@ class Solution {
     }
 }
 ```
+
+28. Word Break
+```
+// class Solution {
+//     // Memoization + Recursion - Top Down
+//     private Boolean [] memo;
+//     private int n;
+//     public boolean wordBreak(String s, List<String> wordDict) {
+//         n = s.length();
+//         memo = new Boolean[n];
+
+//         return solve(s, 0, wordDict);
+//     }
+
+//     private boolean solve(String s, int idx, List<String> wordDict){
+//         if(idx == n){
+//             return true;
+//         }
+
+//         if(memo[idx] != null){
+//             return memo[idx];
+//         }
+
+//         for(int endIdx = idx+1; endIdx <= n; endIdx++){
+//             String split = s.substring(idx, endIdx);
+
+//             if(wordDict.contains(split) && solve(s, endIdx, wordDict)){
+//                 return memo[idx] = true;
+//             }
+//         }
+//         return memo[idx] = false;
+//     }
+// }
+
+
+class Solution {
+    // Memoization + Recursion - Top Down
+    private Boolean [] memo;
+    private int n;
+    private HashSet<String> set;
+
+    public boolean wordBreak(String s, List<String> wordDict) {
+        n = s.length();
+        memo = new Boolean[n]; //why Boolean -> because we need three state -> true, false, not yet computed(null)
+        set = new HashSet<>(wordDict);
+        return solve(s, 0, set);
+    }
+
+    private boolean solve(String s, int idx, HashSet set){
+        if(idx == n){
+            return true;
+        }
+
+        if(memo[idx] != null){
+            return memo[idx];
+        }
+
+        for(int end = idx+1; end <= n; end++){
+            if(set.contains(s.substring(idx, end)) && solve(s, end, set)){
+                return memo[idx] = true;
+            }
+        }
+
+        return memo[idx] = false;
+    }
+
+}
+```
