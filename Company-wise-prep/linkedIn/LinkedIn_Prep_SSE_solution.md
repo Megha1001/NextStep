@@ -1791,3 +1791,65 @@ class Solution {
     }
 }
 ```
+
+40. Merge INtervals
+
+```
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        //sort the 2D array on start
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+
+        //merging
+        int idx = 0;
+        for(int i=1; i<intervals.length; i++){
+            if(intervals[idx][1] >= intervals[i][0]){
+                intervals[idx][0] = Math.min(intervals[idx][0], intervals[i][0]);
+                intervals[idx][1] = Math.max(intervals[idx][1], intervals[i][1]);
+            }else{
+                ++idx;
+                intervals[idx] = intervals[i];
+            }
+        }
+
+        return Arrays.copyOf(intervals, idx+1);
+        
+    }
+}
+```
+
+41. Insert interval
+```
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        /*
+        There are mainly two categories
+        1. Non Overlapping
+            -> newInterval is completly before -> add newInterval to res and update newInterval = currentInterval
+            -> newInterval is completely after -> add curr interval to res;
+        2 Overlapping -> merge
+        */
+
+        List<int[]> res = new ArrayList<>();
+
+        for(int[] interval : intervals){
+            //completly before
+            if(newInterval[1] < interval[0]){
+                res.add(newInterval);
+                newInterval = interval;
+            }
+            //2. completly after
+            else if(newInterval[0] > interval[1]){
+                res.add(interval);
+            }
+            // 3. overlap
+            else{
+                newInterval[0] = Math.min(newInterval[0], interval[0]);
+                newInterval[1] = Math.max(newInterval[1], interval[1]);
+            }
+        }
+        res.add(newInterval);
+        return res.toArray(new int[res.size()][]);
+    }
+}
+```
