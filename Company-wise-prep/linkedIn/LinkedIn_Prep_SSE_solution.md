@@ -126,10 +126,18 @@ public class Solution {
 ```
 
 Approach : 2 
+```
 int candidate = 0;
 for (int i = 1; i < n; i++) {
     if (knows(candidate, i)) candidate = i;
 }
+
+for(int i = 0; i < n; i++){
+			if(i!=celeb && (!Runner.knows(i, celeb) || Runner.knows(celeb, i))){
+				return -1;
+			}
+		}
+```
 
 4. All One's Data Structure -> Difficult
 
