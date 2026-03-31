@@ -125,6 +125,12 @@ public class Solution {
 }
 ```
 
+Approach : 2 
+int candidate = 0;
+for (int i = 1; i < n; i++) {
+    if (knows(candidate, i)) candidate = i;
+}
+
 4. All One's Data Structure -> Difficult
 
 ```
