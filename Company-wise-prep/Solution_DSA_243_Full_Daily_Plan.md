@@ -101,3 +101,71 @@ class Solution {
 }
 
 ```
+
+4. 3Sum Closest
+```
+//TC : O(N*N) due to for loop and SC : O(logN) due to sorting using dual pivot quick sort
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+       
+       // sort + fix i then two Sum
+       int n = nums.length;
+       Arrays.sort(nums);
+       int closest = nums[0] + nums[1] + nums[2];
+
+       for(int i = 0; i < n - 2; i++){ //O(N) => O(N*N)
+            int left = i+1;
+            int right = n-1;
+
+            while(left < right){ //O(N)
+                int sum = nums[i] + nums[left] + nums[right];
+
+                if(Math.abs(target-sum) < Math.abs(target-closest)){
+                    closest = sum;
+                }
+
+                if(sum < target){
+                    ++left;
+                }else if(sum > target){
+                    --right;
+                }else{
+                    return target;
+                }
+            }
+        }
+
+        return closest;
+
+        
+    }
+}
+```
+
+5. Container With Most Water
+```
+//TC : O(N), SC : O(1)
+
+class Solution {
+    public int maxArea(int[] heights) {
+        //Two pointer
+        // when we get height[l] < height[r] move l since if we move right then area will decrease but if we move l there
+        //can be the possibility of larger area
+
+        int l = 0;
+        int r = heights.length - 1;
+        int area = Integer.MIN_VALUE;
+        while(l < r){
+            area = Math.max(area, (r - l) * Math.min(heights[l], heights[r]));
+
+            if(heights[l] <= heights[r]){
+                ++l;
+            }else{
+                --r;
+            }
+        }
+
+        return area;
+        
+    }
+}
+```
