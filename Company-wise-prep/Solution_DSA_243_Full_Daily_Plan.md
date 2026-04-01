@@ -50,8 +50,10 @@ class Solution {
 ```
 
 3. 3 Sum
+
+Question : https://leetcode.com/problems/3sum/editorial/
 ```
-//TC : NlogN (bcoz of sorting) SC : If considered Arrays.sort -> Uses Dual Pivot Quick Sort -> O(logN)
+//TC : N*N SC : If considered Arrays.sort -> Uses Dual Pivot Quick Sort -> O(logN)
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -61,7 +63,7 @@ class Solution {
         Arrays.sort(nums); //nLogN
         List<List<Integer>> res = new ArrayList<>();
 
-        for(int i = 0; i < n; i++){ //N
+        for(int i = 0; i < n; i++){ //O(N*N)
 
             //for skip duplicates
             if(i > 0 && nums[i] == nums[i-1]){ //that means we have already considered same pair with i-1 nums value
@@ -72,7 +74,7 @@ class Solution {
             int left = i+1;
             int right = n - 1;
 
-            while(left < right){
+            while(left < right){ // O(N)
                 int sum = nums[i] + nums[left] + nums[right];
                 if(sum == 0){
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
