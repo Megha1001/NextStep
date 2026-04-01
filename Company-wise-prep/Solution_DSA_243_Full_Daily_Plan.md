@@ -22,6 +22,7 @@ class Solution {
 
 2. Two Sum II (Sorted Input)
 Question Link : https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+Pattern : Two Pointer : Sorted and need to find pair
 ```
 // TC : O(N) [Traversing all elements once ], SC : O(1)
 class Solution {
