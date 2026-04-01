@@ -63,7 +63,7 @@ class Solution {
         Arrays.sort(nums); //nLogN
         List<List<Integer>> res = new ArrayList<>();
 
-        for(int i = 0; i < n; i++){ //O(N*N)
+         for(int i = 0; i < nums.length - 2; i++){ //O(N*N)
 
             //for skip duplicates
             if(i > 0 && nums[i] == nums[i-1]){ //that means we have already considered same pair with i-1 nums value
