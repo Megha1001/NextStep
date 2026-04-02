@@ -169,3 +169,35 @@ class Solution {
     }
 }
 ```
+
+6. Trapping Rain Water
+
+```
+//TC : O(N), SC : O(N)
+
+class Solution {
+    public int trap(int[] height) {
+
+        int n = height.length;
+        int lMax[] = new int[n];
+        int rMax[] = new int[n];
+
+        lMax[0] = height[0];
+        for(int i = 1; i < n; i++){ //O(N)
+            lMax[i] = Math.max(lMax[i-1], height[i]);
+        }
+
+        rMax[n-1] = height[n-1];
+        for(int j = n-2; j >= 0; j--){ // O(N)
+            rMax[j] = Math.max(rMax[j+1], height[j]);
+        }
+
+        int res = 0;
+        for(int i = 0; i < n; i++){ // O(N)
+            res += Math.min(lMax[i], rMax[i]) - height[i];
+        }
+        
+        return res;
+    }
+}
+```
