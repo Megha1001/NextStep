@@ -251,3 +251,36 @@ class Solution {
     }
 }
 ```
+
+9. Sort Colors
+```
+//TC : O(N), SC : O(1)
+
+class Solution {
+    public void sortColors(int[] nums) {
+        //Dutch National Flag Algorithm
+
+        int l = -1;
+        int m = 0;
+        int h = nums.length - 1;
+
+        while(m <= h){
+            if(nums[m] == 0){
+                int temp = nums[l+1];
+                nums[l+1] = nums[m];
+                nums[m] = temp;
+                ++l;
+                ++m;
+            }
+            else if(nums[m] == 1){
+                ++m;
+            }else {
+                int temp = nums[h];
+                nums[h] = nums[m];
+                nums[m] = temp;
+                --h;
+            }
+        }
+    }
+}
+```
