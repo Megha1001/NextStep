@@ -287,6 +287,7 @@ class Solution {
 
 10. Merge Sorted Array
 ```
+//TC : O(M+N), O(1) : 1
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int last = m+n-1; //last index of nums1;
@@ -307,6 +308,7 @@ class Solution {
             --last;
             --n;
         }
+        // we dont need for nums1 as if nums2 is empty then nums1 elements are already at correct position
     }
 }
 ```
