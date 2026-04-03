@@ -438,29 +438,25 @@ class Solution {
 16. Longest Substring Without Repeating Characters
 
 ```
-//TC : O(N), SC : O(1)
+//TC : O(N), SC : O(N)
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        //Pattern : Sliding window
-        int i = -1;
-        int j = 0;
+        //Two pointer
         int n = s.length();
-        if(n == 0){
-            return 0;
-        }
+        int res = 0;
         Set<Character> set = new HashSet<>();
-        int res = Integer.MIN_VALUE;
-        while(j < n){ // grown -> Overall - O(N)
-            while(i <= j && set.contains(s.charAt(j))){ //shrink
-                ++i;
-                set.remove(s.charAt(i));
-            }
 
-            set.add(s.charAt(j));
-            ++j;
-            res = Math.max(res, set.size());
+        int left = 0;
+        for(int right = 0; right < n; right++){
+            while(set.contains(s.charAt(right))){
+                set.remove(s.charAt(left));
+                ++left;
+            }
+            set.add(s.charAt(right));
+            res = Math.max(res, right-left+1);
         }
         return res;
     }
 }
+
 ```
