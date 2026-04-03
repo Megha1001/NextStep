@@ -459,9 +459,74 @@ class Solution {
     }
 }
 
+17. Minimum Window Substring
+```
+//TC : Theta(N), SC : Theta(t.length())
+
+class Solution {
+    public String minWindow(String s, String t) {
+
+        //Pattern : HashMap + Sliding window
+
+        int requiredCount = t.length();
+        int n = s.length();
+
+        if(requiredCount > n){
+            return "";
+        }
+
+        Map<Character, Integer> map = new HashMap<>();
+
+        for(char ch : t.toCharArray()){ // Theta(requiredCount)
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        int i = 0;
+        int j = 0;
+        int start_i = 0;
+        int min_window = Integer.MAX_VALUE;
+
+        while(j < n){ //expand --> Overall Theta(N)
+            char ch = s.charAt(j);
+            
+            if(map.containsKey(ch) && map.get(ch) > 0){
+                --requiredCount;
+            }
+
+            map.put(ch, map.getOrDefault(ch, 0) - 1);
+
+            while(requiredCount == 0){
+                int curr_window = j - i + 1;
+
+                if(min_window > curr_window){
+                    min_window = curr_window;
+                    start_i = i;
+                }
+
+                //shrink
+                char start_char = s.charAt(i);
+                map.put(start_char , map.getOrDefault(start_char,0) + 1);
+
+                if(map.get(start_char) > 0){
+                    ++requiredCount;
+                }
+
+                ++i;
+            }
+            ++j;
+        }
+
+
+        return min_window == Integer.MAX_VALUE ? "" : s.substring(start_i, start_i + min_window);
+
+        
+    }
+}
 ```
 
-17. Find All Anagrams in a String
+```
+
+18. Find All Anagrams in a String
 ```
 // TC : O(M-N), SC : O(N)
 
@@ -505,7 +570,7 @@ class Solution {
 }
 ```
 
-18. Permutation in String
+19. Permutation in String
 ```
 TC : O(N), SC : O(1)/ O(26)
 class Solution {
@@ -543,6 +608,31 @@ class Solution {
         }
 
         return false;
+    }
+}
+```
+
+20. Minimum Size Subarray Sum
+```
+//TC : O(N), SC : O(1)
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+
+        int left = 0;
+        int res = Integer.MAX_VALUE;
+        int sum = 0;
+        for(int right = 0; right < nums.length; right++){ //O(N)
+            sum += nums[right]; //include in current window first
+            while(sum >= target){ //then check result then shrink
+                res = Math.min(res, right - left + 1);
+                sum -= nums[left];
+                ++left;
+            }
+            
+        }
+
+        return res == Integer.MAX_VALUE ? 0 : res;
+        
     }
 }
 ```
