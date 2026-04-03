@@ -343,3 +343,32 @@ class Solution {
     }
 }
 ```
+
+12. Squares of a Sorted Array
+```
+// TC : O(N), SC : O(1)
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        //Two pointer -> -ve num sqr can give us maximum or +ve can give us maximum so we have to fill starting from end
+        int n = nums.length;
+        int l = 0;
+        int r = n - 1;
+        int ans[] = new int[n];
+        int idx = n-1;
+
+        while(l <= r){
+            if(Math.abs(nums[l]) >= Math.abs(nums[r])){
+                ans[idx] = nums[l] * nums[l];
+                ++l;
+            }else {
+                ans[idx] = nums[r] * nums[r];
+                --r;
+            }
+            --idx;
+        }
+
+        return ans;
+        
+    }
+}
+```
