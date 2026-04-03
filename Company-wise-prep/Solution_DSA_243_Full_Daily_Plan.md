@@ -649,3 +649,42 @@ class Solution {
     }
 }
 ```
+
+21. Sliding Window Maximum
+```
+//TC : O(N)[elements are added/removed once in queue], SC : O(N-K+K) = O(N)
+
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        //Sliding Window with Deque(maintaining max at first)
+        int n = nums.length;
+        int res[] = new int[n - k + 1];
+        int idx = 0;
+        Deque<Integer> q = new ArrayDeque<>();
+        for(int i = 0; i < k; i++){ //O(k)
+            while(q.size() > 0 && nums[q.peekLast()] <= nums[i]){
+                q.pollLast();
+            }
+            q.offerLast(i);
+        }
+
+        for(int i = k; i < n; i++){ //O(n-k)
+            res[idx++] = nums[q.peekFirst()];
+
+            while(q.size() > 0 && q.peekFirst() < i - k + 1){
+                q.pollFirst();
+            }
+
+            while(q.size() > 0 && nums[q.peekLast()] <= nums[i]){
+                q.pollLast();
+            }
+            q.offerLast(i);
+        }
+
+        res[idx] = nums[q.peekFirst()];
+
+        return res;
+        
+    }
+}
+```
