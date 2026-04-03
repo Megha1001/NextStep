@@ -409,27 +409,24 @@ class Solution {
 }
 ```
 
+15. Reverse String
+```
+// TC : O(N), SC: O(1)
+
 class Solution {
-    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
-        int i = 0; // for firstList
-        int j = 0; //for secondList
+    public void reverseString(char[] s) {
 
-        List<int[]> ans = new ArrayList<>();
+        int i = 0;
+        int j = s.length - 1;
 
-        while(i < firstList.length && j < secondList.length){
-
-            //increment i
-            if(firstList[i][1] <= secondList[j][1]){
-                //check intersection
-                if(firstList[i][1] >= secondList[j][0]){
-                    ans.add(new int[]{Math.max(firstList[i][0], secondList[j][0]), Math.min(firstList[i][1], secondList[j][1])});
-                    ++i;
-                }else{
-                    ans.add
-                }
-            }
-
+        while(i < j){
+            char temp = s[i];
+            s[i] = s[j];
+            s[j] = temp;
+            ++i;
+            --j;
         }
         
     }
 }
+```
