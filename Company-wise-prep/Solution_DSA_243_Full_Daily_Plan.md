@@ -460,3 +460,47 @@ class Solution {
 }
 
 ```
+
+17. Find All Anagrams in a String
+```
+// TC : O(M-N), SC : O(N)
+
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        //Pattern : Sliding window
+        List<Integer> res = new ArrayList<>(); //O(N)
+        int m = s.length();
+        int n = p.length();
+
+        if(n > m){
+            return res;
+        }
+
+        int [] need = new int[26];
+        for(char c : p.toCharArray()){ // O(N)
+            need[c - 'a']++;
+        }
+
+        int [] window = new int[26];
+        for(int i = 0; i < n; i++){ //O(N)
+            window[s.charAt(i) - 'a']++;
+        }
+
+        if(Arrays.equals(need, window)){
+            res.add(0);
+        }
+
+
+        //sliding window
+        for(int start = 1; start <= m-n; start++){ //O(M-N)
+            window[s.charAt(start-1) -'a']--;
+            window[s.charAt(start+n - 1) - 'a']++;
+            if(Arrays.equals(need, window)){
+                res.add(start);
+            }
+        }
+
+        return res;
+    }
+}
+```
