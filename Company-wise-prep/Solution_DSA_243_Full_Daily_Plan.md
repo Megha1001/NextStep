@@ -372,3 +372,39 @@ class Solution {
     }
 }
 ```
+
+13. Interval List Intersection
+```
+// TC : O(M+N), SC : O(1)
+class Solution {
+    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+        // Two pointer
+        int i = 0;
+        int j = 0;
+        List<int[]> res = new ArrayList<>();
+        int m = firstList.length;
+        int n = secondList.length;
+
+        while(i < m && j < n){
+            int start = Math.max(firstList[i][0], secondList[j][0]);
+            int end = Math.min(firstList[i][1], secondList[j][1]);
+
+            if(start <= end){
+                res.add(new int[]{start, end});
+            }
+            
+            /*
+            firstList[i][1] < secondList[j][1] then it can never intersect with firstList[i+1][0] since its disjoint as given in question
+            and never intersect with secondList[j+1] since secondList[j] is disjoint to secondList[j+1] so to intersect with secondList[j+1]
+            firstList[i][1] >= secondList[j+1][0] which is not the case here hence ++i
+            */
+            if(firstList[i][1] < secondList[j][1]){
+                ++i;
+            }else{
+                ++j;
+            }
+        }
+        return res.toArray(new int[res.size()][]);
+    }
+}
+```
