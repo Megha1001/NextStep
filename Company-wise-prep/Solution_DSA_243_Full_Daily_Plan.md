@@ -504,3 +504,45 @@ class Solution {
     }
 }
 ```
+
+18. Permutation in String
+```
+TC : O(N), SC : O(1)/ O(26)
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        int m = s1.length();//smaller
+        int n = s2.length();//larger
+
+        if(m > n){
+            return false;
+        }
+
+        int need [] = new int[26];
+        int window [] = new int[26];
+
+        for(char c : s1.toCharArray()){ //O(M)
+            need[c - 'a']++;
+        }
+
+        for(int i = 0; i < m; i++){ //O(M)
+            window[s2.charAt(i) - 'a']++;
+        }
+
+        if(Arrays.equals(need, window)){
+            return true;
+        }
+        
+
+        //sliding window
+        for(int right = 1; right <= n-m; right++){ //O(n-m * 26)
+            window[s2.charAt(right - 1) - 'a']--;
+            window[s2.charAt(right + m - 1) - 'a']++;
+            if(Arrays.equals(window, need)){ //O(26)
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+```
