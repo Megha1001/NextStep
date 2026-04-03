@@ -1,3 +1,5 @@
+******** PATTERN - 1 : TWO POINTER ********
+
 1. Two Sum
 Question Link : https://leetcode.com/problems/two-sum/
 ```
@@ -430,3 +432,5 @@ class Solution {
     }
 }
 ```
+
+******** PATTERN - 2 : SLIDING WINDOW ********
