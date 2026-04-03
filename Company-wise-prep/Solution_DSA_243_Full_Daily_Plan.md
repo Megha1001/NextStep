@@ -613,6 +613,19 @@ class Solution {
 ```
 
 20. Minimum Size Subarray Sum
+
+Note : 
+```
+When all numbers are positive:
+Expanding window (right++) → sum always increases
+Shrinking window (left++) → sum always decreases
+This makes behavior predictable (monotonic)
+
+What breaks with Negative Numbers?
+With negatives:
+Expanding window → sum can increase OR decrease
+Shrinking window → sum can increase OR decrease
+```
 ```
 //TC : O(N), SC : O(1)
 class Solution {
