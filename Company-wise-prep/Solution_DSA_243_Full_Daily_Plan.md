@@ -438,7 +438,7 @@ class Solution {
 16. Longest Substring Without Repeating Characters
 
 ```
-//TC : O(N), SC : O(N)
+//TC : O(N), SC : O(N) : HashSet
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         //Two pointer
