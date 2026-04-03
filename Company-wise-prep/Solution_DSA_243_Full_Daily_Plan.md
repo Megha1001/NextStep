@@ -447,8 +447,8 @@ class Solution {
         Set<Character> set = new HashSet<>();
 
         int left = 0;
-        for(int right = 0; right < n; right++){
-            while(set.contains(s.charAt(right))){
+        for(int right = 0; right < n; right++){ //grow
+            while(set.contains(s.charAt(right))){ //shrink
                 set.remove(s.charAt(left));
                 ++left;
             }
