@@ -65,7 +65,7 @@ P25 : MATH / STRING PARSING
 - **#11** **LC125** (P1) Valid Palindrome
 - **#12** **LC680** (P1) Valid Palindrome II
 - **#13** **LC977** (P1) Squares of a Sorted Array
-- **#14** **LC986** (P1) Interval List Intersections
+- **#14** **LC986** (P1) Interval List Intersections --> GQ
 - **#15** **LC344** (P1) Reverse String
 - **#16** **LC3** (P2) Longest Substring Without Repeating Characters
 
