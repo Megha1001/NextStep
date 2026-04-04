@@ -788,3 +788,56 @@ public class Solution {
     }
 }
 ```
+
+25. Linked List Cycle II
+```
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+ //TC : O(N), SC : O(1)
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        //Floyd's algorithm
+
+        //detech cycle
+        ListNode slow = head;
+        ListNode fast = head;
+
+        boolean isCycleExists = false;
+
+        while(fast != null && fast.next != null){ // O(N)
+            slow = slow.next;
+            fast = fast.next.next;
+
+            //cycle exists
+            if(slow == fast){
+                isCycleExists = true;
+                break;
+            }
+        }
+
+        if(!isCycleExists){
+            return null;
+        }
+
+        slow = head;
+
+        while(slow != fast){ // O(N) 1->2->3->4->5->4
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow;
+
+
+    }
+}
+```
