@@ -927,3 +927,34 @@ class Solution {
     }
 }
 ```
+
+28. Find the duplicate number
+```
+// TC : O(N), SC : O(1)
+class Solution {
+    public int findDuplicate(int[] nums) {
+        //Since we need to use constant extra space -> Linked List cycle detection
+        int slow = 0;
+        int fast = 0;
+
+        while(true){ // O(N)
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+            if(slow == fast){
+                break;
+            }
+        }
+
+        slow = 0;
+
+        while(true){ //O(N)
+            slow = nums[slow];
+            fast = nums[fast];
+            if(slow == fast){
+                return slow;
+            }
+        }
+        
+    }
+}
+```
