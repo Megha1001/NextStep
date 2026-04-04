@@ -85,7 +85,7 @@ P25 : MATH / STRING PARSING
 - **#19** **LC567** (P2) Permutation in String
 - **#20** **LC209** (P2) Minimum Size Subarray Sum
 - **#21** **LC239** (P2) Sliding Window Maximum
-- **#22** **LC424** (P2) Longest Repeating Character Replacement
+- **#22** **LC424** (P2) Longest Repeating Character Replacement --> GQ
 - **#23** **LC560** (P2) Subarray Sum Equals K
 - **#24** **LC141** (P3) Linked List Cycle
 
