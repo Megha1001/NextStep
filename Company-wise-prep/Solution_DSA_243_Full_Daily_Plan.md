@@ -869,3 +869,61 @@ class Solution {
     }
 }
 ```
+
+27. Palindrome Linked List
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+//TC : O(N), SC : O(1)
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        /*
+        1. Find middle of the LL
+        2. Reverse second half
+        3. Compare both the LL
+        */
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null){ // O(N)
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        //slow is at middle
+
+        ListNode curr = slow;
+        ListNode prev = null;
+
+        while(curr != null){ //O(N/2)
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        ListNode head1 = head;
+        ListNode head2 = prev;
+
+        while(head2 != null){ //O(N/2)
+            if(head1.val != head2.val){
+                return false;
+            }
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+
+        return true;
+        
+    }
+}
+```
