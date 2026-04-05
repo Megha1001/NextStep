@@ -107,7 +107,7 @@ P25 : MATH / STRING PARSING
 - **#29** **LC202** (P3) Happy Number
 - **#30** **LC143** (P3) Reorder List
 - **#31** **LC206** (P4) Reverse Linked List
-- **#32** **LC92** (P4) Reverse Linked List II
+- **#32** **LC92** (P4) Reverse Linked List II --> GQ (last condition to link the nodes)
 - **#33** **LC25** (P4) Reverse Nodes in k-Group
 - **#34** **LC143** (P4) Reorder List
 - **#35** **LC24** (P4) Swap Nodes in Pairs
