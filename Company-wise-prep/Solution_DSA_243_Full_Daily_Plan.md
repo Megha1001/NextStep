@@ -1127,3 +1127,65 @@ class Solution {
     }
 }
 ```
+
+33. Reverse Nodes in k-Group
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+ /*
+ TC
+For each group:
+    Count k nodes → O(k)
+    Reverse k nodes → O(k)
+    Per group work = O(k)
+        Number of groups: ≈ N / k
+        TC : (N/k) * O(k) = O(N)
+ SC : O(N/k) due to recursion stack
+
+ */
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        /*
+        1. Check if K nodes exists
+        2. recursively call for rest
+        3. reverse current group
+        */
+
+        int cnt = 0;
+        ListNode temp = head;
+        while(cnt < k){
+            if(temp == null){
+                return head;
+            }
+            temp = temp.next;
+            ++cnt;
+        }
+
+
+        ListNode prev = reverseKGroup(temp, k);
+
+        temp = head;
+        cnt = 0;
+
+        while(cnt < k){
+            ListNode next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
+            ++cnt;
+        }
+
+        return prev;
+        
+    }
+}
+```
