@@ -1284,3 +1284,70 @@ class Solution {
     }
 }
 ```
+
+38. Partition List
+
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode partition(ListNode head, int x) {
+
+        // //Brute force
+        // ListNode head1 = new ListNode(0);
+        // ListNode head2 = new ListNode(0);
+        // ListNode dummy1 = head1;
+        // ListNode dummy2 = head2;
+        // ListNode curr = head;
+
+        // while(curr != null){
+        //     if(curr.val < x){
+        //         dummy1.next = new ListNode(curr.val);
+        //         dummy1 = dummy1.next;
+        //     }else {
+        //         dummy2.next = new ListNode(curr.val);
+        //         dummy2 = dummy2.next;
+        //     }
+        //     curr = curr.next;
+        // }
+
+        // dummy1.next = head2.next;
+
+        // return head1.next;
+
+        //Optimal Approach. : TC: O(N), SC : O(1)
+        ListNode smallHead = new ListNode(0);
+        ListNode bigHead = new ListNode(0);
+        ListNode small = smallHead;
+        ListNode big = bigHead;
+
+        ListNode curr = head;
+
+        while(curr != null){ //O(N)
+            ListNode next = curr.next; //since we have to do curr.next = null;
+
+            if(curr.val < x){
+                small.next = curr;
+                small = small.next;
+            }else{
+                big.next = curr;
+                big = big.next;
+            }
+            curr.next = null;
+            curr = next;
+        }
+        small.next = bigHead.next;
+
+        return smallHead.next;
+
+    }
+}
+```
