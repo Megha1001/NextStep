@@ -1416,3 +1416,31 @@ class Solution {
     }
 }
 ```
+
+40. Merge Intervals
+```
+
+```
+//TC : O(NlogN), SC : O(N)
+class Solution {
+    public int[][] merge(int[][] intervals) {
+
+        Arrays.sort(intervals, (a, b)->(a[0] - b[0])); //O(NlogN)
+
+        int idx = 0;
+
+        for(int i = 1; i < intervals.length; i++){ //O(N)
+            if(intervals[idx][1] >= intervals[i][0]){
+                intervals[idx][0] = Math.min(intervals[idx][0], intervals[i][0]);
+                intervals[idx][1] = Math.max(intervals[idx][1], intervals[i][1]);
+            }else{
+                ++idx;
+                intervals[idx] = intervals[i];
+            }
+        }
+
+        return Arrays.copyOf(intervals, idx+1);//O(N), SC : O(N)
+        
+    }
+}
+```
