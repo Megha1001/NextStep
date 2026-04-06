@@ -131,7 +131,7 @@ P25 : MATH / STRING PARSING
 - **#41** **LC57** (P5) Insert Interval
 - **#42** **LC252** (P5) Meeting Rooms
 - **#43** **LC253** (P5) Meeting Rooms II
-- **#44** **LC435** (P5) Non-overlapping Intervals
+- **#44** **LC435** (P5) Non-overlapping Intervals --> greedy -> GQ -> The interval that ends earliest gives you the maximum room for future intervals
 - **#45** **LC452** (P5) Minimum Number of Arrows to Burst Balloons
 - **#46** **LC986** (P5) Interval List Intersections
 - **#47** **LC704** (P6) Binary Search
