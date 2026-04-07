@@ -1768,3 +1768,28 @@ class Solution {
     }
 }
 ```
+
+49. Find Minimum in Rotated Sorted Array
+```
+// TC : O(logN), SC : O(1)
+class Solution {
+    public int findMin(int[] nums) {
+        // Idea : Minimum always lies in the unsorted part
+        int low = 0;
+        int high = nums.length - 1;
+
+        while(low < high){ // O(logN)
+            int m = low + (high - low)/2;
+
+            if(nums[m] > nums[high]){
+                //right half is not sorted
+                low = m + 1;
+            }else{
+                high = m;
+            }
+        }
+        return nums[low];
+        
+    }
+}
+```
