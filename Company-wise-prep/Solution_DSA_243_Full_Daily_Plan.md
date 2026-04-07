@@ -1658,7 +1658,7 @@ class Solution {
 }
 ```
 
-46. 
+46. Interval List Intersections
 
 ```
 // TC : O(M+N), SC : O(k), k intersections
