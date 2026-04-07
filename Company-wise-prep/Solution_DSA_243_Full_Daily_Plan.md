@@ -1623,3 +1623,37 @@ class Solution {
 }
 
 ```
+
+45. Minimum Number of Arrows to Burst Balloons
+
+```
+//TC : O(N), SC : O(1)
+class Solution {
+    public int findMinArrowShots(int[][] points) {
+        //pattern : Merge Intervals. Sort on the basis of start coordinate
+        Arrays.sort(points, Comparator.comparingInt(a->a[0]));
+
+        int count = 1;
+        int[] prev = points[0];
+        for(int i = 1; i < points.length; i++){ //O(N)
+            int currStart = points[i][0];
+            int currEnd = points[i][1];
+
+            int prevStart = prev[0];
+            int prevEnd = prev[1];
+
+            if(currStart > prevEnd){
+                ++count;
+                prev = points[i];
+            }else{
+                //overlap
+                prev[0] = Math.max(currStart, prevStart);
+                prev[1] = Math.min(currEnd, prevEnd);
+            }
+        }
+
+        return count;
+        
+    }
+}
+```
