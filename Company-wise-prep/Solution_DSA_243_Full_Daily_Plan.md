@@ -2067,13 +2067,13 @@ class Solution {
         //last occurrence
         l = 0;
         h = n-1;
-        int second = -1;
+        int last = -1;
         
         while(l <= h){ //O(logN)
             int m = l + (h - l)/2;
 
             if(target == nums[m]){
-                second = m;
+                last = m;
                 l = m + 1;
             }else if(target > nums[m]){
                 l = m + 1;
@@ -2083,7 +2083,7 @@ class Solution {
         }
         
 
-        return new int[]{first, second};
+        return new int[]{first, last};
     }
 }
 ```
