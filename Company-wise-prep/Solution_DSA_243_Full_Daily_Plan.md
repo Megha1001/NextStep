@@ -2087,3 +2087,31 @@ class Solution {
     }
 }
 ```
+
+54. Peak Element
+```
+//TC : O(logN), SC : O(1)
+class Solution {
+    public int findPeakElement(int[] nums) {
+        // Go towards the higher neighbor -> Binary search
+
+        int l = 0;
+        int h = nums.length - 1;
+
+
+        while(l < h){
+            int m = l + (h - l)/2;
+
+            if(nums[m] < nums[m+1]){
+                //go to right
+                l = m + 1;
+            }else{
+                h = m;
+            }
+        }
+
+        return l; //h -> return any
+        
+    }
+}
+```
