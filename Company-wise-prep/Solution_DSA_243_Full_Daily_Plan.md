@@ -1920,3 +1920,109 @@ class Solution {
     }
 }
 ```
+
+52.  Median of Two Sorted Arrays 
+```
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        //Brute force : TC : O(M+N), SC : O(M+N)
+
+        // int m = nums1.length;
+        // int n = nums2.length;
+
+        // int i = 0;
+        // int j = 0;
+
+        // int temp [] = new int[m+n];
+        // int k = 0;
+
+        // while(i < m && j < n){
+        //     if(nums1[i] <= nums2[j]){
+        //         temp[k++] = nums1[i++];
+        //     }else{
+        //         temp[k++] = nums2[j++];
+        //     }
+        // }
+
+        // while(i < m){
+        //     temp[k++] = nums1[i++];
+        // }
+
+        // while(j < n){
+        //     temp[k++] = nums2[j++];
+        // }
+
+
+        // int size = m+n;
+        // if(size%2 == 1){
+        //     //odd length
+        //     return temp[size/2];
+        // }
+
+        // return (temp[size/2] + temp[size/2 - 1])/2.0;
+
+
+        //Approach : 2 : Without extra space
+        int m = nums1.length;
+        int n = nums2.length;
+        int size = m+n;
+
+        int i = 0, j = 0, k = 0;
+        
+        int idx1 = size/2 - 1;
+        int element1 = idx1;
+
+        int idx2 = size/2;
+        int element2 = idx2;
+
+        while(i < m && j < n){
+            if(nums1[i] <= nums2[j]){
+                if(k==idx1){
+                    element1 = nums1[i];
+                }
+                if(k==idx2){
+                    element2 = nums2[i];
+                }
+                ++i;
+            }else{
+                if(k==idx1){
+                    element1 = nums1[j];
+                }
+
+                if(k==idx2){
+                    element2 = nums2[j];
+                }
+                ++j;
+            }
+            ++k;
+        }
+
+        while(i<m){
+            if(k==idx1){
+                element1 = nums1[i];
+            }
+            if(k==idx2){
+                element2 = nums2[i];
+            }
+            ++i;
+            ++k;
+        }
+
+        while(j<n){
+            if(k==idx1){
+                element1 = nums1[j];
+            }
+
+            if(k==idx2){
+                element2 = nums2[j];
+            }
+            ++j;
+            ++k;
+        }
+
+        if(size % 2 == 1){
+            
+        }
+    }
+}
+```
