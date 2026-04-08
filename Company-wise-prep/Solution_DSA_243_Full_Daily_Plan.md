@@ -1793,3 +1793,36 @@ class Solution {
     }
 }
 ```
+
+50 .  Search a 2D Matrix
+```
+// O(Log (m*n)), SC : O(1)
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        /*
+        Idea : Start from either top right element or bottom left
+        */
+
+        int r = matrix.length;
+        int c = matrix[0].length;
+
+        int i = 0; //first row
+        int j = c - 1; // last column
+
+        while(i < r && j >= 0){
+            if(matrix[i][j] == target){
+                return true;
+            }
+
+            else if(matrix[i][j] > target){
+                --j;
+            }
+            else{
+                ++i;
+            }
+        }
+
+        return false;
+    }
+}
+```
