@@ -1888,3 +1888,35 @@ class Solution {
 }
 
 ```
+
+51. Search a 2D Matrix II
+```
+// TC : O(M + N)
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+
+        //apply search in 2d matrix I
+        int r = matrix.length;
+        int c = matrix[0].length;
+
+        int i = 0; //to check row
+        int j = c - 1; //to check column
+
+        while(i < r && j >= 0){
+            if(matrix[i][j] == target){
+                return true;
+            }
+            else if(matrix[i][j] > target){
+                //move left
+                --j;
+            }else{
+                //move down
+                ++i;
+            }
+        }
+
+        return false;
+        
+    }
+}
+```
