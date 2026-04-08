@@ -137,7 +137,7 @@ P25 : MATH / STRING PARSING
 - **#47** **LC704** (P6) Binary Search
 - **#48** **LC33** (P6) Search in Rotated Sorted Array
 - **#49** **LC153** (P6) Find Minimum in Rotated Sorted Array
-- **#50** **LC74** (P6) Search a 2D Matrix
+- **#50** **LC74** (P6) Search a 2D Matrix --> Flatterned BS -> GQ
 - **#51** **LC240** (P6) Search a 2D Matrix II
 - **#52** **LC4** (P6) Median of Two Sorted Arrays
 - **#53** **LC34** (P6) Find First & Last Position
