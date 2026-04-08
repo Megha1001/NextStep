@@ -139,7 +139,7 @@ P25 : MATH / STRING PARSING
 - **#49** **LC153** (P6) Find Minimum in Rotated Sorted Array
 - **#50** **LC74** (P6) Search a 2D Matrix --> Flatterned BS -> GQ
 - **#51** **LC240** (P6) Search a 2D Matrix II
-- **#52** **LC4** (P6) Median of Two Sorted Arrays
+- **#52** **LC4** (P6) Median of Two Sorted Arrays --> GQ
 - **#53** **LC34** (P6) Find First & Last Position
 - **#54** **LC162** (P6) Find Peak Element
 - **#55** **LC875** (P6) Koko Eating Bananas
