@@ -1891,7 +1891,7 @@ class Solution {
 
 51. Search a 2D Matrix II
 ```
-// TC : O(M + N)
+// TC : O(M + N), SC : O(1)
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
 
