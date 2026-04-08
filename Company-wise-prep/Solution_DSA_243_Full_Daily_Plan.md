@@ -2026,3 +2026,64 @@ class Solution {
     }
 }
 ```
+
+53. Find First & Last Position
+```
+//TC : O(logN) , SC : O(1)
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        /*
+        Idea is find first and last occurrence in two BS
+        */
+
+        int n = nums.length;
+        
+        if(n == 0){
+            return new int[]{-1,-1};
+        }
+
+        //first occurrence
+        int first = -1;
+        int l = 0;
+        int h = n-1;
+
+        while(l <= h){ // O(logN)
+            int m = l + (h - l)/2;
+
+            if(target == nums[m]){
+                first = m;
+                h = m - 1;
+            }else if(target > nums[m]){
+                l = m + 1;
+            }else{
+                h = m - 1;
+            }
+        }
+
+        if(first == -1){
+            return new int[]{-1,-1};
+        }
+
+        //last occurrence
+        l = 0;
+        h = n-1;
+        int second = -1;
+        
+        while(l <= h){ //O(logN)
+            int m = l + (h - l)/2;
+
+            if(target == nums[m]){
+                second = m;
+                l = m + 1;
+            }else if(target > nums[m]){
+                l = m + 1;
+            }else{
+                h = m - 1;
+            }
+        }
+        
+
+        return new int[]{first, second};
+    }
+}
+```
