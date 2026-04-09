@@ -2103,7 +2103,7 @@ class Solution {
             int totalTime = 0;
 
             for (int pile : piles) {
-                totalTime += (pile + m - 1) / m; // ✅ integer ceil
+                totalTime += (pile + m - 1) / m;
             }
 
             if (totalTime <= h) {
@@ -2113,7 +2113,9 @@ class Solution {
             }
         }
 
-        return low; // ✅ answer
+        return low;
+        //low → points to FIRST TRUE 
+        //high → points to LAST FALSE
     }
 }
 ```
