@@ -2135,7 +2135,7 @@ class Solution {
             
             int totalTime = 0;
             for(int pile : piles){
-                totalTime += Math.ceil((double)(pile)/m);
+                totalTime += (pile + m -1)/m;
             }
 
             if(totalTime <= h){
