@@ -2093,28 +2093,27 @@ class Solution {
 //TC : O(logN), SC : O(1)
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        //Binary Search
+
         int low = 1;
         int high = Arrays.stream(piles).max().getAsInt();
-        int res = -1;
-        while(low <= high){
-            int m = low + (high - low)/2;
 
-            double totalTime = 0;
-            for(int pile : piles){
-                totalTime += Math.ceil((double)pile/m);
+        while (low <= high) {
+            int m = low + (high - low) / 2;
+
+            int totalTime = 0;
+
+            for (int pile : piles) {
+                totalTime += (pile + m - 1) / m; // ✅ integer ceil
             }
 
-            if(totalTime <= h){
-                res = m;
-                high = m-1;
-            }else{
-                low = m+1;
+            if (totalTime <= h) {
+                high = m - 1; // try smaller speed
+            } else {
+                low = m + 1;
             }
         }
 
-        return res;
-        
+        return low; // ✅ answer
     }
 }
 ```
