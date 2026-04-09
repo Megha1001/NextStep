@@ -2120,8 +2120,40 @@ class Solution {
 }
 ```
 
+55. Koko Eating Bananas
+```
+// TC : O(logN), SC : O(1)
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
 
-55. Sqrt(x)
+        int low = 1;
+        int high = Arrays.stream(piles).max().getAsInt();
+        int res = -1;
+
+        while(low <= high){ // O(logN)
+            int m = low + (high - low)/2;
+            
+            int totalTime = 0;
+            for(int pile : piles){
+                totalTime += Math.ceil((double)(pile)/m);
+            }
+
+            if(totalTime <= h){
+                res = m;
+                high = m - 1;
+            }else{
+                low = m + 1;
+            }
+        }
+
+        return res;
+        
+    }
+}
+
+```
+
+56. Sqrt(x)
 ```
 // TC : O(logX), SC : O(1)
 class Solution {
@@ -2154,7 +2186,7 @@ class Solution {
 }
 ```
 
-56. Single Element in Sorted Array
+57. Single Element in Sorted Array
 ```
 // TC : O(logN), SC : O(1)
 class Solution {
