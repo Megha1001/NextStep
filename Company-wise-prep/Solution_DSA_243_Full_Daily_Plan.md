@@ -2092,25 +2092,28 @@ class Solution {
 ```
 //TC : O(logN), SC : O(1)
 class Solution {
-    public int findPeakElement(int[] nums) {
-        // Go towards the higher neighbor -> Binary search
+    public int minEatingSpeed(int[] piles, int h) {
+        //Binary Search
+        int low = 1;
+        int high = Arrays.stream(piles).max().getAsInt();
+        int res = -1;
+        while(low <= high){
+            int m = low + (high - low)/2;
 
-        int l = 0;
-        int h = nums.length - 1;
+            double totalTime = 0;
+            for(int pile : piles){
+                totalTime += Math.ceil((double)pile/m);
+            }
 
-
-        while(l < h){
-            int m = l + (h - l)/2;
-
-            if(nums[m] < nums[m+1]){
-                //go to right
-                l = m + 1;
+            if(totalTime <= h){
+                res = m;
+                high = m-1;
             }else{
-                h = m;
+                low = m+1;
             }
         }
 
-        return l; //h -> return any
+        return res;
         
     }
 }
