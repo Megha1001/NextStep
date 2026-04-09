@@ -2119,3 +2119,37 @@ class Solution {
     }
 }
 ```
+
+
+55. Sqrt(x)
+```
+// TC : O(logX), SC : O(1)
+class Solution {
+    public int mySqrt(int x) {
+
+        if(x == 0 || x == 1){
+            return x;
+        }
+
+        //Search from 0 to x-1 -> Binary search
+        int l = 0;
+        int h = x;
+        int res = 0;
+
+        while(l <= h){ // O(logX)
+            int m = l + (h-l)/2;
+            
+            if(m <= x/m){//to protect overflow
+                res = m;
+                l = m+1;
+            }else {
+                h = m-1;
+            }
+        }
+
+        return res;
+        
+        
+    }
+}
+```
