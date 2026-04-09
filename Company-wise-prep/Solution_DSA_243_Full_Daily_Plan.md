@@ -2153,3 +2153,39 @@ class Solution {
     }
 }
 ```
+
+56. Single Element in Sorted Array
+```
+// TC : O(logN), SC : O(1)
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        /*
+        Analogy : Before single element every pair start at even position and end at odd position
+        After single element this pattern disturbs --> and we can use binary search to search in either halfs
+        */
+
+        int l = 0;
+        int h = nums.length - 1;
+
+        while(l < h){ // not = as we need to consider h = m it willl make it infinite loop and if we consider <=h then we need to consider m wiht m==0 and m==n-1 -> complex
+
+            int m = l + (h - l)/2;
+            if(m%2 == 1){
+                //make it event
+                --m;
+            }
+
+            if(nums[m] == nums[m+1]){
+                // pattern is not broken -> go right
+                l = m + 2; //important
+            }else {
+                h = m; //consider m as well
+            }
+
+        }
+
+        return nums[l];
+        
+    }
+}
+```
