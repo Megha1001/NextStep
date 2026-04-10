@@ -2461,3 +2461,45 @@ class Solution {
 }
 
 ```
+Approach - 2 DFS
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+//TC : O(N), visit every node exactly once, SC : O(H), where H is height of the tree
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer>res = new ArrayList<>();
+        if(root == null){
+            return res;
+        }
+
+        //using dfs
+        dfs(root, 0, res);
+        return res;
+    }
+
+    private void dfs(TreeNode node, int level, List<Integer>res){
+        if(node == null){
+            return;
+        }
+        if(level == res.size()){ // get first occurrence of that level when it visits first time i.e. right element
+            res.add(node.val);
+        }
+        dfs(node.right, level+1, res);
+        dfs(node.left, level+1, res);
+    }
+}
+```
