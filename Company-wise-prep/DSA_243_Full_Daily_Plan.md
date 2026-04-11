@@ -161,7 +161,7 @@ P25 : MATH / STRING PARSING
 - **#59** **LC35** (P6) Search Insert Position
 - **#60** **LC1011** (P6) Capacity to Ship Packages Within D Days
 - **#61** **LC102** (P7) Binary Tree Level Order Traversal
-- **#62** **LC103** (P7) Binary Tree Zigzag Level Order
+- **#62** **LC103** (P7) Binary Tree Zigzag Level Order --> GQ
 - **#63** **LC199** (P7) Binary Tree Right Side View
 - **#64** **LC200** (P7) Number of Islands
 
