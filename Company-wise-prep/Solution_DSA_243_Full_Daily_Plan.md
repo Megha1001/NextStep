@@ -2624,3 +2624,58 @@ class Solution {
     }
 }
 ```
+
+66. Word Ladder
+```
+/*
+Use BFS because we need the shortest transformation sequence
+For each word, try changing each character from 'a' to 'z'
+if the generated word exists in the set , push it to queue and remove it from set.
+The first time we reach endWord, BFS gurantees the minimum number of steps.
+TC : O(N*L*L*26) = O(N*L*L) and SC : O(N), stores all the words at most once
+*/
+class Solution {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Set<String> set = new HashSet<>(wordList);
+
+        if(!set.contains(endWord) || beginWord.length() != endWord.length()){
+            return 0;
+        }
+        
+        Queue<String> q = new ArrayDeque<>();
+        q.offer(beginWord);
+        int steps = 1;
+
+        while(!q.isEmpty()){
+            int size = q.size();
+
+            for(int i = 0; i < size; i++){ //O(N)
+                String curr = q.poll();
+
+                if(curr.equals(endWord)){
+                    return steps;
+                }
+
+                char[] arr = curr.toCharArray();
+
+                for(int j = 0; j < arr.length; j++){ //O(L)
+                    char original = arr[j];
+                    
+                    for(char ch = 'a'; ch <= 'z'; ch++){ //O(26)
+                        arr[j] = ch;
+                        String newString = new String(arr); // O(L) => string creation cost O(L)
+                        if(set.contains(newString)){
+                            q.offer(newString); // SC : O(N)
+                            set.remove(newString); //visited
+                        }
+                    }
+                    arr[j] = original; //important
+                }
+            }
+            ++steps;
+        }
+
+        return 0;//important
+    }
+}
+```
