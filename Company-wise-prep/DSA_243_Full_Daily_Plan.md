@@ -157,7 +157,7 @@ P25 : MATH / STRING PARSING
 
 ### First solve (8)
 - **#57** **LC540** (P6) Single Element in Sorted Array
-- **#58** **LC981** (P6) Time Based Key-Value Store
+- **#58** **LC981** (P6) Time Based Key-Value Store. --> TO DO
 - **#59** **LC35** (P6) Search Insert Position
 - **#60** **LC1011** (P6) Capacity to Ship Packages Within D Days
 - **#61** **LC102** (P7) Binary Tree Level Order Traversal
@@ -180,7 +180,7 @@ P25 : MATH / STRING PARSING
 - **#66** **LC127** (P7) Word Ladder
 - **#67** **LC133** (P7) Clone Graph
 - **#68** **LC1091** (P7) Shortest Path in Binary Matrix
-- **#69** **LC909** (P7) Snakes and Ladders
+- **#69** **LC909** (P7) Snakes and Ladders --> TO DO
 - **#70** **LC733** (P7) Flood Fill
 - **#71** **LC116** (P7) Populating Next Right Pointers in Each Node
 - **#72** **LC117** (P7) Populating Next Right Pointers in Each Node II
