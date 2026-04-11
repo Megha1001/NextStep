@@ -2636,7 +2636,7 @@ TC : O(N*L*L*26) = O(N*L*L) and SC : O(N), stores all the words at most once
 */
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        Set<String> set = new HashSet<>(wordList);
+        Set<String> set = new HashSet<>(wordList);//for fast lookup
 
         if(!set.contains(endWord) || beginWord.length() != endWord.length()){
             return 0;
