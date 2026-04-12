@@ -2783,7 +2783,76 @@ class Solution {
 }
 ```
 
-69.
+69. Snakes and Ladders
+```
+//TC : O(N*N), BFS process every node atmost once( N*N*6), SC : O(N*N)
+class Solution {
+    private int n;
+    public int snakesAndLadders(int[][] board) {
+        //BFS
+        n = board.length;
+
+        boolean visited[][] = new boolean[n][n]; // SC : O(N*N)
+
+        Queue<Integer> q = new ArrayDeque<>();
+        q.offer(1);
+        visited[n-1][0] = true; // you start at square 1 (at row 5, column 0).
+
+        int steps = 0;
+
+        while(!q.isEmpty()){
+            int size = q.size();
+
+            for(int i = 0; i < size; i++){
+                int curr = q.poll();
+
+                if(curr == n*n){
+                    return steps;
+                }
+
+                //roll
+                for(int dice = 1; dice <= 6; dice++){
+                    int next = curr + dice;
+                    if(next > n*n){
+                        break;
+                    }
+
+                    int[] coordinates = getCoordinates(next);
+                    int r = coordinates[0];
+                    int c = coordinates[1];
+
+                    if(visited[r][c]) continue;
+                    visited[r][c] = true;
+
+                    if(board[r][c] == -1){
+                        q.offer(next);
+                    }else{
+                        q.offer(board[r][c]);
+                    }
+                }
+            }
+            ++steps;
+        }
+
+        return -1;
+        
+    }
+
+    private int[] getCoordinates(int s){
+        int row = n - 1 - (s - 1) / n; // n-1 - (row from up to down)
+        int col = (s-1) % n; //standard L to R
+
+        //zigzag -> R to L
+        if((n % 2 == 0 && row % 2 == 0) || (n % 2 == 1 && row % 2 == 1)){
+            col = n - 1 - col;
+        }
+
+        return new int[]{row, col};
+
+    }
+
+}
+```
 
 
 70. Flood Fill
