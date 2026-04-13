@@ -3194,6 +3194,7 @@ class Solution {
     }
 
     private void dfs(int[][]heights, int r, int c, boolean[][]visited){
+        if(visited[r][c]) return;
         visited[r][c] = true;
 
         for(int []dir : directions){
