@@ -3099,3 +3099,58 @@ class Solution {
 
 }
 ```
+
+74. As Far from Land as Possible
+```
+//TC : O(N*N), SC : O(N*N)
+class Solution {
+    public int maxDistance(int[][] grid) {
+
+        //Multisource BFS
+
+        int n = grid.length;
+        Queue<int[]> q = new ArrayDeque<>();
+
+        for(int r = 0; r < n; r++){
+            for(int c = 0; c < n; c++){
+                if(grid[r][c] == 1){
+                    q.offer(new int[]{r,c});
+                }
+            }
+        }
+
+        //all 0's or all 1's
+        if(q.isEmpty() || q.size() == n*n){
+            return -1;
+        }
+
+        /*
+        We initialize distance = -1 because the queue initially contains all land cells, which form level 0. Since distance is increased once per BFS level, starting from -1 ensures that after processing the first level, distance becomes 0, which correctly represents land.
+        */
+        int distance = -1;
+        int [][]directions = {{1,0},{-1,0},{0,-1},{0,1}};
+
+        while(!q.isEmpty()){
+            int size = q.size();
+            ++distance; //for every level
+            for(int i = 0; i < size; i++){
+                int[] curr = q.poll();
+
+                for(int[]dir : directions){
+                    int nr = dir[0] + curr[0];
+                    int nc = dir[1] + curr[1];
+
+                    if(nr >=0 && nc >= 0
+                        && nr < n && nc < n
+                        && grid[nr][nc] == 0){
+                            grid[nr][nc] = 1; //mark as visited
+                            q.offer(new int[]{nr, nc});
+                        }
+                }
+            }
+        }
+        return distance;
+        
+    }
+}
+```
