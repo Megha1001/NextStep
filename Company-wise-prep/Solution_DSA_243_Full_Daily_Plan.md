@@ -3180,7 +3180,7 @@ class Solution {
             dfs(heights, r, COLS - 1, atlantic);
         }
 
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> res v= new ArrayList<>();
         for(int r = 0; r < ROWS; r++){
             for(int c = 0; c < COLS; c++){
                 if(pacific[r][c] && atlantic[r][c]){
@@ -3215,4 +3215,72 @@ class Solution {
 76.  Network Delay Time (BFS/Dijkstra)
 
 
-77. 
+77. Binary tree Vertical order Traversal - Lint Code
+```
+/**
+ * Definition of TreeNode:
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left, right;
+ *     public TreeNode(int val) {
+ *         this.val = val;
+ *         this.left = this.right = null;
+ *     }
+ * }
+ */
+
+/*
+BFS : 3 comes before 15(levelwise) and 9 comes before 20 (left to right)
+*/
+
+//TC : O(N) [number of nodes], SC : O(N), for complete BST where n/2 nodes at last level
+public class Solution {
+    /**
+     * @param root: the root of tree
+     * @return: the vertical order traversal
+     */
+
+    class Pair{
+        TreeNode node;
+        int col;
+
+        Pair(TreeNode node, int col){
+            this.node = node;
+            this.col = col;
+        }
+    }
+
+    public List<List<Integer>> verticalOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root== null){
+            return res;
+        }
+
+        TreeMap<Integer, List<Integer>> map = new TreeMap<>(); //to maintain col natural order --> TC : O(NLogN)
+        Queue<Pair> q = new ArrayDeque<>();
+        q.offer(new Pair(root, 0));
+        
+        while(!q.isEmpty()){ //O(N)
+            Pair curr = q.poll();
+            TreeNode node = curr.node;
+            int col = curr.col;
+
+            map.putIfAbsent(col, new ArrayList<>());
+            map.get(col).add(node.val);
+
+            if(node.left != null){
+                q.offer(new Pair(node.left, col - 1));
+            }
+            if(node.right != null){
+                q.offer(new Pair(node.right, col + 1));
+            }
+        }
+
+        for(List<Integer> list : map.values()){
+            res.add(list);
+        }
+
+        return res;
+    }
+}
+```
