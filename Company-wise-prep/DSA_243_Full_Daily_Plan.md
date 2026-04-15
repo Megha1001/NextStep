@@ -689,9 +689,9 @@ P25 : MATH / STRING PARSING
 - **#73** **LC130** (P7) Surrounded Regions
 - **#74** **LC1162** (P7) As Far from Land as Possible
 - **#75** **LC417** (P7) Pacific Atlantic Water Flow
-- **#76** **LC743** (P7) Network Delay Time (BFS/Dijkstra)
+- **#76** **LC743** (P7) Network Delay Time (BFS/Dijkstra) --> TO DO
 - **#77** **LC314** (P7) Binary Tree Vertical Order Traversal
-- **#78** **LC987** (P7) Vertical Order Traversal of a Binary Tree
+- **#78** **LC987** (P7) Vertical Order Traversal of a Binary Tree --> TO DO
 - **#79** **LC104** (P8) Maximum Depth of Binary Tree
 - **#80** **LC226** (P8) Invert Binary Tree
 
