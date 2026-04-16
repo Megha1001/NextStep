@@ -3517,3 +3517,64 @@ class Solution {
     }
 }
 ```
+
+85. Binary Tree Maximum Path Sum
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+//TC : O(N), traverse all nodes at once
+//SC : O(height)
+class Solution {
+    private int maxSum;
+    public int maxPathSum(TreeNode root) {
+        maxSum = Integer.MIN_VALUE;
+
+        /*
+        Case 1 : l + r + root.val // we cant return as we found path below only
+        Case 2 : Max(l, r) + root.val
+        Case 3 : root.val
+        */
+        solve(root);
+        return maxSum;
+        
+    }
+
+    private int solve(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+
+        // int l = solve(root.left);
+        // int r = solve(root.right);
+        int l = Math.max(0, solve(root.left)); // if subtree gives negative sum dont take it
+        int r = Math.max(0, solve(root.right));
+
+        //case -1
+        int both_side = l + r + root.val;
+
+        //case - 2
+        int only_one_side = Math.max(l, r) + root.val;
+
+        //case - 3
+        int only_root = root.val;
+
+        maxSum = Math.max(Math.max(Math.max(both_side, only_one_side), only_root), maxSum);
+
+        return Math.max(only_one_side, only_root); //case - 1  we cant return as we found path below only
+
+    }
+}
+```
