@@ -3459,23 +3459,19 @@ class Solution {
  *     }
  * }
  */
-// TC : O(N)
-// SC : O(height) 
+//TC : O(N)
+// SC : O(Height)
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        if(root == null){
-            return true;
-        }
-
-        return isValid(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private boolean isValid(TreeNode root, long min, long max){
+    private boolean isValidBST(TreeNode root, long min, long max){
         if(root != null){
             if(root.val <= min || root.val >= max){
                 return false;
             }
-            return isValid(root.left, min, root.val) && isValid(root.right, root.val, max);
+            return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
         }
         return true;
     }
