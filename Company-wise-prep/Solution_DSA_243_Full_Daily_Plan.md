@@ -3518,7 +3518,43 @@ class Solution {
 }
 ```
 
-85. Binary Tree Maximum Path Sum
+85. Lowest Common Ancestor of a Binary Search Tree
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+//TC : O(h) (Balanced : O(logN), O(N) in case of skewed tree)
+// SC : O(1)
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        //use binary search property
+        /*
+        1. if both are < root -> go to left
+        2. if both are > root -> go to right;
+        3. else return root;
+        */
+
+        while(root != null){
+            if(root.val > p.val && root.val > q.val){
+                root = root.left;
+            }else if(root.val < p.val && root.val < q.val){
+                root = root.right;
+            }else{
+                return root;
+            }
+        }
+        return null;
+    }
+}
+```
+
+86. Binary Tree Maximum Path Sum
 ```
 /**
  * Definition for a binary tree node.
