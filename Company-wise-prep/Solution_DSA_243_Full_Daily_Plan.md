@@ -3765,7 +3765,7 @@ class Solution {
  *     }
  * }
  */
-//TC : O(N) traversing all nodes
+//TC : O(N + totalLengthOfAllReturnedPaths) traversing all nodes, we copy the path (O(pathLength))
 //SC : O(H)
 class Solution {
     private List<List<Integer>> res = new ArrayList<>();
@@ -3793,6 +3793,53 @@ class Solution {
         }
 
         path.remove(path.size() - 1);  
+    }
+}
+```
+
+91. Path Sum III
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+// TC : O(N), traversing all nodes
+// SC : O(H), where H is height 
+class Solution {
+    public int pathSum(TreeNode root, int targetSum) {
+        //Prefix Sum + backtracking
+        Map<Long, Integer> freq = new HashMap<>(); // sum, count
+        freq.put(0L, 1);
+        return dfs(root, 0L, targetSum, freq);
+    }
+
+    private int dfs(TreeNode node, long runningSum, int targetSum, Map<Long, Integer> freq){
+        if(node == null){
+            return 0;
+        }
+
+        runningSum += node.val;
+        int countEndingHere = freq.getOrDefault(runningSum - targetSum , 0);
+        freq.put(runningSum, freq.getOrDefault(runningSum, 0) + 1);
+
+        int total = countEndingHere + 
+                    dfs(node.left, runningSum, targetSum, freq) +
+                    dfs(node.right, runningSum, targetSum, freq);
+
+        freq.put(runningSum, freq.get(runningSum) - 1); // backtracking
+
+        return total;
     }
 }
 ```
