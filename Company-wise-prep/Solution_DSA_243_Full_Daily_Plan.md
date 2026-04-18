@@ -3747,3 +3747,52 @@ class Solution {
     }
 }
 ```
+
+90.
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+//TC : O(N) traversing all nodes
+//SC : O(H)
+class Solution {
+    private List<List<Integer>> res = new ArrayList<>();
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        List<Integer> path = new ArrayList<>();
+
+        dfs(root, targetSum, path);
+
+        return res;
+    }
+
+    private void dfs(TreeNode node, int targetSum, List<Integer>path){
+        if(node == null){
+            return;
+        }
+        targetSum -= node.val;
+        path.add(node.val);
+        if(node.left == null && node.right == null){
+            if(targetSum == 0){
+                res.add(new ArrayList(path));
+            }
+        }else{
+            dfs(node.left, targetSum, path);
+            dfs(node.right, targetSum, path);
+        }
+
+        path.remove(path.size() - 1);  
+    }
+}
+```
