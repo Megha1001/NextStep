@@ -3865,6 +3865,7 @@ Approach - 1
  */
 //TC : O(N)
 //SC : O(N/2) : root to leaf storing alone  private List<Integer> list = new ArrayList<>();
+// = O(N*H) , H due to string creation
 class Solution {
     private List<Integer> list = new ArrayList<>();
     public int sumNumbers(TreeNode root) {
@@ -3880,7 +3881,7 @@ class Solution {
         if(node == null){
             return;
         }
-        num += String.valueOf(node.val); // create new String at each step
+        num += String.valueOf(node.val); // create new String at each step // O(H);
         if(node.left == null && node.right == null){
             list.add(Integer.parseInt(num)); // can overflow if path is long
         }
