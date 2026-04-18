@@ -3843,3 +3843,51 @@ class Solution {
     }
 }
 ```
+
+91. 
+
+Approach - 1
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+//TC : O(N)
+//SC : O(N/2) : root to leaf storing alone  private List<Integer> list = new ArrayList<>();
+class Solution {
+    private List<Integer> list = new ArrayList<>();
+    public int sumNumbers(TreeNode root) {
+        populateList(root, "");
+        int res = 0;
+        for(Integer num : list){
+            res += num;
+        }
+        return res;
+    }
+
+    private void populateList(TreeNode node, String num){
+        if(node == null){
+            return;
+        }
+        num += String.valueOf(node.val); // create new String at each step
+        if(node.left == null && node.right == null){
+            list.add(Integer.parseInt(num)); // can overflow if path is long
+        }
+        populateList(node.left, num);
+        populateList(node.right, num);
+
+        num = num.substring(0, num.length() - 1);
+    }
+}
+```
