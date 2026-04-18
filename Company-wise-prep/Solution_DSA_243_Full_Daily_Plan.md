@@ -3892,3 +3892,44 @@ class Solution {
     }
 }
 ```
+
+Approach - 2 Better
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+// TC : O(N) 
+// SC : O(H)
+class Solution {
+    public int sumNumbers(TreeNode root) {
+        // IDEA : next = curr * 10 + node.val
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode node, int current){
+        if(node == null){
+            return 0;
+        }
+        
+        int next = current * 10 + node.val;
+        //check leaf
+        if(node.left == null && node.right == null){
+            return next;
+        }
+
+        return dfs(node.left , next) + dfs(node.right, next);
+    }
+}
+```
