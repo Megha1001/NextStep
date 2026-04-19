@@ -4021,3 +4021,203 @@ class Solution {
     } 
 }
 ```
+
+94. Construct Binary Tree from Preorder and Inorder Traversal
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+/*
+Time: O(N) serialize + O(N) deserialize
+Space: O(N) for the string/tokens, plus recursion O(H)
+*/ 
+public class Codec {
+    /*
+    Logic : DFS with preorder traversal
+    */
+
+    private String NIL = "#";
+    private String SEP = ",";
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        build(root, sb);
+        return sb.toString();
+    }
+
+    private void build(TreeNode root, StringBuilder sb){
+        if(root == null){
+            sb.append(NIL).append(SEP);
+            return;
+        }
+        sb.append(root.val).append(SEP);
+        build(root.left, sb);
+        build(root.right, sb);
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        String[] tokens = data.split(SEP);
+        int[] idx = new int[1]; // to share it across states
+        return parse(tokens, idx);
+    }
+
+    private TreeNode parse(String[]tokens, int[]idx){
+        String t = tokens[idx[0]++];
+        if(t.equals(NIL)){
+            return null;
+        }
+        TreeNode root = new TreeNode(Integer.parseInt(t));
+        root.left = parse(tokens, idx); //idx is already updated in line number 42
+        root.right = parse(tokens, idx);
+        return root;
+    }
+}
+
+// Your Codec object will be instantiated and called as such:
+// Codec ser = new Codec();
+// Codec deser = new Codec();
+// TreeNode ans = deser.deserialize(ser.serialize(root));
+```
+
+
+95. Serialize and Deserialize Binary Tree
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+/*
+Time: O(N) serialize + O(N) deserialize
+Space: O(N) for the string/tokens, plus recursion O(H)
+*/ 
+public class Codec {
+    /*
+    Logic : DFS with preorder traversal
+    */
+
+    private String NIL = "#";
+    private String SEP = ",";
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        build(root, sb);
+        return sb.toString();
+    }
+
+    private void build(TreeNode root, StringBuilder sb){
+        if(root == null){
+            sb.append(NIL).append(SEP);
+            return;
+        }
+        sb.append(root.val).append(SEP);
+        build(root.left, sb);
+        build(root.right, sb);
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        Deque<String> q = new ArrayDeque<>(Arrays.asList(data.split(SEP)));
+        return parse(q);
+    }
+
+    private TreeNode parse(Deque<String> q){
+        String t = q.removeFirst();
+        if(t.equals(NIL)){
+            return null;
+        }
+        TreeNode root = new TreeNode(Integer.parseInt(t));
+        root.left = parse(q);
+        root.right = parse(q);
+        return root;
+    }
+}
+
+// Your Codec object will be instantiated and called as such:
+// Codec ser = new Codec();
+// Codec deser = new Codec();
+// TreeNode ans = deser.deserialize(ser.serialize(root));
+```
+
+96. Kth Smallest Element in a BST
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+//TC : O(H+K) can go to O(N) skewed and k = N
+// SC : O(H)
+class Solution {
+
+    public int kthSmallest(TreeNode root, int k) {
+        /*
+        Use stack
+        - Push in stack until we go to left
+        - Pop from stack and decrement k and check
+        - Push right
+        - repeat
+        */
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode curr = root;
+
+        while(curr != null || !stack.isEmpty()){
+            while(curr != null){
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            if(--k == 0){
+                return curr.val;
+            }
+            curr = curr.right;
+        }
+
+        return -1;
+    }
+
+    // private int k;
+    // private int ans;
+    // public int kthSmallest(TreeNode root, int k) {
+    //     this.k = k;
+    //     dfs(root);
+    //     return ans;
+    // }
+
+    // private void dfs(TreeNode node){
+    //     if(node == null){
+    //         return;
+    //     }
+    //     dfs(node.left);
+    //     if(--k == 0){
+    //         this.ans = node.val; 
+    //         return;
+    //     }
+    //     dfs(node.right);
+    // }
+}
+
+```
