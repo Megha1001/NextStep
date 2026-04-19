@@ -4240,7 +4240,7 @@ class Solution {
  * }
  */
  //TC : O(H)
- // SC : O(J)
+ // SC : O(H)
 class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
         /*
@@ -4264,29 +4264,22 @@ class Solution {
 
         else{
             // found key
-
             //have zero child or have only right child
-            if(root.left == null){
-                return root.right;
-            }else if(root.right == null){
-                return root.left;
-            }else{
-                //has both child
-                TreeNode succ = findSuccessor(root, key);
-                root.val = succ.val;
-                root.right = deleteNode(root.right, succ.val);
-            }
+            if(root.left == null) return root.right;
+            if(root.right == null) return root.left;
+
+            //two childrens - find successor
+            TreeNode succ = findSuccessor(root.right);
+            root.val = succ.val;
+            root.right = deleteNode(root.right, succ.val);
         }
 
         return root;
         
     }
 
-    private TreeNode findSuccessor(TreeNode root, int key){
-        TreeNode curr = root.right;
-        while(curr != null && curr.left != null){
-            curr = curr.left;
-        }
+    private TreeNode findSuccessor(TreeNode curr){
+        while(curr.left != null) curr = curr.left;
         return curr;
     }
 }
