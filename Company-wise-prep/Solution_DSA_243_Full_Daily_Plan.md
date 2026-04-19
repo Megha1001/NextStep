@@ -4320,3 +4320,35 @@ class Solution {
     }
 }
 ```
+
+99. Number of Provinces
+```
+//TC : O(N*N)
+//SC : O(N) + O(h)
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        boolean[] visited = new boolean[n];
+        int provinces = 0;
+
+        for(int r = 0; r < n; r++){
+           if(!visited[r]){
+                dfs(isConnected, r, visited);
+                ++provinces;
+            }
+        }
+        return provinces;
+    }
+
+    private void dfs(int[][]isConnected, int r, boolean [] visited){
+        visited[r] = true;
+
+        //find the connected components to this
+        for(int i = 0; i < isConnected.length; i++){
+            if(isConnected[r][i] == 1 && !visited[i]){
+                dfs(isConnected, i, visited);
+            }
+        }
+    }
+}
+```
