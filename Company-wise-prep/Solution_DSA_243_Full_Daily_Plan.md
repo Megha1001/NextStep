@@ -4400,3 +4400,45 @@ class Solution {
     }
 }
 ```
+
+101. Is Graph Bipartite?
+```
+//TC : O(V+E) : (each node/edge processed once)
+//SC : O(V)
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+        /*
+        If graph has odd cycle then bipartite
+        */
+        int n = graph.length;
+        int [] color = new int[n];
+        Arrays.fill(color, -1);
+
+        for(int i = 0; i < n; i++){
+            if(color[i] == -1){
+                if(!dfs(graph, i, 0, color)){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private boolean dfs(int[][]graph, int curr, int currColor, int[]color){
+        color[curr] = currColor;
+
+        for(int nei : graph[curr]){
+            if(color[nei] == -1){
+                if(!dfs(graph, nei, 1 - currColor, color)){
+                    return false;
+                }
+            } else if (color[nei] == currColor){
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+```
