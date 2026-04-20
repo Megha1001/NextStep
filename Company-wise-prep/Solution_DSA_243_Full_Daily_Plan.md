@@ -4442,3 +4442,54 @@ class Solution {
     }
 }
 ```
+Variaty - 2
+```
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static Boolean isBipartite(int n, int edges[][]) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        
+        for(int i = 0; i < n; i++){
+            adj.add(new ArrayList<>());
+        }
+
+        for(int i = 0; i < edges.length; i++){
+            int u = edges[i][0];
+            int v = edges[i][1];
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
+
+        int [] color = new int[n];
+        Arrays.fill(color,-1);
+
+        for(int i = 0; i < n; i++){
+            if(color[i] == -1){
+                if(!dfs(adj, color, i, 0)){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean dfs(ArrayList<ArrayList<Integer>> adj, int color[], int curr, int currColor){
+        color[curr] = currColor;
+
+        for(int neighbor : adj.get(curr)){
+            if(color[neighbor] == -1){
+                if(!dfs(adj, color, neighbor, 1 - currColor)){
+                    return false;
+                }
+            }else if (color[neighbor] == currColor){
+                return false;
+            }
+        }
+
+        return true;
+        
+    }
+}
+```
