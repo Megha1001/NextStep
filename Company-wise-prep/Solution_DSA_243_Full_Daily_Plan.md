@@ -4551,3 +4551,55 @@ class Solution {
     }
 }
 ```
+
+103. Course Schedule
+```
+//TC : O(V+E)
+//SC : O(V+E)
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        //If we able to do topological sort then we are able to finish the course
+
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+
+        for(int i = 0; i < numCourses; i++){
+            adj.add(new ArrayList<>());
+        }
+
+        for(int []edge : prerequisites){
+            adj.get(edge[1]).add(edge[0]); // 1 --> 0
+        }
+
+        //find indegree
+        int []indegree = new int[numCourses];
+        for(int i = 0; i < adj.size(); i++){
+            for(int j = 0; j < adj.get(i).size(); j++){
+                ++indegree[adj.get(i).get(j)];
+            }
+        }
+
+        //Enque vertex with indegree 0
+        Deque<Integer> q = new ArrayDeque<>();
+        for(int i = 0; i < numCourses; i++){
+            if(indegree[i] == 0){
+                q.offer(i);
+            }
+        }
+
+        int count = 0;
+        while(!q.isEmpty()){
+            int curr = q.poll();
+            ++count;
+            for(int u : adj.get(curr)){
+                --indegree[u];
+                if(indegree[u] == 0){
+                    q.offer(u);
+                }
+            }
+        }
+
+        return count == numCourses;
+        
+    }
+}
+```
