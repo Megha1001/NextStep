@@ -596,7 +596,7 @@ P25 : MATH / STRING PARSING
 - *(none)*
 
 ### Revise — 2nd pass (8)
-- **#105** **LC269** (P9) Alien Dictionary
+- **#105** **LC269** (P9) Alien Dictionary --> GQ
 - **#106** **LC310** (P9) Minimum Height Trees
 - **#107** **LC1136** (P9) Parallel Courses
 - **#108** **LC200** (P10) Number of Islands (alt approach)
@@ -691,7 +691,7 @@ P25 : MATH / STRING PARSING
 - **#75** **LC417** (P7) Pacific Atlantic Water Flow
 - **#76** **LC743** (P7) Network Delay Time (BFS/Dijkstra) --> TO DO
 - **#77** **LC314** (P7) Binary Tree Vertical Order Traversal
-- **#78** **LC987** (P7) Vertical Order Traversal of a Binary Tree --> TO DO
+- **#78** **LC987** (P7) Vertical Order Traversal of a Binary Tree
 - **#79** **LC104** (P8) Maximum Depth of Binary Tree
 - **#80** **LC226** (P8) Invert Binary Tree
 
