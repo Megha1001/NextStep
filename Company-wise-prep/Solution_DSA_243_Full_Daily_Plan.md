@@ -4809,3 +4809,15 @@ class Solution {
     }
 }
 ```
+
+107. Parallel Courses
+```
+You have n courses labeled 1..n and relations relations[i] = [prev, next] meaning prev must be taken before next. In one semester you can take any number of courses as long as prerequisites are satisfied. Return the minimum number of semesters to finish all courses, or -1 if impossible.
+
+Interview-thinking prompts (no code yet)
+
+What does “impossible” mean in graph terms?
+If it is possible, what graph concept equals “minimum semesters”: shortest path or longest path?
+If multiple courses can be taken in the same semester, how would you simulate semester-by-semester using indegrees?
+
+```
