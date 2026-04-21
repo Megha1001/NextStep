@@ -4821,3 +4821,56 @@ If it is possible, what graph concept equals “minimum semesters”: shortest p
 If multiple courses can be taken in the same semester, how would you simulate semester-by-semester using indegrees?
 
 ```
+
+```
+
+//TC : O(N+m), where m is length of relation
+//SC : O(N+m), where m is length of relation
+public class Solution {
+    /**
+     * @param n: the number of courses
+     * @param relations: the relationship between all courses
+     * @return: ehe minimum number of semesters required to complete all courses
+     */
+    public int minimumSemesters(int n, int[][] relations) {
+        List<List<Integer>> adj = new ArrayList<>();
+
+        for(int i = 0; i <= n; i++){ // <= is important as indexing is from 1..n
+            adj.add(new ArrayList<>());
+        }
+        
+        int [] indegree = new int[n+1]; // n+1 as indexing is from 1..n
+        for(int relation[] : relations){
+            int prev = relation[0];
+            int next = relation[1];
+            adj.get(prev).add(next);
+            ++indegree[next];
+        }
+
+      
+        Deque<Integer> q = new ArrayDeque<>();
+        for(int i = 1; i <= n; i++){
+            if(indegree[i] == 0){
+                q.offer(i);
+            }
+        }
+        int semester = 0;
+        int taken = 0;
+        while(!q.isEmpty()){
+            int size = q.size();
+            ++semester;
+            for(int i = 0; i < size; i++){
+                int node = q.poll();
+                ++taken;
+                for(int nei : adj.get(node)){
+                    if(--indegree[nei] == 0){
+                        q.offer(nei);
+                    }
+                }
+            }
+        }
+
+        return taken == n ? semester : -1;
+    }
+}
+```
