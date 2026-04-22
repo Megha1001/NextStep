@@ -2561,7 +2561,7 @@ class Solution {
                 && nc >=0 && nc < COLS
                 && grid[nr][nc] == '1'){
                     grid[nr][nc] = '0';
-                    bfs(grid, nr, nc);
+                    q.offer(new int[]{nr, nc});
                 }
             }
         }
