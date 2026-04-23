@@ -5133,3 +5133,66 @@ class Solution {
 
 111 Accounts Merge
 ```
+
+
+
+112. Satisfiability of Equality Equations
+```
+class Solution {
+    //Union find
+    int parent[];
+    int rank[];
+
+    public int find(int x){
+        if(x != parent[x]){
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    }
+    
+
+    public void union(int x, int y){
+        int p_x = find(x);
+        int p_y = find(y);
+
+        if(p_x != p_y){
+            if(rank[p_x] > rank[p_y]){
+                parent[p_y] = p_x;
+            }else if (rank[p_x] < rank[p_y]){
+                parent[p_x] = p_y;
+            }else {
+                parent[p_y] = p_x;
+                ++rank[p_x];
+            }
+        }
+    }
+
+    public boolean equationsPossible(String[] equations) {
+
+        parent = new int[26];
+        rank = new int[26];
+
+        for(int i = 0; i < 26; i++){
+            parent[i] = i;
+            rank[i] = 1;
+        }
+
+        for(String s : equations){
+            if(s.charAt(1) == '='){
+                union(s.charAt(0) - 'a', s.charAt(3) - 'a');
+            }
+        }
+
+        for(String s : equations){
+            if(s.charAt(1) == '!'){
+                if(find(s.charAt(0) - 'a') == find(s.charAt(3) - 'a')){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+        
+    }
+}
+```
