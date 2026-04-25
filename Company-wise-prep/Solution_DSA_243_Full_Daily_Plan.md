@@ -5249,3 +5249,99 @@ class Solution {
     }
 }
 ```
+
+114. Number of Provinces
+```
+//TC : O(N*N)
+//SC : O(N) + O(h)
+class Solution {
+    // public int findCircleNum(int[][] isConnected) {
+    //     int n = isConnected.length;
+    //     boolean[] visited = new boolean[n];
+    //     int provinces = 0;
+
+    //     for(int r = 0; r < n; r++){
+    //        if(!visited[r]){
+    //             dfs(isConnected, r, visited);
+    //             ++provinces;
+    //         }
+    //     }
+    //     return provinces;
+    // }
+
+    // private void dfs(int[][]isConnected, int r, boolean [] visited){
+    //     visited[r] = true;
+
+    //     //find the connected components to this
+    //     for(int i = 0; i < isConnected.length; i++){
+    //         if(isConnected[r][i] == 1 && !visited[i]){
+    //             dfs(isConnected, i, visited);
+    //         }
+    //     }
+    // }
+
+
+    // by using 
+    //TC : O(N*N), SC : O(N)
+
+    class DSU{
+        int parent[];
+        int rank[];
+
+        public DSU(int n ){
+            parent = new int[n]; // SC : O(N)
+            rank = new int[n];
+
+            for(int i = 0; i < n; i++){ // TC : O(N)
+                parent[i] = i;
+                rank[i] = 1;
+            }
+        }
+
+        int find(int x){
+            if(x != parent[x]){
+                parent[x] = find(parent[x]);
+            }
+            return parent[x];
+        }
+
+        boolean union(int x , int y){
+            int p_x = find(x);
+            int p_y = find(y);
+
+            if(p_x == p_y){
+                return false;
+            }
+
+            if(rank[p_x] > rank[p_y]){
+                parent[p_y] = p_x;
+            }else if (rank[p_x] < rank[p_y]){
+                parent[p_x] = p_y;
+            }else {
+                parent[p_y] = p_x;
+                ++rank[p_x];
+            }
+
+            return true;
+        }
+
+    }
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        int count = n;
+        DSU dsu = new DSU(n);
+
+        for(int i = 0; i < n; i++){ // TC : O(N*N)
+            for(int j = i+1; j < n; j++){
+                if(isConnected[i][j] == 1){
+                    if(dsu.union(i, j)){
+                        --count;
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+}
+```
