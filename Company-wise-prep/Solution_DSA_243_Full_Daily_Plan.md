@@ -5396,7 +5396,7 @@ class Solution {
 
         //for right smaller
         for(int i = n - 1; i >= 0; i--){
-            if(!st.isEmpty() && heights[st.peek()] >= heights[i]) st.pop();
+            while(!st.isEmpty() && heights[st.peek()] >= heights[i]) st.pop();
             r[i]  = st.isEmpty() ? n : st.peek(); // n for elements that has no right boundary
             st.push(i);
         }
