@@ -5347,6 +5347,28 @@ class Solution {
 ```
 
 115. Daily Temperatures
+```
+//TC : O(N)
+//SC : O(N)
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        // Monotonic Stack -> decreasing R to L;
+        int n = temperatures.length;
+        int res [] = new int[n];
+        Deque<Integer> st = new ArrayDeque<>(); // SC : O(N)
+        for(int i = n-1; i >= 0; i--){ // TC : O(N), every element is pushing and popping once in stack
+            while(!st.isEmpty() && temperatures[st.peek()] <= temperatures[i]){
+                st.pop();
+            }
+            res[i] = !st.isEmpty() ? st.peek() - i : 0;
+            st.push(i);
+        }
+
+        return res;
+        
+    }
+}
+```
 
 
 116. Largest Rectangle in Histogram
