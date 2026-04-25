@@ -5408,3 +5408,35 @@ class Solution {
     }
 }
 ```
+
+118. Next Greater Element II
+```
+// TC : O(N)
+// SC : O(N)
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        // For circular array will pretend the array repeated twice
+        //1, 2, 4, 1 -> 1, 2, 4, 1  int x = nums[i%n];
+        // Monotonic decreasing from R to L
+
+        int n = nums.length;
+        Deque<Integer> st = new ArrayDeque<>();
+        int res[] = new int[n];
+
+        for(int i = 2*n - 1; i >= 0; i--){
+            int x = nums[i % n];
+            while(!st.isEmpty() && st.peek() <= x){
+                st.pop();
+            }
+            if(i < n){
+                res[i] = st.isEmpty() ? -1 : st.peek();
+            }
+            
+            st.push(x);
+        }
+
+        return res;
+        
+    }
+}
+```
