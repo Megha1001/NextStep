@@ -5364,7 +5364,7 @@ class Solution {
         int n1 = nums1.length;
         int n2 = nums2.length;
         Map<Integer, Integer> map = new HashMap<>(n2); //nums2 contains unique elements.
-        Stack<Integer> st = new Stack<>();
+        Deque<Integer> st = new ArrayDeque<>();
 
         for(int i = n2 - 1; i >= 0; i--){
             while(!st.isEmpty() && st.peek() <= nums2[i]){
