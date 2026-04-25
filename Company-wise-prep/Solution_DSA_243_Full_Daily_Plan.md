@@ -5372,6 +5372,46 @@ class Solution {
 
 
 116. Largest Rectangle in Histogram
+```
+//TC : O(N)
+//SC : O(N)
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        // Monotonic stack
+        int n = heights.length;
+        int res = 0;
+        int l[] = new int[n];
+        int r[] = new int[n];
+        Deque<Integer> st = new ArrayDeque<>();
+
+
+        //for left smaller
+        for(int i = 0; i < n; i++){
+            while(!st.isEmpty() && heights[st.peek()] >= heights[i]) st.pop();
+            l[i] = st.isEmpty() ? -1 : st.peek();
+            st.push(i);
+        }
+
+        while(!st.isEmpty()) st.pop();
+
+        //for right smaller
+        for(int i = n - 1; i >= 0; i--){
+            if(!st.isEmpty() && heights[st.peek()] >= heights[i]) st.pop();
+            r[i]  = st.isEmpty() ? n : st.peek(); // n for elements that has no right boundary
+            st.push(i);
+        }
+
+        for(int i = 0; i < n; i++){
+            int width = r[i] - l[i] - 1;
+            int area = heights[i] * width;
+            res = Math.max(area, res);
+        }
+
+        return res;
+        
+    }
+}
+```
 
 
 117. Next Greater Element I
