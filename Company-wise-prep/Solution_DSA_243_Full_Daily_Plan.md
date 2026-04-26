@@ -5484,3 +5484,43 @@ class Solution {
 119. Trapping Rain Water (stack approach)
 ```
 ```
+
+120. Remove Duplicate Letters
+```
+class Solution {
+    public String removeDuplicateLetters(String s) {
+        //Monotonic increasing stack
+        int n = s.length();
+        boolean taken[] = new boolean[26];
+        int lastIndex[] = new int[26]; 
+
+        for(int i = 0; i < n; i++){
+            int idx = s.charAt(i) - 'a';
+            lastIndex[idx] = i;
+        }
+
+        Deque<Character> st = new ArrayDeque<>();
+        for(int i = 0; i < n; i++){
+            char curr = s.charAt(i);
+            if(taken[curr - 'a']){
+                continue;
+            }
+
+            while(!st.isEmpty() && st.peek() > curr && lastIndex[st.peek() - 'a'] > i){
+                taken[st.peek() - 'a'] = false;
+                st.pop();
+            }
+
+            st.push(curr);
+            taken[curr - 'a'] = true;
+        }
+
+        StringBuilder res = new StringBuilder();
+        while(!st.isEmpty()){
+            res.append(st.pop());
+        }
+
+        return res.reverse().toString();
+    }
+}
+```
