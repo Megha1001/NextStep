@@ -5524,3 +5524,57 @@ class Solution {
     }
 }
 ```
+
+
+121. Remove K Digits
+```
+class Solution {
+    public String removeKdigits(String num, int k) {
+
+        //keep numbers in increasing order as long as possible( until k becomes 0)
+
+        int n = num.length();
+        if(k == n){
+            return "0";
+        }
+
+        Deque<Integer> st = new ArrayDeque<>();
+        StringBuilder res = new StringBuilder();
+        for(int i = 0; i < n; i++){
+            int curr = num.charAt(i) - '0';
+            while(k > 0 && !st.isEmpty() && st.peek() > curr){
+                st.pop();
+                --k;
+            }
+            st.push(curr);
+        }
+        
+        //num = "12345", k = 2
+        while(k >0 && !st.isEmpty()){
+            st.pop();
+            --k;
+        }
+
+        while(!st.isEmpty()){
+            res.append(st.pop());
+        }
+        res.reverse();
+
+        //removing leading zeroes
+        int idx = 0;
+        while(idx < res.length() && res.charAt(idx) == '0'){
+            ++idx;
+        }
+
+        // if(idx == res.length()){ // all zeroes
+        //     return "0";
+        // }
+
+        // return res.length() == 0 ? "" : res.substring(idx);
+        
+        String ans = res.substring(idx);
+        return ans.isEmpty() ? "0" : ans;
+        
+    }
+}
+```
