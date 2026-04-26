@@ -5480,3 +5480,7 @@ class Solution {
     }
 }
 ```
+
+119. Trapping Rain Water (stack approach)
+```
+```
