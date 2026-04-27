@@ -5578,3 +5578,29 @@ class Solution {
     }
 }
 ```
+
+122. Score of Parentheses
+```
+//TC : O(N)
+//SC : O(N)
+class Solution {
+    public int scoreOfParentheses(String s) {
+        Deque<Integer> st = new ArrayDeque<>();
+        int curr = 0;
+
+        for(char ch : s.toCharArray()){
+            if(ch == '('){
+                st.push(curr);
+                curr = 0;
+            }else {
+                int prev = st.pop();
+                int add = curr == 0 ? 1 : 2 * curr;
+                curr = prev + add;
+            }
+        }
+
+        return curr;
+        
+    }
+}
+```
