@@ -5604,3 +5604,35 @@ class Solution {
     }
 }
 ```
+
+123. Online Stock Span
+```
+//TC : O(N) [every element is pushed and popped once]
+// next() -> amotized complexity : O(1)
+// SC : O(N)
+class StockSpanner {
+
+    private Deque<int[]> st; //{price, span}
+
+    public StockSpanner() {
+        st = new ArrayDeque<>();
+    }
+    
+    public int next(int price) {
+        int span = 1;
+        while(!st.isEmpty() && st.peek()[0] <= price){
+            span += st.pop()[1];
+        }
+        st.push(new int[]{price, span});
+
+        return span;
+        
+    }
+}
+
+/**
+ * Your StockSpanner object will be instantiated and called as such:
+ * StockSpanner obj = new StockSpanner();
+ * int param_1 = obj.next(price);
+ */
+ ```
