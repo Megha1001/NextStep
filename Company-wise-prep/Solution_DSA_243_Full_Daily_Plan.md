@@ -5792,3 +5792,90 @@ class Solution {
     }
 }
 ```
+
+129. Minimum Remove to Make Valid Parentheses
+```
+//TC : O(N)
+//SC : O(N)
+class Solution {
+    // public String minRemoveToMakeValid(String s) {
+
+    //     HashSet<Integer> toRemove = new HashSet<>();
+    //     Deque<Integer> st = new ArrayDeque<>();
+    //     int n = s.length();
+    //     for(int i = 0; i < n; i++){
+    //         char c = s.charAt(i);
+    //         if(c == '('){
+    //             st.push(i);
+    //         }else if (c == ')'){
+    //             if(st.isEmpty()){
+    //                 toRemove.add(i);
+    //             }else{
+    //                 st.pop();
+    //             }
+    //         }
+    //     }
+
+    //     while(!st.isEmpty()){
+    //         toRemove.add(st.pop());
+    //     }
+
+    //     StringBuilder res = new StringBuilder();
+
+    //     for(int i = 0; i < n; i++){
+    //         if(!toRemove.contains(i)){
+    //             res.append(s.charAt(i));
+    //         }
+    //     }
+        
+
+    //     return res.toString();
+    // }
+    //Approach -2 
+    public String minRemoveToMakeValid(String s) {
+        // Traverse string twice
+        //From left to right to omit extra ) paranthesis
+        // from right to left to omit extra ( paranthesis
+
+        StringBuilder res = new StringBuilder();
+        int n = s.length();
+        int lastOpen = 0;
+
+        //remove extra )
+        for(int i = 0; i < n; i++){
+            char c = s.charAt(i);
+            if(Character.isLetter(c)){
+                res.append(c);
+            }
+            else if (c == '('){
+                ++lastOpen;
+                res.append(c);
+            }else if(lastOpen > 0){
+                --lastOpen;
+                res.append(c);
+            }
+        }
+
+        // for extra ( 
+        s = res.toString();
+        res = new StringBuilder();
+        int lastClose = 0;
+        n = s.length();
+        
+        for(int i = n-1; i >= 0; i--){
+            char c = s.charAt(i);
+            if(Character.isLetter(c)){
+                res.insert(0,c);
+            }else if (c == ')'){
+                ++lastClose;
+                res.insert(0,c);
+            }else if (lastClose > 0){
+                --lastClose;
+                res.insert(0,c);
+            }
+        }
+
+        return res.toString();
+    }
+}
+```
