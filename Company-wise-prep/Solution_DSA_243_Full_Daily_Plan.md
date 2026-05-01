@@ -6030,7 +6030,6 @@ class Solution {
 
             //unexplore
             path.remove(path.size() - 1);
-            backTrack(nums, used, path, res);
             used[i] = false;
         }
     }
