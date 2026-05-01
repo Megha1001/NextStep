@@ -6109,3 +6109,42 @@ class Solution {
     }
 }
 ```
+138. Combination Sum
+```
+class Solution {
+    public List<List<Integer>> combinationSum(int[] nums, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        backTrack(nums, target, 0, new ArrayList<>(), res);
+        return res;
+    }
+
+    private void backTrack(int[]nums, int target, int idx, List<Integer>path, List<List<Integer>> res){
+        if(target == 0){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        if(target < 0 || idx >= nums.length){
+            return;
+        }
+        
+
+        //consider
+        path.add(nums[idx]);
+        backTrack(nums, target - nums[idx], idx, path, res); //idx -> since can choose again
+
+        //unexplore
+        path.remove(path.size() - 1);
+
+        //to remove duplicates
+        backTrack(nums, target, idx+1, path, res); //idx+1 -> to remove duplicates
+    }
+}
+
+
+```
+
+
+139. Combinations
+```
+```
