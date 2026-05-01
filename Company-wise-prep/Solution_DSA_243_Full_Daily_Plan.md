@@ -5998,3 +5998,41 @@ class Solution {
 
 }
 ```
+
+135. Premutations
+```
+//TC : O(N*N!)
+//SC : O(N) [recursion call stack + boolean]
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        //Backtracking -> , return all the possible permutations
+
+        List<List<Integer>> res = new ArrayList<>();
+        boolean [] used = new boolean[nums.length];
+        backTrack(nums, used, new ArrayList<>(), res);
+        return res;        
+    }
+
+    private void backTrack(int [] nums, boolean[] used, List<Integer>path, List<List<Integer>> res){
+        if(path.size() == nums.length){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        //need to run from i = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(used[i]) continue;
+
+            //explore
+            used[i] = true;
+            path.add(nums[i]);
+            backTrack(nums, used, path, res);
+
+            //unexplore
+            path.remove(path.size() - 1);
+            backTrack(nums, used, path, res);
+            used[i] = false;
+        }
+    }
+}
+```
