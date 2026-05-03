@@ -6264,6 +6264,8 @@ class Solution {
 
 141. Word Search - II LC 242
 ```
+//TC : (T + R*C*L)
+//SC : T+L
 class Solution {
     private List<String> result = new ArrayList<>();
     private int rows;
