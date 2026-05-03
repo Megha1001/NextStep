@@ -6344,3 +6344,52 @@ class Solution {
     }
 }
 ```
+
+142. Letter Combinations of a Phone Number
+
+```
+/* TC : O(n * 4^N)
+
+Time
+ - Each digit gives up to 4 choices.
+ - So total combinations are at most 4^n.
+ - For every complete combination, temp.toString() copies a string of length n.
+
+SC : O(n)
+ - Recursion depth = O(n)
+ - StringBuilder temp holds up to n chars
+*/
+class Solution {
+    private List<String> res = new ArrayList<>();
+    public List<String> letterCombinations(String digits) {
+        //Backtracking
+        Map<Character, String> map = new HashMap<>();
+        map.put('2', "abc");
+        map.put('3',"def");
+        map.put('4',"ghi");
+        map.put('5',"jkl");
+        map.put('6',"mno");
+        map.put('7',"pqrs");
+        map.put('8',"tuv");
+        map.put('9',"wxyz");
+
+        solve(0, digits, new StringBuilder(), res, map);
+        return res;
+    }
+
+    private void solve(int idx, String digits, StringBuilder temp, List<String> res, Map<Character, String>map){
+        if(idx >= digits.length()){
+            res.add(temp.toString());
+            return;
+        }
+
+        char ch = digits.charAt(idx);
+        String s = map.get(ch);
+        for(int i = 0; i < s.length(); i++){
+            temp.append(s.charAt(i));
+            solve(idx + 1, digits, temp, res, map);
+            temp.deleteCharAt(temp.length() - 1);
+        }
+    }
+}
+```
