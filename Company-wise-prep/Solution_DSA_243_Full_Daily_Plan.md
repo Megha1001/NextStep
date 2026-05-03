@@ -6348,7 +6348,7 @@ class Solution {
 142. Letter Combinations of a Phone Number
 
 ```
-/* TC : O(n * 4^n)
+/* TC : O(n * 4^n), where n is number of digits
 
 Time
  - Each digit gives up to 4 choices.
