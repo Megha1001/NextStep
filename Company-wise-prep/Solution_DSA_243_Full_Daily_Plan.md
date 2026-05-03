@@ -6261,3 +6261,84 @@ class Solution {
     }
 }
 ```
+
+141. Word Search - II LC 242
+```
+class Solution {
+    private List<String> result = new ArrayList<>();
+    private int rows;
+    private int cols;
+    private final int[][] directions = {{1,0},{-1,0},{0,1},{0,-1}};
+
+    static class TrieNode{
+        boolean eow;
+        TrieNode [] children = new TrieNode[26];
+        String word = "";
+    }
+
+    private TrieNode getNode(){
+        return new TrieNode();
+    }
+
+    private void insert(TrieNode root, String word){
+        TrieNode curr = root;
+        for(char ch : word.toCharArray()){
+            int idx = ch - 'a';
+            if(curr.children[idx] == null){
+                curr.children[idx] = getNode();
+            }
+            curr = curr.children[idx];
+        }
+
+        curr.eow = true;
+        curr.word = word;
+    }
+
+    private void dfs(char[][]board, int r, int c, TrieNode root){
+        if(r < 0 || c < 0 || r >= rows || c >= cols || board[r][c] == '$' || root.children[board[r][c] - 'a'] == null){
+            return;
+        }
+        root = root.children[board[r][c] - 'a'];
+        if(root.eow){
+            result.add(root.word);
+            root.eow = false;
+        }
+
+        char temp = board[r][c];
+        board[r][c] = '$';
+        for(int dir[] : directions){
+            int r_ = dir[0] + r;
+            int c_ = dir[1] + c;
+
+            dfs(board, r_, c_, root);
+        }
+
+        board[r][c] = temp;
+    }
+
+
+    public List<String> findWords(char[][] board, String[] words) {
+        //If we apply word search for all words it will give TLE
+        //Use Trie
+        rows = board.length;
+        cols = board[0].length;
+        
+        TrieNode root = getNode();
+        for(String word : words){
+            insert(root, word);
+        }
+        
+        for(int r = 0; r < rows; r++){
+            for(int c = 0; c < cols; c++){
+                char ch = board[r][c];
+                if(root.children[ch - 'a'] != null){
+                    dfs(board, r, c, root);
+                }
+            }
+        }
+
+        return result;
+
+    }
+}
+```
