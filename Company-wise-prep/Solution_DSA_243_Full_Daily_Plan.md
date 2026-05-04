@@ -6420,6 +6420,8 @@ class Solution {
 ```
 144. Palindrome Partitioning
 ```
+//TC : O(N^2 * 2^N)
+//SC : O(N)
 class Solution {
     private List<List<String>> result = new ArrayList<>();
     public List<List<String>> partition(String s) {
@@ -6440,8 +6442,8 @@ class Solution {
         or don’t cut
         */
 
-        for(int j = i; j < s.length(); j++){ --> TC : O(N)
-            if(isPalindrome(s, i, j)){ --> TC : O(N)
+        for(int j = i; j < s.length(); j++){ //--> TC : O(N)
+            if(isPalindrome(s, i, j)){ //--> TC : O(N)
                 part.add(s.substring(i, j+1));
                 backTrack(j+1, s, part);
                 part.remove(part.size() - 1);
