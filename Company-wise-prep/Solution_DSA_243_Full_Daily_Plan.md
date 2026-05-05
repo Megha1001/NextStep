@@ -6464,3 +6464,8 @@ class Solution {
     }
 }
 ```
+
+145. Design Add and Search Words Data Structure
+```
+
+```
