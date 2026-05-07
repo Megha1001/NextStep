@@ -6487,6 +6487,10 @@ class Solution {
             result.add(curr.substring(0, curr.length() - 1));
             return;
         }
+        
+        if(parts >= 4){
+            return
+        }
 
         if(idx + 1 <= n){
             solve(s, idx+1, part+1, curr + s.substring(idx, idx + 1) + ".");
