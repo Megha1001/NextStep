@@ -6465,6 +6465,53 @@ class Solution {
 }
 ```
 
+145. Restore IP Addresses
+```
+TC : O(1), SC : O(1)
+class Solution {
+    private List<String> result = new ArrayList<>();
+    private int n ;
+    public List<String> restoreIpAddresses(String s) {
+        n = s.length();
+
+        if(n > 12){
+            return result;
+        }
+
+        solve(s, 0, 0, "");
+        return result;
+    }
+
+    private void solve(String s, int idx, int part, String curr){
+        if(idx == n && part == 4){
+            result.add(curr.substring(0, curr.length() - 1));
+            return;
+        }
+
+        if(idx + 1 <= n){
+            solve(s, idx+1, part+1, curr + s.substring(idx, idx + 1) + ".");
+        }
+
+        if(idx + 2 <= n && isValid(s.substring(idx, idx + 2))){
+            solve(s, idx + 2, part+1, curr + s.substring(idx, idx + 2) + ".");
+        }
+
+        if(idx + 3 <= n && isValid(s.substring(idx, idx + 3))){
+            solve(s, idx + 3, part + 1, curr + s.substring(idx, idx + 3) + ".");
+        }
+    }
+
+    private boolean isValid(String s ){
+        if(s.charAt(0) == '0'){
+            return false;
+        }
+
+        int val = Integer.parseInt(s);
+        return val <= 255;
+    }
+}
+```
+
 201. Design Add and Search Words Data Structure
 ```
 class WordDictionary {
@@ -6521,3 +6568,4 @@ class WordDictionary {
 }
 
 ```
+
