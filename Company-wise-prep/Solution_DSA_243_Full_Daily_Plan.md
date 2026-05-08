@@ -6517,6 +6517,32 @@ class Solution {
 ```
 146. N-Queens
 ```
+//TC : O(n * n!)
+/*
+A common interview answer for this version is:
+
+TC: O(n! * n) or O(n! * n^2) depending on how carefully we count isSafe
+Why n!
+row 0: up to n choices
+row 1: up to n-1 useful choices
+row 2: up to n-2
+...
+So branching behaves roughly like:
+n * (n-1) * (n-2) * ... = n!
+Why extra n
+For every attempted position, isSafe() scans:
+
+whole row -> O(n)
+whole column -> O(n)
+2 diagonals -> O(n)
+So isSafe() is O(n).
+
+Therefore for this exact implementation:
+
+TC = O(n * n!)
+*/
+//SC : O(N*N)
+
 class Solution {
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> res = new ArrayList<>();
