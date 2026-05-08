@@ -6612,6 +6612,56 @@ class Solution {
 
 ```
 
+147. Sudoku Solver
+```
+class Solution {
+    public void solveSudoku(char[][] board) {
+        solve(board);
+    }
+
+    private boolean solve(char[][]board){
+        for(int i = 0; i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                if(board[i][j] == '.'){
+                    for(char d = '1'; d <= '9'; d++){
+                        if(isValid(board, i, j, d)){
+                            board[i][j] = d;
+                            if(solve(board)){
+                                return true;
+                            }
+                            board[i][j] = '.';
+                        }
+                    }
+                    //not able to fill the cell with value .
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean isValid(char[][]board, int r, int c, char d){
+        for(int i = 0; i < 9; i++){
+            //validate row
+            if(board[i][c] == d) return false;
+            if(board[r][i] == d) return false;
+        }
+        //validate box
+        int start_i = (r/3) * 3;
+        int start_j = (c/3) * 3;
+        for(int k = 0; k < 3; k++){
+            for(int l = 0; l < 3; l++){
+                if(board[start_i + k][start_j + l] == d){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+}
+```
+
 201. Design Add and Search Words Data Structure
 ```
 class WordDictionary {
