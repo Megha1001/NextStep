@@ -6662,6 +6662,27 @@ class Solution {
 }
 ```
 
+148. Kth Largest Element in an Array
+```
+//TC : O(n logK)
+//SC : O(k)
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        //Min Heap
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for(int num : nums){
+            minHeap.offer(num);
+            if(minHeap.size() > k){
+                minHeap.poll();
+            }
+        }
+
+        return minHeap.peek();
+    }
+}
+```
+
+
 201. Design Add and Search Words Data Structure
 ```
 class WordDictionary {
