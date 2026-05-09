@@ -6718,6 +6718,43 @@ class Solution {
 
 ```
 
+150. Top K Frequent Words
+```
+//TC : O(n + mlogK + klogK), where m is unique words
+//SC : O(m + k) 
+class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        // HashMap + Min Heap
+        Map<String , Integer> freq = new HashMap<>();
+
+        for(String word : words){ //TC : O(n)
+            freq.put(word, freq.getOrDefault(word, 0) +  1);
+        }
+
+        PriorityQueue<String> pq = new PriorityQueue<>((a, b) -> {
+            if(!freq.get(a).equals(freq.get(b))){
+                return freq.get(a) - freq.get(b); //lower freq on top -> so can be removed
+            }
+            return b.compareTo(a); //lexicographical larger on top -> so can be removed
+        });
+        
+        for(String word : freq.keySet()){ // O(m) = Total : O(mlogK)
+            pq.offer(word);
+            if(pq.size() > k){ //O(logK)
+                pq.poll();
+            }
+        }
+
+        List<String> res = new ArrayList<>();
+        while(!pq.isEmpty()){
+            res.add(pq.poll());
+        }
+        Collections.reverse(res); //O(klogk)
+        return res;
+    }
+}
+```
+
 
 201. Design Add and Search Words Data Structure
 ```
