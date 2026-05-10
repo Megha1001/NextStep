@@ -6881,6 +6881,56 @@ class Solution {
 }
 ```
 
+154. Last Stone Weight
+```
+
+class Solution {
+    public int lastStoneWeight(int[] stones) {
+
+        //Approach - 1 Brute force
+        //TC : n*n logn 
+        //SC : n
+        // List<Integer> list = new ArrayList<>();
+        // for (int stone : stones) {
+        //     list.add(stone);
+        // }
+
+        // while(list.size() > 1){
+        //     Collections.sort(list);
+        //     int n = list.size();
+        //     int x = list.remove(n - 1);
+        //     int y = list.remove(n - 2);
+
+        //     if(y != x){
+        //         list.add(x- y);
+        //     }
+
+        // }
+
+        // return list.isEmpty() ? 0 : list.get(0);
+
+        //Approach - 2 Max Heap
+        //TC : O(nlogN)
+        //SC : O(n)
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        for(int stone : stones){ //O(N)
+            maxHeap.offer(stone);
+        }
+
+        while(maxHeap.size() > 1){ //O(nLogN)
+            int x = maxHeap.poll();
+            int y = maxHeap.poll();
+
+            if(x != y){
+                maxHeap.offer(x - y);
+            }
+        }
+        return maxHeap.size() > 0 ? maxHeap.peek() : 0;
+        
+    }
+}
+```
 
 
 
