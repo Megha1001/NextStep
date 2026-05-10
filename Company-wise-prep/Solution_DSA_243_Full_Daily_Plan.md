@@ -6778,6 +6778,8 @@ class Solution {
 
 
         //Approach - 2 Min Heap
+        //TC : O(k log N)
+        //SC : O(n)
         int n = matrix.length;
         PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
 
