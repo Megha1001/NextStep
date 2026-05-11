@@ -6983,6 +6983,8 @@ class Solution {
 
 156. Reorganize String
 ```
+// TC : O(n log K), where k is number of unique characters
+// SC : O(k)
 class Solution {
     public String reorganizeString(String s) {
         //Max Heap
