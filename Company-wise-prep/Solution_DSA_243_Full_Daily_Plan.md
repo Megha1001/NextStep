@@ -7106,6 +7106,8 @@ class MedianFinder {
 
 159. Merge k Sorted Lists
 ```
+//TC : O(nlogK)
+//SC : O(logK)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
