@@ -7228,8 +7228,38 @@ class Solution {
         
     }
 }
+```
 
+162. Kth Smallest Element in a Sorted Matrix - repeat
+```
+//TC : O(nlogN) + O(klogN) = O(klogN)
+//SC : O(n)
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        int n = matrix.length;
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
 
+        for(int r = 0; r < n; r++){
+            minHeap.offer(new int[]{matrix[r][0], r, 0});
+        }
+        
+        int ans = 0;
+        for(int i = 0; i < k; i++){
+            int[] curr = minHeap.poll();
+            int val = curr[0];
+            ans = val;
+            int r = curr[1];
+            int c = curr[2];
+            if(c + 1 < n){
+                minHeap.offer(new int[]{matrix[r][c + 1], r, c + 1});
+            }
+        }
+
+        return ans;
+        
+    }
+}
+```
 
 
 
