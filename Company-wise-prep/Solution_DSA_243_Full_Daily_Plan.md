@@ -7377,6 +7377,59 @@ class Solution {
 }
 ```
 
+165. House Robber
+```
+class Solution {
+    public int rob(int[] nums) {
+        // Approach -1 Recursion
+        /*
+        Rob the current[i] house then go to i+2
+        dont rob the current[i] house and go to i+1
+        */
+        // return solve(0, nums);
+
+        //Approach - 2 Memoization
+        // int[]memo = new int[nums.length]; //here the state based on array index so 0...n-1
+        // Arrays.fill(memo, -1);
+        // return solve(0, memo, nums);
+
+        //Approach - 3 : Bottom Up
+        //state define - > dp[i] = till house i max how much money can be stolen;
+        int n = nums.length;
+        int dp[] = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = nums[0];
+
+        for(int i = 2; i <= n; i++){
+            dp[i] = Math.max(nums[i-1] + dp[i-2], dp[i-1]);
+        }
+
+        return dp[n];
+    }
+
+    private int solve(int i , int[]memo, int nums[]){
+        if(i >= nums.length){
+            return 0;
+        }
+
+        if(memo[i] != -1){
+            return memo[i];
+        }
+
+        memo[i] = Math.max(nums[i] + solve(i + 2, memo, nums), solve(i + 1, memo, nums));
+
+        return memo[i];
+    }
+
+    private int solve(int i, int[]nums){
+        if(i >= nums.length){
+            return 0;
+        }
+
+        return Math.max(nums[i] + solve(i + 2, nums), solve(i + 1, nums));
+    }
+}
+```
 
 
 
