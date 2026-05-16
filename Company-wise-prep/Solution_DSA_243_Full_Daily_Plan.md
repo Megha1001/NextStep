@@ -7432,7 +7432,40 @@ class Solution {
 ```
 
 
+166. House Robber II
+```
+//TC : O(N)
+//SC : O(1)
+class Solution {
+    public int rob(int[] nums) {
+        //use houseRobber-I : Math.max(houseRobberI(0,n-2), houseRobber(1, n-1))
 
+        int n = nums.length;
+        if(n == 1){
+            return nums[0];
+        }
+
+        return Math.max(
+            houseRobberI(nums, 0, n-2), 
+            houseRobberI(nums, 1, n-1)
+        );
+    }
+
+    private int houseRobberI(int nums[], int start, int end){
+        int rob1 = 0; // best answer upto house before previous house
+        int rob2 = 0; //best answer upto previous house
+
+        for(int i = start; i <= end; i++){
+            int temp = Math.max(rob1 + nums[i], nums[i]);
+            rob1 = rob2;
+            rob2 = temp;
+        }
+
+        return rob2;
+    }
+
+}
+```
 
 
 
