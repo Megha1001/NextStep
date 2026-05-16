@@ -7544,6 +7544,74 @@ class Solution {
 }
 ```
 
+168. Coin Change II
+```
+class Solution {
+    public int change(int amount, int[] coins) {
+        /*
+        We have two choices
+        -> take
+        -> skip
+            Corner case -> if(coins[i] > amount) -> skip but should not skip completely
+        */
+        //Approach -1  Recursion, TC : 2^(n + A), SC : O(n + A) : TLE
+        // return solve(0, amount, coins);
+
+        //Approach - 2 - Memoization
+        //TC : O(n * A)
+        //SC : O(n * A)
+        int dp[][] = new int[coins.length + 1][amount + 1]; // two things are changing amount and index
+        for(int i = 0; i <= coins.length; i++){
+            Arrays.fill(dp[i], -1);
+        }
+
+        return solve(0, coins, amount, dp);
+    }
+
+    private int solve(int i , int[]coins, int amount, int[][]dp){
+        if(amount == 0){
+            return 1;
+        }
+        if(i == coins.length){
+            return 0;
+        }
+
+        if(dp[i][amount] != -1){
+            return dp[i][amount];
+        }
+
+        int take = 0;
+
+        if(coins[i] <= amount){
+            take = solve(i, coins, amount - coins[i], dp);
+        }
+
+        int skip = solve(i + 1, coins, amount, dp);
+
+        return dp[i][amount] = take + skip;
+    }
+
+    // private int solve(int i , int amount, int[]coins){
+    //     if(amount == 0){
+    //         return 1;
+    //     }
+
+    //     //corner case
+    //     if(i >= coins.length){
+    //         return 0;
+    //     }
+
+    //     int take = 0;
+    //     if(coins[i] <= amount){
+    //         take = solve(i, amount - coins[i], coins); //we can take i again
+    //     }
+        
+    //     int skip = solve(i + 1, amount, coins);
+
+    //     return take + skip;
+    // }
+}
+```
 
 
 
