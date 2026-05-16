@@ -7473,16 +7473,22 @@ class Solution {
     private int res = Integer.MAX_VALUE;
     public int coinChange(int[] coins, int amount) {
         //Approach - 1 Recursion : TLE
+        //TC : O(n^A), where n = coins.length, A = amount
+        //SC : O(A)
         // solve(coins, amount , 0);
         // return res == Integer.MAX_VALUE ? -1 : res;
 
         //Approach - 2 Memoization
+        //TC : O(n * A), every amount solved once and for each amount we have n choices
+        //SC : O(A)
         // int memo[] = new int[amount + 1]; //min coins needed for this amount
         // Arrays.fill(memo, - 1);
         // int ans = solve(coins, memo, amount);
         // return ans == Integer.MAX_VALUE ? -1 : ans;
 
         //Approach - 3 : Bottom up
+        //TC : O(n * A), every amount solved once and for each amount we have n choices
+        //SC : O(A)
         int dp[] = new int[amount + 1];
         //dp[i] = minimum number of coins to make amount i;
         Arrays.fill(dp, amount + 1); //Because worst case, if coin 1 exists, maximum coins needed is amount.So amount + 1 safely means “impossible for now”.
