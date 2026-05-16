@@ -7613,6 +7613,53 @@ class Solution {
 }
 ```
 
+169. Word Break
+```
+//TC : O(n^3), including string substring operation
+//SC : O(N)
+class Solution {
+    private int n;
+    private Set<String>set;
+    private int memo[];
+    public boolean wordBreak(String s, List<String> wordDict) {
+        //1D - Dynamic programming
+        n = s.length();
+        memo = new int[n + 1];
+        Arrays.fill(memo, -1);
+        set = new HashSet<>(wordDict);
+        return solve(s, 0);
+    }
+
+    private boolean solve(String s, int idx){
+        if(idx == n){
+            return true;
+        }
+
+        if(set.contains(s.substring(idx, n))){
+            return true;
+        }
+
+        if(memo[idx] != -1){
+            return memo[idx] == 1; //0 indicates not possible
+        }
+
+        for(int len = 1; len <= n; len++){
+            if(idx + len > n){
+                break;
+            }
+
+            String temp = s.substring(idx, idx + len);
+            if(set.contains(temp) && solve(s, idx + len)){
+                memo[idx] = 1;
+                return true;
+            }
+        }
+        memo[idx] = 0;
+        return false;
+    }
+}
+```
+
 
 
 
