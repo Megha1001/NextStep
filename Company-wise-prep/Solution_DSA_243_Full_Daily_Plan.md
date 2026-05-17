@@ -7759,6 +7759,32 @@ class Solution {
     }
 }
 ```
+Bottom up approach
+```
+//TC : O(N)
+//SC : O(N)
+class Solution {
+    public long maxAlternatingSum(int[] nums) {
+        //Bottom up approach
+        int n = nums.length;
+        long dp[][] = new long[n+1][2];
+        /*
+        when we add i it gets added to subsequence that is odd but due to this addition it becomes even
+            -> t[i][even] = max(take, skip) = max(t[i-1][odd] - nums[i], t[i-1][even])
+        when we add i it gets added to subsequence that is even but due to this addition it becomes odd
+            -> t[i][odd] = max(take, skip) = max(t[i - 1][even] + nums[i], t[i - 1][odd])
+        */
+        
+        for(int i = 1; i <= n; i++){
+            dp[i][0] = Math.max(dp[i-1][1] - nums[i-1], dp[i-1][0]);
+            dp[i][1] = Math.max(dp[i-1][0] + nums[i-1], dp[i - 1][1]);
+        }
+
+        return Math.max(dp[n][0], dp[n][1]);
+
+    }
+}
+```
 
 
 
