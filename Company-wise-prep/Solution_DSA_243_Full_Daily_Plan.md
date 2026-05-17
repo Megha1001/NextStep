@@ -7665,14 +7665,37 @@ class Solution {
 //TC : O(N)
 //SC : O(N)
 class Solution {
-    private int n;
-    private int[]memo;
-    public int numDecodings(String s) {
-        //Top down approach
-        n = s.length();
-        memo = new int[101]; //n+1 possible states --> compute for them and every state compute once
-        Arrays.fill(memo, -1);
 
+    public int numDecodings(String s) {
+        int n = s.length();
+        int dp[] = new int[n + 1]; //moving in index
+        //define state
+        //dp[i] = Number of decoding way of string s from index i to n
+        dp[n] = 1;
+        //dp[i] = dp[i + 1] + dp[i + 2];
+        for(int i = n-1; i >= 0; i--){
+            if(s.charAt(i) == '0'){
+                dp[i] = 0;
+            }else{
+                dp[i] = dp[i + 1];
+                if(i + 1 < n){
+                    if(s.charAt(i) == '1' || (s.charAt(i) == '2' && s.charAt(i + 1) <= '6')){
+                        dp[i] += dp[i+2];
+                    }
+                }
+            }
+        }
+        return dp[0];
+    }
+
+
+
+    private int n;
+    private int memo[];
+    public int numDecodingsTopDown(String s) {
+        n = s.length();
+        memo = new int[101];
+        Arrays.fill(memo, -1);
         return solve(0, s);
     }
 
@@ -7699,6 +7722,9 @@ class Solution {
     }
 }
 ```
+
+
+
 
 
 201. Design Add and Search Words Data Structure
