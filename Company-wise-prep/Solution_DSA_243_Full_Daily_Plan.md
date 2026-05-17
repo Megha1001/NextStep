@@ -7723,6 +7723,42 @@ class Solution {
 }
 ```
 
+Maximum Alternating Subsequence Sum
+```
+//TC : O(N)
+//SC : O(N)
+class Solution {
+    private int n;
+    private long memo[][];
+    public long maxAlternatingSum(int[] nums) {
+        n = nums.length;
+        memo = new long[n][2];
+
+        for(int i = 0; i < n; i++){
+            Arrays.fill(memo[i], -1);
+        }
+        return solve(0, nums, 1);
+    }
+
+    private long solve(int idx, int[]nums, int isEven){
+        if(idx >= n){
+            return 0;
+        }
+        if(memo[idx][isEven] != -1){
+            return memo[idx][isEven];
+        }
+
+        long skip = solve(idx + 1, nums, isEven); //isEven wont change when skip
+        int val = nums[idx];
+        if(isEven == 0){
+            val = - val;
+        }
+        long take = val + solve(idx + 1, nums, 1 - isEven);
+
+        return memo[idx][isEven] = Math.max(skip, take);
+    }
+}
+```
 
 
 
