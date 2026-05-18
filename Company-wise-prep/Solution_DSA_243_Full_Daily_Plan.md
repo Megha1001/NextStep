@@ -7894,6 +7894,25 @@ class Solution {
         return false;
     }
 }
+
+//Bottom up
+```
+    //Bottom up
+    public boolean canJump(int[] nums) {
+        //Approach - 1 Top down
+        int n = nums.length;
+        boolean [] dp = new boolean[n];
+        dp[0] = true;
+        for(int i = 1; i < n; i++){
+            for(int j = i-1; j >= 0; --j){
+                if(dp[j] && j+nums[j] >= i){
+                    dp[i] = true;
+                }
+            }
+        }
+        return dp[n-1];
+    }
+```
 ```
 
 
