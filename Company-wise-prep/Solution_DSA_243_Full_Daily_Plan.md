@@ -7949,6 +7949,26 @@ class Solution {
         return dp[n-1];
     }
 ```
+
+```
+//TC : O(N)
+//SC : O(1)
+class Solution {
+    public boolean canJump(int[] nums) {
+        // Approach - 3 Simple trick
+
+        int maxReachable = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(i > maxReachable){
+                return false;
+            }
+            maxReachable = Math.max(maxReachable, i + nums[i]);
+        }
+
+        return true;
+        
+    }
+}
 ```
 
 
