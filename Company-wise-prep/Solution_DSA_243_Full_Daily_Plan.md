@@ -7980,6 +7980,7 @@ class Solution {
         //Approach - 1 Memoization
         //TC : O(N*N), SC : O(N)
         //solve(i) = 1 + min(solve(i + jump)) for all valid jumps
+        //solve(i) = minimum jumps needed to reach the last index starting from index i
         n = nums.length;
         memo = new int[n];
         Arrays.fill(memo, - 1);
