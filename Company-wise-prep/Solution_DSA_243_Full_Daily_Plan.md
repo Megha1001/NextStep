@@ -8289,6 +8289,48 @@ class Solution {
 }
 ```
 
+Unique Path - II
+```
+//TC : O(M*N)
+//SC : O(M*N)
+class Solution {
+    private int[][]memo;
+    private int m;
+    private int n;
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+
+        m = obstacleGrid.length;
+        n = obstacleGrid[0].length;
+
+        memo = new int[m][n];
+
+        for(int i = 0; i < m; i++){
+            Arrays.fill(memo[i], -1);
+        }
+
+        return solve(0,0, obstacleGrid);
+    }
+
+    private int solve(int r, int c, int[][]obstacleGrid){
+        if(r >= m || c >= n || obstacleGrid[r][c] == 1){
+            return 0;
+        }
+
+        if(r == m-1 && c == n-1){
+            return 1;
+        }
+        
+        if(memo[r][c] != -1){
+            return memo[r][c];
+        }
+
+        int down = solve(r + 1, c , obstacleGrid);
+        int right = solve(r, c + 1, obstacleGrid);
+
+        return memo[r][c] = down + right;
+    }
+}
+```
 
 
 201. Design Add and Search Words Data Structure
