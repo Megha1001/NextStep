@@ -8448,18 +8448,19 @@ class Solution {
 
 182. Edit Distance
 ```
-//TC : O(M*N)
-//SC : O(M*N)
+// TC : O(M*N)
+// SC : O(M*N)
 class Solution {
     private int m;
     private int n;
-    private int [][]memo;
+    private int memo[][];
     public int minDistance(String word1, String word2) {
-        //Recursion + Memoization
+        //Recursion + memoization
         m = word1.length();
         n = word2.length();
 
         memo = new int[m][n];
+
         for(int i = 0; i < m; i++){
             Arrays.fill(memo[i], -1);
         }
@@ -8468,12 +8469,11 @@ class Solution {
     }
 
     private int solve(String s1, String s2, int i, int j){
-        //base case
         if(i == m){
-            return n-j; //insert
+            return n - j; //insertions
         }
         else if(j == n){
-            return m-i; //deletion
+            return m - i; //deletions
         }
 
         if(memo[i][j] != -1){
@@ -8481,7 +8481,7 @@ class Solution {
         }
 
         if(s1.charAt(i) == s2.charAt(j)){
-            return solve(s1, s2, i + 1, j + 1);
+            return memo[i][j] = solve(s1, s2, i + 1, j + 1);
         }
 
         int insert = 1 + solve(s1, s2, i, j + 1);
