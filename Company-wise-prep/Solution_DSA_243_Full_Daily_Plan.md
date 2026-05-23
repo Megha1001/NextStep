@@ -8567,6 +8567,44 @@ class Solution {
 
 ```
 
+183. Longest Common Subsequence
+```
+//TC : O(M*N)
+//SC : O(M*N)
+class Solution {
+    private int memo[][];
+    public int longestCommonSubsequence(String text1, String text2) {
+        int m = text1.length();
+        int n = text2.length();
+
+        memo = new int[m + 1][n + 1]; // memo[m][n] = LCS from index m of text1 and index n of text2
+        for(int i = 0; i <= m; i++){
+            Arrays.fill(memo[i], -1);
+        }
+
+        return solve(m, n, text1, text2);
+    }
+
+    private int solve(int i , int j, String s1, String s2){
+        if(i <= 0 || j <= 0){
+            return 0;
+        }
+
+        if(memo[i][j] != -1){
+            return memo[i][j];
+        }
+
+        if(s1.charAt(i - 1) == s2.charAt(j - 1)){
+            return memo[i][j] = 1 + solve(i - 1, j - 1, s1, s2);
+        }
+
+        int shift_m = solve(i - 1, j, s1, s2);
+        int shift_n = solve(i, j - 1, s1, s2);
+
+        return memo[i][j] = Math.max(shift_m, shift_n);
+    }
+}
+```
 
 
 
