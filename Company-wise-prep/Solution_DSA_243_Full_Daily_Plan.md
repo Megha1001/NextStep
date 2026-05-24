@@ -8808,6 +8808,70 @@ class Solution {
 ```
 
 
+187. Triangle
+
+```
+//TC : O(M*N)
+//SC : O(M*N)
+class Solution {
+    private int n;
+    private int[][]memo;
+    public int minimumTotal(List<List<Integer>> triangle) {
+        n = triangle.size();
+        memo = new int[n][n];
+
+        for(int i = 0; i < n; i++){
+            Arrays.fill(memo[i], Integer.MAX_VALUE);
+        }
+
+        return solve(triangle, 0, 0);
+    }
+
+    private int solve(List<List<Integer>>triangle, int row, int col){
+        if(row == n - 1){
+            return triangle.get(row).get(col);
+        }
+
+        if(memo[row][col] != Integer.MAX_VALUE){
+            return memo[row][col];
+        }
+
+        int minPath = triangle.get(row).get(col) + 
+                    Math.min(
+                        solve(triangle, row + 1, col + 1),
+                        solve(triangle, row + 1, col)
+                    );
+        return memo[row][col] = minPath;
+    }
+}
+```
+
+```
+//TC : O(N*N)
+//SC : O(N*N)
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        //Bottom up
+        int n = triangle.size();
+
+        int dp [][] = new int[n][n];
+
+        for(int i = 0; i < n; i++){
+            dp[n - 1][i] = triangle.get(n-1).get(i);
+        }
+
+        for(int row = n-2; row >= 0; row--){
+            for(int col = 0; col <= row; col++){
+                dp[row][col] = triangle.get(row).get(col) + Math.min(dp[row + 1][col], dp[row + 1][col + 1]);
+            }
+        }
+
+        return dp[0][0];
+        
+    }
+}
+```
+
 
 
 
