@@ -8959,6 +8959,42 @@ class Solution {
 
 192. Gas Station
 
+```
+//Brute Force : TLE
+class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        //Brute force
+        int n = gas.length;
+
+        for(int i = 0; i < n; i++){
+            if(gas[i] < cost[i]){
+                continue;
+            }
+
+            int j = (i + 1) % n;
+            int currGas = gas[i] - cost[i] + gas[j];
+
+            while(j != i){
+                if(currGas < cost[j]){
+                    break;
+                }
+
+                int costForMovingFromThisJ = cost[j];
+                j = (j + 1) % n;
+
+                int costEarnInNextSolveJ = gas[j];
+                currGas = currGas - costForMovingFromThisJ + costEarnInNextSolveJ;
+            }
+
+            if(i == j){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
 
 
 
