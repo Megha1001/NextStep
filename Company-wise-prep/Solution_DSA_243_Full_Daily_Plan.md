@@ -9099,11 +9099,6 @@ class Solution {
         //Greedy
         //when intervals overlaps keep the one that ends first
 
-        int n = intervals.length;
-        if(n == 0){
-            return 0;
-        }
-
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
 
         int count = 0;
