@@ -9060,6 +9060,8 @@ class Solution {
 
 193. Partition Labels
 ```
+//TC : O(N)
+//SC : O(N)
 class Solution {
     public List<Integer> partitionLabels(String s) {
         //GREEDY
