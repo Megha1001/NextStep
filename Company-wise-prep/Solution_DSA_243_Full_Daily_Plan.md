@@ -9090,6 +9090,39 @@ class Solution {
 }
 ```
 
+194. Non-overlapping Intervals
+```
+//TC : O(nLogN)
+//SC : O(1)
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        //Greedy
+        //when intervals overlaps keep the one that ends first
+
+        int n = intervals.length;
+        if(n == 0){
+            return 0;
+        }
+
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
+
+        int count = 0;
+        int prevEnd = intervals[0][1];
+
+        for(int i = 1; i < n ; i++){
+            if(prevEnd > intervals[i][0]){
+                ++count;
+                //keep earlier first
+            }else{
+                prevEnd = intervals[i][1];
+            }
+        }
+
+        return count;
+        
+    }
+}
+```
 
 
 
