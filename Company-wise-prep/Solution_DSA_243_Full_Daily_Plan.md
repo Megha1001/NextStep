@@ -9197,6 +9197,31 @@ class Solution {
 
 197. Remove K Digits -> done
 
+198. 
+```
+class Solution {
+    public boolean increasingTriplet(int[] nums) {
+
+        int nums_1= Integer.MAX_VALUE;
+        int nums_2 = Integer.MAX_VALUE;
+
+        for(int i = 0; i < nums.length; i++){
+            int nums_3 = nums[i];
+            if(nums_1 >= nums_3){
+                nums_1 = nums_3;
+            } else if(nums_2 >= nums_3){
+                nums_2 = nums_3;
+            }else {
+                return true;
+            }
+        }
+
+        return false;
+        
+    }
+}
+```
+
 
 
 201. Design Add and Search Words Data Structure
