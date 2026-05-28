@@ -9195,6 +9195,8 @@ class Solution {
 }
 ```
 
+197. Remove K Digits -> done
+
 
 
 201. Design Add and Search Words Data Structure
