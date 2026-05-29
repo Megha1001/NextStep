@@ -9197,8 +9197,10 @@ class Solution {
 
 197. Remove K Digits -> done
 
-198. 
+198. Increasing Triplet Subsequence
 ```
+//TC : O(N)
+//SC : O(1)
 class Solution {
     public boolean increasingTriplet(int[] nums) {
 
