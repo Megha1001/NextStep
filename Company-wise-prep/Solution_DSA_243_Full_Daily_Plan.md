@@ -9224,6 +9224,93 @@ class Solution {
 }
 ```
 
+199. 
+
+200. Word Search II
+```
+//TC : O(W.L + M.N.3^L)
+//SC : O(W.L)
+class Solution {
+    class TrieNode{
+        boolean eow;
+        String word = "";
+        TrieNode children[] = new TrieNode[26];
+    }
+
+    private TrieNode getNode(){
+        return new TrieNode();
+    }
+
+    private int m;
+    private int n;
+    private List<String> result;
+    private int[][] directions = {{0, 1},{0, -1},{1, 0},{-1, 0}};
+    public List<String> findWords(char[][] board, String[] words) {
+        //Trie
+        m = board.length;
+        n = board[0].length;
+        result = new ArrayList<>();
+
+        TrieNode root = getNode();
+
+        for(String word : words){
+            insert(root, word);
+        }
+
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(root.children[board[i][j] - 'a'] != null){
+                    findWords(board, i , j, root);
+                }
+            }
+        }
+
+        return result;
+
+    }
+
+    //dfs
+    private void findWords(char[][] board, int i , int j, TrieNode root){
+        if(i < 0 || j < 0 || i >= m || j >= n){
+            return;
+        }
+
+        if(board[i][j] == '#' || root.children[board[i][j] - 'a'] == null){
+            return;
+        }
+
+        root = root.children[board[i][j] - 'a'];
+        if(root.eow){
+            result.add(root.word);
+            root.eow = false;
+        }
+
+        char temp = board[i][j];
+        board[i][j] = '#';
+
+        for(int [] dir : directions){
+            findWords(board, i + dir[0], j + dir[1], root);
+        }
+
+         board[i][j] = temp;
+    }
+
+    private void insert(TrieNode root, String word){
+        TrieNode curr = root;
+
+        for(int i = 0; i < word.length(); i++){
+            char ch = word.charAt(i);
+            if(curr.children[ch - 'a'] == null){
+                curr.children[ch - 'a'] = getNode();
+            }
+            curr = curr.children[ch - 'a'];
+        }
+
+        curr.eow = true;
+        curr.word = word;
+    }
+}
+```
 
 
 201. Design Add and Search Words Data Structure
