@@ -9450,6 +9450,42 @@ class WordDictionary {
 
 ```
 
+202. 
+
+
+203. Replace Words
+```
+class Solution {
+    public String replaceWords(List<String> dictionary, String sentence) {
+
+        Set<String> set = new HashSet<>(dictionary);
+        String[] words = sentence.split(" ");
+        StringBuilder res = new StringBuilder();
+
+        for(String word : words){
+            res.append(findRoot(word, set)).append(" ");
+        }
+
+        return res.toString().trim();
+    }
+
+    private String findRoot(String word, Set<String> set){
+        for(int l = 1; l <= word.length(); l++){
+            if(set.contains(word.substring(0, l))){
+                return word.substring(0, l);
+            }
+        }
+
+        return word;
+    }
+}
+```
+
+
+
+
+
+
 225. Valid Sudoku
 ```
 class Solution {
