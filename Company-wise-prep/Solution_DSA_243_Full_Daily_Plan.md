@@ -9224,7 +9224,86 @@ class Solution {
 }
 ```
 
-199. 
+199. Implement Trie (Prefix Tree)
+
+```
+//TC : O(N)
+//SC : O(N)
+class Trie {
+
+    class TrieNode{
+        boolean eow;
+        TrieNode [] children;
+
+        public TrieNode(){
+            this.eow = false;
+            this.children = new TrieNode[26];
+        }
+
+    }
+
+    private TrieNode root;
+    
+    public Trie() {
+        root = new TrieNode();   
+    }
+
+    private TrieNode getNode(){
+        return new TrieNode();
+    }
+    
+    public void insert(String word) {
+        TrieNode curr = root;
+        for(int i = 0 ; i < word.length(); i++){
+            char ch = word.charAt(i);
+            if(curr.children[ch - 'a'] == null){
+                curr.children[ch - 'a'] = getNode();
+            }
+            curr = curr.children[ch - 'a'];
+        }
+        curr.eow = true;
+        
+    }
+    
+    public boolean search(String word) {
+        TrieNode curr = root;
+
+        for(int i = 0; i < word.length(); i++){
+            char ch = word.charAt(i);
+            if(curr.children[ch - 'a'] == null){
+                return false;
+            }
+            curr = curr.children[ch - 'a'];
+        }
+
+        return curr != null && curr.eow == true;
+    }
+    
+    public boolean startsWith(String prefix) {
+        TrieNode curr = root;
+        int i = 0;
+        for(i = 0; i < prefix.length(); i++){
+            char ch = prefix.charAt(i);
+            if(curr.children[ch - 'a'] == null){
+                return false;
+            }
+            curr = curr.children[ch - 'a'];
+        }
+
+        return i == prefix.length();
+        
+    }
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.insert(word);
+ * boolean param_2 = obj.search(word);
+ * boolean param_3 = obj.startsWith(prefix);
+ */
+ 
+ ```
 
 200. Word Search II
 ```
@@ -9311,6 +9390,7 @@ class Solution {
     }
 }
 ```
+
 
 
 201. Design Add and Search Words Data Structure
