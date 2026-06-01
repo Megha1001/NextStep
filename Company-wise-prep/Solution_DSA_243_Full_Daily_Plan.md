@@ -9450,7 +9450,42 @@ class WordDictionary {
 
 ```
 
-202. 
+202. Search Suggestions System
+//Two Pointer approach
+```
+//TC : O(nLogN)
+//SC : O(1)
+class Solution {
+    public List<List<String>> suggestedProducts(String[] products, String searchWord) {
+        List<List<String>> res = new ArrayList<>();
+        Arrays.sort(products); //O(nlogN)
+
+        int l = 0;
+        int r = products.length - 1;
+        for(int i = 0; i < searchWord.length(); i++){ //O(len)
+            char ch = searchWord.charAt(i);
+
+            while(l <= r && (products[l].length() <= i || products[l].charAt(i) != ch)){
+                ++l;
+            }
+
+            while(l <= r && (products[r].length() <= i || products[r].charAt(i) != ch)){
+                --r;
+            }
+
+            List<String> curr = new ArrayList<>();
+            int remain = r - l + 1;
+            for(int j = 0; j < Math.min(remain, 3); j++){//O(3)
+                curr.add(products[l + j]);
+            }
+
+            res.add(curr);
+        }
+
+        return res;
+    }
+}
+```
 
 
 203. Replace Words
