@@ -42,3 +42,42 @@ class Solution {
     }
 }
 ```
+
+2. o/1 Knapsack Problem : https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
+```
+class Solution {
+    private int n;
+    private int dp[][];
+    public int knapsack(int W, int val[], int wt[]) {
+        n = val.length;
+        dp = new int[n][W+1];
+        
+        for(int row[] : dp){
+            Arrays.fill(row, -1);
+        }
+        
+        
+        return solve(0, W, val, wt);
+    }
+    
+    private int solve(int i, int W, int []val, int[]wt){
+        if(i >= n || W == 0){
+            return 0;
+        }
+        
+        if(dp[i][W] != -1){
+            return dp[i][W];
+        }
+        
+        int take = 0;
+        
+        if(wt[i] <= W){
+            take = val[i] + solve(i + 1, W - wt[i], val, wt);
+        }
+        
+        int skip = solve(i + 1, W, val, wt);
+        
+        return dp[i][W] = Math.max(take, skip);
+    }
+}
+```
