@@ -81,3 +81,42 @@ class Solution {
     }
 }
 ```
+
+3. Subset sum problem : https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1
+```
+//TC : O(n* sum)
+//SC : O(n* sum)
+class Solution {
+    private static Boolean[][] memo;
+    static Boolean isSubsetSum(int arr[], int sum) {
+        
+        //memoization
+        int n = arr.length;
+        memo = new Boolean[n][sum + 1];
+        return solve(n - 1, sum, arr);
+    }
+    
+    private static boolean solve(int i, int target, int []arr){
+        if(target == 0){
+            return true;
+        }
+        
+        if(i < 0){
+            return false;
+        }
+        
+        if(memo[i][target] != null){
+            return memo[i][target];
+        }
+        
+        boolean take = false;
+        if(arr[i] <= target){
+            take = solve(i - 1, target - arr[i], arr);
+        }
+        
+        boolean skip = solve(i - 1, target, arr);
+        
+        return memo[i][target] = take || skip;
+    }
+}
+```
