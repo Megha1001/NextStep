@@ -347,3 +347,56 @@ class NumArray {
  */
 ```
 
+7. Sum of query II : https://www.geeksforgeeks.org/problems/sum-of-query-ii5310/1
+
+```
+// TC: O(n + q log n)
+//SC : O(N)
+
+class Solution {
+    List<Integer> querySum(int n, int arr[], int q, int queries[]) {
+        //Using segment Tree
+        
+        int [] segmentTree = new int[4 * n];
+        
+        buildTree(0, 0, n - 1, segmentTree, arr);
+        
+        List<Integer> result = new ArrayList<>();
+        
+        for(int i = 0; i < 2 * q; i += 2){
+            int start = queries[i] - 1; // 1 based indexing;
+            int end = queries[i + 1] - 1;
+            
+            result.add(queryTree(0, 0, n - 1, start, end, segmentTree));
+        }
+        return result;
+    }
+    
+    private void buildTree(int i , int l, int r, int[]segTree, int[]arr){
+        if(l == r){
+            segTree[i] = arr[l];
+            return;
+        }
+        int mid = l + (r - l)/2;
+        buildTree(2 * i + 1, l, mid , segTree, arr);
+        buildTree(2 * i + 2, mid + 1, r, segTree, arr);
+        segTree[i] = segTree[2 * i + 1] + segTree[2 * i + 2];
+    }
+    
+    private int queryTree(int i, int l, int r, int start, int end, int[] segTree){
+        if(l > end || r < start){
+            return 0;
+        }
+        
+        else if(l >= start && r <= end){
+            return segTree[i];
+        }
+        
+        else{
+            //overlapping
+            int mid = l + (r - l)/2;
+            return queryTree(2 * i + 1, l, mid, start, end, segTree) + queryTree(2 * i + 2, mid + 1, r, start, end, segTree);
+        }
+    }
+}
+```
