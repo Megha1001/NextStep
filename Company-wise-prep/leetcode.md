@@ -154,7 +154,7 @@ class Solution {
 ```
 
 
-3. Find K Pairs with Smallest Sums : https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/
+4. Find K Pairs with Smallest Sums : https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/
 ```
 //TC : O(kLogK)
 //SC : O(K)
@@ -209,7 +209,7 @@ class Solution {
 }
 ```
 
-4. Merge K Sorted Linked Lists
+5. Merge K Sorted Linked Lists
 ```
 /**
  * Definition for singly-linked list.
@@ -264,5 +264,86 @@ class Solution {
         return head.next;
     }
 }
+```
+
+6. Range Sum Query - Mutable
+```
+class NumArray {
+    private int [] segTree;
+    private int numlen;
+
+    public NumArray(int[] nums) {
+        int n = nums.length;
+        numlen = n;
+        segTree = new int[4 * n];
+        buildTree(0, 0, numlen - 1, nums);
+    }
+
+    //O(N)
+    private void buildTree(int i, int l, int r, int[] nums){
+        if(l == r){
+            segTree[i] = nums[l];
+            return;
+        }
+
+        int mid = l + (r - l)/2;
+        buildTree(2 * i + 1, l, mid, nums);
+        buildTree(2 * i + 2, mid + 1, r, nums);
+
+        segTree[i] = segTree[2 * i + 1] + segTree[2 * i + 2];
+    }
+    
+    //O(logN)
+    public void update(int index, int val) {
+        updateTree(index, val, 0, 0, numlen - 1);
+    }
+
+    private void updateTree(int index, int val, int i, int l, int r){
+        if(l == r){
+            segTree[i] = val;
+            return;
+        }
+
+        int mid = l + (r - l)/2;
+
+        if(index <= mid){
+            //go to left
+            updateTree(index, val, 2 * i + 1, l, mid);
+        }else{
+            updateTree(index, val, 2 * i + 2, mid + 1, r);
+        }
+
+        segTree[i] = segTree[2 * i + 1] + segTree[2 * i + 2];
+    }
+    
+    //O(logN)
+    public int sumRange(int left, int right) {
+        return query(0, 0, numlen - 1, left, right);
+    }
+
+    private int query(int i, int l, int r, int start, int end){
+        //1. out of scope
+        if(l > end || start > r){
+            return 0;
+        }
+
+        //2. in bounds equal
+        else if(start <= l &&  r <= end){
+            return segTree[i];
+        }
+
+        else{ //overlapping
+            int mid = l + (r - l)/2;
+            return query(2 * i + 1, l, mid, start, end) + query(2 * i + 2, mid + 1, r, start, end);
+        }
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * obj.update(index,val);
+ * int param_2 = obj.sumRange(left,right);
+ */
 ```
 
