@@ -400,3 +400,50 @@ class Solution {
     }
 }
 ```
+
+8. Range Minimum Query : https://www.geeksforgeeks.org/problems/range-minimum-query/1
+```
+/* The functions which
+builds the segment tree */
+class GfG {
+    static int st[];
+
+    public static int[] constructST(int arr[], int n) {
+        st = new int[4 * n];
+        buildSegTree(0, 0, n-1, arr);
+        return st;
+    }
+    
+    private static void buildSegTree(int i, int l, int r, int[]arr){
+        if(l == r){
+            st[i] = arr[l];
+            return;
+        }
+        int mid = l + (r - l)/2;
+        buildSegTree(2 * i + 1, l, mid, arr);
+        buildSegTree(2 * i + 2, mid + 1, r, arr);
+        
+        st[i] = Math.min(st[2 * i + 1], st[2 * i + 2]);
+    }
+
+    /* The functions returns the
+      min element in the range
+      from l and r */
+    public static int RMQ(int st[], int n, int l, int r) {
+        return query(0, 0, n - 1, l, r, st);
+    }
+    
+    private static int query(int i , int l, int r, int start, int end, int[]st){
+        if(l > end || r < start){
+            return Integer.MAX_VALUE;
+        }
+        
+        else if(start <= l && r <= end){
+            return st[i];
+        }
+        
+        int mid = l + (r - l)/2;
+        return Math.min(query(2 * i + 1, l, mid, start, end, st), query(2 * i + 2, mid + 1, r, start, end, st));
+    }
+}
+```
