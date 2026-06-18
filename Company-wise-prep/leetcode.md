@@ -448,3 +448,97 @@ class GfG {
 }
 ```
 
+9. LC : 2940. Find Building Where Alice and Bob Can Meet
+```
+class Solution {
+
+    
+    private int[] constructST(int[]heights){
+        int n = heights.length;
+        int segmentTree[] = new int[4 * n];
+        buildTree(0, 0, n - 1, segmentTree, heights);
+        return segmentTree;
+    }
+
+
+    private void buildTree(int i, int l, int r, int[]segmentTree, int[]heights){
+        if(l == r){
+            segmentTree[i] = l;
+            return;
+        }
+
+        int m = l + (r - l)/2;
+        buildTree(2 * i + 1, l , m, segmentTree, heights);
+        buildTree(2 * i + 2, m + 1 , r, segmentTree, heights);
+
+        segmentTree[i] = 
+        heights[segmentTree[2 * i + 1]] >= heights[segmentTree[2 * i + 2]] ? 
+            segmentTree[2 * i + 1] 
+            : segmentTree[2 * i + 2];
+    }
+
+
+    private int RMIQ(int[]segmentTree, int[]heights, int start, int end){
+        return querySegmentTree(start, end, 0, 0, heights.length - 1, segmentTree, heights);
+    }
+
+    private int querySegmentTree(int start, int end, int i, int l, int r, int[]segmentTree, int[]heights){
+        //out of bound
+        if(r < start || end < l){
+            return -1;
+        }
+
+        //in bound
+        if(start <= l && r <= end){
+            return segmentTree[i];
+        }
+
+        //overlap
+        int mid = l + (r - l)/2;
+        int leftIdx = querySegmentTree(start, end, 2 * i + 1, l, mid, segmentTree, heights);
+        int rightIdx = querySegmentTree(start, end, 2 * i + 2, mid + 1, r, segmentTree, heights);
+
+        if(leftIdx == -1) return rightIdx;
+        if(rightIdx == -1) return leftIdx;
+
+        return (heights[leftIdx] >= heights[rightIdx]) ? leftIdx : rightIdx;
+    }
+
+    public int[] leftmostBuildingQueries(int[] heights, int[][] queries) {
+        int n = heights.length;
+        int [] segmentTree = constructST(heights);
+        int[]result = new int[queries.length];
+
+        for(int q = 0; q < queries.length; q++){
+            int alice = Math.min(queries[q][0], queries[q][1]);
+            int bob = Math.max(queries[q][0], queries[q][1]);
+
+            if(alice == bob || heights[bob] > heights[alice]){
+                result[q] = bob;
+                continue;
+            }
+
+
+            int l = bob + 1;
+            int r = n - 1;
+            int resultIdx = Integer.MAX_VALUE;
+
+            while(l <= r){
+                int m = l + (r - l)/2;
+                int idx = RMIQ(segmentTree, heights, l , m);
+                if(heights[idx] > Math.max(heights[alice], heights[bob])){
+                    r = m - 1;
+                    resultIdx = Math.min(resultIdx, idx);
+                }else{
+                    l = m + 1;
+                }
+            }
+
+            result[q] = resultIdx == Integer.MAX_VALUE ? -1 : resultIdx;
+
+        }
+
+        return result;   
+    }
+}
+```
