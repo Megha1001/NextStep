@@ -701,3 +701,59 @@ class Solution {
     }
 }
 ```
+- BFS
+```
+class Solution {
+    private int rows;
+    private int cols;
+    private boolean[][]visited;
+    private int[][]directions = {{0, 1},{0, -1},{1, 0},{-1, 0}};
+    public boolean containsCycle(char[][] grid) {
+        rows = grid.length;
+        cols = grid[0].length;
+        visited  = new boolean[rows][cols];
+
+        for(int r = 0; r < rows; r++){
+            for(int c = 0; c < cols; c++){
+                if(!visited[r][c]){
+                    if(bfs(grid, r, c, grid[r][c])){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean bfs(char[][]grid, int row, int col, char ch){
+        Queue<int[]> q = new ArrayDeque<>();
+        q.offer(new int[]{row, col, -1, -1}); // r, c, parentR, parentC
+        visited[row][col] = true;
+        
+        while(!q.isEmpty()){
+            int[] curr = q.poll();
+            int r = curr[0];
+            int c = curr[1];
+            int parentR = curr[2];
+            int parentC = curr[3];
+
+            for(int dir[] : directions){
+                int nr = r + dir[0];
+                int nc = c + dir[1];
+
+                if(nr >=0 && nc >=0  && nr < rows && nc < cols && grid[nr][nc] == ch){
+                    if(!visited[nr][nc]){
+                        visited[nr][nc] = true;
+                        q.offer(new int[]{nr, nc, r, c});
+                    }else {
+                        if(nr != parentR || nc != parentC){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}
+```
