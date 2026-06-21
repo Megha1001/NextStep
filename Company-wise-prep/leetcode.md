@@ -757,3 +757,55 @@ class Solution {
     }
 }
 ```
+
+12. Directed Graph Cycle
+```
+class Solution {
+    public boolean isCyclic(int V, int[][] edges) {
+        //Kahn's algo
+        
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        
+        for(int i = 0; i < V; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int edge[] : edges){
+            adj.get(edge[0]).add(edge[1]);
+        }
+        
+        //calculate indegree
+        int[]indegree = new int[V];
+        
+        for(int r = 0; r < adj.size(); r ++){
+            for(int c = 0; c < adj.get(r).size(); c++){
+                ++indegree[adj.get(r).get(c)];
+            }
+        }
+        
+        
+        Queue<Integer> q = new ArrayDeque<>();
+        
+        for(int i = 0; i < V; i++){
+            if(indegree[i] == 0){
+                q.offer(i);
+            }
+        }
+        
+        int count = 0;
+        while(!q.isEmpty()){
+            int curr = q.poll();
+            ++count;
+            
+            for(int neighbor : adj.get(curr)){
+                --indegree[neighbor];
+                if(indegree[neighbor] == 0){
+                    q.offer(neighbor);
+                }
+            }
+        }
+        
+        return count == V ? false : true;
+    }
+}
+```
