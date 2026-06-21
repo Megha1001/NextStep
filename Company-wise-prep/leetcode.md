@@ -590,3 +590,59 @@ class Solution {
     }
 }
 ```
+
+- By BFS
+```
+class Solution {
+    public boolean isCycle(int V, int[][] edges) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        
+        for(int i = 0; i < V; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int [] edge : edges){
+            int u = edge[0];
+            int v = edge[1];
+            
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
+        
+        boolean[] visited = new boolean[V];
+        
+        for(int i = 0; i < V; i++){
+            if(!visited[i]){
+                if(bfs(i, adj, visited)){
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+        
+    }
+    
+    private boolean bfs(int node, ArrayList<ArrayList<Integer>>adj, boolean[]visited){
+        Queue<int[]> q = new ArrayDeque<>();
+        q.offer(new int[]{node, -1}); //node, parent
+        
+        while(!q.isEmpty()){
+            int [] curr = q.poll();
+            int currNode = curr[0];
+            int parent = curr[1];
+            visited[currNode] = true;
+            
+            for(int neighbor : adj.get(currNode)){
+                if(!visited[neighbor]){
+                    q.offer(new int[]{neighbor, currNode});
+                }else if(parent != neighbor){
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+}
+```
