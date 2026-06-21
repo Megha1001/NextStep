@@ -646,3 +646,58 @@ class Solution {
     }
 }
 ```
+
+11. Detect Cycles in 2D Grid
+```
+//TC : O(rows * cols)
+//SC : O(rows * cols)
+class Solution {
+    private int rows;
+    private int cols;
+    private boolean[][]visited;
+    private int[][]directions = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+    public boolean containsCycle(char[][] grid) {
+        rows = grid.length;
+        cols = grid[0].length;
+
+        visited = new boolean[rows][cols];
+
+        for(int r = 0; r < rows; r++){
+            for(int c = 0; c < cols; c++){
+                if(!visited[r][c]){
+                    if(dfs(grid, r, c, - 1, -1, grid[r][c])){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    private boolean dfs(char[][]grid, int r, int c, int parentR, int parentC, char ch){
+        visited[r][c] = true;
+
+        for(int dir[] : directions){
+            int nr = dir[0] + r;
+            int nc = dir[1] + c;
+
+            if(nr < 0 || nc < 0 || nr >= rows || nc >= cols || grid[nr][nc]!= ch){
+                continue;
+            }
+
+            if(!visited[nr][nc]){
+                if(dfs(grid, nr, nc, r, c, ch)){
+                    return true;
+                }
+            }else {
+                if(nr != parentR || nc != parentC){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
