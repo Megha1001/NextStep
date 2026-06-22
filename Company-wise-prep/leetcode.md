@@ -809,3 +809,36 @@ class Solution {
     }
 }
 ```
+
+12. Number of Provinces - LC : 547
+
+```
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        //Using DFS - TC : O(N * N), SC : O(N)
+
+        int n = isConnected.length;
+        boolean visited[] = new boolean[n];
+        int provinces = 0;
+
+        for(int i = 0; i < n; i++){
+            if(!visited[i]){
+                dfs(isConnected, i, visited);
+                ++provinces;
+            }
+        }
+        return provinces;
+    }
+
+    private void dfs(int[][]isConnected, int r, boolean[]visited){
+        visited[r] = true;
+
+        //find connected component
+        for(int i = 0; i < isConnected.length; i++){
+            if(isConnected[r][i] == 1 && !visited[i]){
+                dfs(isConnected, i, visited);
+            }
+        }
+    }
+}
+```
