@@ -932,3 +932,31 @@ class Solution {
     }
 }
 ```
+
+
+14. Maximum Average Subarray I
+```
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+
+        double res = Integer.MIN_VALUE;
+        double sum = 0;
+
+        //for first k element
+        for(int i = 0; i < k; i++){
+            sum += nums[i];
+        }
+
+        res = sum;
+
+        //sliding window
+        for(int i = k ; i < nums.length; i++){
+            sum = (sum + nums[i] - nums[i-k]);
+            res = Math.max(sum, res);
+        }
+
+        return res/k;
+        
+    }
+}
+```
