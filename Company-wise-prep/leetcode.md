@@ -960,3 +960,45 @@ class Solution {
     }
 }
 ```
+
+
+15.  Is Graph Bipartite?
+```
+//TC : O(V+E)
+//SC : O(V)
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+        //Idea : if cycle of odd length exists - not a Bipartite
+        int n = graph.length;
+        int color[] = new int[n];
+        Arrays.fill(color, -1);
+
+        for(int i = 0; i < n; i++){
+            if(color[i] == - 1){
+                if(!dfs(graph, i, 0, color)){
+                    return false;
+                }
+            }
+        }
+        
+        return true;
+    }
+
+    private boolean dfs(int[][]graph, int curr, int currColor, int[]color){
+        color[curr] = currColor;
+
+        for(int nei : graph[curr]){
+            if(color[nei] == -1){
+                if(!dfs(graph, nei, 1 - currColor, color)){
+                    return false;
+                }
+            }
+            else if(currColor == color[nei]){
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+```
