@@ -1185,3 +1185,78 @@ class Solution {
     }
 }
 ```
+
+18. Number of Operations to Make Network Connected
+```
+class Solution {
+
+    static class DSU{
+        private int parent[];
+        private int rank[];
+
+        DSU(int n){
+            parent = new int[n];
+            rank = new int[n];
+
+            for(int i = 0; i < n; i++){
+                parent[i] = i;
+            }
+        }
+
+        private int find(int i){
+            if(parent[i] == i){
+                return i;
+            }
+
+            return parent[i] = find(parent[i]);
+        }
+
+        private void union(int x, int y){
+            int px = find(x);
+            int py = find(y);
+
+            if(px == py){
+                return;
+            }
+
+            if(rank[px] > rank[py]){
+                parent[py] = px;
+            }else if(rank[py] > rank[px]){
+                parent[px] = py;
+            }else{
+                parent[py] = px;
+                ++rank[px];
+            }
+        }
+    }
+
+    public int makeConnected(int n, int[][] connections) {
+
+        if(connections.length < n-1){
+            return -1;
+        }
+        
+        //DSU
+
+        DSU dsu = new DSU(n);
+        int components = n;
+        int extraEdge = 0;
+
+        for(int edge[] : connections){
+            int u = edge[0];
+            int v = edge[1];
+
+            if(dsu.find(u) == dsu.find(v)){
+                ++extraEdge;
+            }else{
+                dsu.union(u, v);
+                --components;
+            }
+        
+        }
+        int neededEdges = components - 1;
+        return extraEdge >= neededEdges ? neededEdges : -1;
+        
+    }
+}
+```
