@@ -1046,3 +1046,71 @@ class Solution {
     }
 }
 ```
+
+16. Detect cycle in undirected graph
+```
+//TC : O(V+E)
+//SC : O(V)
+class Solution {
+    static class DSU{
+        int parent[];
+        int rank[];
+        
+        public DSU(int n){
+            parent = new int[n];
+            rank = new int[n];
+            
+            for(int i = 0; i < n; i++){
+                parent[i] = i;
+            }
+        }
+        
+        private int find(int x){
+            if(parent[x] == x){
+                return x;
+            }
+            
+            return parent[x] = find(parent[x]);
+        }
+        
+        private boolean union(int x, int y){
+            int px = find(x);
+            int py = find(y);
+            
+            if(px == py){
+                return false;
+            }
+            
+            if(rank[px] > rank[py]){
+                parent[py] = px;
+            }else if(rank[py] > rank[px]){
+                parent[px] = py;
+            }else{
+                parent[px] = py;
+                ++rank[py];
+            }
+            
+            return true;
+        }
+    }
+    public boolean detectCycle(int V, ArrayList<ArrayList<Integer>> adj) {
+        //DSU
+        
+        DSU dsu = new DSU(V);
+        
+        
+        for(int i = 0; i < adj.size(); i++){
+            for(int neighbor : adj.get(i)){//to process only u -> v not v -> u
+                if(i < neighbor){
+                    if(!dsu.union(i, neighbor)){
+                        return true;
+                    }
+                }
+            }
+        }
+    
+        
+        return false;
+    }
+}
+```
