@@ -1047,7 +1047,7 @@ class Solution {
 }
 ```
 
-16. Detect cycle in undirected graph
+16. Detect cycle in undirected graph : https://www.geeksforgeeks.org/problems/detect-cycle-using-dsu/1
 ```
 //TC : O(V+E)
 //SC : O(V)
