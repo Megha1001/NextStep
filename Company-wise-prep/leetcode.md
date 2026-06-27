@@ -1114,3 +1114,74 @@ class Solution {
     }
 }
 ```
+
+17.  Satisfiability of Equality Equations
+
+```
+class Solution {
+    static class DSU{
+        private int[] parent;
+        private int[] rank;
+
+        DSU(int n){
+            parent = new int[n];
+            rank = new int[n];
+
+            for(int i = 0; i < n; i++){
+                parent[i] = i;
+            }
+        }
+
+        private int find(int i){
+            if(parent[i] == i){
+                return i;
+            }
+
+            return parent[i] = find(parent[i]); // path compression
+        }
+
+        private void union(int x, int y){
+            int px = find(x);
+            int py = find(y);
+
+            if(px == py){
+                return;
+            }
+
+            if(rank[px] > rank[py]){
+                parent[py] = px;
+            }else if(rank[px] < rank[py]){
+                parent[px] = py;
+            }else{
+                parent[px] = py;
+                ++rank[py];
+            }
+        }
+    }
+    public boolean equationsPossible(String[] equations) {
+
+        DSU dsu = new DSU(26);
+
+        for(String eq : equations){
+            if(eq.charAt(1) == '='){
+                int x = eq.charAt(0) - 'a';
+                int y = eq.charAt(3) - 'a';
+                dsu.union(x, y);                
+            }
+        }
+
+        for(String eq : equations){
+            if(eq.charAt(1) == '!'){
+                int x = eq.charAt(0) - 'a';
+                int y = eq.charAt(3) - 'a';
+                if(dsu.find(x) == dsu.find(y)){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+        
+    }
+}
+```
