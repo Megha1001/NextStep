@@ -1260,3 +1260,52 @@ class Solution {
     }
 }
 ```
+
+19. Count Unreachable Pairs of Nodes in an Undirected Graph
+```
+//TC: O(n + m)
+//SC: O(n + m)
+class Solution {
+    public long countPairs(int n, int[][] edges) {
+        //DFS
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            adj.add(new ArrayList<>());
+        }
+
+        for(int edge[] : edges){
+            int u = edge[0];
+            int v = edge[1];
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
+
+        long result = 0;
+        long seen = 0;
+
+        boolean[] visited = new boolean[n];
+        for(int i = 0; i < n; i++){
+            if(!visited[i]){
+                long size = dfs(i, adj, visited);
+                result += seen * size;
+                seen += size;        
+            }
+        }
+        
+        return result;
+    }
+
+    private long dfs(int i, ArrayList<ArrayList<Integer>>adj, boolean[]visited){
+        visited[i] = true;
+        int size = 1;
+
+        for(int nei : adj.get(i)){
+            if(!visited[nei]){
+                size += dfs(nei, adj, visited);
+            }
+        }
+
+        return size;
+    }
+}
+```
