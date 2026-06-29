@@ -1309,3 +1309,39 @@ class Solution {
     }
 }
 ```
+
+import java.util.*;
+
+class Solution {
+    public int[] dijkstra(int V, ArrayList<ArrayList<int[]>> adj, int source) {
+        int[] dist = new int[V];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+
+        dist[source] = 0;
+        pq.offer(new int[]{0, source});
+
+        while (!pq.isEmpty()) {
+            int[] curr = pq.poll();
+            int currDist = curr[0];
+            int node = curr[1];
+
+            if (currDist > dist[node]) {
+                continue;
+            }
+
+            for (int[] edge : adj.get(node)) {
+                int neighbor = edge[0];
+                int weight = edge[1];
+
+                if (currDist + weight < dist[neighbor]) {
+                    dist[neighbor] = currDist + weight;
+                    pq.offer(new int[]{dist[neighbor], neighbor});
+                }
+            }
+        }
+
+        return dist;
+    }
+}
