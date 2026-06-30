@@ -1344,5 +1344,57 @@ class Solution {
 
         return dist;
     }
-    
+
 }
+
+
+20. Dijkstra Algorithm
+```
+class Solution {
+    public int[] dijkstra(int V, int[][] edges, int src) {
+        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+        
+        for(int i = 0; i < V; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int[] edge : edges){
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            adj.get(u).add(new int[]{v, wt});
+            adj.get(v).add(new int[]{u, wt});
+        }
+        
+        int[] dis = new int[V];
+        Arrays.fill(dis, Integer.MAX_VALUE);
+        
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        dis[src] = 0;
+        pq.offer(new int[]{0, src}); //distance, node;
+        
+        while(!pq.isEmpty()){
+            int curr[] = pq.poll();
+            int currDist = curr[0];
+            int node = curr[1];
+            
+            if(currDist > dis[node]){
+                continue;
+            }
+            
+            for(int[] nei : adj.get(node)){
+                int nextNode = nei[0];
+                int weight = nei[1];
+                if(currDist + weight < dis[nextNode]){
+                    dis[nextNode] = currDist + weight;
+                    pq.offer(new int[]{dis[nextNode], nextNode});
+                }
+            }
+        }
+        
+        return dis;
+        
+        
+    }
+}
+```
