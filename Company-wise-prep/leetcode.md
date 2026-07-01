@@ -1398,3 +1398,60 @@ class Solution {
     }
 }
 ```
+
+
+using TreeSet
+```
+class Solution {
+    public int[] dijkstra(int V, int[][] edges, int src) {
+        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+        
+        for(int i = 0; i < V; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        
+        for(int edge[] : edges){
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            
+            adj.get(u).add(new int[]{v, wt});
+            adj.get(v).add(new int[]{u, wt});
+        }
+        
+        int res[] = new int[V];
+        Arrays.fill(res, Integer.MAX_VALUE);
+        TreeSet<int[]>set = new TreeSet<>((a,b)->{
+            if(a[0] != b[0]){
+                return Integer.compare(a[0], b[0]);
+            }
+            return Integer.compare(a[1], b[1]);
+        });
+        
+        res[src] = 0;
+        set.add(new int[]{0, src}); //distance, node;
+        
+        while(!set.isEmpty()){
+            int curr[] = set.pollFirst();
+            int currDist = curr[0];
+            int node = curr[1];
+            
+            for(int nei[] : adj.get(node)){
+                int nextNode = nei[0];
+                int dist = nei[1];
+                
+                if(currDist + dist < res[nextNode]){
+                    if(res[nextNode] != Integer.MAX_VALUE){
+                        set.remove(new int[]{res[nextNode], nextNode});
+                    }
+                    res[nextNode] = currDist + dist;
+                    set.add(new int[]{res[nextNode], nextNode});
+                }
+                
+            }
+        }
+        return res;
+    }
+}
+```
