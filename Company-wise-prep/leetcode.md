@@ -1456,3 +1456,77 @@ class Solution {
 }
 ```
 
+21. Shortest Path from 1 to n in a Graph
+```
+class Solution {
+    public List<Integer> shortestPath(int n, int m, int edges[][]) {
+        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+        
+        for(int i = 0; i <=n; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int[]edge : edges){
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            
+            adj.get(u).add(new int[]{v, wt});
+            adj.get(v).add(new int[]{u, wt});
+        }
+        
+        int dist[] = new int[n + 1];
+        int parent[] = new int[n + 1];
+        
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        
+        for(int i = 1; i <=n; i++){
+            parent[i] = i;
+        }
+        
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        
+        dist[1] = 0;
+        pq.add(new int[]{0, 1}); //dist, node;
+        
+        while(!pq.isEmpty()){
+            int curr[] = pq.poll();
+            int currDist = curr[0];
+            int currNode = curr[1];
+            
+            if(currDist > dist[currNode]){
+                continue;
+            }
+            
+            for(int [] edge : adj.get(currNode)){
+                int neighbor = edge[0];
+                int weight = edge[1];
+                
+                if(currDist + weight < dist[neighbor]){
+                    dist[neighbor] = currDist + weight;
+                    parent[neighbor] = currNode;
+                    pq.offer(new int[]{dist[neighbor], neighbor});
+                }
+            }
+        }
+        
+        if(dist[n] == Integer.MAX_VALUE){
+            return new ArrayList<>(Arrays.asList(-1));
+        }
+        
+        ArrayList<Integer> path = new ArrayList<>();
+        int node = n;
+        
+        while(parent[node] != node){
+            path.add(node);
+            node = parent[node];
+        }
+        
+        path.add(1);
+        Collections.reverse(path);
+        path.add(0, dist[n]);
+        
+        return path;
+    }
+}
+```
