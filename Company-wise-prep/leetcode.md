@@ -1530,3 +1530,62 @@ class Solution {
     }
 }
 ```
+
+22. Network Delay Time
+```
+//TC : O(E logV)
+//SC : O(E + V)
+class Solution {
+    public int networkDelayTime(int[][] times, int n, int k) {
+        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+
+        for(int i = 0; i <= n; i++){
+            adj.add(new ArrayList<>());
+        }
+
+        for(int[]time : times){
+            int u = time[0];
+            int v = time[1];
+            int w = time[2];
+
+            adj.get(u).add(new int[]{v, w});
+        }
+        
+        int[] dis = new int[n + 1];
+        Arrays.fill(dis, Integer.MAX_VALUE);
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        dis[k] = 0;
+        pq.add(new int[]{0, k}); //distance, node;
+
+        while(!pq.isEmpty()){
+            int [] curr = pq.poll();
+            int currTime = curr[0];
+            int node = curr[1];
+
+            if(currTime > dis[node]){
+                continue;
+            }
+
+            for(int [] nei : adj.get(node)){
+                int neigNode = nei[0];
+                int neigTime = nei[1];
+                if(neigTime + currTime < dis[neigNode]){
+                    dis[neigNode] = neigTime + currTime;
+                    pq.offer(new int[]{dis[neigNode], neigNode});
+                }
+            }
+        }
+
+
+        int result = 0;
+        for(int i = 1; i <= n; i ++){
+            if(dis[i] == Integer.MAX_VALUE){
+                return -1;
+            }
+            result = Math.max(result, dis[i]);
+        }
+
+        return result;
+    }
+}
+```
