@@ -1784,3 +1784,41 @@ class Solution {
 }
 ```
 
+28. Floyd Warshall Algorith
+```
+class Solution {
+    public void floydWarshall(int[][] dist) {
+        int INF = 100000;
+        int n = dist.length;
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(dist[i][j] == -1){
+                    dist[i][j] = INF;
+                }
+            }
+        }
+        
+        
+        for(int via = 0; via < n; via++){
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
+                    if(dist[i][via] + dist[via][j] < dist[i][j]){
+                        dist[i][j] = dist[i][via] + dist[via][j];
+                    }
+                }
+            }
+        }
+        
+        
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(dist[i][j] == INF){
+                    dist[i][j] = -1;
+                }
+            }
+        }
+        
+    }
+}
+```
