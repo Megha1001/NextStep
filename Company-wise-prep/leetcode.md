@@ -1845,3 +1845,55 @@ class Solution {
     }
 }
 ```
+
+28. Minimum Spanning Tree
+```
+//using Prim's algorithm
+
+```
+class Solution {
+    public int spanningTree(int V, int[][] edges) {
+        
+        ArrayList<ArrayList<int[]>>adj = new ArrayList<>();
+        
+        for(int i =0; i < V; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int[]edge : edges){
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            
+            adj.get(u).add(new int[]{wt, v});
+            adj.get(v).add(new int[]{wt, u});
+        }
+        
+       PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+       boolean isMST [] = new boolean[V];
+       minHeap.offer(new int[]{0, 0}); //wt, node
+       
+       int res = 0;
+       
+       while(!minHeap.isEmpty()){
+           int curr [] = minHeap.poll();
+           int wt = curr[0];
+           int node = curr[1];
+           
+           if(isMST[node]) continue;
+           isMST[node] = true;
+           res += wt;
+           for(int[]neig : adj.get(node)){
+               int neig_wt = neig[0];
+               int neig_node = neig[1];
+               if(!isMST[neig_node]){
+                   minHeap.offer(new int[]{neig_wt, neig_node});
+               }
+           }
+       }
+       
+       return res;
+        
+    }
+}
+```
