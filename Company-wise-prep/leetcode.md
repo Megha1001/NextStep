@@ -1897,3 +1897,83 @@ class Solution {
     }
 }
 ```
+
+
+29. Count Strongly Connected
+
+```
+class Solution {
+    // Function to find number of strongly connected components in the graph
+    public int kosaraju(int V, int[][] edges) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for(int i = 0; i < V; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int[]edge : edges){
+            int u = edge[0];
+            int v = edge[1];
+            
+            adj.get(u).add(v);
+        }
+        
+        //Step 1 : fill the stack in order of completion time
+        Stack<Integer> st = new Stack<>();
+        boolean[] visited = new boolean[V];
+        
+        for(int i = 0; i < V; i++){
+            if(!visited[i]){
+                dfsFill(i, adj, visited, st);
+            }
+        }
+        
+        
+        //Step 2 : Create reverse graph
+        List<List<Integer>> reverseAdj = new ArrayList<>();
+        for(int i = 0; i < V; i++){
+            reverseAdj.add(new ArrayList<>());
+        }
+        
+        for(int u = 0; u < V; u++){
+            for(int v : adj.get(u)){
+                reverseAdj.get(v).add(u);
+            }
+        }
+        
+        
+        Arrays.fill(visited, false);
+        int sccCount = 0;
+        
+        while(!st.isEmpty()){
+            int node = st.pop();
+            if(!visited[node]){
+                dfsTraversal(node, reverseAdj, visited);
+                ++sccCount;
+            }
+        }
+        
+        return sccCount;
+    }
+    
+    private void dfsTraversal(int node, List<List<Integer>>reverseAdj, boolean [] visited){
+        visited[node] = true;
+        for(int u : reverseAdj.get(node)){
+            if(!visited[u]){
+                dfsTraversal(u, reverseAdj, visited);
+            }
+        }
+    }
+    
+    private void dfsFill(int u, List<List<Integer>>adj, boolean[]visited, Stack<Integer>st){
+        visited[u] = true;
+        
+        for(int v : adj.get(u)){
+            if(!visited[v]){
+                dfsFill(v, adj, visited, st);
+            }
+        }
+        
+        st.push(u);
+    }
+}
+```
