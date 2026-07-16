@@ -1978,3 +1978,71 @@ class Solution {
 }
 ```
 
+30. Euler Path and Circuit
+
+```
+class Solution {
+	public int isEulerCircuit(int V, int[][] adj) {
+		
+		if (!isConnected(adj, V)) {
+			return 0;
+		}
+		
+		int oddCount = 0;
+		for (int i = 0; i < V; i++) {
+			if (adj[i].length % 2 != 0) {
+				++oddCount;
+			}
+		}
+		
+		if (oddCount > 2) {
+			return 0;
+		}
+		
+		if (oddCount == 2) {
+			return 1;
+		}
+		
+		return 2;
+		
+	}
+	
+	private boolean isConnected(int[][] adj, int V) {
+		boolean[] visited = new boolean[V];
+		
+		int nonZeroDegreeVertex = -1;
+		
+		for (int i = 0; i < V; i++) {
+			if (adj[i].length != 0) {
+				nonZeroDegreeVertex = i;
+				break;
+			}
+		}
+		
+		if (nonZeroDegreeVertex == -1) {
+            return true;
+        }
+		
+		dfs(adj, nonZeroDegreeVertex, visited);
+		
+		for (int i = 0; i < V; i++) {
+			if (!visited[i] && adj[i].length > 0) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	private void dfs(int[][] adj, int u, boolean []visited) {
+		visited[u] = true;
+		for (int i = 0; i < adj[u].length; i++) {
+			int neighbor = adj[u][i];
+			if (!visited[neighbor]) {
+				dfs(adj, neighbor, visited);
+			}
+		}
+	}
+}
+
+```
