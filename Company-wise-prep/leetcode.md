@@ -2100,3 +2100,11 @@ class Solution {
     }
 }
 ```
+
+32. 
+
+/*
+If you choose a random node u and find the farthest node v then this node v will always be one end of the diameter
+
+The farthest node from one end of the diameter is the other end of diameter
+*/
