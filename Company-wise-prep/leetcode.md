@@ -2108,3 +2108,57 @@ If you choose a random node u and find the farthest node v then this node v will
 
 The farthest node from one end of the diameter is the other end of diameter
 */
+
+```
+class Solution {
+    public int treeDiameter(int [][]edges){
+        int n = edges.length + 1;
+        Map<Integer, List<Integer>>adj = new HashMap<>();
+        
+        for(int[]edge : edges){
+            int u = edge[0];
+            int v = edge[1];
+            adj.computeIfAbsent(u, k->new ArrayList<>()).add(v);
+            adj.computeIfAbsent(v, k -> new ArrayList<>()).add(u);
+        }
+        
+        return findDiameter(n, adj);
+    }
+    
+    private int findDiamter(int n, Map<Integer, List<Integer>>adj){
+        int[]farthestNodeResult = findFarthestNode(n, adj, 0);
+        
+        int []diameterResult = findFarthestNode(n, adj, farthestNodeResult[0]);
+        return diameterResult[1];
+    }
+    
+    private int[] findFarthestNode(int n, Map<Integer, List<Integer>>adj, int sourceNode){
+        
+        Deque<Integer> q = new ArrayDeque<>();
+        boolean[] visited = new boolean[n];
+        
+        visited[sourceNode] = true;
+        q.offer(sourceNode);
+        
+        int maxDist = 0;
+        int farthestNode = sourceNode;
+        
+        while(!q.isEmpty()){
+            int size = q.size();
+            for(int i = 0; i < size; i++){
+                int currNode = q.poll();
+                farthestNode = currNode;
+                
+                for(int nei : adj.getOrDefault(currNode, new ArrayList<>())){
+                    if(!visited[nei]){
+                        visited[nei] = true;
+                        q.offer(nei);
+                    }
+                }
+            }
+            if(!q.isEmpty()) ++maxDist;
+        }
+        return int[]{farthestNode, maxDist};
+    }
+}
+```
