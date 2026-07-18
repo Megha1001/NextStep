@@ -2162,3 +2162,71 @@ class Solution {
     }
 }
 ```
+
+33. Find Minimum Diameter After Merging Two Trees
+
+```
+class Solution {
+    public int minimumDiameterAfterMerge(int[][] edges1, int[][] edges2) {
+
+        Map<Integer, List<Integer>> adj1 = buildAdj(edges1);
+        Map<Integer, List<Integer>> adj2 = buildAdj(edges2);
+        int n1 = edges1.length + 1;
+        int n2 = edges2.length + 1;
+        int d1 = findDiameter(adj1, n1);
+        int d2 = findDiameter(adj2, n2);
+
+        int combined = (d1 + 1)/2 + (d2 + 1)/2 + 1;
+
+        return Math.max(Math.max(d1, d2), combined);
+        
+    }
+
+    private int findDiameter(Map<Integer, List<Integer>> adj, int n){
+        int[]farthestNodeResult = findFarthestNode(adj, 0, n);
+        int diameterResult[] = findFarthestNode(adj, farthestNodeResult[0], n);
+        return diameterResult[1];
+    }
+
+    private int[] findFarthestNode(Map<Integer, List<Integer>> adj, int source, int n){
+        Deque<Integer> q = new ArrayDeque<>();
+        boolean[] visited = new boolean[n];
+        visited[source] = true;
+        q.offer(source);
+
+        int maxDist = 0;
+        int farthestNode = source;
+
+        while(!q.isEmpty()){
+            int size = q.size();
+            for(int i = 0; i < size; i++){
+                int currNode = q.poll();
+                farthestNode = currNode;
+
+                for(int neig : adj.getOrDefault(currNode, new ArrayList<>())){
+                    if(!visited[neig]){
+                        visited[neig] = true;
+                        q.offer(neig);
+                    }
+                }
+            }
+
+            if(!q.isEmpty()) ++maxDist;
+        }
+        return new int[]{farthestNode, maxDist};
+    }
+
+    private Map<Integer, List<Integer>> buildAdj(int [][] edges){
+        Map<Integer, List<Integer>> adj = new HashMap<>();
+
+        for(int edge[] : edges){
+            int u = edge[0];
+            int v = edge[1];
+            adj.computeIfAbsent(u, k-> new ArrayList<>()).add(v);
+            adj.computeIfAbsent(v, k -> new ArrayList<>()).add(u);
+        }
+
+        return adj;
+    }
+}
+```
