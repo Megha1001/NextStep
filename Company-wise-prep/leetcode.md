@@ -2230,3 +2230,48 @@ class Solution {
     }
 }
 ```
+
+
+34. Map of Highest Peak
+```
+class Solution {
+    public int[][] highestPeak(int[][] isWater) {
+        int m = isWater.length;
+        int n = isWater[0].length;
+
+        int[][]height = new int[m][n];
+        Deque<int[]>q = new ArrayDeque<>();
+
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(isWater[i][j] == 1){
+                    height[i][j] = 0;
+                    q.offer(new int[]{i, j});
+                }else {
+                    height[i][j] = -1; //unvisited;
+                }
+            }
+        }
+
+        int[][]directions = {{1, 0}, {-1,0}, {0, 1}, {0, -1}};
+
+        while(!q.isEmpty()){
+            int size = q.size();
+            for(int i = 0; i < size; i++){
+                int curr[] = q.poll();
+                for(int dir [] : directions){
+                    int nr = dir[0] + curr[0];
+                    int nc = dir[1] + curr[1];
+
+                    if(nr >= 0 && nr < m && nc >=0 && nc < n && height[nr][nc] == -1){
+                        height[nr][nc] = height[curr[0]][curr[1]] + 1;
+                        q.offer(new int[]{nr, nc});
+                    }
+                }
+            }
+        }
+        return height;
+        
+    }
+}
+```
