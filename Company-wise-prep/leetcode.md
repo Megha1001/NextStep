@@ -2276,3 +2276,25 @@ class Solution {
 }
 ```
 
+35. String Matching in an Array
+```
+//TC : O(nLogN + N^2 * L)
+//SC : O(1)
+class Solution {
+    public List<String> stringMatching(String[] words) {
+        Arrays.sort(words, Comparator.comparingInt(String :: length));
+        List<String> res = new ArrayList<>();
+
+        for(int i = 0; i < words.length; i++){
+            for(int j = i + 1; j < words.length; j++){
+                if(words[j].contains(words[i])){ //O(L)
+                    res.add(words[i]);
+                    break;
+                }
+            }
+        }
+
+        return res;
+    }
+}
+```
