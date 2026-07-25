@@ -2447,3 +2447,36 @@ class Solution {
     }
 }
 ```
+
+41. Broken Calculator
+```
+class Solution {
+    /*
+    From the forward side, each step gives two choices:
+        * 2
+        - 1
+        That feels confusing.
+    But backward, the reverse operations are:
+        reverse of * 2 is / 2
+        reverse of - 1 is + 1
+    Now the greedy idea becomes clear:
+    Greedy rule from the target side
+        If target is even, divide by 2
+        If target is odd, add 1
+    */
+    public int brokenCalc(int startValue, int target) {
+        int ops = 0;
+
+        while(target > startValue){
+            if(target % 2 == 0){
+                target /= 2; 
+            }else {
+                target += 1;
+            }
+            ++ops;
+        }
+        
+        return ops + (startValue - target); //why startValue - target since after target <= startValue we can only do -1;
+    }
+}
+```
