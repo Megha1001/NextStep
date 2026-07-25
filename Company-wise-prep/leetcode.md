@@ -2386,3 +2386,40 @@ class Solution {
     }
 }
 ```
+
+39. Boats to Save People
+```
+class Solution {
+    /*
+    Core idea
+        Each boat can carry:
+        at most 2 people
+        total weight <= limit
+        So for every boat, we want to make the best possible pair:
+        put the heaviest person we still have
+        try to pair them with the lightest person who can fit
+        Why?
+        The heaviest person is the hardest to place, so handle them first.
+        If the heaviest person can’t pair with the lightest person, then they can’t pair with anyone else either.
+    */
+    public int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people);
+
+        int left = 0;
+        int right = people.length - 1;
+        int boats = 0;
+
+        while(left <= right){
+            if(people[left] + people[right] <= limit){
+                ++left;
+            }
+            --right;
+            ++boats;
+        }
+
+
+        return boats;
+        
+    }
+}
+```
