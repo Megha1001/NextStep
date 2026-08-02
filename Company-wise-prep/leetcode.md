@@ -2714,7 +2714,7 @@ class Solution {
         for(int i = 0; i < ranges.length; i++){
             int start = Math.max(0, i - ranges[i]);
             int end = Math.min(n, i + ranges[i]);
-            startEnd[i] = Math.max(startEnd[i], end);
+            startEnd[start] = Math.max(startEnd[i], end);
         }
 
         int taps = 0;
@@ -2731,8 +2731,10 @@ class Solution {
                 currEnd = maxEnd;
             }
 
-            maxEnd = Math.max(maxEnd, startEnd[i])
+            maxEnd = Math.max(maxEnd, startEnd[i]);
         }
+
+        return taps;
         
     }
 }
