@@ -2740,3 +2740,32 @@ class Solution {
 }
 ```
 
+51. Minimum Deletions to Make Character Frequencies Unique
+```
+class Solution {
+    public int minDeletions(String s) {
+        int [] freq = new int[26];
+
+        for(char c : s.toCharArray()){
+            freq[c - 'a']++;
+        }
+
+        int deletion = 0;
+
+        Set<Integer> seenFreq = new HashSet<>();;
+
+        for(int i = 0; i < 26; i++){
+            if(freq[i] != 0){
+                while(seenFreq.contains(freq[i])){
+                    ++deletion;
+                    --freq[i];
+                }
+                if(freq[i] > 0){
+                    seenFreq.add(freq[i]);
+                }       
+            }
+        }
+        return deletion;
+    }
+}
+```
