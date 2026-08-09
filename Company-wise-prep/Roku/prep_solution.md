@@ -1,4 +1,6 @@
 1. Top K Frequent Elements
+
+Method 1 : DLL + HashMap
 ```
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
@@ -27,6 +29,49 @@ class Solution {
             res[idx ++] = pq.poll()[1];
         }
         return res;
+    }
+}
+```
+
+Method : 2 Bucket
+
+```
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        //Bucket
+        int n = nums.length;
+
+        Map<Integer, Integer> freq = new HashMap<>();
+
+        for(int num : nums){
+            freq.put(num, freq.getOrDefault(freq, 0) + 1);
+        }
+
+        List<Integer> [] bucket = new ArrayList[n + 1];
+        for(int i = 0; i <= n; i++){
+            bucket[i] = new ArrayList<>();
+        }
+
+        for(Map.Entry<Integer, Integer> entry : freq.entrySet()){
+            int num = entry.getKey();
+            int val = entry.getValue();
+            bucket[val].add(num);
+        }
+
+        int [] res = new int[k];
+        int idx = 0;
+
+        for(int i = n; i>= 0 && idx < k; i--){
+            for(int num : bucket[i]){
+                res[idx ++] = num;
+                if(idx == k){
+                    break;
+                }
+            }
+        }
+
+        return res;
+        
     }
 }
 ```
