@@ -2770,3 +2770,69 @@ class Solution {
 }
 ```
 
+53. Min Heap
+```
+public class MinHeap{
+    private final int[] a;
+    private int size;
+
+    public MinHeap(int capacity){
+        a = new int[capacity];
+    }
+
+    public void push(int val){
+        if(size == a.length){
+            throw new IIIlegalArgumentException("full");
+        }
+        a[size] = val;
+        shiftUp(size);
+        ++size;
+    }
+
+    public int pop(){
+        if(size == 0){
+            throw new NoSuchElementException();
+        }
+        int min = a[0];
+        a[0] = a[--size];
+        shiftDown(0);
+        return min;
+    }
+
+    public void shiftUp(int i){
+        while(i > 0){
+            int parent = (i - 1)/2;
+            if(a[parent] <= a[i]) break;
+            swap(i, parent);
+            i = parent;
+        }
+    }
+
+    public void shiftDown(int i ){
+        while(true){
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+            int smallest = i;
+            if(left < size && a[left] < a[smallest]){
+                smallest = left;
+            }
+
+            if(right < size && a[right]< a[smallest]){
+                smallest = right;
+            }
+            if(smallest == i){
+                break;
+            }
+            swap(i, smallest);
+            i = smallest;
+        }
+    }
+
+    private void swap(int i, int j){
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+}
+```
+
