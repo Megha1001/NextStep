@@ -2770,6 +2770,60 @@ class Solution {
 }
 ```
 
+
+
+52. Minimum Genetic Mutation
+```
+class Solution {
+    public int minMutation(String startGene, String endGene, String[] bank) {
+        Set<String> bankSet = new HashSet<>(Arrays.asList(bank));
+        Set<String> visited = new HashSet<>();
+
+        Queue<String> q = new ArrayDeque<>();
+
+        q.offer(startGene);
+        visited.add(startGene);
+
+        int level = 0;
+        char choices[] = {'A', 'C', 'G', 'T'};
+
+        while(!q.isEmpty()){
+            int size = q.size();
+
+            for(int i = 0; i < size; i++){
+                String curr = q.poll();
+
+                if(curr.equals(endGene)){
+                    return level;
+                }
+
+                char[] c = curr.toCharArray();
+
+                for(int j = 0; j < c.length; j++){
+                    char original = c[j];
+
+                    for(char choice : choices){
+                        c[j] = choice;
+
+                        String str = new String(c);
+
+                        if(!visited.contains(str) && bankSet.contains(str)){
+                            q.offer(str);
+                            visited.add(str);
+                        }
+                    }
+
+                    c[j] = original;
+                }
+
+            }
+            ++level;
+        }
+
+        return -1;
+    }
+}
+```
 53. Min Heap
 ```
 public class MinHeap{
