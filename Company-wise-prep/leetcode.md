@@ -2920,3 +2920,45 @@ class Solution {
     }
 }
 ```
+
+55. Nearest Exit from Entrance in Maze
+```
+class Solution {
+    private int[][]directions ={{1,0}, {-1,0},{0,1}, {0,-1}};
+    public int nearestExit(char[][] maze, int[] entrance) {
+        int m = maze.length;
+        int n = maze[0].length;
+
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[]{entrance[0],entrance[1]});
+        maze[entrance[0]][entrance[1]] = '+'; //visited
+        int steps = 0;
+        while(!q.isEmpty()){
+            int size = q.size();
+
+            for(int s = 0; s < size; s++){
+                int curr[] = q.poll();
+                int r = curr[0];
+                int c = curr[1];
+
+                if(!(r == entrance[0] && c == entrance[1]) && (r == 0 || c == 0 || r == m-1 || c == n-1)){
+                    return steps;
+                }
+
+                for(int []dir : directions){
+                    int nr = dir[0] + r;
+                    int nc = dir[1] + c;
+
+                    if(nr >= 0 && nc >= 0 && nr < m && nc < n && maze[nr][nc] != '+'){
+                        q.offer(new int[]{nr, nc});
+                        maze[nr][nc] = '+';
+                    }
+                }
+            }
+            ++steps;
+        }
+
+        return -1;
+    }
+}
+```
