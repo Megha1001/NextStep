@@ -3036,3 +3036,45 @@ class Solution {
     }
 }
 ```
+
+58. Number of Nodes in the Sub-Tree With the Same Label
+```
+class Solution {
+    public int[] countSubTrees(int n, int[][] edges, String labels) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            adj.add(new ArrayList<>());
+        }
+
+        for(int[] edge : edges){
+            int u = edge[0];
+            int v = edge[1];
+
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
+        int[] result = new int[n];
+        dfs(adj, 0, -1, result, labels);
+        return result;
+    }
+
+    private int[] dfs(List<List<Integer>> adj, int curr, int parent, int[]result, String labels){
+        int [] myCount = new int[26];
+        char myLabel = labels.charAt(curr);
+        myCount[myLabel - 'a'] = 1;
+
+        for(int v : adj.get(curr)){
+            if(v == parent){
+                continue;
+            }
+            int[] childCount = dfs(adj, v, curr, result, labels);
+            for(int i = 0; i < 26; i++){
+                myCount[i] += childCount[i];
+            }
+        }
+        result[curr] = myCount[myLabel - 'a'];
+        return myCount;
+
+    }
+}
+```
